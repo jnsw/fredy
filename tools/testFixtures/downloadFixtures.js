@@ -428,6 +428,35 @@ const BOLIGSIDEN_CASE_FIELDS = [
 const BOLIGSIDEN_ADDRESS_FIELDS = ['cityName', 'coordinates', 'door', 'floor', 'houseNumber', 'roadName', 'zipCode'];
 
 /**
+ * BoligPortal's result page, read through the provider's own navigation, which waits out the
+ * Cloudflare challenge in front of it. Nothing is written when the page never arrives, so a blocked
+ * connection never replaces the fixture with the wall. Cloudflare may block a datacenter connection
+ * outright, so run this from a residential one.
+ *
+ * @param {string} url the search url from testProvider.json
+ * @param {Function} launchBrowser
+ * @param {Function} closeBrowser
+ * @returns {Promise<void>}
+ */
+async function downloadBoligportalFixtures(url, launchBrowser, closeBrowser) {
+  console.log('\nDownloading boligportal...');
+
+  const { fetchSearchHtml } = await import('../../lib/services/boligportal/boligportalSearch.js');
+  const browser = await launchBrowser(url, {});
+  try {
+    const html = await fetchSearchHtml(url, browser);
+    if (html == null) {
+      console.warn('  The browser did not get past the wall - boligportal.html not written');
+      return;
+    }
+    await writeFile(path.join(FIXTURES_DIR, 'boligportal.html'), html, 'utf-8');
+    console.log('  Saved boligportal.html');
+  } finally {
+    await closeBrowser(browser);
+  }
+}
+
+/**
  * Boligsiden is one request against its JSON API, for the search the website URL translates to.
  *
  * A case is a large record - every building on the plot, earlier sales, the agent's contact sheet -
@@ -1063,6 +1092,9 @@ async function main() {
         break;
       case 'boligsiden':
         await downloadBoligsidenFixtures(runConfig.url);
+        break;
+      case 'boligportal':
+        await downloadBoligportalFixtures(runConfig.url, launchBrowser, closeBrowser);
         break;
       case 'tecnocasa':
       case 'tecnorete':

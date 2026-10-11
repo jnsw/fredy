@@ -130,5 +130,9 @@
   "boligsiden": {
     "url": "https://www.boligsiden.dk/postnummer/5000/tilsalg/villa,ejerlejlighed",
     "enabled": true
+  },
+  "boligportal": {
+    "url": "https://www.boligportal.dk/lejeboliger/hiller%C3%B8d/alle-v%C3%A6relser/?max_monthly_rent=18424",
+    "enabled": true
   }
 }
