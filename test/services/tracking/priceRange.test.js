@@ -144,6 +144,13 @@ const RECORDED_SEARCHES = [
     'https://www.seloger.com/classified-search?distributionTypes=Rent&estateTypes=Apartment&locations=AD08FR31096&priceMin=500&priceMax=1000',
     { min: 500, max: 1000 },
   ],
+  // Boligsiden sells only, so this is a purchase band in kroner, as the site itself writes it. A
+  // query on its API spells the band the same way.
+  [
+    'boligsiden',
+    'https://www.boligsiden.dk/kommune/odense/tilsalg/ejerlejlighed?priceMax=3000000&priceMin=2100000&areaMin=1',
+    { min: 2100000, max: 3000000 },
+  ],
 ];
 
 /**

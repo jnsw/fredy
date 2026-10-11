@@ -390,6 +390,77 @@ async function downloadFlatfoxFixtures(url) {
   console.log('  Saved flatfox_listings.json');
 }
 
+/** The fields of a Boligsiden case the fixture keeps: what the provider reads, and a little context. */
+const BOLIGSIDEN_CASE_FIELDS = [
+  'addressType',
+  'caseID',
+  'caseUrl',
+  'coordinates',
+  'daysListed',
+  'daysOnMarket',
+  'defaultImage',
+  'descriptionBody',
+  'descriptionTitle',
+  'energyLabel',
+  'housingArea',
+  'numberOfRooms',
+  'priceCash',
+  'slug',
+  'slugAddress',
+  'status',
+  'yearBuilt',
+];
+
+/** The fields of a case's address the fixture keeps. */
+const BOLIGSIDEN_ADDRESS_FIELDS = ['cityName', 'coordinates', 'door', 'floor', 'houseNumber', 'roadName', 'zipCode'];
+
+/**
+ * Boligsiden is one request against its JSON API, for the search the website URL translates to.
+ *
+ * A case is a large record - every building on the plot, earlier sales, the agent's contact sheet -
+ * so a dozen cases are recorded and each is cut down to the fields the provider reads.
+ *
+ * @param {string} url the search url from testProvider.json
+ * @returns {Promise<void>}
+ */
+async function downloadBoligsidenFixtures(url) {
+  console.log('\nDownloading boligsiden...');
+
+  const { toApiParams } = await import('../../lib/provider/boligsiden.js');
+  const { params, problem } = toApiParams(url);
+  if (params == null) {
+    console.warn(`  Cannot translate ${url}: ${problem}`);
+    return;
+  }
+  params.set('sortBy', 'daysListed');
+  params.set('sortAscending', 'true');
+  params.set('per_page', '12');
+  params.set('page', '1');
+
+  const response = await fetch(`https://api.boligsiden.dk/search/cases?${params}`, {
+    headers: { 'User-Agent': BROWSER_USER_AGENT, Accept: 'application/json' },
+  });
+  if (!response.ok) {
+    console.warn(`  Failed to download boligsiden cases: ${response.statusText}`);
+    return;
+  }
+
+  const body = await response.json();
+  const pick = (source, fields) =>
+    Object.fromEntries(fields.filter((key) => key in source).map((key) => [key, source[key]]));
+  const cases = (body.cases ?? []).map((entry) => ({
+    ...pick(entry, BOLIGSIDEN_CASE_FIELDS),
+    address: pick(entry.address ?? {}, BOLIGSIDEN_ADDRESS_FIELDS),
+  }));
+
+  await writeFile(
+    path.join(FIXTURES_DIR, 'boligsiden_cases.json'),
+    JSON.stringify({ cases, totalHits: body.totalHits }, null, 2),
+    'utf-8',
+  );
+  console.log(`  Saved boligsiden_cases.json (${cases.length} cases)`);
+}
+
 /**
  * Records one ImmoScout national site's search and exposé responses.
  *
@@ -975,6 +1046,9 @@ async function main() {
         break;
       case 'betterhomes':
         await downloadBetterhomesFixtures(runConfig.url);
+        break;
+      case 'boligsiden':
+        await downloadBoligsidenFixtures(runConfig.url);
         break;
       case 'tecnocasa':
       case 'tecnorete':
