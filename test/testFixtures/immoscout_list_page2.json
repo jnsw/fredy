@@ -1,0 +1,2582 @@
+{
+  "totalResults": 1178,
+  "pageSize": 50,
+  "pageNumber": 2,
+  "numberOfPages": 24,
+  "numberOfListings": 1178,
+  "resultListItems": [
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=170135156&publicationState=live",
+        "id": "170135156",
+        "title": "Vollmöbliertes Appartement in Düsseldorf Derenedorf",
+        "energyEfficiencyClass": "F",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/1d4d74e3-8457-4531-b6a2-f69faf2437cf-2077430291.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/1d4d74e3-8457-4531-b6a2-f69faf2437cf-2077430291.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/1d4d74e3-8457-4531-b6a2-f69faf2437cf-2077430291.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "40969 Düsseldorf, Derendorf (unvollständige Adresse)",
+          "postcode": "40969"
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "M",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.150 €"
+          },
+          {
+            "label": "",
+            "value": "32 m²"
+          },
+          {
+            "label": "",
+            "value": "1 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171668697&publicationState=live",
+        "id": "171668697",
+        "title": "Mitbewohner gesucht/Altbauwohnung zu vermieten ",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/17f4eebc-1f27-4428-be0d-26f617f6d1cd-2110061059.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/17f4eebc-1f27-4428-be0d-26f617f6d1cd-2110061059.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/17f4eebc-1f27-4428-be0d-26f617f6d1cd-2110061059.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Halskestr 1, 40215 Düsseldorf, Friedrichstadt",
+          "lat": 51.21248,
+          "lon": 6.78732
+        },
+        "isProject": false,
+        "isPrivate": true,
+        "listingType": "XL",
+        "paywallListing": {
+          "active": true,
+          "text": "Noch exklusiv für Suchen+",
+          "earlyAccessExpiresAt": "2026-10-13T10:17:26.737+02:00"
+        },
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.400 €"
+          },
+          {
+            "label": "",
+            "value": "80 m²"
+          },
+          {
+            "label": "",
+            "value": "3 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": [
+          {
+            "tag": "paywall",
+            "value": {
+              "type": "NON_PLUS_USER",
+              "realEstateType": "apartmentrent"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171668327&publicationState=live",
+        "id": "171668327",
+        "title": "voll möblierte attraktive 2 Zimmer Wohnung mit toller Aussicht über Lörick in Düsseldorf",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/5772f1b3-0431-4bdd-872f-8d9e960833c9-2110058027.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/5772f1b3-0431-4bdd-872f-8d9e960833c9-2110058027.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/5772f1b3-0431-4bdd-872f-8d9e960833c9-2110058027.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Grevenbroicher Weg 35, 40547 Düsseldorf, Lörick",
+          "lat": 51.24422,
+          "lon": 6.72931
+        },
+        "isProject": false,
+        "isPrivate": true,
+        "listingType": "L",
+        "paywallListing": {
+          "active": true,
+          "text": "Noch exklusiv für Suchen+",
+          "earlyAccessExpiresAt": "2026-10-14T09:25:07.108+02:00"
+        },
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.240 €"
+          },
+          {
+            "label": "",
+            "value": "60 m²"
+          },
+          {
+            "label": "",
+            "value": "2 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": [
+          {
+            "tag": "paywall",
+            "value": {
+              "type": "NON_PLUS_USER",
+              "realEstateType": "apartmentrent"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=126679798&publicationState=live",
+        "id": "126679798",
+        "title": "Hochwertige 3-Zi-Wohnung mit sonnigem Südbalkon in Flingern",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/134567f7-ba78-40ac-8782-dd919d42f65b-1430052779.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/134567f7-ba78-40ac-8782-dd919d42f65b-1430052779.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/134567f7-ba78-40ac-8782-dd919d42f65b-1430052779.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Schwelmer Straße 24, 40235 Düsseldorf, Flingern Nord",
+          "lat": 51.23037,
+          "lon": 6.8195
+        },
+        "isProject": false,
+        "isPrivate": true,
+        "listingType": "XL",
+        "paywallListing": {
+          "active": true,
+          "text": "Noch exklusiv für Suchen+",
+          "earlyAccessExpiresAt": "2026-10-13T09:20:23.117+02:00"
+        },
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.400 €"
+          },
+          {
+            "label": "",
+            "value": "90 m²"
+          },
+          {
+            "label": "",
+            "value": "3 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": [
+          {
+            "tag": "paywall",
+            "value": {
+              "type": "NON_PLUS_USER",
+              "realEstateType": "apartmentrent"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171667539&publicationState=live",
+        "id": "171667539",
+        "title": "Ganz oben ankommen. Maisonette mit Balkon und zwei Bädern.",
+        "energyEfficiencyClass": "B",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/8a0805cd-fa08-444c-804d-6182aae46dea-2110039474.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/8a0805cd-fa08-444c-804d-6182aae46dea-2110039474.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/8a0805cd-fa08-444c-804d-6182aae46dea-2110039474.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "40476 Düsseldorf, Derendorf (unvollständige Adresse)",
+          "postcode": "40476"
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "M",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": true,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.990 €"
+          },
+          {
+            "label": "",
+            "value": "111 m²"
+          },
+          {
+            "label": "",
+            "value": "3 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "realtor": {
+          "logoUrlScale": "https://pictures.immobilienscout24.de/usercontent/48bcb269-439a-47a7-a0e8-1a5f0d16735a.PNG/ORIG/resize/%WIDTH%x%HEIGHT%%3E/format/webp/quality/80"
+        },
+        "tags": [
+          {
+            "tag": "listOnlyOnIs24"
+          }
+        ]
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=161526078&publicationState=live",
+        "id": "161526078",
+        "title": "Möblierte 2-Zimmer-Wohnung mit gehobener Innenausstattung mit EBK in Düsseldorf",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/323a6743-2c9a-45cd-b283-0fd32576ced6-1941123587.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/323a6743-2c9a-45cd-b283-0fd32576ced6-1941123587.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/323a6743-2c9a-45cd-b283-0fd32576ced6-1941123587.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Oberbilker Allee 78, 40227 Düsseldorf, Oberbilk",
+          "lat": 51.21141,
+          "lon": 6.79213
+        },
+        "isProject": false,
+        "isPrivate": true,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.250 €"
+          },
+          {
+            "label": "",
+            "value": "55 m²"
+          },
+          {
+            "label": "",
+            "value": "2 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171662991&publicationState=live",
+        "id": "171662991",
+        "title": "Frisch renovierte 3-Zimmer-Wohnung in Düsseldorf-Mörsenbroich - zentral & bestens angebunden - WE07",
+        "energyEfficiencyClass": "C",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/68e4590a-fa37-433e-b46a-459f0d584175-2109889961.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/68e4590a-fa37-433e-b46a-459f0d584175-2109889961.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/68e4590a-fa37-433e-b46a-459f0d584175-2109889961.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Heinrichstraße 107, 40237 Düsseldorf, Mörsenbroich",
+          "lat": 51.24781,
+          "lon": 6.80708
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "M",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.435 €"
+          },
+          {
+            "label": "",
+            "value": "90 m²"
+          },
+          {
+            "label": "",
+            "value": "3 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "realtor": {
+          "logoUrlScale": "https://pictures.immobilienscout24.de/usercontent/360d6609-e322-4b36-81a5-39dcc32f9152.PNG/ORIG/resize/%WIDTH%x%HEIGHT%%3E/format/webp/quality/80"
+        },
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=96639915&publicationState=live",
+        "id": "96639915",
+        "title": "Helle, freundliche 2 Zimmerwohnung in gepflegtem 2-Familienhaus.",
+        "energyEfficiencyClass": "C",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/f87b4de7-d9e5-4964-b71b-eb46c28db383-2109879040.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/f87b4de7-d9e5-4964-b71b-eb46c28db383-2109879040.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/f87b4de7-d9e5-4964-b71b-eb46c28db383-2109879040.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "40549 Düsseldorf-Heerdt, Heerdt (unvollständige Adresse)",
+          "postcode": "40549"
+        },
+        "isProject": false,
+        "isPrivate": true,
+        "listingType": "XL",
+        "paywallListing": {
+          "active": true,
+          "text": "Noch exklusiv für Suchen+",
+          "earlyAccessExpiresAt": "2026-10-14T21:42:21.994+02:00"
+        },
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "918 €"
+          },
+          {
+            "label": "",
+            "value": "68 m²"
+          },
+          {
+            "label": "",
+            "value": "2 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": [
+          {
+            "tag": "paywall",
+            "value": {
+              "type": "NON_PLUS_USER",
+              "realEstateType": "apartmentrent"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171662291&publicationState=live",
+        "id": "171662291",
+        "title": "Alltagstaugliche, helle 3-Zimmer-Wohnung in Düsseldorf Oberkassel",
+        "pictures": [],
+        "address": {
+          "line": "40545 Düsseldorf, Oberkassel (unvollständige Adresse)",
+          "postcode": "40545"
+        },
+        "isProject": false,
+        "isPrivate": true,
+        "listingType": "L",
+        "paywallListing": {
+          "active": true,
+          "text": "Noch exklusiv für Suchen+",
+          "earlyAccessExpiresAt": "2026-10-13T20:56:31.206+02:00"
+        },
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "2.290 €"
+          },
+          {
+            "label": "",
+            "value": "88 m²"
+          },
+          {
+            "label": "",
+            "value": "3,5 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": [
+          {
+            "tag": "paywall",
+            "value": {
+              "type": "NON_PLUS_USER",
+              "realEstateType": "apartmentrent"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=149799519&publicationState=live",
+        "id": "149799519",
+        "title": "Sanierte Wohnung + Parkplatz: Vollmöbiliert, exklusive 3.5-Zimmer-Wohnung (Pauschalpreis)",
+        "energyEfficiencyClass": "C",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/3d4efbda-fac7-4254-b5e6-9d156c4d40a0-1823524187.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/3d4efbda-fac7-4254-b5e6-9d156c4d40a0-1823524187.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/3d4efbda-fac7-4254-b5e6-9d156c4d40a0-1823524187.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Josef-Neuberger str 20, 40625 Düsseldorf, Gerresheim",
+          "lat": 51.23369,
+          "lon": 6.84572
+        },
+        "isProject": false,
+        "isPrivate": true,
+        "listingType": "L",
+        "paywallListing": {
+          "active": true,
+          "text": "Noch exklusiv für Suchen+",
+          "earlyAccessExpiresAt": "2026-10-13T20:50:17.175+02:00"
+        },
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.800 €"
+          },
+          {
+            "label": "",
+            "value": "79 m²"
+          },
+          {
+            "label": "",
+            "value": "3,5 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": [
+          {
+            "tag": "paywall",
+            "value": {
+              "type": "NON_PLUS_USER",
+              "realEstateType": "apartmentrent"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171661272&publicationState=live",
+        "id": "171661272",
+        "title": "Leben über den Dächern von Flingern",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/6d5af71d-b7a5-4336-8136-8a3da7a4a456-2109848179.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/6d5af71d-b7a5-4336-8136-8a3da7a4a456-2109848179.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/6d5af71d-b7a5-4336-8136-8a3da7a4a456-2109848179.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "40233 Düsseldorf, Flingern Nord (unvollständige Adresse)",
+          "postcode": "40233"
+        },
+        "isProject": false,
+        "isPrivate": true,
+        "listingType": "XL",
+        "paywallListing": {
+          "active": true,
+          "text": "Noch exklusiv für Suchen+",
+          "earlyAccessExpiresAt": "2026-10-12T19:58:41.671+02:00"
+        },
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.890 €"
+          },
+          {
+            "label": "",
+            "value": "111 m²"
+          },
+          {
+            "label": "",
+            "value": "3 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": [
+          {
+            "tag": "paywall",
+            "value": {
+              "type": "NON_PLUS_USER",
+              "realEstateType": "apartmentrent"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=115550756&publicationState=live",
+        "id": "115550756",
+        "title": "Pempelfort •  Helles, ruhiges, zentrales Appartement, KDB, Einbauküche, Südbalkon, Parkblick, Keller",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/afc6d619-5b88-4e8b-8d33-bcf43909122f-1348562510.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/afc6d619-5b88-4e8b-8d33-bcf43909122f-1348562510.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/afc6d619-5b88-4e8b-8d33-bcf43909122f-1348562510.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Pfalzstraße 19, 40477 Düsseldorf, Pempelfort",
+          "lat": 51.24012,
+          "lon": 6.77907
+        },
+        "isProject": false,
+        "isPrivate": true,
+        "listingType": "XL",
+        "paywallListing": {
+          "active": true,
+          "text": "Noch exklusiv für Suchen+",
+          "earlyAccessExpiresAt": "2026-10-12T19:00:16.110+02:00"
+        },
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "625 €"
+          },
+          {
+            "label": "",
+            "value": "37 m²"
+          },
+          {
+            "label": "",
+            "value": "1 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": [
+          {
+            "tag": "paywall",
+            "value": {
+              "type": "NON_PLUS_USER",
+              "realEstateType": "apartmentrent"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171626039&publicationState=live",
+        "id": "171626039",
+        "title": "DÜSSELDORF-BILK: MODERNE, HELLE 1 RAUM- WOHNUNG IN RUHIGER LAGE MIT BALKON !!!",
+        "energyEfficiencyClass": "E",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/82b1bc16-6dae-4c98-811c-7c3138ce9606-2109081585.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/82b1bc16-6dae-4c98-811c-7c3138ce9606-2109081585.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/82b1bc16-6dae-4c98-811c-7c3138ce9606-2109081585.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Volmerswerther Strasse 298, 40221 Düsseldorf, Bilk",
+          "lat": 51.19397,
+          "lon": 6.76539
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "M",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "480 €"
+          },
+          {
+            "label": "",
+            "value": "39 m²"
+          },
+          {
+            "label": "",
+            "value": "1 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "realtor": {
+          "logoUrlScale": "https://pictures.immobilienscout24.de/usercontent/e31f1024-39f1-4ae7-b8ea-c75f01e06f4d.JPG/ORIG/resize/%WIDTH%x%HEIGHT%%3E/format/webp/quality/80"
+        },
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=56437390&publicationState=live",
+        "id": "56437390",
+        "title": "Ruhige ausgefallene helle Masionettenwhg mit gr. überdachter Dachterrasse am Ende einer Sackgasse",
+        "energyEfficiencyClass": "B",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/758c85b5-f383-4a68-93fe-4cc6b2b7c06f-2104542592.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/758c85b5-f383-4a68-93fe-4cc6b2b7c06f-2104542592.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/758c85b5-f383-4a68-93fe-4cc6b2b7c06f-2104542592.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Nettetalstr. 45, 40627 Düsseldorf, Unterbach",
+          "lat": 51.20336,
+          "lon": 6.89245
+        },
+        "isProject": false,
+        "isPrivate": true,
+        "listingType": "XL",
+        "paywallListing": {
+          "active": true,
+          "text": "Noch exklusiv für Suchen+",
+          "earlyAccessExpiresAt": "2026-10-12T17:35:33.529+02:00"
+        },
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "685 €"
+          },
+          {
+            "label": "",
+            "value": "60 m²"
+          },
+          {
+            "label": "",
+            "value": "1,5 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": [
+          {
+            "tag": "paywall",
+            "value": {
+              "type": "NON_PLUS_USER",
+              "realEstateType": "apartmentrent"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=119567191&publicationState=live",
+        "id": "119567191",
+        "title": "Düsseldorf-Hamm, helles 1-Zimmer Apartment mit Balkon, Nähe zu Rhein- u. Medienhafen",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/3239331a-d099-4572-9eef-eff37bb4b621-1375450299.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/3239331a-d099-4572-9eef-eff37bb4b621-1375450299.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/3239331a-d099-4572-9eef-eff37bb4b621-1375450299.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Fährstr. 165, 40221 Düsseldorfd, Hamm",
+          "lat": 51.20515,
+          "lon": 6.74466
+        },
+        "isProject": false,
+        "isPrivate": true,
+        "listingType": "XL",
+        "paywallListing": {
+          "active": true,
+          "text": "Noch exklusiv für Suchen+",
+          "earlyAccessExpiresAt": "2026-10-14T16:25:12.315+02:00"
+        },
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "513 €"
+          },
+          {
+            "label": "",
+            "value": "40,97 m²"
+          },
+          {
+            "label": "",
+            "value": "1 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": [
+          {
+            "tag": "paywall",
+            "value": {
+              "type": "NON_PLUS_USER",
+              "realEstateType": "apartmentrent"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171656254&publicationState=live",
+        "id": "171656254",
+        "title": "Apartment Düsseldorf Medienhafen ",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/04c34e9f-ffb1-4352-bbe9-351a8cde6eb9-2109736631.png/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/04c34e9f-ffb1-4352-bbe9-351a8cde6eb9-2109736631.png/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/04c34e9f-ffb1-4352-bbe9-351a8cde6eb9-2109736631.png/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Gladbacherstr. 29, 40219 Düsseldorf, Unterbilk",
+          "lat": 51.21199,
+          "lon": 6.76053
+        },
+        "isProject": false,
+        "isPrivate": true,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "500 €"
+          },
+          {
+            "label": "",
+            "value": "20 m²"
+          },
+          {
+            "label": "",
+            "value": "1 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=166508339&publicationState=live",
+        "id": "166508339",
+        "title": "WIN WIN – International Waterfront Living",
+        "energyEfficiencyClass": "A",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/7f8daf3c-e584-4e3e-8893-7d35d6c29fde-2006046986.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/7f8daf3c-e584-4e3e-8893-7d35d6c29fde-2006046986.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/7f8daf3c-e584-4e3e-8893-7d35d6c29fde-2006046986.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "40221 Düsseldorf, Hafen (unvollständige Adresse)",
+          "postcode": "40221"
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "M",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.563 €"
+          },
+          {
+            "label": "",
+            "value": "72 m²"
+          },
+          {
+            "label": "",
+            "value": "3 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "realtor": {
+          "logoUrlScale": "https://pictures.immobilienscout24.de/usercontent/cd684182-efb2-427b-bb6e-6b0a75550b88.JPG/ORIG/resize/%WIDTH%x%HEIGHT%%3E/format/webp/quality/80"
+        },
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171632286&publicationState=live",
+        "id": "171632286",
+        "title": "Charmante 1-Zimmer-Altbauwohnung in bester Lage",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/65b1b0e7-59e4-43fb-909c-d73923982d6e-2109228398.png/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/65b1b0e7-59e4-43fb-909c-d73923982d6e-2109228398.png/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/65b1b0e7-59e4-43fb-909c-d73923982d6e-2109228398.png/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Hohe Straße 45, 40213 Düsseldorf, Carlstadt",
+          "lat": 51.22053,
+          "lon": 6.77399
+        },
+        "isProject": false,
+        "isPrivate": true,
+        "listingType": "XL",
+        "paywallListing": {
+          "active": true,
+          "text": "Noch exklusiv für Suchen+",
+          "earlyAccessExpiresAt": "2026-10-13T15:37:31.509+02:00"
+        },
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "845 €"
+          },
+          {
+            "label": "",
+            "value": "50 m²"
+          },
+          {
+            "label": "",
+            "value": "1 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": [
+          {
+            "tag": "paywall",
+            "value": {
+              "type": "NON_PLUS_USER",
+              "realEstateType": "apartmentrent"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=82086522&publicationState=live",
+        "id": "82086522",
+        "title": "Helle 1-Zimmer Altbauwhg. mit großer Wohnküche im beliebten Stadtteil Flingern-Nord zu vermieten.",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/bb03a1a0-8208-43e7-ae46-efaec6df4246-925167833.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/bb03a1a0-8208-43e7-ae46-efaec6df4246-925167833.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/bb03a1a0-8208-43e7-ae46-efaec6df4246-925167833.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Lichtstraße 58, 40235 Düsseldorf, Flingern Nord",
+          "lat": 51.22984,
+          "lon": 6.81632
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "M",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "695 €"
+          },
+          {
+            "label": "",
+            "value": "52 m²"
+          },
+          {
+            "label": "",
+            "value": "1 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "realtor": {
+          "logoUrlScale": "https://pictures.immobilienscout24.de/usercontent/e6e50381-14a2-4f8b-8660-05ebc770ae22.PNG/ORIG/resize/%WIDTH%x%HEIGHT%%3E/format/webp/quality/80"
+        },
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=155186035&publicationState=live",
+        "id": "155186035",
+        "title": "Geschmackvolle 1-Zimmer-DG-Wohnung mit luxuriöser Innenausstattung mit Einbauküche in Düsseldorf",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/ac943f1b-a3d5-423d-b727-56f3b3980e13-2109559907.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/ac943f1b-a3d5-423d-b727-56f3b3980e13-2109559907.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/ac943f1b-a3d5-423d-b727-56f3b3980e13-2109559907.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Schorlemerstrasse 68, 40547 Düsseldorf, Niederkassel",
+          "lat": 51.2365,
+          "lon": 6.74936
+        },
+        "isProject": false,
+        "isPrivate": true,
+        "listingType": "L",
+        "paywallListing": {
+          "active": true,
+          "text": "Noch exklusiv für Suchen+",
+          "earlyAccessExpiresAt": "2026-10-13T15:20:07.641+02:00"
+        },
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.080 €"
+          },
+          {
+            "label": "",
+            "value": "30 m²"
+          },
+          {
+            "label": "",
+            "value": "1 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": [
+          {
+            "tag": "paywall",
+            "value": {
+              "type": "NON_PLUS_USER",
+              "realEstateType": "apartmentrent"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171653442&publicationState=live",
+        "id": "171653442",
+        "title": "Ein-Zimmer-Apartment in Düsseltal",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/24084e50-0f01-44d3-9965-0389fc5aeb52-2109692661.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/24084e50-0f01-44d3-9965-0389fc5aeb52-2109692661.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/24084e50-0f01-44d3-9965-0389fc5aeb52-2109692661.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "40239 Düsseldorf, Düsseltal (unvollständige Adresse)",
+          "postcode": "40239"
+        },
+        "isProject": false,
+        "isPrivate": true,
+        "listingType": "XL",
+        "paywallListing": {
+          "active": true,
+          "text": "Noch exklusiv für Suchen+",
+          "earlyAccessExpiresAt": "2026-10-13T15:09:35.068+02:00"
+        },
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "550 €"
+          },
+          {
+            "label": "",
+            "value": "35 m²"
+          },
+          {
+            "label": "",
+            "value": "1 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": [
+          {
+            "tag": "paywall",
+            "value": {
+              "type": "NON_PLUS_USER",
+              "realEstateType": "apartmentrent"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171653862&publicationState=live",
+        "id": "171653862",
+        "title": "WIN WIN - International Waterfront Living - Studio-Apartment",
+        "energyEfficiencyClass": "A",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/e36100cc-2783-4b6c-9879-69a7ce38ccd6-2109691111.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/e36100cc-2783-4b6c-9879-69a7ce38ccd6-2109691111.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/e36100cc-2783-4b6c-9879-69a7ce38ccd6-2109691111.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "40221 Düsseldorf, Hafen (unvollständige Adresse)",
+          "postcode": "40221"
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "M",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "826 €"
+          },
+          {
+            "label": "",
+            "value": "34,78 m²"
+          },
+          {
+            "label": "",
+            "value": "1 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "realtor": {
+          "logoUrlScale": "https://pictures.immobilienscout24.de/usercontent/cd684182-efb2-427b-bb6e-6b0a75550b88.JPG/ORIG/resize/%WIDTH%x%HEIGHT%%3E/format/webp/quality/80"
+        },
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=170435200&publicationState=live",
+        "id": "170435200",
+        "title": "Klein, aber sehr fein - alles neu! Mit E-Parkplatz.",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/1eeb6af9-03bd-4a41-b6cc-1494d9d541c3-2092436588.png/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/1eeb6af9-03bd-4a41-b6cc-1494d9d541c3-2092436588.png/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/1eeb6af9-03bd-4a41-b6cc-1494d9d541c3-2092436588.png/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Prinz-Georg-Straße 92, 40479 Düsseldorf, Pempelfort",
+          "lat": 51.23552,
+          "lon": 6.78806
+        },
+        "isProject": false,
+        "isPrivate": true,
+        "listingType": "XL",
+        "paywallListing": {
+          "active": true,
+          "text": "Noch exklusiv für Suchen+",
+          "earlyAccessExpiresAt": "2026-10-14T15:04:12.931+02:00"
+        },
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "690 €"
+          },
+          {
+            "label": "",
+            "value": "43 m²"
+          },
+          {
+            "label": "",
+            "value": "1 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": [
+          {
+            "tag": "paywall",
+            "value": {
+              "type": "NON_PLUS_USER",
+              "realEstateType": "apartmentrent"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171653714&publicationState=live",
+        "id": "171653714",
+        "title": "WIN WIN - International Waterfront Living",
+        "energyEfficiencyClass": "A",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/aeae4a61-5f83-4c7b-b1eb-d06cb474d34c-2109688246.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/aeae4a61-5f83-4c7b-b1eb-d06cb474d34c-2109688246.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/aeae4a61-5f83-4c7b-b1eb-d06cb474d34c-2109688246.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "40221 Düsseldorf, Hafen (unvollständige Adresse)",
+          "postcode": "40221"
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "M",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "762 €"
+          },
+          {
+            "label": "",
+            "value": "29,57 m²"
+          },
+          {
+            "label": "",
+            "value": "1 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "realtor": {
+          "logoUrlScale": "https://pictures.immobilienscout24.de/usercontent/cd684182-efb2-427b-bb6e-6b0a75550b88.JPG/ORIG/resize/%WIDTH%x%HEIGHT%%3E/format/webp/quality/80"
+        },
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171653540&publicationState=live",
+        "id": "171653540",
+        "title": "Traumhafte 3-Zimmer Maisonettewohnung mit großer Dachterrasse in ruhiger Wohnlage von Benrath!",
+        "energyEfficiencyClass": "B",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/e4feedd6-9f28-4226-9329-c5704a73212b-2109684706.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/e4feedd6-9f28-4226-9329-c5704a73212b-2109684706.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/e4feedd6-9f28-4226-9329-c5704a73212b-2109684706.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Friedhofstraße 15, 40597 Düsseldorf, Benrath",
+          "lat": 51.16338,
+          "lon": 6.87524
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "M",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "2.160 €"
+          },
+          {
+            "label": "",
+            "value": "144 m²"
+          },
+          {
+            "label": "",
+            "value": "3 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "realtor": {
+          "logoUrlScale": "https://pictures.immobilienscout24.de/usercontent/e500a251-f0db-4f15-b596-8f113e494fb5.PNG/ORIG/resize/%WIDTH%x%HEIGHT%%3E/format/webp/quality/80"
+        },
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171653523&publicationState=live",
+        "id": "171653523",
+        "title": "Modernes Wohnen am Volksgarten mit Blick auf die Düssel ",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/f5558b70-2d40-4546-aeec-35dbb98e831f-2109684500.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/f5558b70-2d40-4546-aeec-35dbb98e831f-2109684500.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/f5558b70-2d40-4546-aeec-35dbb98e831f-2109684500.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Feuerbachstraße 52, 40223 Düsseldorf, Bilk",
+          "lat": 51.20767,
+          "lon": 6.78669
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "M",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": true,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.480 €"
+          },
+          {
+            "label": "",
+            "value": "84 m²"
+          },
+          {
+            "label": "",
+            "value": "3 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "realtor": {
+          "logoUrlScale": "https://pictures.immobilienscout24.de/usercontent/9cb10686-10bc-4b4a-862e-efb964767b1c.PNG/ORIG/resize/%WIDTH%x%HEIGHT%%3E/format/webp/quality/80"
+        },
+        "tags": [
+          {
+            "tag": "listOnlyOnIs24"
+          }
+        ]
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171649915&publicationState=live",
+        "id": "171649915",
+        "title": "Großzügiges Wohnen mit Terrasse & Stellplatz – Ideal für Familien, Paare & Homeoffice",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/a7ed6500-c591-4434-9acf-c9248b90f927-2109635424.png/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/a7ed6500-c591-4434-9acf-c9248b90f927-2109635424.png/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/a7ed6500-c591-4434-9acf-c9248b90f927-2109635424.png/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Kappelerstr. 177, 40599 Düsseldorf, Reisholz",
+          "lat": 51.17425,
+          "lon": 6.86002
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "M",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.800 €"
+          },
+          {
+            "label": "",
+            "value": "139 m²"
+          },
+          {
+            "label": "",
+            "value": "5 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "realtor": {
+          "logoUrlScale": "https://pictures.immobilienscout24.de/usercontent/e17661dd-d328-49f1-9f9f-dc109d8e226d.JPG/ORIG/resize/%WIDTH%x%HEIGHT%%3E/format/webp/quality/80"
+        },
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171653170&publicationState=live",
+        "id": "171653170",
+        "title": "Ihr Platz in Grafenberg: Drei Zimmer, zwei Bäder und ein großer Balkon ins Grüne",
+        "energyEfficiencyClass": "E",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/52923c96-bfac-4d4b-8d7c-bfaa2c5597e6-2109678024.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/52923c96-bfac-4d4b-8d7c-bfaa2c5597e6-2109678024.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/52923c96-bfac-4d4b-8d7c-bfaa2c5597e6-2109678024.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Gehrtsstraße 11, 40235 Düsseldorf / Grafenberg, Grafenberg",
+          "lat": 51.23956,
+          "lon": 6.82294
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "M",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "Auf Anfrage"
+          },
+          {
+            "label": "",
+            "value": "112 m²"
+          },
+          {
+            "label": "",
+            "value": "3 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "realtor": {
+          "logoUrlScale": "https://pictures.immobilienscout24.de/usercontent/a2047f5d-0d4d-495c-ba8d-c267c431b91f.PNG/ORIG/resize/%WIDTH%x%HEIGHT%%3E/format/webp/quality/80"
+        },
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171652355&publicationState=live",
+        "id": "171652355",
+        "title": "Bald Bezugsfreies Apartment z.b. als Studentenwohnung auf Zeit",
+        "energyEfficiencyClass": "D",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/4c3d93dd-2136-468f-8f9b-7708a3f8df92-2109663986.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/4c3d93dd-2136-468f-8f9b-7708a3f8df92-2109663986.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/4c3d93dd-2136-468f-8f9b-7708a3f8df92-2109663986.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Volmerswertherstr. 35, 40221 Düsseldorf, Bilk",
+          "lat": 51.20933,
+          "lon": 6.76159
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "L",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "618 €"
+          },
+          {
+            "label": "",
+            "value": "24,73 m²"
+          },
+          {
+            "label": "",
+            "value": "1 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "realtor": {
+          "logoUrlScale": "https://pictures.immobilienscout24.de/usercontent/a37e390a-6ce0-4f08-b8f4-d6789885cd3a.JPG/ORIG/resize/%WIDTH%x%HEIGHT%%3E/format/webp/quality/80"
+        },
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=135459353&publicationState=live",
+        "id": "135459353",
+        "title": "Luxus Penthouse- klimatisiert, Wintergarten, Einbauküche, begehbarer Kleiderschrank...",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/3239cb3e-b4c2-4f47-bed5-632ae6656efa-1552946746.jpeg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/3239cb3e-b4c2-4f47-bed5-632ae6656efa-1552946746.jpeg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/3239cb3e-b4c2-4f47-bed5-632ae6656efa-1552946746.jpeg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "40211 Düsseldorf, Stadtmitte (unvollständige Adresse)",
+          "postcode": "40211"
+        },
+        "isProject": false,
+        "isPrivate": true,
+        "listingType": "L",
+        "paywallListing": {
+          "active": true,
+          "text": "Noch exklusiv für Suchen+",
+          "earlyAccessExpiresAt": "2026-10-12T14:15:01.580+02:00"
+        },
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.950 €"
+          },
+          {
+            "label": "",
+            "value": "85 m²"
+          },
+          {
+            "label": "",
+            "value": "3 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": [
+          {
+            "tag": "paywall",
+            "value": {
+              "type": "NON_PLUS_USER",
+              "realEstateType": "apartmentrent"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171651515&publicationState=live",
+        "id": "171651515",
+        "title": "Rückzugsort mit guter Anbindung",
+        "energyEfficiencyClass": "D",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/b32600c3-3b08-400c-a983-be3f45bf8c74-2109647087.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/b32600c3-3b08-400c-a983-be3f45bf8c74-2109647087.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/b32600c3-3b08-400c-a983-be3f45bf8c74-2109647087.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Bilker Allee 88 HH, 40217 Düsseldorf, Unterbilk",
+          "lat": 51.2109,
+          "lon": 6.77095
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "M",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "675 €"
+          },
+          {
+            "label": "",
+            "value": "56 m²"
+          },
+          {
+            "label": "",
+            "value": "2 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "realtor": {
+          "logoUrlScale": "https://pictures.immobilienscout24.de/usercontent/aec3c2e0-be02-40ab-b6e1-1909727ed67c.JPG/ORIG/resize/%WIDTH%x%HEIGHT%%3E/format/webp/quality/80"
+        },
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171650217&publicationState=live",
+        "id": "171650217",
+        "title": "Neu wunderschöne Loft 4-Zimmer-Dachgeschosswohnung in Düsseldorf",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/2b72b02a-9d4f-45ea-bf43-868ac0c1f324-2109631398.png/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/2b72b02a-9d4f-45ea-bf43-868ac0c1f324-2109631398.png/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/2b72b02a-9d4f-45ea-bf43-868ac0c1f324-2109631398.png/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Ellerstrasse 207, 40227 Düsseldorf, Oberbilk",
+          "lat": 51.21335,
+          "lon": 6.80496
+        },
+        "isProject": false,
+        "isPrivate": true,
+        "listingType": "XL",
+        "paywallListing": {
+          "active": true,
+          "text": "Noch exklusiv für Suchen+",
+          "earlyAccessExpiresAt": "2026-10-14T13:46:27.523+02:00"
+        },
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.395 €"
+          },
+          {
+            "label": "",
+            "value": "85 m²"
+          },
+          {
+            "label": "",
+            "value": "4 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": [
+          {
+            "tag": "paywall",
+            "value": {
+              "type": "NON_PLUS_USER",
+              "realEstateType": "apartmentrent"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171649543&publicationState=live",
+        "id": "171649543",
+        "title": "Helles & renoviertes Apartment in Düsseldorf-Lörick!",
+        "energyEfficiencyClass": "D",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/bd08d48f-4b90-425e-b143-55377cd41937-2109610379.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/bd08d48f-4b90-425e-b143-55377cd41937-2109610379.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/bd08d48f-4b90-425e-b143-55377cd41937-2109610379.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Hansaallee 308, 40547 Düsseldorf, Lörick",
+          "lat": 51.24063,
+          "lon": 6.72748
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "L",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "520 €"
+          },
+          {
+            "label": "",
+            "value": "39,1 m²"
+          },
+          {
+            "label": "",
+            "value": "1 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "realtor": {
+          "logoUrlScale": "https://pictures.immobilienscout24.de/usercontent/5d9b9746-f2f0-41de-82a1-4e0e5e954ebc.JPG/ORIG/resize/%WIDTH%x%HEIGHT%%3E/format/webp/quality/80"
+        },
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171649367&publicationState=live",
+        "id": "171649367",
+        "title": "+++ 1 Monat NKM Frei - 3-Zimmer-Wohnung mit Balkon und Aufzug im 3. Stock in Düsseldorf +++",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/b9854991-9f03-4ceb-81ec-85fd70e005f9-2109607221.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/b9854991-9f03-4ceb-81ec-85fd70e005f9-2109607221.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/b9854991-9f03-4ceb-81ec-85fd70e005f9-2109607221.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Hermann-Ehlers-Straße 4, 40595 Düsseldorf, Garath",
+          "lat": 51.14317,
+          "lon": 6.89526
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "M",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "689 €"
+          },
+          {
+            "label": "",
+            "value": "62 m²"
+          },
+          {
+            "label": "",
+            "value": "3 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "realtor": {
+          "logoUrlScale": "https://pictures.immobilienscout24.de/usercontent/9ccde920-7b2b-4024-aa0b-9fcf4790d163.JPG/ORIG/resize/%WIDTH%x%HEIGHT%%3E/format/webp/quality/80"
+        },
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171646648&publicationState=live",
+        "id": "171646648",
+        "title": "Erstbezug nach Sanierung - 3 Zimmer DG Wohnung mit EBK in begehrter Lage",
+        "energyEfficiencyClass": "E",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/716cd725-f629-4519-970e-599f9421cbd7-2109563439.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/716cd725-f629-4519-970e-599f9421cbd7-2109563439.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/716cd725-f629-4519-970e-599f9421cbd7-2109563439.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Scharnhorststr . 21, 40477 Düsseldorf, Pempelfort",
+          "lat": 51.2414,
+          "lon": 6.78549
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "M",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.175 €"
+          },
+          {
+            "label": "",
+            "value": "73 m²"
+          },
+          {
+            "label": "",
+            "value": "3 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "realtor": {
+          "logoUrlScale": "https://pictures.immobilienscout24.de/usercontent/1fde301d-cce2-4ed2-9cec-59e7f91e2af7.PNG/ORIG/resize/%WIDTH%x%HEIGHT%%3E/format/webp/quality/80"
+        },
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171646547&publicationState=live",
+        "id": "171646547",
+        "title": "47105/14 Großzügige 2 Zi. Whg. mit Dachterrasse in D-Wittlaer!",
+        "energyEfficiencyClass": "C",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/5d64bb9c-a7b3-4acf-aef9-b3f2fb784331-2109579297.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/5d64bb9c-a7b3-4acf-aef9-b3f2fb784331-2109579297.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/5d64bb9c-a7b3-4acf-aef9-b3f2fb784331-2109579297.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Friederike-Fliedner-Weg 4, 40489 Düsseldorf, Wittlaer",
+          "lat": 51.31559,
+          "lon": 6.751
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "M",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "684 €"
+          },
+          {
+            "label": "",
+            "value": "54 m²"
+          },
+          {
+            "label": "",
+            "value": "2 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "realtor": {
+          "logoUrlScale": "https://pictures.immobilienscout24.de/usercontent/e080aad7-23e4-478e-b571-9f4817db668a.JPG/ORIG/resize/%WIDTH%x%HEIGHT%%3E/format/webp/quality/80"
+        },
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171645722&publicationState=live",
+        "id": "171645722",
+        "title": "Renovierte, helle 4 Zi.-Wohnung in Hassels",
+        "energyEfficiencyClass": "E",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/c3ece3b9-6e5d-49ee-acaf-7b3ab6d159e8-2109554753.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/c3ece3b9-6e5d-49ee-acaf-7b3ab6d159e8-2109554753.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/c3ece3b9-6e5d-49ee-acaf-7b3ab6d159e8-2109554753.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Fürstenbergerstraße 14, 40599 Düsseldorf, Hassels",
+          "lat": 51.1828,
+          "lon": 6.86309
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "978 €"
+          },
+          {
+            "label": "",
+            "value": "94 m²"
+          },
+          {
+            "label": "",
+            "value": "4 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171646272&publicationState=live",
+        "id": "171646272",
+        "title": "Frisch renovierte, voll möblierte 2-Zimmer-Wohnung mit Balkon in Düsseldorf-Oberbilk",
+        "energyEfficiencyClass": "E",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/13f1a366-0526-45c0-94e0-7ba415b433f4-2109752630.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/13f1a366-0526-45c0-94e0-7ba415b433f4-2109752630.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/13f1a366-0526-45c0-94e0-7ba415b433f4-2109752630.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "40227 Düsseldorf, Oberbilk (unvollständige Adresse)",
+          "postcode": "40227"
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "M",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.270 €"
+          },
+          {
+            "label": "",
+            "value": "58 m²"
+          },
+          {
+            "label": "",
+            "value": "2 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "realtor": {
+          "logoUrlScale": "https://pictures.immobilienscout24.de/usercontent/360d6609-e322-4b36-81a5-39dcc32f9152.PNG/ORIG/resize/%WIDTH%x%HEIGHT%%3E/format/webp/quality/80"
+        },
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171645094&publicationState=live",
+        "id": "171645094",
+        "title": "Erstbezug nach Sanierung -  2 Zimmer Wohnung mit Balkon und EBK in Düsseltal",
+        "energyEfficiencyClass": "E",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/e92ee65a-e49e-4737-86ba-0acd7ffd2eb6-2109531258.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/e92ee65a-e49e-4737-86ba-0acd7ffd2eb6-2109531258.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/e92ee65a-e49e-4737-86ba-0acd7ffd2eb6-2109531258.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Simrockstr. 45, 40237 Düsseldorf, Düsseltal",
+          "lat": 51.24299,
+          "lon": 6.82128
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "M",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "800 €"
+          },
+          {
+            "label": "",
+            "value": "46,93 m²"
+          },
+          {
+            "label": "",
+            "value": "2 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "realtor": {
+          "logoUrlScale": "https://pictures.immobilienscout24.de/usercontent/1fde301d-cce2-4ed2-9cec-59e7f91e2af7.PNG/ORIG/resize/%WIDTH%x%HEIGHT%%3E/format/webp/quality/80"
+        },
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171644485&publicationState=live",
+        "id": "171644485",
+        "title": "Erstbezug nach Sanierung - 2 Zimmer Wohnung mit EBK in begehrter Lage",
+        "energyEfficiencyClass": "B",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/41bcaaa9-0ae4-4924-8e39-d125146b3c82-2109517686.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/41bcaaa9-0ae4-4924-8e39-d125146b3c82-2109517686.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/41bcaaa9-0ae4-4924-8e39-d125146b3c82-2109517686.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Heinrich-Ehrhardt-Str . 38, 40468 Düsseldorf, Derendorf",
+          "lat": 51.25421,
+          "lon": 6.78515
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "M",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "885 €"
+          },
+          {
+            "label": "",
+            "value": "55 m²"
+          },
+          {
+            "label": "",
+            "value": "2 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "realtor": {
+          "logoUrlScale": "https://pictures.immobilienscout24.de/usercontent/1fde301d-cce2-4ed2-9cec-59e7f91e2af7.PNG/ORIG/resize/%WIDTH%x%HEIGHT%%3E/format/webp/quality/80"
+        },
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171643308&publicationState=live",
+        "id": "171643308",
+        "title": "Moderne 2-Zimmer-Wohnung in Pempelfort",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/21e2d93f-ebd7-46d3-82e1-82bded5ab9c6-2109496953.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/21e2d93f-ebd7-46d3-82e1-82bded5ab9c6-2109496953.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/21e2d93f-ebd7-46d3-82e1-82bded5ab9c6-2109496953.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "40211 Düsseldorf, Düsseltal (unvollständige Adresse)",
+          "postcode": "40211"
+        },
+        "isProject": false,
+        "isPrivate": true,
+        "listingType": "XL",
+        "paywallListing": {
+          "active": true,
+          "text": "Noch exklusiv für Suchen+",
+          "earlyAccessExpiresAt": "2026-10-13T11:09:16.161+02:00"
+        },
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.360 €"
+          },
+          {
+            "label": "",
+            "value": "71 m²"
+          },
+          {
+            "label": "",
+            "value": "2 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": [
+          {
+            "tag": "paywall",
+            "value": {
+              "type": "NON_PLUS_USER",
+              "realEstateType": "apartmentrent"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171514061&publicationState=live",
+        "id": "171514061",
+        "title": "Moderne 3-Zimmer Wohnung mit bester Anbindung zum Zentrum und ins Grüne",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/e4dde194-d096-4028-b1a2-b4f4098656c3-2109464157.jpeg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/e4dde194-d096-4028-b1a2-b4f4098656c3-2109464157.jpeg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/e4dde194-d096-4028-b1a2-b4f4098656c3-2109464157.jpeg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Ludenbergerstraße 15, 40629 Düsseldorf, Grafenberg",
+          "lat": 51.24092,
+          "lon": 6.83168
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "M",
+        "published": "vor 3 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.850 €"
+          },
+          {
+            "label": "",
+            "value": "103 m²"
+          },
+          {
+            "label": "",
+            "value": "3 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "realtor": {
+          "logoUrlScale": "https://pictures.immobilienscout24.de/usercontent/09a99d70-15ce-4bca-8834-4f993788b866.PNG/ORIG/resize/%WIDTH%x%HEIGHT%%3E/format/webp/quality/80"
+        },
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171641872&publicationState=live",
+        "id": "171641872",
+        "title": "Möbliertes Penthouse mit großer Südwest-Terrasse und Stellplatz in Düsseldorf-Flingern Nord",
+        "energyEfficiencyClass": "F",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/3924a74d-08f3-49a2-9bb6-ab2817eec3ea-2109466482.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/3924a74d-08f3-49a2-9bb6-ab2817eec3ea-2109466482.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/3924a74d-08f3-49a2-9bb6-ab2817eec3ea-2109466482.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Cranachstraße 31, 40235 Düsseldorf, Flingern Nord",
+          "lat": 51.2309,
+          "lon": 6.81685
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "M",
+        "published": "vor 3 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.150 €"
+          },
+          {
+            "label": "",
+            "value": "63 m²"
+          },
+          {
+            "label": "",
+            "value": "2 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "realtor": {
+          "logoUrlScale": "https://pictures.immobilienscout24.de/usercontent/814ff49e-6bae-41d5-b4db-a1a7e147d95b.JPG/ORIG/resize/%WIDTH%x%HEIGHT%%3E/format/webp/quality/80"
+        },
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171641530&publicationState=live",
+        "id": "171641530",
+        "title": "Preisgedämpfte Erdgeschosswohnung mit eigenem Eingang im exklusiven Neubauquartier Deiker Höfe!",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/a68425c4-949b-46d4-83ec-4142e4d838eb-2109460729.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/a68425c4-949b-46d4-83ec-4142e4d838eb-2109460729.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/a68425c4-949b-46d4-83ec-4142e4d838eb-2109460729.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Herma-Körding-Straße 3, 40468 Düsseldorf - Stockum, Stockum",
+          "lat": 51.2629,
+          "lon": 6.75987
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "XL",
+        "published": "vor 3 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "814 €"
+          },
+          {
+            "label": "",
+            "value": "49,99 m²"
+          },
+          {
+            "label": "",
+            "value": "2 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "realtor": {
+          "logoUrlScale": "https://pictures.immobilienscout24.de/usercontent/d7337319-0132-41a6-8ac2-ba3619087b0f.PNG/ORIG/resize/%WIDTH%x%HEIGHT%%3E/format/webp/quality/80",
+          "showcasePlacementColor": "#CEC5C0"
+        },
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171640726&publicationState=live",
+        "id": "171640726",
+        "title": "Zwei- & Drei-Raum-Wohnung mit Balkon in zentraler Lage mit Einbauküche + hochwertigen Möbeln",
+        "energyEfficiencyClass": "A+",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/f7f96249-4fbb-4546-8b10-10fdbee77919-2109449922.png/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/f7f96249-4fbb-4546-8b10-10fdbee77919-2109449922.png/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/f7f96249-4fbb-4546-8b10-10fdbee77919-2109449922.png/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "40215 Düsseldorf, Friedrichstadt (unvollständige Adresse)",
+          "postcode": "40215"
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 3 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.428 €"
+          },
+          {
+            "label": "",
+            "value": "52 m²"
+          },
+          {
+            "label": "",
+            "value": "2 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171640481&publicationState=live",
+        "id": "171640481",
+        "title": "Demnächst frei! 3-Zimmer-Wohnung in Düsseldorf Lierenfeld",
+        "energyEfficiencyClass": "C",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/97388cf7-5b0b-4de2-b75a-6da24d7c4b64-2109440297.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80",
+            "type": "floorplan"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/97388cf7-5b0b-4de2-b75a-6da24d7c4b64-2109440297.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/97388cf7-5b0b-4de2-b75a-6da24d7c4b64-2109440297.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Kaiserslauterner Straße 38, 40591 Düsseldorf, Oberbilk",
+          "lat": 51.20438,
+          "lon": 6.81181
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "M",
+        "published": "vor 3 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": true,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "763 €"
+          },
+          {
+            "label": "",
+            "value": "55 m²"
+          },
+          {
+            "label": "",
+            "value": "3 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "realtor": {
+          "logoUrlScale": "https://pictures.immobilienscout24.de/usercontent/7cb344f6-cd46-480f-b4f7-ec93c5c19a01.JPG/ORIG/resize/%WIDTH%x%HEIGHT%%3E/format/webp/quality/80"
+        },
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171639348&publicationState=live",
+        "id": "171639348",
+        "title": "Helle gut geschnittene 3 Zimmer Wohnung in Düsseldorf Pempelfort mit Park-Ausblick zur Miete",
+        "energyEfficiencyClass": "A",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/96186470-bf3e-4640-b90e-a7444d2ad9c5-2109717384.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/96186470-bf3e-4640-b90e-a7444d2ad9c5-2109717384.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/96186470-bf3e-4640-b90e-a7444d2ad9c5-2109717384.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "40211 Düsseldorf, Pempelfort (unvollständige Adresse)",
+          "postcode": "40211"
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "M",
+        "published": "vor 3 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.900 €"
+          },
+          {
+            "label": "",
+            "value": "95 m²"
+          },
+          {
+            "label": "",
+            "value": "3 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "realtor": {
+          "logoUrlScale": "https://pictures.immobilienscout24.de/usercontent/4dcea3eb-6782-4745-9968-f4f09dc193b6.PNG/ORIG/resize/%WIDTH%x%HEIGHT%%3E/format/webp/quality/80"
+        },
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171637665&publicationState=live",
+        "id": "171637665",
+        "title": "Smarter Wohnen! Wunderschöne 4-Zi. DG-Maisonette-Wohnung! 4. OG OHNE Aufzug!!!!",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/39db5ed2-78b5-432f-836c-dc46b2cbe529-2109390622.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/39db5ed2-78b5-432f-836c-dc46b2cbe529-2109390622.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/39db5ed2-78b5-432f-836c-dc46b2cbe529-2109390622.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "An der Kaiserburg 5, 40629 Düsseldorf, Ludenberg",
+          "lat": 51.24595,
+          "lon": 6.85374
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "M",
+        "published": "vor 3 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.270 €"
+          },
+          {
+            "label": "",
+            "value": "93 m²"
+          },
+          {
+            "label": "",
+            "value": "4 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "realtor": {
+          "logoUrlScale": "https://pictures.immobilienscout24.de/usercontent/e6218f18-43f3-4023-8975-3a417d2baa17.JPG/ORIG/resize/%WIDTH%x%HEIGHT%%3E/format/webp/quality/80"
+        },
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171637441&publicationState=live",
+        "id": "171637441",
+        "title": "Hier wird saniert: 2-Zimmer-Wohnung in Derendorf",
+        "energyEfficiencyClass": "E",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/3183cb92-8402-41a3-9146-5156ed598ba6-2109385562.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/3183cb92-8402-41a3-9146-5156ed598ba6-2109385562.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/3183cb92-8402-41a3-9146-5156ed598ba6-2109385562.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Collenbachstr. 55, 40476 Düsseldorf, Derendorf",
+          "lat": 51.24419,
+          "lon": 6.78317
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "L",
+        "published": "vor 3 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "617 €"
+          },
+          {
+            "label": "",
+            "value": "43,88 m²"
+          },
+          {
+            "label": "",
+            "value": "1 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "realtor": {
+          "logoUrlScale": "https://pictures.immobilienscout24.de/usercontent/550c8a2c-d850-4af4-a5f7-cd02abb7b4c0.PNG/ORIG/resize/%WIDTH%x%HEIGHT%%3E/format/webp/quality/80"
+        },
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171667447&publicationState=live",
+        "id": "171667447",
+        "title": "Das Glück hat ein Zuhause: Ideales 1-Zimmer-Single-Appartment",
+        "energyEfficiencyClass": "D",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/7c7b830a-f19b-4c81-b9f6-b6ab7262202f-2110038189.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/7c7b830a-f19b-4c81-b9f6-b6ab7262202f-2110038189.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/7c7b830a-f19b-4c81-b9f6-b6ab7262202f-2110038189.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Ludwig-Zimmermann-Str. 3, 40213 Düsseldorf, Stadtmitte",
+          "lat": 51.22702,
+          "lon": 6.77763
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "L",
+        "published": "vor 3 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "536 €"
+          },
+          {
+            "label": "",
+            "value": "29 m²"
+          },
+          {
+            "label": "",
+            "value": "1 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "realtor": {
+          "logoUrlScale": "https://pictures.immobilienscout24.de/usercontent/550c8a2c-d850-4af4-a5f7-cd02abb7b4c0.PNG/ORIG/resize/%WIDTH%x%HEIGHT%%3E/format/webp/quality/80"
+        },
+        "tags": []
+      }
+    }
+  ],
+  "shapes": [],
+  "reporting": {},
+  "quickFilterStatistics": []
+}

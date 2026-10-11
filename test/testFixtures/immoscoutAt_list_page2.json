@@ -1,0 +1,2257 @@
+{
+  "totalResults": 3194,
+  "pageSize": 50,
+  "pageNumber": 2,
+  "numberOfPages": 64,
+  "numberOfListings": 3194,
+  "resultListItems": [
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171660020&publicationState=live",
+        "id": "171660020",
+        "title": "#SQ - STYLE DG-WOHNUNG GRENZE 2. BEZIRK BEIM AUGARTEN (GAUßPLATZ) & NÄHE DONAUKANAL (U4) mit FERNB",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/21a6c8f4-3742-40af-ae40-9629677537c0-2109813101.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/21a6c8f4-3742-40af-ae40-9629677537c0-2109813101.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/21a6c8f4-3742-40af-ae40-9629677537c0-2109813101.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1020 Wien,Leopoldstadt (unvollständige Adresse)",
+          "lat": 48.22442,
+          "lon": 16.36986
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.900 €"
+          },
+          {
+            "label": "",
+            "value": "79 m²"
+          },
+          {
+            "label": "",
+            "value": "3 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171659569&publicationState=live",
+        "id": "171659569",
+        "title": "NUSSDORF| GEMÜTLICHE KLEINE WOHNUNG 40,82m²| GARTENBENÜTZUNG |BEZUG 15.10.2026",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/f35b57f0-6754-44ea-baed-1635cd298208-2109803050.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/f35b57f0-6754-44ea-baed-1635cd298208-2109803050.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/f35b57f0-6754-44ea-baed-1635cd298208-2109803050.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1190 Wien,Döbling (unvollständige Adresse)",
+          "lat": 48.26091,
+          "lon": 16.36177
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "700 €"
+          },
+          {
+            "label": "",
+            "value": "40,82 m²"
+          },
+          {
+            "label": "",
+            "value": "1,5 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171659340&publicationState=live",
+        "id": "171659340",
+        "title": "KONTAKTFORMULAR!! Ab 1.1.2027: *SINGLE-HIT* perfekte 1-Zimmer Wohnung in beliebter Lage // Uni-Wien ",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/d0b34cb1-13ac-4ae3-9ed2-01a2486a9a2f-2109798058.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/d0b34cb1-13ac-4ae3-9ed2-01a2486a9a2f-2109798058.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/d0b34cb1-13ac-4ae3-9ed2-01a2486a9a2f-2109798058.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1080 Wien (unvollständige Adresse)",
+          "lat": 48.21061,
+          "lon": 16.35326
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "759 €"
+          },
+          {
+            "label": "",
+            "value": "38,16 m²"
+          },
+          {
+            "label": "",
+            "value": "1 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171659326&publicationState=live",
+        "id": "171659326",
+        "title": "Pool inklusive: Moderne Neubauwohnung mit Loggia",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/c1b5a34a-69c0-43ca-afee-078d9e7c6634-2109797786.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/c1b5a34a-69c0-43ca-afee-078d9e7c6634-2109797786.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/c1b5a34a-69c0-43ca-afee-078d9e7c6634-2109797786.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1230 Wien, Liesing (unvollständige Adresse)",
+          "postcode": "1230"
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.190 €"
+          },
+          {
+            "label": "",
+            "value": "53 m²"
+          },
+          {
+            "label": "",
+            "value": "2 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171658914&publicationState=live",
+        "id": "171658914",
+        "title": "NACHMIETERSUCHE! Tolle 2 Zimmerwohnung + Garten! Top Lage - sehr nahe dem Hauptbahnhof & Belvedere! ",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/218206a1-a9a8-42ef-b9a8-21a134a1fde4-2109787738.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/218206a1-a9a8-42ef-b9a8-21a134a1fde4-2109787738.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/218206a1-a9a8-42ef-b9a8-21a134a1fde4-2109787738.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1100 Wien (unvollständige Adresse)",
+          "lat": 48.18016,
+          "lon": 16.38536
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.099 €"
+          },
+          {
+            "label": "",
+            "value": "52 m²"
+          },
+          {
+            "label": "",
+            "value": "2 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171658081&publicationState=live",
+        "id": "171658081",
+        "title": "Smartes Wohnen auf Zeit - Erstklassiges City-Pied-à-terre mit Innenhof-Terrasse",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/6e55f174-9441-4ee4-a78e-8a2187eeadfc-2109771854.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/6e55f174-9441-4ee4-a78e-8a2187eeadfc-2109771854.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/6e55f174-9441-4ee4-a78e-8a2187eeadfc-2109771854.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1150 Wien (unvollständige Adresse)",
+          "lat": 48.19216,
+          "lon": 16.32938
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.194 €"
+          },
+          {
+            "label": "",
+            "value": "45,45 m²"
+          },
+          {
+            "label": "",
+            "value": "2 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171657558&publicationState=live",
+        "id": "171657558",
+        "title": "Hochwertig ausgestattete 2 Zimmer Wohnung mit Eigengarten und großzügiger Terrasse! ERSTBEZUG!",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/d24b8526-398f-422c-83e1-4dba6010b7f5-2109760228.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/d24b8526-398f-422c-83e1-4dba6010b7f5-2109760228.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/d24b8526-398f-422c-83e1-4dba6010b7f5-2109760228.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1190 Wien (unvollständige Adresse)",
+          "lat": 48.25835,
+          "lon": 16.34724
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.710 €"
+          },
+          {
+            "label": "",
+            "value": "52 m²"
+          },
+          {
+            "label": "",
+            "value": "2 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171657160&publicationState=live",
+        "id": "171657160",
+        "title": "Wohnen auf höchstem Niveau in den Weinbergen! 3 Zimmer + ca. 104 m² Eigengarten!",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/dcf9a875-fc15-4912-badd-37021102ea53-2109752376.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/dcf9a875-fc15-4912-badd-37021102ea53-2109752376.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/dcf9a875-fc15-4912-badd-37021102ea53-2109752376.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1190 Wien (unvollständige Adresse)",
+          "lat": 48.25835,
+          "lon": 16.34724
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "3.137 €"
+          },
+          {
+            "label": "",
+            "value": "100 m²"
+          },
+          {
+            "label": "",
+            "value": "3 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171657159&publicationState=live",
+        "id": "171657159",
+        "title": "Exklusiver Erstbezug! 2 Zimmer mit südlichem Balkon und Blick ins Grüne!",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/91c6be2b-3af2-4b89-a9e4-0fcfc5802209-2109752369.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/91c6be2b-3af2-4b89-a9e4-0fcfc5802209-2109752369.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/91c6be2b-3af2-4b89-a9e4-0fcfc5802209-2109752369.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1190 Wien (unvollständige Adresse)",
+          "lat": 48.25835,
+          "lon": 16.34724
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.987 €"
+          },
+          {
+            "label": "",
+            "value": "61 m²"
+          },
+          {
+            "label": "",
+            "value": "2 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171656815&publicationState=live",
+        "id": "171656815",
+        "title": "2-Zimmer-Wohnung Erstbezug mit Rooftop-Pool und Fitness",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/baa4546f-ac48-45b3-8ee4-9c2ba9b5e63b-2109745989.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/baa4546f-ac48-45b3-8ee4-9c2ba9b5e63b-2109745989.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/baa4546f-ac48-45b3-8ee4-9c2ba9b5e63b-2109745989.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1020 Wien (unvollständige Adresse)",
+          "postcode": "1020"
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.737 €"
+          },
+          {
+            "label": "",
+            "value": "55 m²"
+          },
+          {
+            "label": "",
+            "value": "2 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171656347&publicationState=live",
+        "id": "171656347",
+        "title": "Ein Panorama von außergewöhnlicher Schönheit",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/950ef6d9-0c1d-44f6-9216-e29af3f264ea-2109737648.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/950ef6d9-0c1d-44f6-9216-e29af3f264ea-2109737648.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/950ef6d9-0c1d-44f6-9216-e29af3f264ea-2109737648.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1220 Wien (unvollständige Adresse)",
+          "lat": 48.2336,
+          "lon": 16.41217
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "2.701 €"
+          },
+          {
+            "label": "",
+            "value": "76 m²"
+          },
+          {
+            "label": "",
+            "value": "3 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171656331&publicationState=live",
+        "id": "171656331",
+        "title": "SONNIGER DACHGESCHOSSTRAUM - Klimatisierte DG-Wohnung mit 3 Zimmern und 2 Terrassen",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/7df685ba-cabe-4206-be0e-02f42f2cb811-2109737228.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/7df685ba-cabe-4206-be0e-02f42f2cb811-2109737228.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/7df685ba-cabe-4206-be0e-02f42f2cb811-2109737228.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1090 Wien (unvollständige Adresse)",
+          "lat": 48.22754,
+          "lon": 16.35972
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "3.248 €"
+          },
+          {
+            "label": "",
+            "value": "109 m²"
+          },
+          {
+            "label": "",
+            "value": "3 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171656207&publicationState=live",
+        "id": "171656207",
+        "title": "DER BALLON - Ankommen und abheben - NATURNAHES WOHNEN NAHE DER SEESTADT ASPERN",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/8ffe6b12-ca6b-4299-a25a-98c703a28827-2109734600.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/8ffe6b12-ca6b-4299-a25a-98c703a28827-2109734600.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/8ffe6b12-ca6b-4299-a25a-98c703a28827-2109734600.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Groß-Enzersdorfer Straße 70, 1220 Wien",
+          "lat": 48.21541,
+          "lon": 16.50189
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "920 €"
+          },
+          {
+            "label": "",
+            "value": "55 m²"
+          },
+          {
+            "label": "",
+            "value": "2 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171656101&publicationState=live",
+        "id": "171656101",
+        "title": "Eleganz mit Aussicht auf das Außergewöhnliche",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/262d0ad9-1538-4c66-af2c-11e059fd8a6b-2109732353.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/262d0ad9-1538-4c66-af2c-11e059fd8a6b-2109732353.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/262d0ad9-1538-4c66-af2c-11e059fd8a6b-2109732353.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1220 Wien (unvollständige Adresse)",
+          "lat": 48.2336,
+          "lon": 16.41217
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.800 €"
+          },
+          {
+            "label": "",
+            "value": "52 m²"
+          },
+          {
+            "label": "",
+            "value": "2 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171656050&publicationState=live",
+        "id": "171656050",
+        "title": "2 Zimmer Dachgeschoß Wohnung m.Terrasse - Erstbezug - provisionsfrei zu mieten in 1100 Wien Oberlaa",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/9c2fb743-fa35-4c47-b12c-60f489833005-2109731189.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/9c2fb743-fa35-4c47-b12c-60f489833005-2109731189.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/9c2fb743-fa35-4c47-b12c-60f489833005-2109731189.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1100 Wien (unvollständige Adresse)",
+          "postcode": "1100"
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.075 €"
+          },
+          {
+            "label": "",
+            "value": "51 m²"
+          },
+          {
+            "label": "",
+            "value": "2 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171655907&publicationState=live",
+        "id": "171655907",
+        "title": "Dachgeschosswohnung im Herzen von Ottakring",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/93e11a28-3b98-4e50-8674-b89c0fea4d16-2109728134.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/93e11a28-3b98-4e50-8674-b89c0fea4d16-2109728134.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/93e11a28-3b98-4e50-8674-b89c0fea4d16-2109728134.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1160 Wien (unvollständige Adresse)",
+          "lat": 48.21862,
+          "lon": 16.3142
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "930 €"
+          },
+          {
+            "label": "",
+            "value": "46,33 m²"
+          },
+          {
+            "label": "",
+            "value": "2 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171655484&publicationState=live",
+        "id": "171655484",
+        "title": "++NEU++ Sonne auf dem Balkon! Energieeffiziente 2-Zimmer-Neubauwohnung mit 46 m² und 6 m² Südostb",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/beba5b94-ac78-4feb-a42f-0c2e570bafc6-2109719963.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/beba5b94-ac78-4feb-a42f-0c2e570bafc6-2109719963.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/beba5b94-ac78-4feb-a42f-0c2e570bafc6-2109719963.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1120 Wien (unvollständige Adresse)",
+          "lat": 48.17678,
+          "lon": 16.3382
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.139 €"
+          },
+          {
+            "label": "",
+            "value": "45,9 m²"
+          },
+          {
+            "label": "",
+            "value": "2 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171655098&publicationState=live",
+        "id": "171655098",
+        "title": "/ ERSTBEZUG / 2 ZIMMER / AB SOFORT VERFÜGBAR / FREIFLÄCHE",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/627ba271-f65b-4f2a-90d8-7972f5db43f8-2109713280.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/627ba271-f65b-4f2a-90d8-7972f5db43f8-2109713280.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/627ba271-f65b-4f2a-90d8-7972f5db43f8-2109713280.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1210 Wien (unvollständige Adresse)",
+          "lat": 48.20893,
+          "lon": 16.21393
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.250 €"
+          },
+          {
+            "label": "",
+            "value": "55 m²"
+          },
+          {
+            "label": "",
+            "value": "2 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171655058&publicationState=live",
+        "id": "171655058",
+        "title": "ALSERGRUND - SONNIGE 3 Zimmer NEUBAU Wohnung mit gemütlichen Balkon",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/3fa5282a-c250-43d2-98d3-524fe6489fd8-2109712454.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/3fa5282a-c250-43d2-98d3-524fe6489fd8-2109712454.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/3fa5282a-c250-43d2-98d3-524fe6489fd8-2109712454.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1090 Wien (unvollständige Adresse)",
+          "lat": 48.22754,
+          "lon": 16.35972
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.898 €"
+          },
+          {
+            "label": "",
+            "value": "72 m²"
+          },
+          {
+            "label": "",
+            "value": "3 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171654417&publicationState=live",
+        "id": "171654417",
+        "title": "☀️ Traumhafte 3-Zimmer-Dachgeschosswohnung mit Skyline-Blick zur Miete ☀️",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/d23a31dd-fbff-4c00-a63c-2ae7f3ed67f7-2109701334.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/d23a31dd-fbff-4c00-a63c-2ae7f3ed67f7-2109701334.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/d23a31dd-fbff-4c00-a63c-2ae7f3ed67f7-2109701334.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Simone-Veil-Gasse 4, 1210 Wien",
+          "lat": 48.24723,
+          "lon": 16.42321
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.716 €"
+          },
+          {
+            "label": "",
+            "value": "78 m²"
+          },
+          {
+            "label": "",
+            "value": "3 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171654401&publicationState=live",
+        "id": "171654401",
+        "title": "UNBEFRISTET: 2-Zimmer-Wohnung mit Einbauküche ab JÄNNER 2027",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/f390b306-77cb-4556-9b73-84e240a4b9b9-2109701068.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/f390b306-77cb-4556-9b73-84e240a4b9b9-2109701068.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/f390b306-77cb-4556-9b73-84e240a4b9b9-2109701068.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1060 Wien (unvollständige Adresse)",
+          "lat": 48.19616,
+          "lon": 16.34954
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.466 €"
+          },
+          {
+            "label": "",
+            "value": "75 m²"
+          },
+          {
+            "label": "",
+            "value": "2 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171654352&publicationState=live",
+        "id": "171654352",
+        "title": "Burhardtgasse - 2 Zimmer Neubau Nähe U6 zu vermieten",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/04069fcb-59fd-4a0e-820e-b2f8737f57b0-2109700121.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/04069fcb-59fd-4a0e-820e-b2f8737f57b0-2109700121.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/04069fcb-59fd-4a0e-820e-b2f8737f57b0-2109700121.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1200 Wien (unvollständige Adresse)",
+          "lat": 48.23538,
+          "lon": 16.36724
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.057 €"
+          },
+          {
+            "label": "",
+            "value": "73 m²"
+          },
+          {
+            "label": "",
+            "value": "2 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171653438&publicationState=live",
+        "id": "171653438",
+        "title": "/ ERSTBEZUG / 3 ZIMMER / AB SOFORT VERFÜGBAR / FREIFLÄCHE",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/b6373841-cae6-42c8-b15b-8485bd6fed1f-2109683029.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/b6373841-cae6-42c8-b15b-8485bd6fed1f-2109683029.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/b6373841-cae6-42c8-b15b-8485bd6fed1f-2109683029.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1210 Wien (unvollständige Adresse)",
+          "lat": 48.20893,
+          "lon": 16.21393
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.650 €"
+          },
+          {
+            "label": "",
+            "value": "71 m²"
+          },
+          {
+            "label": "",
+            "value": "3 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171653411&publicationState=live",
+        "id": "171653411",
+        "title": "Sonniger 185m² Loft in Industriegebäude (mit Garagenoption)",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/105f612f-cf76-4f13-b296-4dafec4531c2-2109682564.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/105f612f-cf76-4f13-b296-4dafec4531c2-2109682564.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/105f612f-cf76-4f13-b296-4dafec4531c2-2109682564.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1070 Wien (unvollständige Adresse)",
+          "lat": 48.20461,
+          "lon": 16.34852
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "3.733 €"
+          },
+          {
+            "label": "",
+            "value": "185 m²"
+          },
+          {
+            "label": "",
+            "value": "2 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171652633&publicationState=live",
+        "id": "171652633",
+        "title": "Erstbezug nach Renovierung mit neuer Küche",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/fdefd1b5-bdc7-4346-b2ca-28e5411883d0-2109668218.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/fdefd1b5-bdc7-4346-b2ca-28e5411883d0-2109668218.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/fdefd1b5-bdc7-4346-b2ca-28e5411883d0-2109668218.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1020 Wien (unvollständige Adresse)",
+          "lat": 48.22525,
+          "lon": 16.38183
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.100 €"
+          },
+          {
+            "label": "",
+            "value": "56 m²"
+          },
+          {
+            "label": "",
+            "value": "2 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171652411&publicationState=live",
+        "id": "171652411",
+        "title": "Zwei-Zimmer-Wohnung mit Gartenterrasse in Pötzleinsdorfer Ruhelage",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/d1014078-89c8-41df-8d38-43176af5d1b2-2109664768.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/d1014078-89c8-41df-8d38-43176af5d1b2-2109664768.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/d1014078-89c8-41df-8d38-43176af5d1b2-2109664768.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1180 Wien (unvollständige Adresse)",
+          "lat": 48.24605,
+          "lon": 16.2973
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "990 €"
+          },
+          {
+            "label": "",
+            "value": "53 m²"
+          },
+          {
+            "label": "",
+            "value": "2 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171691486&publicationState=live",
+        "id": "171691486",
+        "title": "IU – Schöne 2-Zimmer mit Balkon nahe U3",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/dcee527e-f088-4cbd-9771-bc839819241d-2110560937.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/dcee527e-f088-4cbd-9771-bc839819241d-2110560937.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/dcee527e-f088-4cbd-9771-bc839819241d-2110560937.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1030 Wien (unvollständige Adresse)",
+          "lat": 48.1988,
+          "lon": 16.4046
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.199 €"
+          },
+          {
+            "label": "",
+            "value": "45,49 m²"
+          },
+          {
+            "label": "",
+            "value": "2 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171651390&publicationState=live",
+        "id": "171651390",
+        "title": "Ein Zuhause mit außergewöhnlichem Weitblick",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/d5f718ba-e886-4206-bce2-79c07ea54a6c-2109644311.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/d5f718ba-e886-4206-bce2-79c07ea54a6c-2109644311.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/d5f718ba-e886-4206-bce2-79c07ea54a6c-2109644311.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1220 Wien (unvollständige Adresse)",
+          "lat": 48.2336,
+          "lon": 16.41217
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.800 €"
+          },
+          {
+            "label": "",
+            "value": "50 m²"
+          },
+          {
+            "label": "",
+            "value": "2 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171651068&publicationState=live",
+        "id": "171651068",
+        "title": "Erstbezug: Neu errichtete 3 Zimmer Dachgeschosswohnung mit Terrasse",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/d788623c-729d-4f28-9899-b36d98e61774-2109638157.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/d788623c-729d-4f28-9899-b36d98e61774-2109638157.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/d788623c-729d-4f28-9899-b36d98e61774-2109638157.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1020 Wien,Leopoldstadt (unvollständige Adresse)",
+          "lat": 48.2188,
+          "lon": 16.40884
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.475 €"
+          },
+          {
+            "label": "",
+            "value": "59 m²"
+          },
+          {
+            "label": "",
+            "value": "3 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171651067&publicationState=live",
+        "id": "171651067",
+        "title": "Koffer packen und einziehen inkl. Tiefgaragen Stellplatz - Gartennutzung",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/f3c081be-035a-4c0a-b3e9-51252d22decf-2109638158.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/f3c081be-035a-4c0a-b3e9-51252d22decf-2109638158.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/f3c081be-035a-4c0a-b3e9-51252d22decf-2109638158.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1110 Wien,Simmering (unvollständige Adresse)",
+          "lat": 48.15874,
+          "lon": 16.46558
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "800 €"
+          },
+          {
+            "label": "",
+            "value": "38 m²"
+          },
+          {
+            "label": "",
+            "value": "1 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171651045&publicationState=live",
+        "id": "171651045",
+        "title": "Ein Lebensgefühl mit beeindruckendem Panorama",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/ceabd5d5-82b6-477b-9882-0f9dd3cb990e-2109637760.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/ceabd5d5-82b6-477b-9882-0f9dd3cb990e-2109637760.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/ceabd5d5-82b6-477b-9882-0f9dd3cb990e-2109637760.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1220 Wien (unvollständige Adresse)",
+          "lat": 48.2336,
+          "lon": 16.41217
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "3.100 €"
+          },
+          {
+            "label": "",
+            "value": "76 m²"
+          },
+          {
+            "label": "",
+            "value": "3 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171650915&publicationState=live",
+        "id": "171650915",
+        "title": "Exklusives Wohnen in Bestlage: 3-Zimmer Wohnung mit Einbauküche, Balkon und Garagenstellplatz!",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/4b5ce6a8-4776-408b-b1ed-aa8fbaf1ef5c-2109635226.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/4b5ce6a8-4776-408b-b1ed-aa8fbaf1ef5c-2109635226.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/4b5ce6a8-4776-408b-b1ed-aa8fbaf1ef5c-2109635226.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Nauschgasse 4, 1220 Wien",
+          "lat": 48.23419,
+          "lon": 16.42277
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.750 €"
+          },
+          {
+            "label": "",
+            "value": "84 m²"
+          },
+          {
+            "label": "",
+            "value": "3 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171649747&publicationState=live",
+        "id": "171649747",
+        "title": "Frisch sanierte 2-Zimmer-Wohnung in ruhiger Lage",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/ac9cb401-9b54-4a6c-bc42-c36f2452dfe8-2109614350.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/ac9cb401-9b54-4a6c-bc42-c36f2452dfe8-2109614350.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/ac9cb401-9b54-4a6c-bc42-c36f2452dfe8-2109614350.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1210 Wien (unvollständige Adresse)",
+          "lat": 48.27993,
+          "lon": 16.40343
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "799 €"
+          },
+          {
+            "label": "",
+            "value": "40,02 m²"
+          },
+          {
+            "label": "",
+            "value": "2 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171649174&publicationState=live",
+        "id": "171649174",
+        "title": "helle 4-Zimmer-Balkonwohnung nahe Rochusmarkt & Stadtpark I 144 m² I 2 Schlafzimmer",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/45d59b9d-1eff-413a-bbad-fc499bcf0cff-2109601996.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/45d59b9d-1eff-413a-bbad-fc499bcf0cff-2109601996.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/45d59b9d-1eff-413a-bbad-fc499bcf0cff-2109601996.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1030 Wien (unvollständige Adresse)",
+          "lat": 48.19951,
+          "lon": 16.38742
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "2.250 €"
+          },
+          {
+            "label": "",
+            "value": "144 m²"
+          },
+          {
+            "label": "",
+            "value": "4 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171649068&publicationState=live",
+        "id": "171649068",
+        "title": "1-Zimmer-Wohnung mit großer Terrasse im DG in ländlicher Ruhelage - schöner Neubau - zu mieten in",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/882a050b-8148-4b74-afd6-cf8031a7b8a3-2109600192.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/882a050b-8148-4b74-afd6-cf8031a7b8a3-2109600192.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/882a050b-8148-4b74-afd6-cf8031a7b8a3-2109600192.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1230 Wien (unvollständige Adresse)",
+          "postcode": "1230"
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "739 €"
+          },
+          {
+            "label": "",
+            "value": "35,11 m²"
+          },
+          {
+            "label": "",
+            "value": "1 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171648733&publicationState=live",
+        "id": "171648733",
+        "title": "HERBSTHIT - 2 Zimmer inkl. Küche und traumhafter Blick umsonst",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/2530e591-61f9-4adc-b205-6e9608b3cf35-2109597809.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/2530e591-61f9-4adc-b205-6e9608b3cf35-2109597809.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/2530e591-61f9-4adc-b205-6e9608b3cf35-2109597809.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "WIPPLINGER STRAßE 11/Top 12, 1010 Wien",
+          "lat": 48.21566,
+          "lon": 16.36507
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.300 €"
+          },
+          {
+            "label": "",
+            "value": "45,5 m²"
+          },
+          {
+            "label": "",
+            "value": "2 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171648607&publicationState=live",
+        "id": "171648607",
+        "title": "Großzügige und moderne 2-Zimmer-Wohnung mit Balkon - zu mieten in 1230 Wien",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/029ae613-9d1c-4672-a772-93cfd67bae2c-2109595719.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/029ae613-9d1c-4672-a772-93cfd67bae2c-2109595719.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/029ae613-9d1c-4672-a772-93cfd67bae2c-2109595719.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1230 Wien (unvollständige Adresse)",
+          "postcode": "1230"
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.000 €"
+          },
+          {
+            "label": "",
+            "value": "52 m²"
+          },
+          {
+            "label": "",
+            "value": "2 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171647564&publicationState=live",
+        "id": "171647564",
+        "title": "Südlich ausgerichtete 1 - Zimmer Wohnung inkl. neuer Einbauküche mit optimaler Infrastruktur",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/45cfd06b-3421-4d6f-9e85-bbeedac8c3b5-2109579971.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/45cfd06b-3421-4d6f-9e85-bbeedac8c3b5-2109579971.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/45cfd06b-3421-4d6f-9e85-bbeedac8c3b5-2109579971.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1100 Wien (unvollständige Adresse)",
+          "lat": 48.17657,
+          "lon": 16.38162
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "690 €"
+          },
+          {
+            "label": "",
+            "value": "35,22 m²"
+          },
+          {
+            "label": "",
+            "value": "1 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171647219&publicationState=live",
+        "id": "171647219",
+        "title": "* GARTENBLICK GEFÄLLIG? * 3-Zimmer-Neubauwohnung * ruhige Innenhoflage * Badewanne * U-Bahn Nähe *",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/0b9f014a-714b-4204-837e-f400ce245c2e-2109573835.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/0b9f014a-714b-4204-837e-f400ce245c2e-2109573835.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/0b9f014a-714b-4204-837e-f400ce245c2e-2109573835.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1080 Wien,Josefstadt (unvollständige Adresse)",
+          "lat": 48.21414,
+          "lon": 16.34156
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.600 €"
+          },
+          {
+            "label": "",
+            "value": "77 m²"
+          },
+          {
+            "label": "",
+            "value": "3 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171645323&publicationState=live",
+        "id": "171645323",
+        "title": "Ruhig gelegene Wohnung beim Kongreßpark mit Abstellraum und Schrankraum!",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/03d9e2eb-0ec4-465a-beff-1cefcd50d7c7-2109536907.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/03d9e2eb-0ec4-465a-beff-1cefcd50d7c7-2109536907.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/03d9e2eb-0ec4-465a-beff-1cefcd50d7c7-2109536907.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Lobmeyrgasse 5-7, 1160 Wien",
+          "lat": 48.22035,
+          "lon": 16.30836
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.341 €"
+          },
+          {
+            "label": "",
+            "value": "91 m²"
+          },
+          {
+            "label": "",
+            "value": "3 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171644366&publicationState=live",
+        "id": "171644366",
+        "title": "NEUBAU-GARTENWOHNUNG MIT 2 GARAGENPLÄTZEN",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/c7744041-7521-43ee-ad13-aacfaf952701-2109515483.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/c7744041-7521-43ee-ad13-aacfaf952701-2109515483.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/c7744041-7521-43ee-ad13-aacfaf952701-2109515483.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1190 Wien (unvollständige Adresse)",
+          "lat": 48.2479,
+          "lon": 16.31124
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "3.856 €"
+          },
+          {
+            "label": "",
+            "value": "171 m²"
+          },
+          {
+            "label": "",
+            "value": "6 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171644280&publicationState=live",
+        "id": "171644280",
+        "title": "HERRLICHE 3-ZIMMER-ALTBAUWOHNUNG IN INNENHOFLAGE *EINBAUKÜCHE INKLUSIVE*",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/d2db80f4-7d69-409e-98b2-747569cca8a2-2109513522.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/d2db80f4-7d69-409e-98b2-747569cca8a2-2109513522.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/d2db80f4-7d69-409e-98b2-747569cca8a2-2109513522.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Märzstraße 105A, 1150 Wien",
+          "lat": 48.1963,
+          "lon": 16.31551
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.531 €"
+          },
+          {
+            "label": "",
+            "value": "98 m²"
+          },
+          {
+            "label": "",
+            "value": "3 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171643880&publicationState=live",
+        "id": "171643880",
+        "title": "1020, Tempelgasse/U1 Nestroyplatz, ruhige neu sanierte 2 Zimmerwohnung unbefristet ab sofort zu miet",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/9a04ab6e-b197-4031-ad74-44c0e7a8c9e2-2109506579.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/9a04ab6e-b197-4031-ad74-44c0e7a8c9e2-2109506579.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/9a04ab6e-b197-4031-ad74-44c0e7a8c9e2-2109506579.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1020 Wien (unvollständige Adresse)",
+          "lat": 48.21368,
+          "lon": 16.38737
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.150 €"
+          },
+          {
+            "label": "",
+            "value": "62 m²"
+          },
+          {
+            "label": "",
+            "value": "2 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171643424&publicationState=live",
+        "id": "171643424",
+        "title": "1140! Sonnige 5-Zimmer-DG-Maisonette mit S/W-Terrasse & Balkon in Grünruhelage!",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/440dc510-1f76-4576-adfa-7e05c6093569-2109496440.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/440dc510-1f76-4576-adfa-7e05c6093569-2109496440.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/440dc510-1f76-4576-adfa-7e05c6093569-2109496440.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1140 Wien (unvollständige Adresse)",
+          "lat": 48.21679,
+          "lon": 16.23395
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "2.093 €"
+          },
+          {
+            "label": "",
+            "value": "122 m²"
+          },
+          {
+            "label": "",
+            "value": "5 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171643427&publicationState=live",
+        "id": "171643427",
+        "title": "1010! Stilvolle 3-Zimmer-Altbauwohnung mit schönem Fernblick in Toplage ab November 2026!",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/637b3312-0cda-4c52-9240-320ea9ed2f0a-2109496485.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/637b3312-0cda-4c52-9240-320ea9ed2f0a-2109496485.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/637b3312-0cda-4c52-9240-320ea9ed2f0a-2109496485.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1010 Wien (unvollständige Adresse)",
+          "lat": 48.21566,
+          "lon": 16.36925
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "2.996 €"
+          },
+          {
+            "label": "",
+            "value": "130 m²"
+          },
+          {
+            "label": "",
+            "value": "3 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171643425&publicationState=live",
+        "id": "171643425",
+        "title": "1030! Hochwertig sanierte DG-Maisonette mit Terrasse und 2 Bädern ab November 26! ERSTBEZUG NACH SA",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/3f72bb11-105b-481f-a849-f0f1169f593c-2109496429.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/3f72bb11-105b-481f-a849-f0f1169f593c-2109496429.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/3f72bb11-105b-481f-a849-f0f1169f593c-2109496429.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1030 Wien (unvollständige Adresse)",
+          "lat": 48.19557,
+          "lon": 16.39523
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "2.301 €"
+          },
+          {
+            "label": "",
+            "value": "94 m²"
+          },
+          {
+            "label": "",
+            "value": "3 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171643422&publicationState=live",
+        "id": "171643422",
+        "title": "1010 Toplage am Rudolfsplatz! Generalsaniertes 4-Zimmer-Altbaujuwel mit zwei kleinen Balkonen!",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/b1f1500d-fdee-41d8-ad3c-d3bbfb4d74ec-2109496414.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/b1f1500d-fdee-41d8-ad3c-d3bbfb4d74ec-2109496414.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/b1f1500d-fdee-41d8-ad3c-d3bbfb4d74ec-2109496414.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1010 Wien (unvollständige Adresse)",
+          "lat": 48.21382,
+          "lon": 16.375
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 2 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "3.499 €"
+          },
+          {
+            "label": "",
+            "value": "130 m²"
+          },
+          {
+            "label": "",
+            "value": "4 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171643046&publicationState=live",
+        "id": "171643046",
+        "title": "Schön aufgeteilte 2 Zimmerwohnung nahe dem Millennium Tower",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/513f1fd9-860c-482f-8859-2146194ff402-2109490491.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/513f1fd9-860c-482f-8859-2146194ff402-2109490491.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/513f1fd9-860c-482f-8859-2146194ff402-2109490491.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1200 Wien (unvollständige Adresse)",
+          "lat": 48.22783,
+          "lon": 16.41672
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 3 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "999 €"
+          },
+          {
+            "label": "",
+            "value": "61 m²"
+          },
+          {
+            "label": "",
+            "value": "2 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171643042&publicationState=live",
+        "id": "171643042",
+        "title": "Großzügige 2-Zimmer Wohnung mit Donaublick",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/cbc279ce-4cdd-4f44-a0ca-07c5d608173a-2109490415.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/cbc279ce-4cdd-4f44-a0ca-07c5d608173a-2109490415.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/cbc279ce-4cdd-4f44-a0ca-07c5d608173a-2109490415.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "1200 Wien (unvollständige Adresse)",
+          "lat": 48.22783,
+          "lon": 16.41672
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 3 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "997 €"
+          },
+          {
+            "label": "",
+            "value": "61 m²"
+          },
+          {
+            "label": "",
+            "value": "2 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    },
+    {
+      "type": "EXPOSE_RESULT",
+      "item": {
+        "reportUrl": "https://angebot-melden.immobilienscout24.de/report?realEstateId=171642958&publicationState=live",
+        "id": "171642958",
+        "title": "4-ZIMMER-ALTBAUWOHNUNG IN ZENTRALER LAGE *MIT EINBAUKÜCHE*",
+        "pictures": [
+          {
+            "urlScaleAndCrop": "https://pictures.immobilienscout24.de/listings/7334a291-938c-42c8-ac47-dd09a67939d8-2109488525.jpg/ORIG/legacy_thumbnail/%WIDTH%x%HEIGHT%/format/webp/quality/80"
+          }
+        ],
+        "titlePicture": {
+          "preview": "https://pictures.immobilienscout24.de/listings/7334a291-938c-42c8-ac47-dd09a67939d8-2109488525.jpg/ORIG/resize/800x600>/format/webp/quality/20",
+          "full": "https://pictures.immobilienscout24.de/listings/7334a291-938c-42c8-ac47-dd09a67939d8-2109488525.jpg/ORIG/resize/800x600>/format/webp/quality/80"
+        },
+        "address": {
+          "line": "Schwendergasse 18, 1150 Wien",
+          "lat": 48.19121,
+          "lon": 16.32864
+        },
+        "isProject": false,
+        "isPrivate": false,
+        "listingType": "S",
+        "published": "vor 3 Tagen",
+        "isNewObject": false,
+        "liveVideoTourAvailable": false,
+        "listOnlyOnIs24": false,
+        "attributes": [
+          {
+            "label": "",
+            "value": "1.367 €"
+          },
+          {
+            "label": "",
+            "value": "85 m²"
+          },
+          {
+            "label": "",
+            "value": "4 Zi."
+          }
+        ],
+        "realEstateType": "apartmentrent",
+        "tags": []
+      }
+    }
+  ],
+  "shapes": [],
+  "reporting": {},
+  "quickFilterStatistics": []
+}

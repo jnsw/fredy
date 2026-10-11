@@ -42,8 +42,8 @@ function formatFromTBackend(time) {
 }
 
 /**
- * How often Fredy searches, within which hours, through which proxy, and whether it re-checks
- * prices afterwards.
+ * How often Fredy searches, within which hours, how many result pages a search reads, through which
+ * proxy, and whether it re-checks prices afterwards.
  *
  * @returns {React.ReactElement}
  */
@@ -146,6 +146,24 @@ export default function ExecutionPage() {
         </div>
 
         <div className="executionPage__summary">{summary}</div>
+      </SegmentPart>
+
+      <SegmentPart name={t('settings.resultPages')} helpText={t('settings.resultPagesHelp')} helpMode="popover">
+        <div className="executionPage__line">
+          <span className="executionPage__caption">{t('admin.execution.upTo')}</span>
+          <span className="adminRow__control">
+            <InputNumber
+              id="maxResultPages"
+              min={1}
+              max={10}
+              aria-label={t('settings.maxResultPages')}
+              value={form.maxResultPages}
+              formatter={(value) => `${value}`.replace(/\D/g, '')}
+              onChange={(value) => setField('maxResultPages', value)}
+              suffix={t('settings.maxResultPagesSuffix')}
+            />
+          </span>
+        </div>
       </SegmentPart>
 
       <SegmentPart name={t('settings.proxyUrl')} helpText={t('settings.proxyUrlHelp')} helpMode="popover">

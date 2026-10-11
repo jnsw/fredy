@@ -403,14 +403,20 @@ async function downloadFlatfoxFixtures(url) {
 async function downloadImmoscoutFixtures(mobileApiUrl, name = 'immoscout') {
   console.log(`\nDownloading ${name}...`);
 
-  const listResponse = await fetch(mobileApiUrl, {
-    method: 'POST',
-    headers: {
-      'User-Agent': 'ImmoScout_28.1_26.5.2_._',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ supportedResultListTypes: [], userData: {} }),
-  });
+  const fetchListPage = (page) => {
+    const pageUrl = new URL(mobileApiUrl);
+    pageUrl.searchParams.set('pagenumber', String(page));
+    return fetch(page > 1 ? pageUrl.toString() : mobileApiUrl, {
+      method: 'POST',
+      headers: {
+        'User-Agent': 'ImmoScout_28.1_26.5.2_._',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ supportedResultListTypes: [], userData: {} }),
+    });
+  };
+
+  const listResponse = await fetchListPage(1);
 
   if (!listResponse.ok) {
     console.warn(`  Failed to download ${name} list: ${listResponse.statusText}`);
@@ -420,6 +426,17 @@ async function downloadImmoscoutFixtures(mobileApiUrl, name = 'immoscout') {
   const listData = await listResponse.json();
   await writeFile(path.join(FIXTURES_DIR, `${name}_list.json`), JSON.stringify(listData, null, 2), 'utf-8');
   console.log(`  Saved ${name}_list.json`);
+
+  // The provider reads past the first result page, and the offline suite serves the two recorded
+  // pages as a search of exactly two.
+  const secondResponse = await fetchListPage(2);
+  if (secondResponse.ok) {
+    const secondPage = await secondResponse.json();
+    await writeFile(path.join(FIXTURES_DIR, `${name}_list_page2.json`), JSON.stringify(secondPage, null, 2), 'utf-8');
+    console.log(`  Saved ${name}_list_page2.json`);
+  } else {
+    console.warn(`  Failed to download ${name} list page 2: ${secondResponse.statusText}`);
+  }
 
   const exposes = (listData.resultListItems || []).filter((item) => item.type === 'EXPOSE_RESULT');
   if (exposes.length === 0) {
@@ -852,6 +869,22 @@ async function downloadHtmlProvider(name, providerConfig, launchBrowser, closeBr
 
     await writeFile(path.join(FIXTURES_DIR, `${name}.html`), html, 'utf-8');
     console.log(`  Saved ${name}.html`);
+
+    // A provider that reads past its first result page gets the second one recorded as well,
+    // reached the way the pipeline reaches it: through the first page's own link.
+    const nextPageUrl = providerConfig.pagination?.nextPageUrl?.(html, providerConfig.url);
+    if (nextPageUrl) {
+      const secondPage = await puppeteerExtractor(nextPageUrl, providerConfig.waitForSelector, {
+        browser,
+        name: 'dowload_fixtures',
+      });
+      if (secondPage) {
+        await writeFile(path.join(FIXTURES_DIR, `${name}_page2.html`), secondPage, 'utf-8');
+        console.log(`  Saved ${name}_page2.html`);
+      } else {
+        console.warn(`  Failed to download ${name} page 2`);
+      }
+    }
 
     // the detail url is taken from the normalized listing, so providers that build their link
     // inside normalize() instead of exposing a `link` crawl field are covered as well

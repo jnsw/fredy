@@ -95,6 +95,11 @@ curl -X POST 'https://api.mobile.immobilienscout24.de/search/list?pricetype=calc
 
 ```
 
+A page holds 50 listings. `pagenumber` counts the pages from 1, and every response states the size
+of the whole search in `totalResults` and `numberOfPages`, so the first page already says whether a
+second one exists. Fredy reads further pages this way, up to the limit set under
+**Administration → Execution → Result pages** (see [providers.md](doc/providers.md#more-than-one-result-page)).
+
 ---
 
 #### Get details of listings

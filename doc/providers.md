@@ -30,6 +30,25 @@ platform into Fredy.
 If you run a portal Fredy does not cover yet, contributions are very welcome, see
 [CONTRIBUTING.md](../CONTRIBUTING.md).
 
+## More than one result page
+
+Immoscout (both sites), Kleinanzeigen and Wg gesucht are read past their first result page. A busy
+search can publish more listings between two runs than one page holds, and a new job's first run
+would otherwise only ever see the newest page. How many pages a search may read is set under
+**Administration → Execution → Result pages**: 3 by default, at most 10, and 1 reads the first page
+only, as Fredy did before.
+
+Fredy stops earlier on its own: at the last page, at a page that brings nothing it has not read
+already, and at the first page that holds only listings the job already knows - the search is sorted
+by date, so the pages after that one are older still. A job therefore costs one request per run when
+nothing new appeared and usually two when something did; only a first run or a burst of new listings
+reads up to the limit. Every further page is another request at the portal and follows a short
+pause, so lower the limit if a portal starts blocking you. A page that fails to load ends the walk,
+and the listings of the pages before it are kept.
+
+Providers that paged their searches before this setting existed (Deutsche Wohnen, InBerlinWohnen,
+Casa.it, Tecnocasa, Tecnorete, idealista and others) keep their own limits.
+
 ## Immoscout
 
 Immoscout has implemented advanced bot detection. To work around this, Fredy uses a reverse
