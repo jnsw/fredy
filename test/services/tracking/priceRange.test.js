@@ -151,6 +151,13 @@ const RECORDED_SEARCHES = [
     'https://www.boligsiden.dk/kommune/odense/tilsalg/ejerlejlighed?priceMax=3000000&priceMin=2100000&areaMin=1',
     { min: 2100000, max: 3000000 },
   ],
+  // Recorded with only a ceiling set. The floor's parameter is the filter's own name for it, but it
+  // has not been seen in a URL, so this records what has.
+  [
+    'boligportal',
+    'https://www.boligportal.dk/lejeboliger/hiller%C3%B8d/alle-v%C3%A6relser/?max_monthly_rent=18424',
+    { min: null, max: 18424 },
+  ],
 ];
 
 /**

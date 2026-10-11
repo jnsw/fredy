@@ -7,7 +7,7 @@ platform into Fredy.
 > Always make sure the search results are sorted by **date**, so Fredy picks up the newest listings
 > first.
 
-## The 30 built-in providers
+## The 31 built-in providers
 
 **🇩🇪 Germany**
 
@@ -26,7 +26,7 @@ platform into Fredy.
 **🇪🇸 Spain · 🇮🇹 Italy · 🇵🇹 Portugal** · idealista
 **🇮🇹 Italy** · Subito · Tecnocasa · Tecnorete · Casa.it
 **🇫🇷 France** · leboncoin · SeLoger · Bien'ici
-**🇩🇰 Denmark** · Boligsiden
+**🇩🇰 Denmark** · Boligsiden · BoligPortal
 
 If you run a portal Fredy does not cover yet, contributions are very welcome, see
 [CONTRIBUTING.md](../CONTRIBUTING.md).
@@ -210,6 +210,22 @@ on the API itself instead, which is passed on untouched:
 Several places are written as a repeated parameter there, never comma separated.
 
 Prices are in Danish kroner. Listings link to the estate agent's own page.
+
+## BoligPortal
+
+Denmark's largest rental portal, private landlords included. Paste the address of a result page as
+usual, for example `https://www.boligportal.dk/lejeboliger/hiller%C3%B8d/alle-v%C3%A6relser/?max_monthly_rent=15000`:
+every filter in its path and query string is used as it is. A sort you picked on the site and the
+page you copied it from are dropped, so Fredy always reads the newest adverts first, two result
+pages per run.
+
+BoligPortal sits behind Cloudflare, so this provider uses the browser and waits for the challenge to
+clear. A datacenter IP can be blocked outright; if runs end with
+`BoligPortal did not serve the page`, see the proxy section below and use a Danish residential IP.
+Each new advert's own page is read once for its full description, a few seconds apart.
+
+Rents are in Danish kroner and stored as advertised; running costs an advert states on top of the
+rent (heating, water a conto) are stored as its charges.
 
 ## Countries and the map
 
