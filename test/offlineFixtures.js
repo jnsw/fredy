@@ -218,6 +218,18 @@ const IDEALISTA_LOCATIONS = /app\.idealista\.(it|com|pt)\/api\/3\.5\/(it|es|pt)\
 const IDEALISTA_SEARCH = /app\.idealista\.(it|com|pt)\/api\/3\.5\/(it|es|pt)\/search/;
 
 /**
+ * The sites on the Vonovia group's rental platform. Both ask the same token endpoint and answer the
+ * same way from a list endpoint of their own, so one handler serves each from its own recording.
+ */
+const VONOVIA_PLATFORM_HOSTS = ['www.deutsche-wohnen.com', 'www.vonovia.de'];
+
+/** Each platform site's list endpoint, with the recording that stands in for it. */
+const VONOVIA_PLATFORM_LISTS = {
+  'https://www.deutsche-wohnen.com/api/deuwo-real-estate/list': 'deutscheWohnen_list.json',
+  'https://www.vonovia.de/api/real-estate/list': 'vonovia_list.json',
+};
+
+/**
  * Returns a fetch replacement that intercepts immoscout mobile API calls and
  * serves pre-downloaded JSON fixtures. Throws for any other URL to prevent
  * accidental live network traffic in offline mode.
@@ -232,7 +244,8 @@ export function buildFetchMock() {
   const immoscoutListData = { de: null, at: null };
   const immoscoutDetailData = { de: null, at: null };
   let austrianExposeIds = null;
-  let deutscheWohnenListData = null;
+  /** @type {Object.<string, any>} the recorded list of each site on the Vonovia platform, by fixture */
+  const vonoviaPlatformListData = {};
   let willhabenHtml = null;
   let flatfoxPins = null;
   let flatfoxListings = null;
@@ -450,11 +463,12 @@ export function buildFetchMock() {
 
     // The token is minted per request and says nothing about the search, so like idealista's it is
     // not recorded: offline mode hands out one of its own.
-    if (urlStr.includes('deutsche-wohnen.com/api/real-estate/search-token')) {
+    if (VONOVIA_PLATFORM_HOSTS.some((host) => urlStr.startsWith(`https://${host}/api/real-estate/search-token`))) {
       return { ok: true, status: 200, json: () => Promise.resolve({ token: 'offline', ttl: 900 }) };
     }
 
-    if (urlStr.includes('deutsche-wohnen.com/api/deuwo-real-estate/list')) {
+    const vonoviaPlatformList = Object.keys(VONOVIA_PLATFORM_LISTS).find((endpoint) => urlStr.startsWith(endpoint));
+    if (vonoviaPlatformList != null) {
       // Refused the way the endpoint refuses it, so a provider that stops sending the token fails
       // here instead of passing against a recording that never asks for one.
       if (new Headers(init?.headers).get('X-VON-Search-Token') !== 'offline') {
@@ -465,20 +479,19 @@ export function buildFetchMock() {
           json: () => Promise.resolve({ error: 'Unauthorized' }),
         };
       }
-      if (!deutscheWohnenListData) {
-        const raw = await tryReadFile(path.join(FIXTURES_DIR, 'deutscheWohnen_list.json'));
-        deutscheWohnenListData = raw ? JSON.parse(raw) : { results: [] };
+      const fixture = VONOVIA_PLATFORM_LISTS[vonoviaPlatformList];
+      if (vonoviaPlatformListData[fixture] == null) {
+        const raw = await tryReadFile(path.join(FIXTURES_DIR, fixture));
+        vonoviaPlatformListData[fixture] = raw ? JSON.parse(raw) : { results: [] };
       }
+      const listData = vonoviaPlatformListData[fixture];
       // The endpoint caps a page at 50 and the provider walks the rest with `offset`, so serving
       // the whole fixture to every request would hand the same listings back on each page and
       // never let the walk end. Slicing is what makes the fixture behave like the endpoint.
       const params = new URL(urlStr).searchParams;
       const offset = Number.parseInt(params.get('offset') ?? '0', 10) || 0;
-      const limit = Number.parseInt(params.get('limit') ?? '', 10) || (deutscheWohnenListData.results ?? []).length;
-      const page = {
-        ...deutscheWohnenListData,
-        results: (deutscheWohnenListData.results ?? []).slice(offset, offset + limit),
-      };
+      const limit = Number.parseInt(params.get('limit') ?? '', 10) || (listData.results ?? []).length;
+      const page = { ...listData, results: (listData.results ?? []).slice(offset, offset + limit) };
       return { ok: true, status: 200, json: () => Promise.resolve(page) };
     }
 

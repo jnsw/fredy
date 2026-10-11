@@ -34,6 +34,7 @@ const EXPECTED_DETAIL_PRICE = {
   kleinanzeigen: 195000,
   schwarzesbrett: 700,
   sparkasse: 410000,
+  vonovia: 1296,
   wgGesucht: 590,
 };
 
@@ -57,19 +58,29 @@ const CUSTOM_LIST_PRICES = {
       )
       .filter((price) => price != null);
   },
-  deutscheWohnen: () => {
-    const body = JSON.parse(fs.readFileSync(path.join(FIXTURES, 'deutscheWohnen_list.json'), 'utf8'));
-    return (body.results ?? [])
-      .filter((item) => item.vermarktungsart_miete === '1')
-      .map((item) => providerModule('deutscheWohnen').config.normalize({ id: item.wrk_id, price: item.preis })?.price)
-      .filter((price) => price != null);
-  },
+  deutscheWohnen: () => vonoviaPlatformListPrices('deutscheWohnen'),
+  vonovia: () => vonoviaPlatformListPrices('vonovia'),
   immobilienDe: () => {
     const provider = providerModule('immobilienDe');
     const listings = provider.parseListings(fs.readFileSync(path.join(FIXTURES, 'immobilienDe.html'), 'utf8')) ?? [];
     return listings.map((entry) => provider.config.normalize(entry)?.price).filter((price) => price != null);
   },
 };
+
+/**
+ * The rents a recorded list of the Vonovia group's platform yields, read the way its `getListings`
+ * reads them. Deutsche Wohnen and Vonovia both run on it.
+ *
+ * @param {'deutscheWohnen'|'vonovia'} id
+ * @returns {number[]}
+ */
+function vonoviaPlatformListPrices(id) {
+  const body = JSON.parse(fs.readFileSync(path.join(FIXTURES, `${id}_list.json`), 'utf8'));
+  return (body.results ?? [])
+    .filter((item) => item.vermarktungsart_miete === '1')
+    .map((item) => providerModule(id).config.normalize({ id: item.wrk_id, price: item.preis })?.price)
+    .filter((price) => price != null);
+}
 
 /** @type {Map<string, any>} */
 let providersById;

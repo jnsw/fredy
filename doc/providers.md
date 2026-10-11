@@ -7,7 +7,7 @@ platform into Fredy.
 > Always make sure the search results are sorted by **date**, so Fredy picks up the newest listings
 > first.
 
-## The 29 built-in providers
+## The 30 built-in providers
 
 **🇩🇪 Germany**
 
@@ -18,7 +18,7 @@ platform into Fredy.
 | Engel & Völkers | Immoscout | Regionalimmobilien24 |
 | IMAXX | Immowelt | Schwarzes Brett Bremen |
 | InBerlinWohnen | Kleinanzeigen | Sparkasse Immobilien |
-| McMakler | Wg gesucht | |
+| McMakler | Vonovia | Wg gesucht |
 
 **🇩🇪 Germany · 🇦🇹 Austria · 🇨🇭 Switzerland** · BETTERHOMES
 **🇦🇹 Austria** · willhaben · Immoscout Österreich
@@ -119,6 +119,18 @@ portal itself shows are its town's centre, so they are only used for an advert w
 A rent is stored as the Nettomiete, like every other provider's, because the affordability check
 adds the Nebenkosten itself; the Bruttomiete is only the fallback for an advert that states no net
 figure.
+
+## Vonovia & Deutsche Wohnen
+
+Germany's largest landlord and its subsidiary publish their flats on one platform, so the two
+providers are one implementation over two sites. Paste the address of a search from
+`vonovia.de/zuhause-finden/immobilien` or `deutsche-wohnen.com/mieten/mietangebote`: its results page
+fills itself from a JSON endpoint, which is what Fredy asks as well, so neither needs a browser for
+the search. A search larger than the 50 listings the endpoint hands out at once is read page by page.
+
+Both providers read rentals, and store the Kaltmiete. The full description comes from the listing's
+own page and leaves out the contact person's name, e-mail and phone number, which the page carries
+in fields of their own.
 
 ## leboncoin
 

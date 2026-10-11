@@ -50,6 +50,7 @@ export const PROVIDER_SIZE_ORDER = [
   'betterhomes',
   'sparkasse',
   'neubauKompass',
+  'vonovia',
   'deutscheWohnen',
   'einsAImmobilien',
   'immoswp',
