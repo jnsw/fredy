@@ -6,10 +6,10 @@
 /**
  * What a job's filters add up to, in a line.
  *
- * The five of them - price and size criteria, blacklist, drawn area, commute limits - are folded
- * into a collapsed section, and a collapsed section has to answer "is there anything in here"
- * without being opened. Otherwise the fold does not save the user anything: they open it every
- * time to check.
+ * The five of them - price, size and move-in criteria, blacklist, drawn area, commute limits - are
+ * folded into a collapsed section, and a collapsed section has to answer "is there anything in
+ * here" without being opened. Otherwise the fold does not save the user anything: they open it
+ * every time to check.
  *
  * Sharing and activation used to be counted here too, back when they sat inside the same fold.
  * They are sections of their own now, in plain sight below it, so a line describing what is behind
@@ -23,15 +23,18 @@ import { countCommuteLimits } from './commuteFilter.js';
  *
  * @param {Object} job
  * @param {string[]} [job.blacklist]
- * @param {{maxPrice?: number, minSize?: number, minRooms?: number}|null} [job.specFilter]
+ * @param {{maxPrice?: number, minSize?: number, minRooms?: number,
+ *   moveInEarliest?: string, moveInLatest?: string}|null} [job.specFilter]
  * @param {Object|null} [job.spatialFilter]
  * @param {{action?: string, limits?: Record<string, number>}|null} [job.commuteFilter]
  * @param {Object} context
  * @param {(key: string, vars?: Object) => string} context.t
  * @param {(value: number) => string} context.formatPrice
+ * @param {(isoDate: string) => string} [context.formatDate] Renders a `YYYY-MM-DD` move-in bound.
+ *   Absent, the date is shown as stored.
  * @returns {string[]} Empty when nothing has been refined.
  */
-export function describeJobRefinements(job, { t, formatPrice }) {
+export function describeJobRefinements(job, { t, formatPrice, formatDate = (isoDate) => isoDate }) {
   const parts = [];
   const spec = job?.specFilter ?? {};
 
@@ -45,6 +48,19 @@ export function describeJobRefinements(job, { t, formatPrice }) {
   }
   if (spec.minRooms != null) {
     parts.push(t('jobs.mutation.summaryMinRooms', { value: spec.minRooms }));
+  }
+  // One part for the window rather than one per end, since the two read as a single range. A
+  // cleared date picker leaves an empty string or null behind, and either end may stay open.
+  const moveInFrom = spec.moveInEarliest || null;
+  const moveInUntil = spec.moveInLatest || null;
+  if (moveInFrom != null && moveInUntil != null) {
+    parts.push(
+      t('jobs.mutation.summaryMoveInBetween', { from: formatDate(moveInFrom), until: formatDate(moveInUntil) }),
+    );
+  } else if (moveInFrom != null) {
+    parts.push(t('jobs.mutation.summaryMoveInFrom', { date: formatDate(moveInFrom) }));
+  } else if (moveInUntil != null) {
+    parts.push(t('jobs.mutation.summaryMoveInUntil', { date: formatDate(moveInUntil) }));
   }
   if ((job?.blacklist?.length ?? 0) > 0) {
     parts.push(t('jobs.mutation.summaryBlacklist', { count: job.blacklist.length }));

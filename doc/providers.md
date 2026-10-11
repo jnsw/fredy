@@ -208,6 +208,33 @@ export const metaInformation = {
 Addresses are then geocoded in those countries, and the map opens on them so you can draw a search
 area there. A provider spanning several is fine: `countries: ['de', 'at', 'ch']`.
 
+## Move-in date
+
+A job's criteria filter can take a move-in window - "Einzug frühestens" and "Einzug spätestens",
+either end may stay open - and leaves out listings whose stated move-in date lies outside it.
+"Sofort" counts as the day the listing was found. Only the date the portal itself states is used,
+and only where Fredy reads it without an extra request:
+
+| Provider | Where the date comes from |
+|---|---|
+| Wg gesucht | the search results (the date column of each card) |
+| InBerlinWohnen | the search results ("Bezugsfertig ab") |
+| Flatfox | the search results (`moving_date`, "immediately" or "by agreement") |
+| Immoscout, Immoscout Österreich | the exposé's "Bezugsfrei ab", with Provider Details switched on |
+| Deutsche Wohnen | the exposé's "Verfügbar ab", with Provider Details switched on |
+| Immobilien.de | the exposé's "Verfügbar ab", with Provider Details switched on |
+
+Every other provider - and any listing whose advert names no date or says "nach Vereinbarung" -
+has no move-in date. Those listings are **kept** by default, because leaving them out would
+quietly empty every provider that never states one. Tick "Leave out listings that state no move-in
+date" to drop them as well; for an exposé provider that only happens after the exposé had its
+chance to name one.
+
+A date known from the search results is checked before anything else is fetched for the listing.
+A date that only the exposé states is checked once the exposé has been read, and a listing outside
+the window is then kept as a deleted row, so the exposé is not fetched again on every run to reach
+the same verdict.
+
 ## 🛡️ Bot detection & proxies
 
 Most browser-based providers (kleinanzeigen, wg-gesucht, ohnemakler, ...) are scraped through a
