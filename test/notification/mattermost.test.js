@@ -86,6 +86,17 @@ describe('mattermost send()', () => {
       '| [Altbau / Balkon](https://example.com/a) | Mitte / Berlin | 50 m² | 800 € | [Open in Fredy](https://fredy.local/#/listings/listing/42) |',
     ]);
   });
+
+  it('leaves the cell empty for a listing without a size or a price instead of throwing', async () => {
+    await mattermost.send({
+      serviceName: 'immoscout',
+      newListings: [{ ...listing, size: null, price: null }],
+      notificationConfig,
+      jobKey: 'berlin',
+    });
+
+    expect(tableRows(postedText())).toEqual(['| [Flat](https://example.com/a) | Berlin |  |  |']);
+  });
 });
 
 describe('mattermost sendPriceChange()', () => {
