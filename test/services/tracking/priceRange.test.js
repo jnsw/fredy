@@ -149,6 +149,13 @@ const RECORDED_SEARCHES = [
     'https://www.seloger.com/classified-search?distributionTypes=Rent&estateTypes=Apartment&locations=AD08FR31096&priceMin=500&priceMax=1000',
     { min: 500, max: 1000 },
   ],
+  // Immoweb refuses connections that are not residential, so this band is written the way the
+  // site's price filter spells it rather than recorded.
+  [
+    'immoweb',
+    'https://www.immoweb.be/en/search/apartment/for-rent?countries=BE&minPrice=500&maxPrice=1000&page=1&orderBy=newest',
+    { min: 500, max: 1000 },
+  ],
 ];
 
 /**

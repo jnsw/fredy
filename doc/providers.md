@@ -7,7 +7,7 @@ platform into Fredy.
 > Always make sure the search results are sorted by **date**, so Fredy picks up the newest listings
 > first.
 
-## The 30 built-in providers
+## The 31 built-in providers
 
 **🇩🇪 Germany**
 
@@ -26,6 +26,7 @@ platform into Fredy.
 **🇪🇸 Spain · 🇮🇹 Italy · 🇵🇹 Portugal** · idealista
 **🇮🇹 Italy** · Subito · Tecnocasa · Tecnorete · Casa.it
 **🇫🇷 France** · leboncoin · SeLoger · Bien'ici
+**🇧🇪 Belgium** · Immoweb
 
 If you run a portal Fredy does not cover yet, contributions are very welcome, see
 [CONTRIBUTING.md](../CONTRIBUTING.md).
@@ -201,6 +202,20 @@ Not supported: an area drawn on the map, a circle and a travel-time area. Bien'i
 own servers and the url carries nothing but an id, so the job stops and says so - search the town
 and narrow it down with Fredy's own map area filter instead. A place Bien'ici no longer knows stops
 the job too, rather than being searched as whatever its place lookup guesses instead.
+
+## Immoweb
+
+Belgium's largest property portal. Paste the address of a result page, which reads
+`https://www.immoweb.be/en/search/apartment/for-rent?countries=BE&page=1&orderBy=newest`; the
+French and Dutch versions (`/fr/`, `/nl/`) work the same way, and Fredy sorts by `orderBy=newest`
+itself. The page is read in Fredy's browser, so the proxy section below applies: Immoweb sits
+behind Cloudflare, which tends to refuse a datacenter IP.
+
+What Fredy reads is the result card: price, living space, bedrooms, locality and photo. The room
+count is the **number of bedrooms**, which is how Belgian adverts count, and a new-build project
+quoting ranges is stored with the low end of each. There is no detail enrichment and no price
+tracking for Immoweb yet. Addresses are geocoded in Belgium, and application letters are written in
+English, since Fredy ships no French or Dutch template.
 
 ## Countries and the map
 

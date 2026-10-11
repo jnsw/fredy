@@ -122,5 +122,9 @@
   "bienici": {
     "url": "https://www.bienici.com/recherche/location/paris-75000/appartement",
     "enabled": true
+  },
+  "immoweb": {
+    "url": "https://www.immoweb.be/en/search/apartment/for-rent?countries=BE&page=1&orderBy=newest",
+    "enabled": true
   }
 }
