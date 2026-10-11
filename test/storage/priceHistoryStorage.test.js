@@ -36,6 +36,7 @@ describe('price history storage', () => {
         address TEXT,
         link TEXT,
         price INTEGER,
+        currency TEXT NOT NULL DEFAULT 'EUR',
         size INTEGER,
         rooms INTEGER,
         image_url TEXT,

@@ -26,6 +26,7 @@ describe('getListingsKpisForJobIds', () => {
         id TEXT PRIMARY KEY,
         job_id TEXT,
         price REAL,
+        currency TEXT NOT NULL DEFAULT 'EUR',
         is_active INTEGER,
         manually_deleted INTEGER DEFAULT 0,
         price_per_sqm REAL
@@ -53,10 +54,12 @@ describe('getListingsKpisForJobIds', () => {
   afterEach(() => db.close());
 
   let seq = 0;
-  const add = (price, { jobId = 'job-1', isActive = 1, deleted = 0 } = {}) =>
+  const add = (price, { jobId = 'job-1', isActive = 1, deleted = 0, currency = 'EUR', perSqm = null } = {}) =>
     db
-      .prepare('INSERT INTO listings (id, job_id, price, is_active, manually_deleted) VALUES (?,?,?,?,?)')
-      .run(`l-${seq++}`, jobId, price, isActive, deleted);
+      .prepare(
+        'INSERT INTO listings (id, job_id, price, currency, is_active, manually_deleted, price_per_sqm) VALUES (?,?,?,?,?,?,?)',
+      )
+      .run(`l-${seq++}`, jobId, price, currency, isActive, deleted, perSqm);
 
   const kpis = (jobIds = ['job-1']) => listingsStorage.getListingsKpisForJobIds(jobIds);
 
@@ -78,6 +81,7 @@ describe('getListingsKpisForJobIds', () => {
       medianPriceOfListings: 0,
       medianPriceSampleSize: 0,
       medianPricePerSqm: null,
+      currency: 'EUR',
     };
     expect(kpis([])).toEqual(empty);
     expect(listingsStorage.getListingsKpisForJobIds()).toEqual(empty);
@@ -145,6 +149,7 @@ describe('getListingsKpisForJobIds', () => {
       medianPriceOfListings: 1000,
       medianPriceSampleSize: 1,
       medianPricePerSqm: null,
+      currency: 'EUR',
     });
   });
 
@@ -161,6 +166,7 @@ describe('getListingsKpisForJobIds', () => {
       medianPriceOfListings: referenceMedian(prices),
       medianPriceSampleSize: 5,
       medianPricePerSqm: null,
+      currency: 'EUR',
     });
   });
 
@@ -172,6 +178,49 @@ describe('getListingsKpisForJobIds', () => {
       medianPriceOfListings: 0,
       medianPriceSampleSize: 0,
       medianPricePerSqm: null,
+      currency: 'EUR',
+    });
+  });
+
+  // A median over francs and euros together is a figure in neither. Nothing converts one into the
+  // other, so both medians are taken over the currency most priced listings are in, and say which.
+  describe('across currencies', () => {
+    it('takes both medians over the currency most priced listings are in, and names it', () => {
+      add(1000, { perSqm: 10 });
+      add(1200, { perSqm: 12 });
+      add(2600, { currency: 'CHF', perSqm: 30 });
+      add(2800, { currency: 'CHF', perSqm: 31 });
+      add(3000, { currency: 'CHF', perSqm: 32 });
+
+      const result = kpis();
+      expect(result.currency).toBe('CHF');
+      expect(result.medianPriceOfListings).toBe(2800);
+      expect(result.medianPriceSampleSize).toBe(3);
+      expect(result.medianPricePerSqm).toEqual({ dealType: 'rent', value: 31, sampleSize: 3 });
+      // Every listing still counts as found; only the medians keep to one currency.
+      expect(result.numberOfListings).toBe(5);
+    });
+
+    it('never lets the other currency move the median', () => {
+      add(1000);
+      add(1100);
+      add(1200);
+      add(9_000_000, { currency: 'CHF' });
+      expect(kpis().medianPriceOfListings).toBe(1100);
+    });
+
+    it('quotes euros on a tie', () => {
+      add(1000);
+      add(2600, { currency: 'CHF' });
+      expect(kpis().currency).toBe('EUR');
+      expect(kpis().medianPriceOfListings).toBe(1000);
+    });
+
+    it('decides by priced listings, not by listings without a price', () => {
+      add(1000);
+      add(null, { currency: 'CHF' });
+      add(null, { currency: 'CHF' });
+      expect(kpis().currency).toBe('EUR');
     });
   });
 

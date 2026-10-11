@@ -35,6 +35,7 @@ describe('market benchmark against the listings table', () => {
         id TEXT PRIMARY KEY,
         job_id TEXT,
         price INTEGER,
+        currency TEXT NOT NULL DEFAULT 'EUR',
         size INTEGER,
         latitude REAL,
         longitude REAL,
@@ -75,13 +76,13 @@ describe('market benchmark against the listings table', () => {
    * @param {number} [options.km=1] Kilometres due north of the cathedral.
    * @param {number} [options.deleted=0]
    */
-  const addListing = (id, { jobId = 'rent-job', price = 500, size = 50, km = 1, deleted = 0 } = {}) =>
+  const addListing = (id, { jobId = 'rent-job', price = 500, size = 50, km = 1, deleted = 0, currency = 'EUR' } = {}) =>
     db
       .prepare(
-        `INSERT INTO listings (id, job_id, price, size, latitude, longitude, manually_deleted, price_per_sqm)
-         VALUES (?,?,?,?,?,?,?,?)`,
+        `INSERT INTO listings (id, job_id, price, currency, size, latitude, longitude, manually_deleted, price_per_sqm)
+         VALUES (?,?,?,?,?,?,?,?,?)`,
       )
-      .run(id, jobId, price, size, LAT + km / 111.32, LNG, deleted, price / size);
+      .run(id, jobId, price, currency, size, LAT + km / 111.32, LNG, deleted, price / size);
 
   const rowOf = (id) => db.prepare(`SELECT * FROM listings WHERE id = ?`).get(id);
 
@@ -126,6 +127,38 @@ describe('market benchmark against the listings table', () => {
     listingsStorage.applyMarketBenchmark('rent-job', [{ id: 'target', latitude: LAT, longitude: LNG }]);
 
     expect(rowOf('target').market_median_sqm).toBe(10);
+  });
+
+  // Near a border the box reaches across it, and a median over francs and euros describes neither.
+  it('never measures a listing against prices in another currency', () => {
+    for (let index = 0; index < MIN_SAMPLE * 2; index += 1) {
+      addListing(`franc-${index}`, { price: 1500, currency: 'CHF' });
+    }
+    for (let index = 0; index < MIN_SAMPLE; index += 1) {
+      addListing(`euro-${index}`, { price: 500 });
+    }
+    addListing('target', { price: 480 });
+    addListing('swiss-target', { price: 1400, currency: 'CHF' });
+
+    listingsStorage.applyMarketBenchmark('rent-job', [
+      { id: 'target', latitude: LAT, longitude: LNG, currency: 'EUR' },
+      { id: 'swiss-target', latitude: LAT, longitude: LNG, currency: 'CHF' },
+    ]);
+
+    expect(rowOf('target').market_median_sqm).toBe(10);
+    expect(rowOf('target').market_sample_size).toBe(MIN_SAMPLE);
+    expect(rowOf('swiss-target').market_median_sqm).toBe(30);
+  });
+
+  it('measures a listing that carries no currency against euros, the default', () => {
+    for (let index = 0; index < MIN_SAMPLE; index += 1) {
+      addListing(`franc-${index}`, { price: 1500, currency: 'CHF' });
+    }
+    addListing('target', { price: 480 });
+
+    listingsStorage.applyMarketBenchmark('rent-job', [{ id: 'target', latitude: LAT, longitude: LNG }]);
+
+    expect(rowOf('target').market_median_sqm).toBeNull();
   });
 
   it('ignores soft-deleted rows, which are duplicates of listings already in the sample', () => {

@@ -41,11 +41,11 @@ export default function PricePerSqmBadge({ listing, withTooltip = true }) {
     return null;
   }
 
-  const { pricePerSqm, percent, verdict } = benchmark;
+  const { pricePerSqm, percent, verdict, currency } = benchmark;
 
   const badge = (
     <span className="pricePerSqmBadge">
-      <span className="pricePerSqmBadge__value">{formatPricePerSqm(pricePerSqm, locale)}</span>
+      <span className="pricePerSqmBadge__value">{formatPricePerSqm(pricePerSqm, locale, true, currency)}</span>
       {verdict != null && (
         <span className={`pricePerSqmBadge__deviation pricePerSqmBadge__deviation--${verdict}`}>
           {formatDeviation(percent, locale)}
@@ -80,14 +80,15 @@ export function describeBenchmark(benchmark, t, locale) {
   if (benchmark == null) {
     return '';
   }
-  const { median, sampleSize, radiusKm, percent, verdict } = benchmark;
+  const { median, sampleSize, radiusKm, percent, verdict, currency } = benchmark;
   if (verdict == null) {
     return t('listings.pricePerSqmNoBenchmark');
   }
   return [
     t(`listings.pricePerSqmVerdict.${verdict}`, { percent: formatDeviation(Math.abs(percent), locale, false) }),
     t('listings.pricePerSqmTooltip', {
-      median: formatPricePerSqm(median, locale),
+      // The neighbours were all priced in the listing's own currency, so the median is in it too.
+      median: formatPricePerSqm(median, locale, true, currency),
       count: String(sampleSize ?? 0),
       radius: String(radiusKm ?? 0),
     }),

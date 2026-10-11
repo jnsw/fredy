@@ -70,6 +70,17 @@ describe('buildObjectFacts', () => {
     expect(english.currency ?? english.price.currency).toBeTruthy();
   });
 
+  // A Swiss rent is francs, and its price per square metre is too - a euro sign next to either
+  // would claim a conversion nobody made.
+  it('writes the price and the price per square metre in the listing currency', () => {
+    const swiss = buildObjectFacts({ ...full, price: 2710, price_per_sqm: 33.88, currency: 'CHF' }, ctx);
+    expect(swiss.price.text.replace(/ /g, ' ')).toBe('2.710 CHF');
+    expect(swiss.price.amount).toBe('2.710');
+    expect(swiss.price.currency).toBe('CHF');
+    expect(swiss.tiles.find((tile) => tile.id === 'pricePerSqm').value.replace(/ /g, ' ')).toBe('33,88 CHF');
+    expect(swiss.benchmark.currency).toBe('CHF');
+  });
+
   it('says nothing about a price it does not have rather than naming one', () => {
     const facts = buildObjectFacts({ ...full, price: null }, ctx);
     expect(facts.price.text).toBe('common.na');
@@ -333,5 +344,10 @@ describe('formatPricePerSqm', () => {
 
   it('drops the unit only when asked', () => {
     expect(formatPricePerSqm(4194, 'de-DE', false)).not.toContain('/m\u00b2');
+  });
+
+  it('writes the currency it is given, euros when it is given none', () => {
+    expect(formatPricePerSqm(33.88, 'de-DE', true, 'CHF').replace(/\u00a0/g, ' ')).toBe('33,88 CHF/m\u00b2');
+    expect(formatPricePerSqm(12.4, 'de-DE').replace(/\u00a0/g, ' ')).toBe('12,40 \u20ac/m\u00b2');
   });
 });

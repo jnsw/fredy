@@ -4,6 +4,7 @@
  */
 
 import { parseCommuteFilter } from '../../components/transit/travelTimeFormat.js';
+import { DEFAULT_CURRENCY, normalizeCurrency } from '../../services/price/priceService.js';
 
 /**
  * Calculates the great-circle distance between two points on a sphere using the Haversine formula.
@@ -196,4 +197,80 @@ export const countActiveMapFilters = ({ jobId, commute, priceMin, priceMax }) =>
   const bounded = (value) => Number.isFinite(value) && value > 0;
   const active = [jobId != null, parseCommuteFilter(commute) != null, bounded(priceMin) || bounded(priceMax)];
   return active.filter(Boolean).length;
+};
+
+/**
+ * The currency the map's price filter works in.
+ *
+ * Every listing keeps the currency it was advertised in and nothing converts one into another, so a
+ * price range is a range in one currency. The one asked for in the address bar when the loaded
+ * listings have it, otherwise the one most of them are priced in - euros on a tie, the default.
+ *
+ * @param {Array<{price?: number|null, currency?: string|null}>} listings
+ * @param {string|null} [requested] The `priceCurrency` URL value.
+ * @returns {{currency: string, currencies: string[]}} The currency in use, and every currency the
+ *   priced listings are in (sorted), which is what the currency picker offers.
+ */
+export const pickPriceCurrency = (listings, requested = null) => {
+  const counts = new Map();
+  for (const listing of listings ?? []) {
+    if (!listing?.price) continue;
+    const code = normalizeCurrency(listing.currency);
+    counts.set(code, (counts.get(code) ?? 0) + 1);
+  }
+  const currencies = [...counts.keys()].sort();
+  const wanted = requested == null ? null : normalizeCurrency(requested);
+  if (wanted != null && counts.has(wanted)) {
+    return { currency: wanted, currencies };
+  }
+  let currency = DEFAULT_CURRENCY;
+  let best = counts.get(DEFAULT_CURRENCY) ?? 0;
+  for (const [code, count] of counts) {
+    if (count > best) {
+      currency = code;
+      best = count;
+    }
+  }
+  return { currency, currencies };
+};
+
+/**
+ * The highest price among the listings priced in one currency, the top of the price slider.
+ *
+ * @param {Array<{price?: number|null, currency?: string|null}>} listings
+ * @param {string} currency
+ * @returns {number} 0 when none is.
+ */
+export const maxPriceIn = (listings, currency) =>
+  (listings ?? []).reduce((acc, item) => {
+    const price = Number(item?.price);
+    return normalizeCurrency(item?.currency) === currency && Number.isFinite(price) && price > acc ? price : acc;
+  }, 0);
+
+/**
+ * Whether a listing passes the map's price filter.
+ *
+ * A listing priced in the filter's currency has to sit inside the range. One priced in another
+ * currency cannot be held against it - "at most 1.500 €" says nothing about a rent in francs - so
+ * it is shown while the filter is untouched and hidden once a range is set, the answer the commute
+ * filter gives for a listing it has no travel time for. A listing without a price never had a pin
+ * here, and still has none.
+ *
+ * @param {{price?: number|null, currency?: string|null}} listing
+ * @param {Object} filter
+ * @param {number} filter.min
+ * @param {number} filter.max
+ * @param {string} filter.currency The currency the range is in.
+ * @param {boolean} filter.active Whether a range has been set at all (a `priceMin` or `priceMax`
+ *   in the address bar).
+ * @returns {boolean}
+ */
+export const withinPriceRange = (listing, { min, max, currency, active }) => {
+  if (!listing?.price) {
+    return false;
+  }
+  if (normalizeCurrency(listing.currency) !== currency) {
+    return !active;
+  }
+  return listing.price >= min && listing.price <= max;
 };

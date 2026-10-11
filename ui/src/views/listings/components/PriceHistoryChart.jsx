@@ -8,7 +8,7 @@ import { Line } from 'react-chartjs-2';
 
 import {
   CHART_COLORS,
-  formatEuro,
+  formatWholePrice,
   makeAreaGradient,
   registerFinanceCharts,
   withAlpha,
@@ -29,10 +29,11 @@ registerFinanceCharts();
  * @param {Object} props
  * @param {Array<{price: number, observed_at: number}>} props.data Oldest first.
  * @param {string} [props.locale]
+ * @param {string} [props.currency='EUR'] ISO 4217 code every reading is in - the listing's own.
  * @param {number} [props.height=120]
  * @returns {React.ReactElement|null}
  */
-export default function PriceHistoryChart({ data = [], locale = 'de-DE', height = 120 }) {
+export default function PriceHistoryChart({ data = [], locale = 'de-DE', currency = 'EUR', height = 120 }) {
   const rows = React.useMemo(() => (Array.isArray(data) ? data : []), [data]);
 
   const chartData = React.useMemo(
@@ -78,7 +79,7 @@ export default function PriceHistoryChart({ data = [], locale = 'de-DE', height 
           ticks: {
             color: CHART_COLORS.MUTED,
             maxTicksLimit: 4,
-            callback: (value) => formatEuro(value, locale),
+            callback: (value) => formatWholePrice(value, locale, currency),
           },
         },
       },
@@ -88,13 +89,13 @@ export default function PriceHistoryChart({ data = [], locale = 'de-DE', height 
           displayColors: false,
           callbacks: {
             title: (items) => new Date(Number(items[0].label)).toLocaleDateString(locale),
-            label: (ctx) => formatEuro(ctx.parsed.y, locale),
+            label: (ctx) => formatWholePrice(ctx.parsed.y, locale, currency),
           },
         },
       },
       interaction: { mode: 'index', intersect: false },
     }),
-    [locale],
+    [locale, currency],
   );
 
   if (rows.length < 2) {

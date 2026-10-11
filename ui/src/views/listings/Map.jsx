@@ -16,6 +16,9 @@ import {
   getBoundsFromCenter,
   getBoundsFromCoords,
   groupListingsByPosition,
+  maxPriceIn,
+  pickPriceCurrency,
+  withinPriceRange,
 } from './mapUtils.js';
 import { Select, Switch, Toast, Typography } from '@douyinfe/semi-ui-19';
 
@@ -40,7 +43,7 @@ import { useTranslation, useLocale } from '../../services/i18n/i18n.jsx';
 import { keepPopupInView, mountPopupNode } from '../../components/map/popupContent.jsx';
 import NearbyStops from '../../components/transit/NearbyStops.jsx';
 import { COMMUTE_OPTIONS, parseCommuteFilter } from '../../components/transit/travelTimeFormat.js';
-import { formatEuroCompact } from '../../components/cards/chartTheme.js';
+import { formatCompactPrice } from '../../components/cards/chartTheme.js';
 import { normalizeTheme } from '../../services/theme/theme.js';
 
 /**
@@ -186,6 +189,13 @@ export default function MapView() {
   const urlPriceMin = searchParams.has('priceMin') ? Number(searchParams.get('priceMin')) : null;
   const urlPriceMax = searchParams.has('priceMax') ? Number(searchParams.get('priceMax')) : null;
   const [priceRange, setPriceRange] = useState([urlPriceMin ?? 0, urlPriceMax ?? 0]);
+  // The range is in one currency, since nothing converts francs into euros. Which one is only a
+  // question once the loaded listings span several; then it is picked next to the slider.
+  const { currency: priceCurrency, currencies: priceCurrencies } = useMemo(
+    () => pickPriceCurrency(listings, searchParams.get('priceCurrency')),
+    [listings, searchParams],
+  );
+  const priceFilterActive = urlPriceMin != null || urlPriceMax != null;
 
   // Read from the address bar rather than from the controls, which the folded panel on a phone does
   // not render: what is on in the URL is what is hiding pins.
@@ -236,19 +246,15 @@ export default function MapView() {
     }
   }, [listings]);
 
-  const getMaxPrice = () => {
-    return listings.reduce((acc, item) => {
-      const price = Number(item.price);
-      return Number.isFinite(price) && price > acc ? price : acc;
-    }, 0);
-  };
+  // The top of the slider, among the listings priced in the slider's own currency.
+  const getMaxPrice = () => maxPriceIn(listings, priceCurrency);
 
   const filterListings = () => {
     const min = priceRange[0];
     const max = priceRange[1] && priceRange[1] > 0 ? priceRange[1] : getMaxPrice();
 
     return listings
-      .filter((listing) => listing.price && listing.price >= min && listing.price <= max)
+      .filter((listing) => withinPriceRange(listing, { min, max, currency: priceCurrency, active: priceFilterActive }))
       .filter(withinCommute);
   };
 
@@ -279,7 +285,7 @@ export default function MapView() {
   // cannot claim a stack that is not on the map.
   const hasStacks = useMemo(
     () => groupListingsByPosition(filterListings()).some((group) => group.listings.length > 1),
-    [listings, priceRange, commuteFilter],
+    [listings, priceRange, priceCurrency, priceFilterActive, commuteFilter],
   );
 
   const handleMapReady = (mapInstance) => {
@@ -319,6 +325,28 @@ export default function MapView() {
         } else {
           next.set('priceMax', String(val[1]));
         }
+        return next;
+      },
+      { replace: true },
+    );
+  };
+
+  /**
+   * Switch the price filter to another currency.
+   *
+   * The range is dropped rather than carried over: 1.500 means something else in every currency,
+   * and keeping the numbers would quietly apply a euro range to francs.
+   *
+   * @param {string} code ISO 4217 code, one of `priceCurrencies`.
+   */
+  const handlePriceCurrency = (code) => {
+    setPriceRange([0, maxPriceIn(listings, code)]);
+    setSearchParams(
+      (prev) => {
+        const next = new URLSearchParams(prev);
+        next.delete('priceMin');
+        next.delete('priceMax');
+        next.set('priceCurrency', code);
         return next;
       },
       { replace: true },
@@ -626,7 +654,7 @@ export default function MapView() {
     // has to redraw it. Without it the dark variant would only appear the next time one of the
     // others changed. The open popup is deliberately *not* in here - it is read through a ref, see
     // openListingIdRef, because rebuilding the markers would close the popup that just opened.
-  }, [listings, priceRange, homeAddresses, distanceFilter, commuteFilter, isDark]);
+  }, [listings, priceRange, priceCurrency, priceFilterActive, homeAddresses, distanceFilter, commuteFilter, isDark]);
 
   return (
     <>
@@ -765,9 +793,26 @@ export default function MapView() {
                     {t('map.filterPriceLabel')}
                   </Text>
                   <div className="map-view-container__price-slider">
+                    {/* Only once the pins span several currencies. A range is a range in one of
+                        them; pins in the others stay visible until a range is set. */}
+                    {priceCurrencies.length > 1 && (
+                      <Select
+                        size="small"
+                        value={priceCurrency}
+                        onChange={handlePriceCurrency}
+                        aria-label={t('map.filterPriceCurrency')}
+                        style={{ width: '100%', marginBottom: 6 }}
+                      >
+                        {priceCurrencies.map((code) => (
+                          <Select.Option key={code} value={code}>
+                            {code}
+                          </Select.Option>
+                        ))}
+                      </Select>
+                    )}
                     <div className="map__rangesliderLabels">
-                      <span>{formatEuroCompact(priceRange[0], locale)}</span>
-                      <span>{formatEuroCompact(priceRange[1] || getMaxPrice(), locale)}</span>
+                      <span>{formatCompactPrice(priceRange[0], locale, priceCurrency)}</span>
+                      <span>{formatCompactPrice(priceRange[1] || getMaxPrice(), locale, priceCurrency)}</span>
                     </div>
                     <RangeSlider min={0} max={getMaxPrice()} step={100} value={priceRange} onInput={handlePriceRange} />
                   </div>

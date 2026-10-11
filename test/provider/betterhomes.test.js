@@ -245,6 +245,24 @@ describe('#betterhomes provider testsuite()', () => {
       expect(runConfig.normalize(row()).link).toContain('https://www.betterhomes.de/de/immobilie-suchen/detail/');
     });
 
+    // One provider, three sites, two currencies: only the listing can say which one its price is in.
+    it('prices a listing in the currency of the site it is on', () => {
+      const swiss = provider.createConfig(
+        { url: 'https://www.betterhomes.ch/de/immobilie-suchen/mieten?searchType=rent', enabled: true },
+        [],
+      );
+      const austrian = provider.createConfig(
+        { url: 'https://www.betterhomes.at/de/immobilie-suchen/mieten?searchType=rent', enabled: true },
+        [],
+      );
+
+      expect(swiss.normalize(row()).currency).toBe('CHF');
+      expect(austrian.normalize(row()).currency).toBe('EUR');
+      expect(runConfig.normalize(row()).currency).toBe('EUR');
+      // The provider declares none of its own, so nothing but the listing decides.
+      expect(provider.metaInformation.currency).toBeUndefined();
+    });
+
     // A re-listed advert keeps its object id, so a hash over the id alone would make the pipeline
     // treat the cheaper re-listing as a listing it has already seen.
     it('changes the hash when the price changes', () => {

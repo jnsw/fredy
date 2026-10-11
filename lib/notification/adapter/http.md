@@ -32,6 +32,7 @@ Body:
       "id": "123456789",
       "imageUrl": "https://<target-url>.com/listings/123456789.jpg",
       "price": "1.240 €",
+      "currency": "EUR",
       "size": "38 m²",
       "title": "Schöne 1-Zimmer-Wohnung in Bielefeld",
       "url": "https://<target-url>.com/listings/123456789"
@@ -39,6 +40,9 @@ Body:
   ]
 }
 ```
+
+`price` is formatted in the currency the portal quotes (`2.710 CHF` for a Swiss listing), and
+`currency` carries that currency's ISO 4217 code, so a receiver does not have to parse it back out.
 
 </details>
 

@@ -38,6 +38,7 @@ import ListingDescriptionCard from './components/ListingDescriptionCard.jsx';
 import './ListingDetail.less';
 import { useTranslation } from '../../services/i18n/i18n.jsx';
 import { useFinanceProfile } from '../../hooks/useFinanceProfile.js';
+import { DEFAULT_CURRENCY, normalizeCurrency } from '../../services/price/priceService.js';
 
 const { Text } = Typography;
 
@@ -487,7 +488,12 @@ export default function ListingDetail() {
   if (!listing) return null;
 
   const isRental = listing.dealType === 'rent';
-  const financeIncomplete = !(isRental ? rentComplete : buyComplete) && listing.price != null;
+  // The finance model is a German one and budgets in euros, so a listing priced in another currency
+  // gets neither a costing nor the invitation to set one up.
+  const financeIncomplete =
+    !(isRental ? rentComplete : buyComplete) &&
+    listing.price != null &&
+    normalizeCurrency(listing.currency) === DEFAULT_CURRENCY;
 
   return (
     <div className={`listing-detail${phone ? ' listing-detail--phone' : ''}`}>

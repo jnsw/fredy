@@ -3,7 +3,7 @@
  * Licensed under Apache-2.0 with Commons Clause and Attribution/Naming Clause
  */
 
-import { formatEuroPrice } from '../../../services/price/priceService.js';
+import { formatPrice } from '../../../services/price/priceService.js';
 import { formatPricePerSqm } from '../../../services/listings/marketBenchmark.js';
 import { formatDecimal } from '../../../services/number/numberService.js';
 import { relativeTime } from '../../../services/time/relativeTime.js';
@@ -108,11 +108,13 @@ export default function LatestListings({ listings = [], locale = 'de-DE', t, onO
               {/* `price` is nullable (only id, link and title are required), and formatting null
                   prints "0 €". */}
               <span className="dashboard__latestPrice">
-                {row.price != null ? formatEuroPrice(row.price, locale) : t('common.na')}
+                {row.price != null ? formatPrice(row.price, locale, null, row.currency) : t('common.na')}
               </span>
               <span className="dashboard__latestSqm">
                 {row.price_per_sqm != null && (
-                  <span className="dashboard__chip">{formatPricePerSqm(row.price_per_sqm, locale)}</span>
+                  <span className="dashboard__chip">
+                    {formatPricePerSqm(row.price_per_sqm, locale, true, row.currency)}
+                  </span>
                 )}
               </span>
               <span className="dashboard__latestAge">{relativeTime(row.created_at, t)}</span>

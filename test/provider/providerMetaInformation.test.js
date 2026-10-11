@@ -6,6 +6,7 @@
 import { describe, it, expect, beforeAll } from 'vitest';
 import { getProviders } from '../../lib/utils.js';
 import { normalizeCountries } from '../../lib/services/providers/countries.js';
+import { DEFAULT_CURRENCY, normalizeCurrency } from '../../lib/services/providers/currencies.js';
 
 /**
  * The shape of what every provider exports as `metaInformation`.
@@ -73,6 +74,26 @@ describe('provider metaInformation', () => {
       const base = new URL(baseUrl).hostname.replace(/^www\./, '');
       expect(hosts, `${id}.baseUrl is on '${base}', which ${id}.hosts does not list`).toContain(base);
     }
+  });
+
+  // `currency` is optional and read as leniently as `countries`: a malformed one silently falls back
+  // to euros, and the symptom - francs printed with a euro sign - is easy to miss in a country
+  // nobody on the project searches. So a declared one has to be a real three-letter code.
+  it('declares a currency only as an upper-case ISO 4217 code', () => {
+    for (const provider of providers) {
+      const { id, currency } = provider.metaInformation;
+      if (currency === undefined) continue;
+      expect(currency, `${id}.currency must be an upper-case ISO 4217 code`).toMatch(/^[A-Z]{3}$/);
+      expect(Intl.supportedValuesOf('currency'), `${id}.currency is not a currency Intl knows`).toContain(currency);
+    }
+  });
+
+  // Every shipped provider outside the euro area says so. A missing declaration would print every
+  // price it finds with a euro sign.
+  it('declares the Swiss franc where the portal quotes it', () => {
+    const byId = Object.fromEntries(providers.map((provider) => [provider.metaInformation.id, provider]));
+    expect(normalizeCurrency(byId.flatfox.metaInformation.currency)).toBe('CHF');
+    expect(normalizeCurrency(byId.immoscout.metaInformation.currency)).toBe(DEFAULT_CURRENCY);
   });
 
   // The check above states the rule; this one states it as "nothing gets thrown away", which is the

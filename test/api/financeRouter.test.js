@@ -205,7 +205,22 @@ describe('POST /affordability', () => {
     const body = response.json();
     expect(body.items).toHaveLength(1);
     expect(body.items[0].id).toBe('buy');
-    expect(body.skipped).toEqual({ noPrice: 1, incompleteProfile: 0 });
+    expect(body.skipped).toEqual({ noPrice: 1, incompleteProfile: 0, otherCurrency: 0 });
+  });
+
+  // The budget is euros. A franc rent scored against it would be a verdict on a wrong number.
+  it('skips listings priced in another currency and says how many', async () => {
+    queryListings.mockReturnValue({
+      totalNumber: 2,
+      page: 1,
+      result: [{ ...listing('zurich', 2400, 'rent'), currency: 'CHF' }, listing('rent-1', 1200, 'rent')],
+    });
+    const app = await buildApp();
+    const response = await app.inject({ method: 'POST', url: '/affordability', payload: { profile: PROFILE } });
+
+    const body = response.json();
+    expect(body.items.map((item) => item.id)).toEqual(['rent-1']);
+    expect(body.skipped).toEqual({ noPrice: 0, incompleteProfile: 0, otherCurrency: 1 });
   });
 
   it('falls back to the price heuristic when a listing has no deal type', async () => {
@@ -410,6 +425,22 @@ describe('GET /listing/:listingId', () => {
 
     expect(body.result).toBeNull();
     expect(body.scored).toBeNull();
+  });
+
+  // The German model lends and budgets in euros, so a price in francs gets no costing at all,
+  // which is what hides the card on the detail page.
+  it('returns no figures for a listing priced in another currency', async () => {
+    getListingById.mockReturnValue({ ...listing('zh', 950000, 'buy'), currency: 'CHF' });
+    const app = await buildApp();
+
+    const body = (await app.inject({ method: 'GET', url: '/listing/zh' })).json();
+
+    expect(body.result).toBeNull();
+    expect(body.scored).toBeNull();
+
+    getListingById.mockReturnValue({ ...listing('zr', 2400, 'rent'), currency: 'CHF' });
+    const rent = (await app.inject({ method: 'GET', url: '/listing/zr' })).json();
+    expect(rent.scored).toBeNull();
   });
 
   it('returns no figures when the matching half of the profile is missing', async () => {
