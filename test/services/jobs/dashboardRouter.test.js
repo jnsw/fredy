@@ -39,7 +39,7 @@ describe('api/routes/dashboardRouter.js', () => {
       },
     }));
     vi.doMock(settingsStoragePath, () => ({
-      getSettings: async () => ({ interval: 30 }),
+      getSettings: async () => state.settings,
     }));
     vi.doMock(securityPath, () => ({
       isAdmin: () => state.admin,
@@ -66,6 +66,7 @@ describe('api/routes/dashboardRouter.js', () => {
       jobs: [],
       latest: [],
       jobActivity: {},
+      settings: { interval: 30 },
     };
   });
 
@@ -87,6 +88,26 @@ describe('api/routes/dashboardRouter.js', () => {
     const body = res.json();
     expect(body.general.lastRun).toBe(5000);
     expect(body.general.nextRun).toBe(5000 + 30 * 60000);
+  });
+
+  it('promises the next run of a job with an interval of its own by that interval', async () => {
+    state.jobs = [
+      { id: 'a', userId: 'u1', shared_with_user: [], lastRunAt: 5000, intervalMinutes: 10 },
+      { id: 'b', userId: 'u1', shared_with_user: [], lastRunAt: 5000 },
+    ];
+    app = await buildApp();
+
+    const body = (await app.inject({ method: 'GET', url: '/api/dashboard/' })).json();
+    expect(body.general.nextRun).toBe(5000 + 10 * 60000);
+  });
+
+  it('allows for the random delay, so a delayed run does not read as a stalled scheduler', async () => {
+    state.settings = { interval: 30, intervalJitterPercent: 20 };
+    state.jobs = [{ id: 'a', userId: 'u1', shared_with_user: [], lastRunAt: 5000 }];
+    app = await buildApp();
+
+    const body = (await app.inject({ method: 'GET', url: '/api/dashboard/' })).json();
+    expect(body.general.nextRun).toBe(5000 + 36 * 60000);
   });
 
   it('includes shared jobs in the lastRun calculation', async () => {

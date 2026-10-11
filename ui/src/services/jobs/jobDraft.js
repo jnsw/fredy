@@ -53,6 +53,7 @@ export const DRAFT_FIELDS = [
   'spatialFilter',
   'specFilter',
   'commuteFilter',
+  'intervalMinutes',
 ];
 
 /**
@@ -90,7 +91,9 @@ export function hasContent(draft) {
     draft.dealType != null ||
     draft.spatialFilter != null ||
     draft.specFilter != null ||
-    draft.commuteFilter != null
+    draft.commuteFilter != null ||
+    // Empty is the default ("follow the global interval"), so only a number is something the user set.
+    (draft.intervalMinutes != null && draft.intervalMinutes !== '')
   );
 }
 

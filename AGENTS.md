@@ -50,7 +50,7 @@ index.js (startup)
   ├── api.js                    # starts fastify HTTP server
   └── initJobExecutionService() # registers event-bus listeners + starts scheduler
 
-scheduler (every N minutes) or manual trigger via POST /api/jobs/:id/run
+scheduler (every N minutes, or a job's own interval; see lib/services/jobs/jobInterval.js) or manual trigger via POST /api/jobs/:id/run
   └── FredyPipelineExecutioner.execute()
       1. queryStringMutator(url)           # inject sort-by-date param
       2. provider.getListings()            # API or Puppeteer+Cheerio

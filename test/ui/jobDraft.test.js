@@ -90,6 +90,7 @@ describe('jobDraft', () => {
       // rule is "anything the user set is worth keeping" and singling this one out as not counting
       // is how the field stops being carried at all.
       ['a travel time limit', { commuteFilter: { action: 'notify', limits: { Work: 35 } } }],
+      ['an interval of its own', { intervalMinutes: 15 }],
     ])('counts %s', (_what, draft) => {
       expect(hasContent(draft)).toBe(true);
     });
@@ -100,6 +101,8 @@ describe('jobDraft', () => {
       ['empty lists', { providerData: [], selectedChannelIds: [], blacklist: [] }],
       // `enabled` defaults to true on a fresh form, so on its own it is not evidence of any editing.
       ['only the activation default', { enabled: true }],
+      // Empty is the default: the job follows the global interval.
+      ['an emptied interval', { intervalMinutes: '' }],
       ['null', null],
     ])('does not count %s', (_what, draft) => {
       expect(hasContent(draft)).toBe(false);

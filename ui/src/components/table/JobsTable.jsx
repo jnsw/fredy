@@ -8,13 +8,29 @@ import { IconAlertTriangle } from '@douyinfe/semi-icons';
 
 import JobActions from '../jobs/JobActions.jsx';
 import { relativeTime } from '../../services/time/relativeTime.js';
+import { effectiveJobInterval } from '../../services/jobs/jobInterval.js';
 import './JobsTable.less';
 import { useTranslation } from '../../services/i18n/i18n.jsx';
 
 /**
- * @param {{ jobs: object[], onRun: Function, onEdit: Function, onClone: Function, onDeleteListings: Function, onDeleteJob: Function, onStatusChange: Function }} props
+ * How often a job searches, for the tooltip on its "last run" cell. The table has no column to
+ * spare for it; the grid's cards show it in print.
+ *
+ * @param {object} job
+ * @param {number|string|undefined} globalInterval
+ * @param {Function} t
+ * @returns {string|undefined}
  */
-const JobsTable = ({ jobs, onRun, onEdit, onClone, onDeleteListings, onDeleteJob, onStatusChange }) => {
+function intervalTitle(job, globalInterval, t) {
+  const { minutes, own } = effectiveJobInterval(job, globalInterval);
+  if (minutes == null) return undefined;
+  return `${t('jobs.cardInterval', { minutes: String(minutes) })} · ${t(own ? 'jobs.intervalOwnHint' : 'jobs.intervalGlobalHint')}`;
+}
+
+/**
+ * @param {{ jobs: object[], globalInterval?: number|string, onRun: Function, onEdit: Function, onClone: Function, onDeleteListings: Function, onDeleteJob: Function, onStatusChange: Function }} props
+ */
+const JobsTable = ({ jobs, globalInterval, onRun, onEdit, onClone, onDeleteListings, onDeleteJob, onStatusChange }) => {
   const t = useTranslation();
   return (
     <div className="jobsTable">
@@ -71,7 +87,7 @@ const JobsTable = ({ jobs, onRun, onEdit, onClone, onDeleteListings, onDeleteJob
           </div>
 
           {/* Bare, because the column heading above already says "last run". */}
-          <div className="jobsTable__row__lastRun">
+          <div className="jobsTable__row__lastRun" title={intervalTitle(job, globalInterval, t)}>
             {job.lastRunAt ? relativeTime(job.lastRunAt, t) : t('jobs.lastRunNever')}
           </div>
 

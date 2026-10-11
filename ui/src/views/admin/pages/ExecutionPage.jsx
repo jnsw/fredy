@@ -15,6 +15,7 @@ import { useUnsavedWarning } from '../../../hooks/useUnsavedWarning.js';
 import { useSelector } from '../../../services/state/store';
 import { relativeTime } from '../../../services/time/relativeTime.js';
 import { timeZoneOptions } from '../../../services/time/timeService';
+import { MAX_INTERVAL_JITTER_PERCENT } from '../../../services/jobs/jobInterval.js';
 import './ExecutionPage.less';
 
 /**
@@ -78,7 +79,7 @@ export default function ExecutionPage() {
         name={t('admin.execution.searchRun')}
         // The working hours sit in this card too, and theirs is the explanation of what an empty
         // time zone means (the server's, which in Docker is UTC).
-        helpText={`${t('settings.searchIntervalHelp')} ${t('settings.workingHoursHelp')}`}
+        helpText={`${t('settings.searchIntervalHelp')} ${t('settings.intervalJitterHelp')} ${t('settings.workingHoursHelp')}`}
         helpMode="popover"
         action={
           nextRun != null && nextRun !== 0 ? (
@@ -109,6 +110,27 @@ export default function ExecutionPage() {
               onChange={(value) => setField('interval', value)}
               suffix={t('settings.searchIntervalSuffix')}
             />
+          </span>
+        </div>
+
+        {/* Right under the interval it stretches, and for every job: the portals see the instance,
+            not the job, so one fixed beat anywhere is the beat they see. */}
+        <div className="executionPage__line">
+          <span className="executionPage__caption">{t('admin.execution.jitter')}</span>
+          <span className="adminRow__control">
+            <InputNumber
+              id="intervalJitterPercent"
+              min={0}
+              max={MAX_INTERVAL_JITTER_PERCENT}
+              aria-label={t('settings.intervalJitter')}
+              value={form.intervalJitterPercent}
+              formatter={(value) => `${value}`.replace(/\D/g, '')}
+              onChange={(value) => setField('intervalJitterPercent', value)}
+              suffix="%"
+            />
+          </span>
+          <span className="executionPage__caption executionPage__caption--inline">
+            {t('admin.execution.jitterAfter')}
           </span>
         </div>
 
