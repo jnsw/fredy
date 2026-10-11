@@ -809,6 +809,58 @@ export const useFredyState = create(
             }
           },
         },
+        aiRating: {
+          /**
+           * Load the user's AI rating settings. The key itself never comes back - only whether one
+           * is stored.
+           */
+          async getSettings() {
+            try {
+              const response = await xhrGet('/api/ai-rating/settings');
+              set((state) => ({ aiRating: { ...state.aiRating, ...response.json, loaded: true } }));
+            } catch (Exception) {
+              console.error('Error while trying to load the AI rating settings. Error:', Exception);
+              set((state) => ({ aiRating: { ...state.aiRating, loaded: true } }));
+            }
+          },
+          /**
+           * @param {Object} payload - Leave `apiKey` empty to keep the stored one.
+           */
+          async saveSettings(payload) {
+            try {
+              const response = await xhrPost('/api/ai-rating/settings', payload);
+              set((state) => ({ aiRating: { ...state.aiRating, ...response.json, loaded: true } }));
+            } catch (Exception) {
+              console.error('Error while trying to save the AI rating settings. Error:', Exception);
+              throw Exception;
+            }
+          },
+          async deleteSettings() {
+            try {
+              const response = await xhrDelete('/api/ai-rating/settings');
+              set((state) => ({ aiRating: { ...state.aiRating, ...response.json, loaded: true } }));
+            } catch (Exception) {
+              console.error('Error while trying to remove the AI rating settings. Error:', Exception);
+              throw Exception;
+            }
+          },
+          /**
+           * Rate a few listings now with the user's own key. One request; a larger selection is
+           * sent in rounds by the caller.
+           *
+           * @param {string[]} listingIds
+           * @returns {Promise<{results: Object[], stopped: {kind: string, message: string}|null}>}
+           */
+          async rateListings(listingIds) {
+            try {
+              const response = await xhrPost('/api/ai-rating/rate', { listingIds });
+              return response.json;
+            } catch (Exception) {
+              console.error('Error while trying to rate listings. Error:', Exception);
+              throw Exception;
+            }
+          },
+        },
       };
 
       // Initial state
@@ -827,6 +879,7 @@ export const useFredyState = create(
         },
         generalSettings: { settings: {} },
         userSettings: { settings: {}, loaded: false },
+        aiRating: { settings: null, defaults: null, providers: [], maxListingsPerRequest: 5, loaded: false },
         demoMode: { demoMode: false },
         versionUpdate: {},
         tracking: { pois: {} },
@@ -856,6 +909,7 @@ export const useFredyState = create(
         jobsData: { ...effects.jobsData },
         user: { ...effects.user },
         userSettings: { ...effects.userSettings },
+        aiRating: { ...effects.aiRating },
       };
 
       // Wrap actions to track loading state.

@@ -116,6 +116,8 @@ Fredy is in the [Unraid](https://unraid.net/) community store.
     the portal taking the ad down. A listing with documents is never cleaned up automatically
 -   🖥️ **Web UI** in several languages, with configurable search intervals and working hours
 -   🤖 **[MCP server](lib/mcp/README.md)**: query your listings from Claude, ChatGPT or a local LLM
+-   ✨ **[AI rating](doc/ai-rating.md)**: have Claude or any OpenAI-compatible model rate listings as
+    Good, Maybe or Bad against your own criteria, with your own API key
 -   🌍 Runs anywhere: Docker, Node.js, self-hosted, and uses the reverse engineered
     **ImmoScout Mobile API**
 
@@ -240,6 +242,7 @@ class node_debug,node_mcp toneMint
 | [Financing calculator](doc/financing.md) | Rent and Annuitätendarlehen, Kaufnebenkosten, Restschuld, the 35 % rule |
 | [Travel time & public transport](doc/travel-time.md) | Addresses and place types, estimated vs exact, route drawing, departure boards, operator settings |
 | [MCP server](lib/mcp/README.md) | Connecting Claude, ChatGPT or a local LLM to your listings |
+| [AI rating](doc/ai-rating.md) | Rating listings with your own AI key: what is sent, what it costs, how the key is kept |
 | [Reverse proxy sign-in](doc/reverse-proxy-auth.md) | Forward auth with Authelia, Authentik, oauth2-proxy, Traefik, Pangolin |
 | [Debug bundles](doc/debugging.md) | Capturing logs for a bug report |
 | [Development](doc/development.md) | Dev mode, tests, fixtures, adding a language |

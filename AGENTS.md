@@ -114,6 +114,7 @@ An adapter *configuration* is separate from the adapter itself: it is a row in `
 | Migrations | `lib/services/storage/migrations/` | Numbered JS files each exporting `up(db)`; checksum-tracked in `schema_migrations` |
 | Extractor | `lib/services/extractor/` | Orchestrates Puppeteer + Cheerio; shared browser instance per job |
 | Listing documents | `lib/services/storage/listingAttachmentsStorage.js` | Uploaded exposés (`listing_attachments`), bytes and all. Type and filename guards in `lib/services/listings/attachmentTypes.js`; routes in `lib/api/routes/listingAttachmentsRouter.js` |
+| AI rating | `lib/services/ai/` | Rates listings GOOD/MAYBE/BAD with each user's own key (Anthropic SDK or an OpenAI-compatible server). One non-agentic call with structured output; key in `ai_rating_settings`, write-only. Background sweep after job runs (`crons/ai-rating-cron.js`), bounded per run, per day and per listing |
 
 ### Uploaded documents live in the database
 

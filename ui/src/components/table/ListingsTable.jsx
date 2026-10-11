@@ -4,6 +4,7 @@
  */
 
 import { Link } from 'react-router';
+import { Checkbox } from '@douyinfe/semi-ui-19';
 import { IconMapPin } from '@douyinfe/semi-icons';
 import no_image from '../../assets/no_image.png';
 import { formatEuroPrice } from '../../services/price/priceService.js';
@@ -24,7 +25,8 @@ import './ListingsTable.less';
 import { useTranslation, useLocale } from '../../services/i18n/i18n.jsx';
 
 /**
- * @param {{ listings: object[], onWatch: Function, onNavigate: Function, onDelete: Function, onRestore?: Function, onReactivate?: Function, isHiddenView?: boolean, onStatusChange: Function, onApplication?: Function }} props
+ * @param {{ listings: object[], onWatch: Function, onNavigate: Function, onDelete: Function, onRestore?: Function, onReactivate?: Function, isHiddenView?: boolean, onStatusChange: Function, onApplication?: Function, selection?: {isSelected: (id: string) => boolean, onToggle: (id: string) => void}|null }} props
+ *   `selection` adds a tick box to every row, for rating listings with the user's own AI key.
  */
 const ListingsTable = ({
   listings,
@@ -36,6 +38,7 @@ const ListingsTable = ({
   isHiddenView = false,
   onStatusChange,
   onApplication,
+  selection = null,
 }) => {
   const t = useTranslation();
   const locale = useLocale();
@@ -163,6 +166,14 @@ const ListingsTable = ({
 
           {/* One place that stops the click, instead of one call per button inside. */}
           <div className="listingsTable__row__actions" onClick={(e) => e.stopPropagation()}>
+            {selection != null && (
+              <Checkbox
+                className="aiRatingSelect"
+                checked={selection.isSelected(item.id)}
+                onChange={() => selection.onToggle(item.id)}
+                aria-label={t('listings.aiRateSelectListing', { title: item.title ?? '' })}
+              />
+            )}
             <WatchToggle listing={item} onWatch={onWatch} variant="inline" />
             <ListingActions
               listing={item}

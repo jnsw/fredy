@@ -7,6 +7,7 @@ import { vi, describe, it, expect, beforeEach, afterEach } from 'vitest';
 import Database from 'better-sqlite3';
 
 import { up as addAiVerdictColumns } from '../../../lib/services/storage/migrations/sql/60.listing-ai-verdict.js';
+import { up as addAiRatingSettings } from '../../../lib/services/storage/migrations/sql/61.ai-rating-settings.js';
 
 /**
  * The AI verdict columns against a real table: what is written, what is cleared with it, and which
@@ -30,10 +31,12 @@ describe('AI verdict in the listings table', () => {
         status TEXT,
         created_at INTEGER,
         published_at INTEGER,
+        is_active INTEGER DEFAULT 1,
         manually_deleted INTEGER DEFAULT 0
       );
     `);
     addAiVerdictColumns(db);
+    addAiRatingSettings(db);
     db.prepare(`INSERT INTO jobs (id, user_id, name) VALUES ('job-1', 'u1', 'Berlin')`).run();
 
     vi.resetModules();
@@ -147,5 +150,86 @@ describe('AI verdict in the listings table', () => {
 
   it('is a no-op when the migration runs again', () => {
     expect(() => addAiVerdictColumns(db)).not.toThrow();
+    expect(() => addAiRatingSettings(db)).not.toThrow();
+  });
+
+  describe('what the background rating picks up', () => {
+    const SINCE = 1_000;
+
+    const insert = (id, overrides = {}) => {
+      const row = {
+        id,
+        job_id: 'job-1',
+        title: `Listing ${id}`,
+        created_at: SINCE + 10,
+        is_active: 1,
+        manually_deleted: 0,
+        ai_verdict: null,
+        ai_rating_failures: 0,
+        ...overrides,
+      };
+      db.prepare(
+        `INSERT INTO listings (id, job_id, title, created_at, is_active, manually_deleted, ai_verdict, ai_rating_failures)
+         VALUES (@id, @job_id, @title, @created_at, @is_active, @manually_deleted, @ai_verdict, @ai_rating_failures)`,
+      ).run(row);
+    };
+
+    const dueIds = (limit = 10) =>
+      listingsStorage
+        .getListingsDueForAiRating({ userId: 'u1', since: SINCE, limit })
+        .map((row) => row.id)
+        .sort();
+
+    it('takes only new, unrated, active, visible listings of jobs the user owns', () => {
+      db.prepare(
+        `INSERT INTO jobs (id, user_id, name, shared_with_user) VALUES ('job-2', 'u2', 'Shared', '["u1"]')`,
+      ).run();
+      insert('due');
+      insert('before-switching-on', { created_at: SINCE - 1 });
+      insert('rated', { ai_verdict: 'good' });
+      insert('gone', { is_active: 0 });
+      insert('hidden', { manually_deleted: 1 });
+      insert('given-up', { ai_rating_failures: 3 });
+      insert('third-try', { ai_rating_failures: 2 });
+      // Shared with u1, but the key and the bill of somebody else's search are not u1's.
+      insert('shared', { job_id: 'job-2' });
+      // The onboarding tour's invented listings.
+      db.prepare(`INSERT INTO jobs (id, user_id, name) VALUES ('tour-u1', 'u1', 'Example')`).run();
+      insert('example', { job_id: 'tour-u1' });
+
+      expect(dueIds()).toEqual(['due', 'third-try']);
+    });
+
+    it('returns the newest first, and no more than asked for', () => {
+      insert('old', { created_at: SINCE + 1 });
+      insert('new', { created_at: SINCE + 50 });
+
+      expect(
+        listingsStorage.getListingsDueForAiRating({ userId: 'u1', since: SINCE, limit: 1 }).map((row) => row.id),
+      ).toEqual(['new']);
+      expect(listingsStorage.getListingsDueForAiRating({ userId: 'u1', since: SINCE, limit: 0 })).toEqual([]);
+    });
+
+    it('counts failures, and a verdict wipes them', () => {
+      insert('a');
+
+      listingsStorage.recordAiRatingFailure('a');
+      listingsStorage.recordAiRatingFailure('a');
+      expect(rowOf('a').ai_rating_failures).toBe(2);
+
+      listingsStorage.setListingAiVerdict('a', { verdict: 'maybe', source: 'claude-opus-5-5' });
+      expect(rowOf('a').ai_rating_failures).toBe(0);
+    });
+
+    it('counts ratings made with the key for the daily limit, but not those an assistant wrote over MCP', () => {
+      insert('a');
+      insert('b');
+      insert('c');
+      listingsStorage.setListingAiVerdict('a', { verdict: 'good', source: 'claude-opus-5-5' }, 5_000);
+      listingsStorage.setListingAiVerdict('b', { verdict: 'bad', source: 'mcp' }, 5_000);
+      listingsStorage.setListingAiVerdict('c', { verdict: 'bad', source: 'claude-opus-5-5' }, 100);
+
+      expect(listingsStorage.countAiRatingsSince('u1', 1_000)).toBe(1);
+    });
   });
 });

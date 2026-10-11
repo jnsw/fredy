@@ -36,6 +36,8 @@ import {
 import ListingsGrid from '../grid/listings/ListingsGrid.jsx';
 import ListingsTable from '../table/ListingsTable.jsx';
 import { aiVerdictOf } from '../../services/listings/aiVerdict.js';
+import { rateInRounds } from '../../services/listings/aiRatingRounds.js';
+import AiRatingSelectionBar from './AiRatingSelectionBar.jsx';
 import { IllustrationNoResult, IllustrationNoResultDark } from '@douyinfe/semi-illustrations';
 
 import './ListingsOverview.less';
@@ -90,6 +92,7 @@ const ListingsOverview = () => {
   const jobs = useSelector((state) => state.jobsData.jobs);
   const userSettings = useSelector((state) => state.userSettings.settings);
   const generalSettings = useSelector((state) => state.generalSettings.settings);
+  const aiRating = useSelector((state) => state.aiRating);
   const actions = useActions();
   const navigate = useNavigate();
   const sp = useSearchParams();
@@ -132,8 +135,21 @@ const ListingsOverview = () => {
   const [bulkDeleteVisible, setBulkDeleteVisible] = useState(false);
   const [newAvailableCount, setNewAvailableCount] = useState(0);
   const [filtersOpen, setFiltersOpen] = useState(false);
+  // Listings ticked for rating with the user's own AI key, and how far a running rating has got.
+  const [selectedIds, setSelectedIds] = useState([]);
+  const [ratingProgress, setRatingProgress] = useState(null);
 
   const isHiddenView = hiddenOnly === true;
+
+  // Rating is offered once the user has stored a key of their own, and not in the hidden view,
+  // where nothing is worth spending a rating on. Without a key nothing here changes.
+  const canRate = aiRating.settings?.hasApiKey === true && !isHiddenView;
+
+  useEffect(() => {
+    if (!aiRating.loaded) {
+      actions.aiRating.getSettings();
+    }
+  }, []);
 
   // A commute filter without a reference address would return an empty page and look broken, so the
   // control is not offered at all until there is something to measure from.
@@ -349,7 +365,44 @@ const ListingsOverview = () => {
 
   // The AI verdict filter is offered once there is something to filter by: a rated listing on this
   // page, or the filter already being on. For anybody not using AI ratings the drawer stays as it was.
-  const aiFilterAvailable = aiVerdictFilter != null || listings.some((listing) => aiVerdictOf(listing) != null);
+  const aiFilterAvailable =
+    canRate || aiVerdictFilter != null || listings.some((listing) => aiVerdictOf(listing) != null);
+
+  const selection = canRate
+    ? {
+        isSelected: (id) => selectedIds.includes(id),
+        onToggle: (id) =>
+          setSelectedIds((previous) =>
+            previous.includes(id) ? previous.filter((other) => other !== id) : [...previous, id],
+          ),
+      }
+    : null;
+
+  /**
+   * Rate the ticked listings, one request each, and say how it went.
+   */
+  const rateSelected = async () => {
+    const ids = [...selectedIds];
+    setRatingProgress({ done: 0, total: ids.length });
+    try {
+      const { rated, failed, stopped } = await rateInRounds(ids, actions.aiRating.rateListings, setRatingProgress);
+      if (stopped != null) {
+        Toast.error(t('listings.aiRateStopped', { rated, message: stopped.message }));
+      } else if (failed > 0) {
+        Toast.warning(t('listings.aiRateDoneWithFailures', { rated, failed }));
+      } else {
+        Toast.success(t('listings.aiRateDone', { rated }));
+      }
+      setSelectedIds([]);
+    } catch (error) {
+      Toast.error(errorMessage(error, t('listings.aiRateError')));
+    } finally {
+      setRatingProgress(null);
+      loadData();
+      // A rejected key or a rate limit pauses the background rating; the settings page should say so.
+      actions.aiRating.getSettings();
+    }
+  };
 
   // Opening a listing and coming back must land where the user left off - the overview is the
   // one view people page through item by item, and starting at the top every time means finding
@@ -525,6 +578,18 @@ const ListingsOverview = () => {
         />
       )}
 
+      {canRate && (
+        <AiRatingSelectionBar
+          count={selectedIds.length}
+          progress={ratingProgress}
+          onRate={rateSelected}
+          onSelectPage={() =>
+            setSelectedIds((previous) => [...new Set([...previous, ...listings.map((listing) => listing.id)])])
+          }
+          onClear={() => setSelectedIds([])}
+        />
+      )}
+
       {listings.length === 0 && (
         <Empty
           image={<IllustrationNoResult />}
@@ -544,6 +609,7 @@ const ListingsOverview = () => {
           isHiddenView={isHiddenView}
           onStatusChange={handleStatusChange}
           onApplication={(item) => setApplicationListingId(item.id)}
+          selection={selection}
         />
       ) : (
         <ListingsTable
@@ -556,6 +622,7 @@ const ListingsOverview = () => {
           isHiddenView={isHiddenView}
           onStatusChange={handleStatusChange}
           onApplication={(item) => setApplicationListingId(item.id)}
+          selection={selection}
         />
       )}
 

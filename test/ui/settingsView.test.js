@@ -30,6 +30,7 @@ const travelTime = read('ui/src/views/settings/pages/TravelTimePage.jsx');
 const entry = read('ui/src/views/settings/pages/components/TravelTimeEntry.jsx');
 const listingDetails = read('ui/src/views/settings/pages/ListingDetailsPage.jsx');
 const application = read('ui/src/views/settings/pages/ApplicationPage.jsx');
+const aiRating = read('ui/src/views/settings/pages/AiRatingPage.jsx');
 const applicationLess = read('ui/src/views/settings/pages/ApplicationPage.less');
 const notifications = read('ui/src/views/settings/pages/NotificationsPage.jsx');
 const connections = read('ui/src/views/settings/pages/ConnectionsPage.jsx');
@@ -39,6 +40,7 @@ const FORM_PAGES = [
   ['travelTime', travelTime],
   ['listingDetails', listingDetails],
   ['application', application],
+  ['aiRating', aiRating],
 ];
 
 describe('both areas say whose settings they are', () => {
@@ -96,7 +98,7 @@ describe('saving', () => {
     expect(saveBarLess).toMatch(/bottom: @space-4/);
   });
 
-  it('is used by all four form pages, and none of them keeps its own save row', () => {
+  it('is used by every form page, and none of them keeps its own save row', () => {
     for (const [name, text] of FORM_PAGES) {
       expect(text, name).toMatch(/<SettingsSaveBar/);
       expect(text, name).not.toMatch(/settingsShell__saveRow/);

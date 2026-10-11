@@ -97,6 +97,7 @@ export default function ListingDetail() {
   const userSettings = useSelector((state) => state.userSettings.settings);
   const connectivityEnabled = useSelector((state) => state.generalSettings.settings?.connectivityEnabled === true);
   const pois = useSelector((state) => state.tracking.pois);
+  const aiRating = useSelector((state) => state.aiRating);
   const savedAddresses = useMemo(() => getAddresses(userSettings), [userSettings]);
   const listingDeletionPref = userSettings?.listing_deletion_preference;
   const defaultDeleteType = listingDeletionPref?.hardDelete ? 'hard' : 'soft';
@@ -126,6 +127,8 @@ export default function ListingDetail() {
   const [pickedCoords, setPickedCoords] = useState(null);
   const [pinSaving, setPinSaving] = useState(false);
   const [mapExpanded, setMapExpanded] = useState(false);
+  /** Whether a rating with the user's own AI key is in flight for this listing. */
+  const [aiRatingRunning, setAiRatingRunning] = useState(false);
   // The travel times as the detail page loaded them, kept here because the map needs the driving
   // route that comes in the same answer. Seeded from the listing so a stored route is drawn without
   // waiting for the request that only refines it.
@@ -355,6 +358,36 @@ export default function ListingDetail() {
     } catch (e) {
       console.error('Failed to update status:', e);
       Toast.error(t('listings.toastStatusUpdateError'));
+    }
+  };
+
+  // Load the AI settings once, so the rating card knows whether to offer the button.
+  useEffect(() => {
+    if (!aiRating.loaded) {
+      actions.aiRating.getSettings();
+    }
+  }, []);
+
+  /**
+   * Rate this listing now with the user's own AI key, and show the new verdict.
+   */
+  const rateWithAi = async () => {
+    setAiRatingRunning(true);
+    try {
+      const { results, stopped } = await actions.aiRating.rateListings([listing.id]);
+      const [result] = results ?? [];
+      if (result?.status === 'rated') {
+        Toast.success(t('listing.detail.aiRateDone'));
+      } else {
+        Toast.error(t('listing.detail.aiRateFailed', { message: stopped?.message ?? result?.message ?? '' }));
+      }
+      await actions.listingsData.getListing(listing.id);
+    } catch (error) {
+      Toast.error(errorMessage(error, t('listings.aiRateError')));
+    } finally {
+      setAiRatingRunning(false);
+      // A rejected key or a rate limit pauses the background rating; the settings page should say so.
+      actions.aiRating.getSettings();
     }
   };
 
@@ -626,9 +659,18 @@ export default function ListingDetail() {
             <ListingOrigin listing={listing} />
           </div>
 
-          {aiVerdictOf(listing) != null && (
+          {(aiVerdictOf(listing) != null || aiRating.settings?.hasApiKey === true) && (
             <div className="listing-detail__sec--ai">
-              <AiVerdictCard listing={listing} />
+              <AiVerdictCard
+                listing={listing}
+                action={
+                  aiRating.settings?.hasApiKey === true ? (
+                    <Button size="small" loading={aiRatingRunning} onClick={rateWithAi}>
+                      {aiVerdictOf(listing) != null ? t('listing.detail.aiRateAgain') : t('listings.aiRateButton')}
+                    </Button>
+                  ) : null
+                }
+              />
             </div>
           )}
 

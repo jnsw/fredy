@@ -27,6 +27,7 @@ import { initPriceTrackingCron } from './lib/services/crons/price-tracking-cron.
 import { initTravelTimeCron } from './lib/services/crons/travel-time-cron.js';
 import { initConnectivityCron } from './lib/services/crons/connectivity-cron.js';
 import { initTourCleanupCron } from './lib/services/crons/tour-cleanup-cron.js';
+import { initAiRatingCron } from './lib/services/crons/ai-rating-cron.js';
 
 // Ensure the CloakBrowser stealth Chromium binary is present and complete before
 // jobs run.  ensureValidBinary() also detects and auto-heals partial extractions
@@ -132,6 +133,9 @@ initTravelTimeCron();
 // and nothing at all for an address sharing a cell with one already looked up, so a restart is not
 // a moment it needs holding back from.
 initConnectivityCron();
+// Schedule only, and a no-op for every instance where nobody stored an AI key. Job runs trigger it
+// as well, so the first one after a start picks up whatever was found while the process was down.
+initAiRatingCron();
 
 logger.info(`Started Fredy successfully. Ui can be accessed via http://localhost:${settings.port}`);
 

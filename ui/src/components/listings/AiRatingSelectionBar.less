@@ -1,0 +1,42 @@
+/*
+ * Copyright (c) 2026 by Christian Kellner.
+ * Licensed under Apache-2.0 with Commons Clause and Attribution/Naming Clause
+ */
+
+@import '../../tokens.less';
+
+.aiRatingSelectionBar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: @space-3;
+  margin-bottom: @space-3;
+  padding: @space-2 @space-3;
+  border: 1px solid @color-border;
+  border-radius: @radius-card;
+  background: @color-surface;
+
+  &__text {
+    color: @color-text;
+    font-size: @text-sm;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: @space-2;
+    margin-left: auto;
+  }
+
+  &__progress {
+    flex: 1;
+    min-width: 160px;
+  }
+}
+
+// The tick box on a card or a row. Its own class so the click handler can be scoped to it and a
+// tick never opens the listing underneath.
+.aiRatingSelect {
+  display: inline-flex;
+  align-items: center;
+}
