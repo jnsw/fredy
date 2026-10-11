@@ -4,6 +4,7 @@
  */
 
 import { parseCommuteFilter } from '../../components/transit/travelTimeFormat.js';
+import { parseNullableBoolean, parseNumber, parseString } from '../../hooks/useSearchParamState.js';
 
 /**
  * What the listings overview is filtered by, and how to say it out loud.
@@ -39,6 +40,37 @@ export const NEUTRAL = {
   mtech: null,
   mop: null,
   hidden: false,
+};
+
+/**
+ * The URL state of every filter, for the two views that offer them: the overview and the map.
+ *
+ * Defined once so the two cannot disagree about a key, a codec or a default. The map used to keep
+ * its own two of them and filter the rest not at all, so the same filters showed different listings
+ * in each view. Each view adds its own keys around this - page, sort and search there, the basemap
+ * and the overlays on the map.
+ *
+ * `active` defaults to `true`: both views open on active listings only.
+ *
+ * @type {Record<string, {defaultValue: unknown, codec: {parse: Function, stringify: Function}}>}
+ */
+export const FILTER_URL_STATE = {
+  watch: { defaultValue: null, codec: parseNullableBoolean },
+  job: { defaultValue: null, codec: parseString },
+  active: { defaultValue: true, codec: parseNullableBoolean },
+  provider: { defaultValue: null, codec: parseString },
+  status: { defaultValue: null, codec: parseString },
+  afford: { defaultValue: null, codec: parseString },
+  // Mode and ceiling in one key, as `transit:30`. Two keys would let a bookmarked URL carry half a
+  // filter, which the server would then have to guess the other half of.
+  commute: { defaultValue: null, codec: parseString },
+  down: { defaultValue: null, codec: parseNumber },
+  fiber: { defaultValue: null, codec: parseNullableBoolean },
+  // Technology and operator are two keys rather than one packed value, unlike the commute filter
+  // above: the operator is optional here, so half of it is a complete filter on its own.
+  mtech: { defaultValue: null, codec: parseString },
+  mop: { defaultValue: null, codec: parseString },
+  hidden: { defaultValue: false, codec: parseNullableBoolean },
 };
 
 /**
@@ -335,4 +367,27 @@ export function filterConfiguredProviders(
   return providers.filter(
     (provider) => configuredProviderIds.has(provider.id) || (currentProviderId && provider.id === currentProviderId),
   );
+}
+
+/**
+ * The address to open the other listings view at, keeping the filters of this one.
+ *
+ * The overview and the map filter by the same things, so switching between them should not throw
+ * away what was narrowed down. Only the filter parameters travel ({@link FILTER_URL_STATE}): the
+ * search text, the page and the sort belong to the overview, the popup and the basemap to the map.
+ *
+ * @param {string} search The current query string, with or without the `?`.
+ * @param {string} target The destination path.
+ * @returns {string} The path, with `?...` when there is anything to carry.
+ */
+export function carryFilters(search, target) {
+  const from = new URLSearchParams(search);
+  const carried = new URLSearchParams();
+  for (const key of Object.keys(FILTER_URL_STATE)) {
+    if (from.has(key)) {
+      carried.set(key, from.get(key));
+    }
+  }
+  const query = carried.toString();
+  return query === '' ? target : `${target}?${query}`;
 }

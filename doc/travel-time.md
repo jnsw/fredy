@@ -23,6 +23,10 @@ Both the listings overview and the map have a **"reachable within"** filter. Pic
 ceiling, for example public transport within 30 minutes, and the list or the map drops everything
 above it. Listings Fredy has not measured yet are hidden by the filter.
 
+The map offers the overview's filters in the overview's own filter panel, and the server answers
+both with the same query, so the same filters show the same listings in either view. Switching
+between the two from the sidebar keeps them; the map's price slider and distance ring are its own.
+
 ## Seeing the route
 
 On a listing's detail page, **Show route** draws the journey on the map: the straight line, the

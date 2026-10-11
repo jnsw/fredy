@@ -18,6 +18,8 @@ import {
   filterConfiguredProviders,
   toListingsQuery,
   MOBILE_OPERATOR_KEY,
+  FILTER_URL_STATE,
+  carryFilters,
 } from '../../ui/src/services/listings/listingFilters.js';
 
 /** The URL state as the page opens it. @returns {Object} */
@@ -388,5 +390,54 @@ describe('listingFilters', () => {
       expect(filterConfiguredProviders([], [{ id: 'j1' }])).toEqual([]);
       expect(filterConfiguredProviders(null, [{ id: 'j1' }])).toEqual([]);
     });
+  });
+});
+
+describe('the filters the overview and the map share', () => {
+  it('keeps a URL key for every filter there is, and for nothing that is not one', () => {
+    // The operator is the one key that is not a filter of its own, see MOBILE_OPERATOR_KEY.
+    expect(Object.keys(FILTER_URL_STATE).sort()).toEqual([...FILTER_KEYS, MOBILE_OPERATOR_KEY].sort());
+  });
+
+  it('defaults every one of them to not filtering, except the active listings both views open on', () => {
+    for (const [key, { defaultValue }] of Object.entries(FILTER_URL_STATE)) {
+      expect(defaultValue, key).toBe(key === 'active' ? true : NEUTRAL[key]);
+    }
+  });
+
+  it('reads them back from the address bar the way they were written', () => {
+    const roundTrip = (key, value) => FILTER_URL_STATE[key].codec.parse(FILTER_URL_STATE[key].codec.stringify(value));
+
+    expect(roundTrip('active', null)).toBeNull();
+    expect(roundTrip('active', false)).toBe(false);
+    expect(roundTrip('down', 250)).toBe(250);
+    expect(roundTrip('commute', 'transit:30')).toBe('transit:30');
+  });
+});
+
+describe('carrying the filters to the other view', () => {
+  it('takes the filters along and leaves what belongs to the view it came from', () => {
+    const search = '?provider=immoscout&active=all&commute=transit%3A30&mtech=5g&mop=dt&page=3&sort=price&q=Altbau';
+
+    const target = carryFilters(search, '/map');
+    const carried = new URLSearchParams(target.split('?')[1]);
+
+    expect(target.startsWith('/map?')).toBe(true);
+    expect(Object.fromEntries(carried)).toEqual({
+      provider: 'immoscout',
+      active: 'all',
+      commute: 'transit:30',
+      mtech: '5g',
+      mop: 'dt',
+    });
+  });
+
+  it('drops the map’s own view state on the way back', () => {
+    expect(carryFilters('job=job-1&popup=abc&style=SATELLITE&distance=5', '/listings')).toBe('/listings?job=job-1');
+  });
+
+  it('adds no question mark when there is nothing to carry', () => {
+    expect(carryFilters('', '/map')).toBe('/map');
+    expect(carryFilters('?page=2', '/map')).toBe('/map');
   });
 });

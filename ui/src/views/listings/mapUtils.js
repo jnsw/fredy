@@ -3,8 +3,6 @@
  * Licensed under Apache-2.0 with Commons Clause and Attribution/Naming Clause
  */
 
-import { parseCommuteFilter } from '../../components/transit/travelTimeFormat.js';
-
 /**
  * Calculates the great-circle distance between two points on a sphere using the Haversine formula.
  *
@@ -173,6 +171,42 @@ export const getBoundsFromCoords = (coords, padding = 0.1) => {
 };
 
 /**
+ * The highest price among the listings, which is where the map's price slider ends.
+ *
+ * @param {Array<{price?: number|string|null}>} listings
+ * @returns {number} 0 when no listing states a price.
+ */
+export const highestPrice = (listings) =>
+  listings.reduce((acc, item) => {
+    const price = Number(item.price);
+    return Number.isFinite(price) && price > acc ? price : acc;
+  }, 0);
+
+/**
+ * The listings inside the map's price range - the one filter the map applies itself, since the
+ * overview has no price slider to share it with.
+ *
+ * A listing without a price passes while the slider is untouched. It used to be dropped whatever
+ * the slider said, so the map showed fewer listings than the overview with no filter set at all.
+ * Once the range is narrowed there is no telling whether such a listing is inside it, so then it
+ * drops out.
+ *
+ * @template {{price?: number|string|null}} T
+ * @param {T[]} listings
+ * @param {[number, number]} priceRange Lower and upper end; an upper end of 0 means "up to the
+ *   highest price", which is what the slider holds before the listings have arrived.
+ * @returns {T[]}
+ */
+export const filterByPriceRange = (listings, [min, max]) => {
+  const ceiling = highestPrice(listings);
+  const upper = max > 0 ? max : ceiling;
+  if (!(min > 0) && upper >= ceiling) {
+    return listings;
+  }
+  return listings.filter((listing) => listing.price && listing.price >= min && listing.price <= upper);
+};
+
+/**
  * How many of the map's filters are hiding pins right now.
  *
  * What the folded panel on a phone shows on its heading, for the reason `FilterButton` gives: a
@@ -180,20 +214,20 @@ export const getBoundsFromCoords = (coords, padding = 0.1) => {
  * say so. The filters live in the address bar and survive the trip to a listing and back, so the
  * panel folding shut on the way back is exactly when this matters.
  *
- * Counted is what `filterListings` and the job selection actually apply, and nothing else. The
- * distance ring recolours pins rather than hiding them, so it is not a filter in this sense. A
- * commute value the parser rejects hides nothing and does not count, and the price range is one
- * filter whichever of its two ends is set.
+ * Counted is what actually hides pins, and nothing else: the listing filters the map shares with
+ * the overview, already counted by `countActiveFilters` (which skips a value that filters nothing,
+ * such as a mangled commute), and the map's own price range, which is one filter whichever of its
+ * two ends is set. The distance ring recolours pins rather than hiding them, so it is not a filter
+ * in this sense.
  *
  * @param {Object} filters
- * @param {string|null} filters.jobId
- * @param {string|null} filters.commute - The `commute` URL value, e.g. `transit:30`.
+ * @param {number} [filters.filterCount=0] - How many of the shared listing filters are on.
  * @param {number|null} filters.priceMin - The `priceMin` URL value, null when absent.
  * @param {number|null} filters.priceMax - The `priceMax` URL value, null when absent.
  * @returns {number}
  */
-export const countActiveMapFilters = ({ jobId, commute, priceMin, priceMax }) => {
+export const countActiveMapFilters = ({ filterCount = 0, priceMin, priceMax }) => {
   const bounded = (value) => Number.isFinite(value) && value > 0;
-  const active = [jobId != null, parseCommuteFilter(commute) != null, bounded(priceMin) || bounded(priceMax)];
-  return active.filter(Boolean).length;
+  const shared = Number.isFinite(filterCount) && filterCount > 0 ? filterCount : 0;
+  return shared + (bounded(priceMin) || bounded(priceMax) ? 1 : 0);
 };

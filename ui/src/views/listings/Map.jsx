@@ -5,6 +5,17 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useUrlState, parseNumber, parseString, parseBoolean } from '../../hooks/useSearchParamState.js';
+import {
+  FILTER_URL_STATE,
+  clearAllFilters,
+  clearFilter,
+  countActiveFilters,
+  describeActiveFilters,
+  toListingsQuery,
+} from '../../services/listings/listingFilters.js';
+import ListingFiltersDrawer from '../../components/listings/ListingFiltersDrawer.jsx';
+import ActiveFilterChips from '../../components/filters/ActiveFilterChips.jsx';
+import FilterButton from '../../components/filters/FilterButton.jsx';
 import { getAddresses } from '../../utils.js';
 import maplibregl from '../../components/map/maplibre.js';
 import 'maplibre-gl/dist/maplibre-gl.css';
@@ -12,10 +23,12 @@ import { useActions, useSelector } from '../../services/state/store.js';
 import {
   countActiveMapFilters,
   distanceMeters,
+  filterByPriceRange,
   generateCircleCoords,
   getBoundsFromCenter,
   getBoundsFromCoords,
   groupListingsByPosition,
+  highestPrice,
 } from './mapUtils.js';
 import { Select, Switch, Toast, Typography } from '@douyinfe/semi-ui-19';
 
@@ -39,21 +52,20 @@ import Headline from '../../components/headline/Headline.jsx';
 import { useTranslation, useLocale } from '../../services/i18n/i18n.jsx';
 import { keepPopupInView, mountPopupNode } from '../../components/map/popupContent.jsx';
 import NearbyStops from '../../components/transit/NearbyStops.jsx';
-import { COMMUTE_OPTIONS, parseCommuteFilter } from '../../components/transit/travelTimeFormat.js';
 import { formatEuroCompact } from '../../components/cards/chartTheme.js';
 import { normalizeTheme } from '../../services/theme/theme.js';
 
 /**
- * The map's URL-backed view state: which job, the distance ring, the basemap and the optional
- * overlays (3D buildings, public transport).
+ * The map's URL-backed view state: the listing filters it shares with the overview, the distance
+ * ring, the basemap and the optional overlays (3D buildings, public transport).
  *
  * Module scope so its identity is stable for the hook's memo.
  */
 const MAP_URL_STATE = {
-  job: { defaultValue: null, codec: parseString },
+  // The overview's own filters, under the overview's own keys, so a filter set in one view means the
+  // same listings in the other - see FILTER_URL_STATE.
+  ...FILTER_URL_STATE,
   distance: { defaultValue: 0, codec: parseNumber },
-  // Mode and ceiling in one key, as `transit:30`, so a bookmarked URL can never carry half a filter.
-  commute: { defaultValue: null, codec: parseString },
   style: { defaultValue: 'STANDARD', codec: parseString },
   buildings: { defaultValue: false, codec: parseBoolean },
   // On by default: "how do I get out of here?" is asked about every flat, so the answer should be
@@ -101,6 +113,7 @@ export default function MapView() {
   const defaultDeleteType = listingDeletionPref?.hardDelete ? 'hard' : 'soft';
 
   const jobs = useSelector((state) => state.jobsData.jobs);
+  const providers = useSelector((state) => state.provider);
   // No job is selected here by default and a listing carries no provider into this view, so the
   // reach of the map is the union across everything the user searches.
   const countries = useProviderCountries();
@@ -109,9 +122,7 @@ export default function MapView() {
   // tick, and separate setSearchParams calls overwrite each other.
   const { values: urlState, setValue: setUrlValue, setValues } = useUrlState(sp, MAP_URL_STATE);
   const {
-    job: jobId,
     distance: distanceFilter,
-    commute: commuteFilter,
     style,
     buildings: show3dBuildings,
     transit: showTransit,
@@ -122,9 +133,16 @@ export default function MapView() {
   const theme = normalizeTheme(useSelector((state) => state.userSettings.settings.theme));
   const isDark = isDarkBasemap(style, theme);
 
-  const setJobId = (value) => setUrlValue('job', value);
   const setDistanceFilter = (value) => setUrlValue('distance', value);
-  const setCommuteFilter = (value) => setUrlValue('commute', value);
+
+  // The listing filters are the overview's drawer and the overview's query, answered by the same
+  // server code. The map used to offer two of them and apply one of those in the browser, so the
+  // two views disagreed about what the same filters showed.
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  const listingsQuery = toListingsQuery(urlState);
+  // What the map asks the server for, as one value, so no filter can be left out of the reload.
+  const filterKey = JSON.stringify(listingsQuery.filter);
+  const sharedFilterCount = countActiveFilters(urlState);
 
   /*
    * The open popup, read and written through refs.
@@ -190,8 +208,7 @@ export default function MapView() {
   // Read from the address bar rather than from the controls, which the folded panel on a phone does
   // not render: what is on in the URL is what is hiding pins.
   const activeFilterCount = countActiveMapFilters({
-    jobId,
-    commute: commuteFilter,
+    filterCount: sharedFilterCount,
     priceMin: urlPriceMin,
     priceMax: urlPriceMax,
   });
@@ -236,50 +253,17 @@ export default function MapView() {
     }
   }, [listings]);
 
-  const getMaxPrice = () => {
-    return listings.reduce((acc, item) => {
-      const price = Number(item.price);
-      return Number.isFinite(price) && price > acc ? price : acc;
-    }, 0);
-  };
+  const getMaxPrice = () => highestPrice(listings);
 
-  const filterListings = () => {
-    const min = priceRange[0];
-    const max = priceRange[1] && priceRange[1] > 0 ? priceRange[1] : getMaxPrice();
-
-    return listings
-      .filter((listing) => listing.price && listing.price >= min && listing.price <= max)
-      .filter(withinCommute);
-  };
-
-  /**
-   * Whether a listing is reachable within the selected ceiling.
-   *
-   * Unlike the distance ring, which only recolours pins, this one hides them: a commute ceiling is
-   * asked as "show me only what I could actually live with", and a pin that fails it is noise.
-   *
-   * A listing that has not been routed yet has nothing to answer with and drops out, which is why
-   * this is off until it is asked for rather than on by default.
-   *
-   * @param {Object} listing
-   * @returns {boolean}
-   */
-  function withinCommute(listing) {
-    const parsed = parseCommuteFilter(commuteFilter);
-    if (parsed == null) {
-      return true;
-    }
-    return (Array.isArray(listing.travelTimes) ? listing.travelTimes : []).some(
-      (entry) => entry?.[parsed.mode]?.minutes != null && entry[parsed.mode].minutes <= parsed.maxMinutes,
-    );
-  }
+  // Everything else was filtered by the server; the price slider is the map's own.
+  const filterListings = () => filterByPriceRange(listings, priceRange);
 
   // Whether any pin stands for more than one listing, which is the only thing the "stack" entry in
   // the legend explains. Computed from the same grouping the markers are built from, so the legend
   // cannot claim a stack that is not on the map.
   const hasStacks = useMemo(
     () => groupListingsByPosition(filterListings()).some((group) => group.listings.length > 1),
-    [listings, priceRange, commuteFilter],
+    [listings, priceRange],
   );
 
   const handleMapReady = (mapInstance) => {
@@ -326,14 +310,12 @@ export default function MapView() {
   };
 
   const fetchListings = async () => {
-    actions.listingsData.getListingsForMap({
-      jobId,
-    });
+    actions.listingsData.getListingsForMap({ filter: listingsQuery.filter });
   };
 
   useEffect(() => {
     fetchListings();
-  }, [jobId]);
+  }, [filterKey]);
 
   useEffect(() => {
     if (!map.current) return;
@@ -381,7 +363,7 @@ export default function MapView() {
         });
       }
     }
-  }, [homeAddresses, distanceFilter, commuteFilter, listings]);
+  }, [homeAddresses, distanceFilter, listings]);
 
   useEffect(() => {
     if (!map.current) return;
@@ -626,7 +608,7 @@ export default function MapView() {
     // has to redraw it. Without it the dark variant would only appear the next time one of the
     // others changed. The open popup is deliberately *not* in here - it is read through a ref, see
     // openListingIdRef, because rebuilding the markers would close the popup that just opened.
-  }, [listings, priceRange, homeAddresses, distanceFilter, commuteFilter, isDark]);
+  }, [listings, priceRange, homeAddresses, distanceFilter, isDark]);
 
   return (
     <>
@@ -690,25 +672,16 @@ export default function MapView() {
 
                 <div className="map-panel__groupTitle">{t('map.groupListings')}</div>
 
+                {/* The overview's filters, in the overview's drawer and with its chips: one set of
+                    filters for both views, which the sidebar carries across when switching. */}
                 <div className="map-panel__row">
-                  <Text size="small" strong className="map-panel__label">
-                    {t('map.filterJobLabel')}
-                  </Text>
-                  <Select
-                    placeholder={t('map.filterJobPlaceholder')}
-                    showClear
-                    size="small"
-                    onChange={(val) => setJobId(val)}
-                    value={jobId}
-                    style={{ width: 160 }}
-                  >
-                    {jobs?.map((j) => (
-                      <Select.Option key={j.id} value={j.id}>
-                        {j.name}
-                      </Select.Option>
-                    ))}
-                  </Select>
+                  <FilterButton activeCount={sharedFilterCount} onClick={() => setFiltersOpen(true)} />
                 </div>
+                <ActiveFilterChips
+                  chips={describeActiveFilters(urlState, { t, jobs, providers })}
+                  onRemove={(key) => setValues(clearFilter(key))}
+                  onClearAll={() => setValues(clearAllFilters())}
+                />
 
                 {/* Disabled rather than hidden, and it says why one line below. A control that
                     cannot work is the honest place for that sentence - it used to be a full-width
@@ -731,32 +704,6 @@ export default function MapView() {
                     <Select.Option value={15}>15 km</Select.Option>
                     <Select.Option value={20}>20 km</Select.Option>
                     <Select.Option value={25}>25 km</Select.Option>
-                  </Select>
-                </div>
-
-                {/* Locked rather than hidden, for the same reason as the ring above. Unlike the
-                    distance ring, which recolours pins, this one hides them: a commute ceiling is
-                    asked as "show me only what I could live with". */}
-                <div className="map-panel__row">
-                  <Text size="small" strong className="map-panel__label">
-                    {t('map.filterCommuteLabel')}
-                  </Text>
-                  <Select
-                    placeholder={t('map.filterCommuteNone')}
-                    showClear
-                    size="small"
-                    disabled={!hasHome}
-                    onChange={(val) => setCommuteFilter(val ?? null)}
-                    value={commuteFilter}
-                    style={{ width: 150 }}
-                  >
-                    {COMMUTE_OPTIONS.map(({ mode, minutes }) =>
-                      minutes.map((max) => (
-                        <Select.Option key={`${mode}:${max}`} value={`${mode}:${max}`}>
-                          {t('listings.filterCommuteOption', { mode: t(`travelTime.mode.${mode}`), minutes: max })}
-                        </Select.Option>
-                      )),
-                    )}
                   </Select>
                 </div>
 
@@ -787,6 +734,13 @@ export default function MapView() {
             )}
           />
         </div>
+
+        <ListingFiltersDrawer
+          visible={filtersOpen}
+          onClose={() => setFiltersOpen(false)}
+          values={urlState}
+          onChange={setValues}
+        />
 
         <ListingDeletionModal
           visible={deleteModalVisible}

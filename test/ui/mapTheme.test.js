@@ -251,7 +251,7 @@ describe('the page', () => {
   it('counts the filters a folded panel hides, so an emptier map explains itself', () => {
     expect(viewJsx).toMatch(/activeCount=\{activeFilterCount\}/);
     expect(viewJsx).toMatch(
-      /const activeFilterCount = countActiveMapFilters\(\{\s*jobId,\s*commute: commuteFilter,\s*priceMin: urlPriceMin,\s*priceMax: urlPriceMax,?\s*\}\);/,
+      /const activeFilterCount = countActiveMapFilters\(\{\s*filterCount: sharedFilterCount,\s*priceMin: urlPriceMin,\s*priceMax: urlPriceMax,?\s*\}\);/,
     );
   });
 
@@ -377,7 +377,9 @@ describe('the view state survives a trip to a detail page and back', () => {
     // The open id is read through a ref on purpose: as a dependency it would tear down the popup
     // that had just been opened.
     expect(viewJsx).toMatch(/openListingIdRef/);
-    const deps = viewJsx.match(/\}, \[listings, priceRange, homeAddresses, distanceFilter, commuteFilter, isDark\]\);/);
+    // The listing filters are not in it either: they reach the markers as a new set of listings
+    // from the server.
+    const deps = viewJsx.match(/\}, \[listings, priceRange, homeAddresses, distanceFilter, isDark\]\);/);
     expect(deps, 'the marker effect keeps its dependency list').not.toBeNull();
   });
 
