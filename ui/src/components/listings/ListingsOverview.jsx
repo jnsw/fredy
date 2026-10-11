@@ -35,6 +35,7 @@ import {
 } from '../../services/listings/listingFilters.js';
 import ListingsGrid from '../grid/listings/ListingsGrid.jsx';
 import ListingsTable from '../table/ListingsTable.jsx';
+import { aiVerdictOf } from '../../services/listings/aiVerdict.js';
 import { IllustrationNoResult, IllustrationNoResultDark } from '@douyinfe/semi-illustrations';
 
 import './ListingsOverview.less';
@@ -66,6 +67,7 @@ const LISTINGS_URL_STATE = {
   active: { defaultValue: true, codec: parseNullableBoolean },
   provider: { defaultValue: null, codec: parseString },
   status: { defaultValue: null, codec: parseString },
+  ai: { defaultValue: null, codec: parseString },
   afford: { defaultValue: null, codec: parseString },
   // Mode and ceiling in one key, as `transit:30`. Two keys would let a bookmarked URL carry half a
   // filter, which the server would then have to guess the other half of.
@@ -114,6 +116,7 @@ const ListingsOverview = () => {
     active: activityFilter,
     provider: providerFilter,
     status: statusFilter,
+    ai: aiVerdictFilter,
     afford: affordabilityFilter,
     commute: commuteFilter,
     hidden: hiddenOnly,
@@ -176,6 +179,7 @@ const ListingsOverview = () => {
     jobNameFilter,
     watchListFilter,
     statusFilter,
+    aiVerdictFilter,
     affordabilityFilter,
     commuteFilter,
     hiddenOnly,
@@ -343,6 +347,10 @@ const ListingsOverview = () => {
 
   const listings = listingsData?.result || [];
 
+  // The AI verdict filter is offered once there is something to filter by: a rated listing on this
+  // page, or the filter already being on. For anybody not using AI ratings the drawer stays as it was.
+  const aiFilterAvailable = aiVerdictFilter != null || listings.some((listing) => aiVerdictOf(listing) != null);
+
   // Opening a listing and coming back must land where the user left off - the overview is the
   // one view people page through item by item, and starting at the top every time means finding
   // your place by hand on every return.
@@ -467,6 +475,7 @@ const ListingsOverview = () => {
         financeComplete={financeComplete}
         affordabilityHelp={affordabilityHelp}
         hasAddresses={hasAddresses}
+        aiFilterAvailable={aiFilterAvailable}
         connectivityEnabled={generalSettings?.connectivityEnabled === true}
         onAffordabilityUsed={() => actions.tracking.trackPoi(pois.FINANCE_AFFORDABILITY_FILTER_USED)}
         onConnectivityFilterUsed={(kind) =>

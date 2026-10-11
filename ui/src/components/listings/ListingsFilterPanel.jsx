@@ -20,6 +20,7 @@ import {
   countActiveFilters,
   filterConfiguredProviders,
 } from '../../services/listings/listingFilters.js';
+import { AI_VERDICT_FILTER_VALUES } from '../../services/listings/aiVerdict.js';
 import { useTranslation } from '../../services/i18n/i18n.jsx';
 
 /**
@@ -45,6 +46,7 @@ import { useTranslation } from '../../services/i18n/i18n.jsx';
  * @param {boolean} props.financeComplete
  * @param {string} props.affordabilityHelp
  * @param {boolean} props.hasAddresses
+ * @param {boolean} [props.aiFilterAvailable] Whether to offer the AI verdict filter.
  * @param {boolean} [props.connectivityEnabled]
  * @param {() => void} props.onAffordabilityUsed
  * @param {(kind: 'downstream'|'fiber'|'mobile') => void} props.onConnectivityFilterUsed
@@ -61,6 +63,7 @@ export default function ListingsFilterPanel({
   financeComplete,
   affordabilityHelp,
   hasAddresses,
+  aiFilterAvailable = false,
   connectivityEnabled = false,
   onAffordabilityUsed,
   onConnectivityFilterUsed,
@@ -120,6 +123,26 @@ export default function ListingsFilterPanel({
           <Select.Option value="accepted">{t('listings.filterStatusAccepted')}</Select.Option>
           <Select.Option value="none">{t('listings.filterStatusNone')}</Select.Option>
         </FilterSelect>
+
+        {/* Next to the status because it answers the same question - what has been decided about
+            this listing - only by a model instead of the user. Offered once there is a verdict to
+            filter by, so the drawer is unchanged for anybody not rating listings. */}
+        {aiFilterAvailable && (
+          <FilterSelect
+            help={t('listings.filterAiVerdictHelp')}
+            placeholder={t('listings.filterAiVerdictPlaceholder')}
+            showClear
+            onChange={(val) => onChange({ ai: val ?? null, page: 1 })}
+            value={values.ai}
+            style={{ width: '100%' }}
+          >
+            {AI_VERDICT_FILTER_VALUES.map((verdict) => (
+              <Select.Option key={verdict} value={verdict}>
+                {t(`listings.filterAiVerdict.${verdict}`)}
+              </Select.Option>
+            ))}
+          </FilterSelect>
+        )}
       </FilterGroup>
 
       {(financeComplete || hasAddresses) && (

@@ -102,6 +102,12 @@
     row-gap: @space-1;
   }
 
+  // Die KI-Bewertung steht unter dem Preis, in ihrer eigenen Zeile, damit eine ungewertete Karte
+  // nicht hoeher wird.
+  &__ai {
+    display: flex;
+  }
+
   // Der Preis war gruen, direkt neben einem Badge, in dem Gruen "unter dem Quadratmeterpreis der
   // Umgebung" heisst. Eine Zahl ist keine Nachricht. Tabellenziffern, damit die Betraege ueber
   // das Raster hinweg dieselbe Breite haben.

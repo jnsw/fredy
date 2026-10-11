@@ -1,0 +1,51 @@
+/*
+ * Copyright (c) 2026 by Christian Kellner.
+ * Licensed under Apache-2.0 with Commons Clause and Attribution/Naming Clause
+ */
+
+@import '../../tokens.less';
+
+// Same shape as the affordability chip it sits next to, so the price row reads as one row of chips
+// rather than two styles of label. The colours are the palette's own green/orange pairs, which
+// switch with the theme; BAD takes the error red, which has no ready-made background pair and is
+// tinted through its rgb alias instead.
+.aiVerdictBadge {
+  display: inline-block;
+  padding: 1px @space-2;
+  border: 1px solid;
+  border-radius: @radius-chip;
+  font-size: @text-xs;
+  font-weight: 500;
+  line-height: 1.5;
+  white-space: nowrap;
+  vertical-align: middle;
+
+  &--good {
+    color: @color-green-text;
+    background: @color-green-bg;
+    border-color: @color-green-border;
+  }
+
+  &--maybe {
+    color: @color-orange-text;
+    background: @color-orange-bg;
+    border-color: @color-orange-border;
+  }
+
+  &--bad {
+    color: @color-error;
+    background: rgb(@color-error-rgb / 12%);
+    border-color: rgb(@color-error-rgb / 40%);
+  }
+}
+
+.aiVerdictBadge__why {
+  display: flex;
+  flex-direction: column;
+  gap: @space-1;
+}
+
+.aiVerdictBadge__source {
+  opacity: 0.75;
+  font-size: @text-xs;
+}

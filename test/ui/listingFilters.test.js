@@ -208,6 +208,18 @@ describe('listingFilters', () => {
       ]);
     });
 
+    it('names the AI verdict filter, "not rated" included', () => {
+      const base = { ...defaults(), ...clearAllFilters() };
+
+      expect(describeActiveFilters({ ...base, ai: 'maybe' }, { t })).toEqual([
+        { key: 'ai', label: 'listings.filterAiVerdict.maybe' },
+      ]);
+      expect(describeActiveFilters({ ...base, ai: 'none' }, { t })).toEqual([
+        { key: 'ai', label: 'listings.filterAiVerdict.none' },
+      ]);
+      expect(countActiveFilters({ ...base, ai: 'bad' })).toBe(1);
+    });
+
     it('falls back to the id when the job is gone', () => {
       const [chip] = describeActiveFilters({ ...defaults(), ...clearAllFilters(), job: 'deleted' }, { t, jobs: [] });
       expect(chip.label).toBe('deleted');
@@ -306,6 +318,11 @@ describe('listingFilters', () => {
         connectivityMinDown: 1000,
         connectivityFiber: true,
       });
+    });
+
+    it('sends the AI verdict filter under the name the server reads', () => {
+      expect(toListingsQuery({ ...defaults(), ai: 'good' }).filter.aiVerdictFilter).toBe('good');
+      expect(toListingsQuery(defaults()).filter.aiVerdictFilter).toBeNull();
     });
 
     it('asks for everything once the filters are cleared', () => {

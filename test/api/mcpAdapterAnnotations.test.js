@@ -37,6 +37,7 @@ const READ_TOOLS = [
 const WRITE_TOOLS = [
   'add_listing_note',
   'set_listing_notes',
+  'set_listing_ai_verdict',
   'watch_listing',
   'unwatch_listing',
   'start_job_draft',

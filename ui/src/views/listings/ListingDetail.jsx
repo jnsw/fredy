@@ -25,6 +25,8 @@ import ApplicationModal from './components/ApplicationModal.jsx';
 
 import IconEuro from '../../components/icons/IconEuro.jsx';
 import ScamPanel from './components/ScamPanel.jsx';
+import AiVerdictCard from './components/AiVerdictCard.jsx';
+import { aiVerdictOf } from '../../services/listings/aiVerdict.js';
 import ListingFinanceCard from './components/ListingFinanceCard.jsx';
 import NearbyStops from '../../components/transit/NearbyStops.jsx';
 import ConnectivityCard from '../../components/connectivity/ConnectivityCard.jsx';
@@ -623,6 +625,12 @@ export default function ListingDetail() {
           <div className="listing-detail__sec--origin">
             <ListingOrigin listing={listing} />
           </div>
+
+          {aiVerdictOf(listing) != null && (
+            <div className="listing-detail__sec--ai">
+              <AiVerdictCard listing={listing} />
+            </div>
+          )}
 
           <div className="listing-detail__sec--finance">
             <ListingFinanceCard listing={listing} />

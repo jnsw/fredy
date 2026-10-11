@@ -14,6 +14,8 @@ import { rentIncludesCharges } from '../../../services/finance/rentBasis.js';
 import PriceChangeBadge from '../../listings/PriceChangeBadge.jsx';
 import PricePerSqmBadge from '../../listings/PricePerSqmBadge.jsx';
 import ScamBadge from '../../listings/ScamBadge.jsx';
+import AiVerdictBadge from '../../listings/AiVerdictBadge.jsx';
+import { aiVerdictOf } from '../../../services/listings/aiVerdict.js';
 import WatchToggle from '../../listings/WatchToggle.jsx';
 import ListingActions from '../../listings/ListingActions.jsx';
 import CommuteBadge from '../../transit/CommuteBadge.jsx';
@@ -98,6 +100,14 @@ const ListingsGrid = ({
                   previousPrice={item.previous_price}
                   changedAt={item.price_changed_at}
                 />
+              </div>
+            )}
+
+            {/* A line of its own, and only on rated listings: an unrated card keeps the height it
+                always had. */}
+            {aiVerdictOf(item) != null && (
+              <div className="listingsGrid__card__ai">
+                <AiVerdictBadge listing={item} />
               </div>
             )}
 

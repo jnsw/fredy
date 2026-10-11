@@ -14,6 +14,8 @@ import { rentIncludesCharges } from '../../services/finance/rentBasis.js';
 import PriceChangeBadge from '../listings/PriceChangeBadge.jsx';
 import PricePerSqmBadge from '../listings/PricePerSqmBadge.jsx';
 import ScamBadge from '../listings/ScamBadge.jsx';
+import AiVerdictBadge from '../listings/AiVerdictBadge.jsx';
+import { aiVerdictOf } from '../../services/listings/aiVerdict.js';
 import WatchToggle from '../listings/WatchToggle.jsx';
 import ListingActions from '../listings/ListingActions.jsx';
 import CommuteBadge from '../transit/CommuteBadge.jsx';
@@ -89,9 +91,13 @@ const ListingsTable = ({
             )}
             {/* Under the headline rather than in front of it. In front, the badge had to give up
                 its word to leave room for the title, and a warning without a word is a shape. */}
-            {(!item.is_active || item.scam_signals?.length > 0 || item.scam_override != null) && (
+            {(!item.is_active ||
+              item.scam_signals?.length > 0 ||
+              item.scam_override != null ||
+              aiVerdictOf(item) != null) && (
               <div className="listingsTable__row__flags">
                 <ScamBadge listing={item} />
+                <AiVerdictBadge listing={item} />
                 {!item.is_active && <span className="listingsTable__row__inactive">{t('listings.cardInactive')}</span>}
               </div>
             )}
