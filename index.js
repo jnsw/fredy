@@ -27,6 +27,7 @@ import { initPriceTrackingCron } from './lib/services/crons/price-tracking-cron.
 import { initTravelTimeCron } from './lib/services/crons/travel-time-cron.js';
 import { initConnectivityCron } from './lib/services/crons/connectivity-cron.js';
 import { initTourCleanupCron } from './lib/services/crons/tour-cleanup-cron.js';
+import { initMailSyncCron } from './lib/services/crons/mail-sync-cron.js';
 
 // Ensure the CloakBrowser stealth Chromium binary is present and complete before
 // jobs run.  ensureValidBinary() also detects and auto-heals partial extractions
@@ -132,6 +133,8 @@ initTravelTimeCron();
 // and nothing at all for an address sharing a cell with one already looked up, so a restart is not
 // a moment it needs holding back from.
 initConnectivityCron();
+// Only scheduled when somebody has connected a mailbox; saving the first one starts it.
+initMailSyncCron();
 
 logger.info(`Started Fredy successfully. Ui can be accessed via http://localhost:${settings.port}`);
 

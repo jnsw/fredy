@@ -1,0 +1,24 @@
+From: "Erika Beispiel" <erika@vermieterin.example>
+To: wohnungssuche@example.org
+Subject: Re: Wohnung 3 Zimmer
+Date: Wed, 02 Sep 2026 18:40:00 +0200
+Message-ID: <reply-2@vermieterin.example>
+In-Reply-To: <application-1@example.org>
+References: <application-1@example.org>
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="b1"
+
+--b1
+Content-Type: text/plain; charset=UTF-8
+
+Hallo,
+
+danke fuer die Nachricht. Die Wohnung ist noch frei.
+
+Viele Gruesse
+Erika
+--b1
+Content-Type: text/html; charset=UTF-8
+
+<p>Hallo,</p><p>danke fuer die Nachricht. <b>Die Wohnung ist noch frei.</b></p>
+--b1--

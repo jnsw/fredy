@@ -61,6 +61,8 @@ export const NAV_TREE = [
       // Financing sits here rather than at the top level: it is a way of judging listings, not a
       // peer of the search itself.
       { key: '/finance', labelKey: 'nav.finance' },
+      // The replies to applications for these listings, from the user's own mailbox.
+      { key: '/mail', labelKey: 'nav.mail' },
     ],
   },
   { key: '/settings', labelKey: 'nav.settings', section: 'personal' },
