@@ -10,6 +10,12 @@ import { resetSearchMemory } from '../../lib/services/idealista/search.js';
 import { PORTALS } from '../../lib/services/idealista/portal.js';
 import { fetchSearchHtml } from '../../lib/services/idealista/idealistaSearch.js';
 
+// Portal requests read the proxy setting. No database is open here, so there is none.
+vi.mock('../../lib/services/storage/settingsStorage.js', async (importOriginal) => ({
+  ...(await importOriginal()),
+  getSettings: async () => ({}),
+}));
+
 vi.mock('../../lib/services/idealista/device-id.js', () => ({ idealistaDeviceId: async () => '0123456789abcdef' }));
 vi.mock('../../lib/services/idealista/idealistaSearch.js', () => ({ fetchSearchHtml: vi.fn() }));
 

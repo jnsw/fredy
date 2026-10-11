@@ -634,7 +634,7 @@
   "settings.workingHoursTimeZone": "Saat dilimi",
   "settings.workingHoursTimeZonePlaceholder": "Sunucu saat dilimi",
   "settings.proxyUrl": "Proxy URL",
-  "settings.proxyUrlHelp": "İsteğe bağlı. Tarama tarayıcısını bir proxy üzerinden yönlendirir. Sunucu/veri merkezi IP'leri, tarayıcı parmak izinden bağımsız olarak sağlayıcılar (örn. immowelt) tarafından sıkça engellenir; Alman konut proxy'si istekleri normal bir hane gibi gösterdiğinden en etkili çözümdür. Biçim: http://kullanıcı:şifre@host:port veya socks5://kullanıcı:şifre@host:port. Devre dışı bırakmak için boş bırakın.",
+  "settings.proxyUrlHelp": "İsteğe bağlı. Fredy'nin bir portala gönderdiği her istek bu proxy üzerinden gider: tarama tarayıcısı, portalların API'leri, detay sayfaları, aktiflik ve fiyat kontrolleri ile ilan fotoğrafları. Coğrafi kodlama, bildirimler ve Fredy'nin diğer hizmetlerine doğrudan bağlanılır. Sunucu/veri merkezi IP'leri, tarayıcı parmak izinden bağımsız olarak sağlayıcılar (örn. immowelt) tarafından sıkça engellenir; Alman konut proxy'si istekleri normal bir hane gibi gösterdiğinden en etkili çözümdür. Biçim: http://kullanıcı:şifre@host:port, https://kullanıcı:şifre@host:port veya socks5://kullanıcı:şifre@host:port. URL'nin herhangi bir yerindeki {session}, oturum kimliği başına bir çıkış IP'si tutan proxy hizmetleri için her aramada yeni bir rastgele kimlikle değiştirilir. Devre dışı bırakmak için boş bırakın.",
   "settings.proxyUrlPlaceholder": "http://kullanıcı:şifre@host:port",
   "settings.homeAddresses": "Adresler",
   "settings.homeAddressesHelp": "Her adres ile her ilan arasındaki uzaklığı hesaplamak için kullanılır. Bunları güncellemek, tüm aktif ilanlar için uzaklıkları yeniden hesaplar.",

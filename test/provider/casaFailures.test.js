@@ -8,6 +8,12 @@ import { config } from '../../lib/provider/casa.js';
 import { translateSearchUrl } from '../../lib/services/casa/web-translator.js';
 import puppeteerExtractor from '../../lib/services/extractor/puppeteerExtractor.js';
 
+// Portal requests read the proxy setting. No database is open here, so there is none.
+vi.mock('../../lib/services/storage/settingsStorage.js', async (importOriginal) => ({
+  ...(await importOriginal()),
+  getSettings: async () => ({}),
+}));
+
 vi.mock('../../lib/services/extractor/puppeteerExtractor.js', () => ({ default: vi.fn() }));
 
 const URL = 'https://www.casa.it/srp/map/?tr=vendita&q=62125490';

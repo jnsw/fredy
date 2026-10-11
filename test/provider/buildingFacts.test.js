@@ -26,6 +26,12 @@ import { config as sparkasseConfig } from '../../lib/provider/sparkasse.js';
 import { config as engelVoelkersConfig } from '../../lib/provider/engelVoelkers.js';
 import { config as wgGesuchtConfig } from '../../lib/provider/wgGesucht.js';
 
+// Portal requests read the proxy setting. No database is open here, so there is none.
+vi.mock('../../lib/services/storage/settingsStorage.js', async (importOriginal) => ({
+  ...(await importOriginal()),
+  getSettings: async () => ({}),
+}));
+
 /**
  * Every provider's path to the Baujahr and the energy efficiency class, against the real payloads.
  * The extractors themselves are covered in `test/utils/buildingFacts.test.js`; what is tested here

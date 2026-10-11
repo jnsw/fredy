@@ -7,21 +7,36 @@ import { vi, describe, it, expect, beforeEach } from 'vitest';
 
 const root = (await import('node:path')).resolve('.');
 const utilsPath = root + '/lib/utils.js';
+const portalProxyPath = root + '/lib/services/proxy/portalProxy.js';
 
 /** Every wait the tester takes, so the tests can assert on pacing without spending the time. */
 let waited;
+/** The direct request, node-fetch. */
 let fetchMock;
+/** The request through the proxy. */
+let portalFetchMock;
 
 /**
  * Load the shared alive-probe with its network and its waits replaced.
+ * @param {object} [options]
+ * @param {object | null} [options.dispatcher] the proxy dispatcher, null for no proxy configured
+ * @param {Error | null} [options.proxyError] what a proxy url that cannot be used is refused with
  * @returns {Promise<Function>} checkIfListingIsActive
  */
-async function loadTester() {
+async function loadTester({ dispatcher = null, proxyError = null } = {}) {
   vi.resetModules();
   waited = [];
   fetchMock = vi.fn();
+  portalFetchMock = vi.fn();
 
   vi.doMock('node-fetch', () => ({ default: fetchMock }));
+  vi.doMock(portalProxyPath, () => ({
+    getPortalDispatcher: async () => {
+      if (proxyError) throw proxyError;
+      return dispatcher;
+    },
+    portalFetch: portalFetchMock,
+  }));
   vi.doMock(utilsPath, async (importOriginal) => ({
     ...(await importOriginal()),
     sleep: async (ms) => {
@@ -130,5 +145,39 @@ describe('services/listings/listingActiveTester', () => {
 
     await expect(checkIfListingIsActive(LINK)).resolves.toBe(-1);
     expect(fetchMock).toHaveBeenCalledTimes(3);
+  });
+
+  describe('with a proxy configured', () => {
+    it('asks the portal through the proxy, with the same request', async () => {
+      const checkIfListingIsActive = await loadTester({ dispatcher: { proxy: true } });
+      portalFetchMock.mockResolvedValue(response(200));
+
+      await expect(checkIfListingIsActive(LINK)).resolves.toBe(1);
+      expect(fetchMock).not.toHaveBeenCalled();
+      expect(portalFetchMock).toHaveBeenCalledWith(
+        LINK,
+        expect.objectContaining({
+          redirect: 'manual',
+          headers: expect.objectContaining({ 'Sec-Fetch-Mode': 'navigate' }),
+        }),
+      );
+    });
+
+    it('never falls back to a direct request when the proxy cannot be reached', async () => {
+      const checkIfListingIsActive = await loadTester({ dispatcher: { proxy: true } });
+      portalFetchMock.mockRejectedValue(new Error('Proxy response (407) !== 200 when HTTP Tunneling'));
+
+      await expect(checkIfListingIsActive(LINK)).resolves.toBe(-1);
+      expect(portalFetchMock).toHaveBeenCalledTimes(3);
+      expect(fetchMock).not.toHaveBeenCalled();
+    });
+
+    it('sends nothing at all when the configured proxy url cannot be used', async () => {
+      const checkIfListingIsActive = await loadTester({ proxyError: new Error('not a valid URL') });
+
+      await expect(checkIfListingIsActive(LINK)).resolves.toBe(-1);
+      expect(fetchMock).not.toHaveBeenCalled();
+      expect(portalFetchMock).not.toHaveBeenCalled();
+    });
   });
 });

@@ -6,6 +6,12 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { shouldUseMultipart, buildPhotoFormData } from '../../lib/notification/adapter/telegramPhotoUploader.js';
 
+// Portal requests read the proxy setting. No database is open here, so there is none.
+vi.mock('../../lib/services/storage/settingsStorage.js', async (importOriginal) => ({
+  ...(await importOriginal()),
+  getSettings: async () => ({}),
+}));
+
 describe('shouldUseMultipart', () => {
   it('returns true for .webp URL with query string', () => {
     expect(shouldUseMultipart('https://mms.immowelt.de/1/1/6/5/abc.webp?ci_seal=hash&w=525&h=394')).toBe(true);

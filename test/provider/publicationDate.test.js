@@ -14,6 +14,12 @@ import { config as engelVoelkers } from '../../lib/provider/engelVoelkers.js';
 import { readNextData } from '../../lib/utils/priceExtractors.js';
 import puppeteerExtractor from '../../lib/services/extractor/puppeteerExtractor.js';
 
+// Portal requests read the proxy setting. No database is open here, so there is none.
+vi.mock('../../lib/services/storage/settingsStorage.js', async (importOriginal) => ({
+  ...(await importOriginal()),
+  getSettings: async () => ({}),
+}));
+
 vi.mock('../../lib/services/extractor/puppeteerExtractor.js', () => ({ default: vi.fn() }));
 const fixture = (name) => readFileSync(new URL(`../testFixtures/${name}`, import.meta.url), 'utf8');
 afterEach(() => vi.unstubAllGlobals());

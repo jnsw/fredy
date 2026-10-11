@@ -7,10 +7,15 @@ import { vi, describe, it, expect, beforeEach, afterEach } from 'vitest';
 
 // Mock the CloakBrowser launcher so no real Chromium binary is needed and we can
 // assert which options get forwarded to it.
-const { launchMock } = vi.hoisted(() => ({ launchMock: vi.fn() }));
+const { launchMock, settings } = vi.hoisted(() => ({ launchMock: vi.fn(), settings: { current: {} } }));
 
 vi.mock('cloakbrowser/puppeteer', () => ({
   launch: launchMock,
+}));
+
+// The proxy a launch falls back to is read from the settings.
+vi.mock('../../../lib/services/storage/settingsStorage.js', () => ({
+  getSettings: async () => settings.current,
 }));
 
 const { launchBrowser, closeBrowser } = await import('../../../lib/services/extractor/puppeteerExtractor.js');
@@ -40,6 +45,7 @@ describe('launchBrowser proxy forwarding', () => {
   beforeEach(() => {
     launchMock.mockReset();
     launchMock.mockResolvedValue({ close: async () => {} });
+    settings.current = {};
   });
 
   it('forwards proxyUrl to CloakBrowser as the proxy option', async () => {
@@ -49,11 +55,41 @@ describe('launchBrowser proxy forwarding', () => {
     expect(launchMock.mock.calls[0][0]).toMatchObject({ proxy: 'http://user:pass@host:8080' });
   });
 
-  it('does not set a proxy when no proxyUrl is given', async () => {
+  it('does not set a proxy when none is given and none is configured', async () => {
     await launchBrowser('https://www.immowelt.de/', {});
 
     expect(launchMock).toHaveBeenCalledTimes(1);
     expect(launchMock.mock.calls[0][0].proxy).toBeUndefined();
+  });
+
+  // A browser started without a proxy argument - the one `execute` starts for itself when it is
+  // handed none - must not leave from the server's own address while a proxy is configured.
+  it('falls back to the configured proxy when the caller passes none', async () => {
+    settings.current = { proxyUrl: '  socks5://user:pass@proxy.example:1080  ' };
+
+    await launchBrowser('https://www.immowelt.de/');
+
+    expect(launchMock.mock.calls[0][0]).toMatchObject({ proxy: 'socks5://user:pass@proxy.example:1080' });
+  });
+
+  it('honours an explicit empty proxyUrl over the setting', async () => {
+    settings.current = { proxyUrl: 'http://proxy.example:8080' };
+
+    await launchBrowser('https://www.immowelt.de/', { proxyUrl: '' });
+
+    expect(launchMock.mock.calls[0][0].proxy).toBeUndefined();
+  });
+
+  it('gives every launch its own session when the url asks for one', async () => {
+    settings.current = { proxyUrl: 'http://user-session-{session}:pass@proxy.example:8080' };
+
+    await launchBrowser('https://www.immowelt.de/');
+    await launchBrowser('https://www.immowelt.de/', { proxyUrl: settings.current.proxyUrl });
+
+    const [first, second] = launchMock.mock.calls.map((call) => call[0].proxy);
+    expect(first).toMatch(/^http:\/\/user-session-[0-9a-f]{8}:pass@proxy\.example:8080$/);
+    expect(second).toMatch(/^http:\/\/user-session-[0-9a-f]{8}:pass@proxy\.example:8080$/);
+    expect(first).not.toBe(second);
   });
 });
 

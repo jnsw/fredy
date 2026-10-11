@@ -5,6 +5,12 @@
 
 import { vi, describe, it, expect, beforeEach, afterEach } from 'vitest';
 
+// Portal requests read the proxy setting. No database is open here, so there is none.
+vi.mock('../../lib/services/storage/settingsStorage.js', async (importOriginal) => ({
+  ...(await importOriginal()),
+  getSettings: async () => ({}),
+}));
+
 const root = (await import('node:path')).resolve('.');
 const utilsPath = root + '/lib/utils.js';
 

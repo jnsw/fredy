@@ -135,8 +135,7 @@ leboncoin sits behind DataDome, and its result pages answer a browser that navig
 captcha. Fredy therefore opens leboncoin's home page once per run and asks the search endpoint from
 inside it, the way the site does; that one navigation is all the browser costs. If a run still ends
 with `We have been detected as a bot`, see the proxy section below. A French residential IP suits
-leboncoin and SeLoger best; keep in mind that the proxy setting is shared by every browser-based
-provider.
+leboncoin and SeLoger best; keep in mind that the proxy setting is shared by every provider.
 
 Two things leboncoin does not get: detail enrichment, because the search already answers with the
 full description, and **price tracking**, because the only place the current price could be read is
@@ -222,7 +221,7 @@ how perfect the fingerprint is. The typical symptom: it works locally but you ge
 
 ### The fix: a residential proxy
 
-A **residential proxy** routes Fredy's browser through the internet connection of a real household,
+A **residential proxy** routes Fredy's requests through the internet connection of a real household,
 so the provider sees a "normal user" IP instead of a datacenter. For German portals, use a **German
 (DE) residential** (or mobile/4G) proxy. Plain VPNs and **datacenter proxies do not help** here,
 they share the same bad reputation as your server.
@@ -231,12 +230,34 @@ they share the same bad reputation as your server.
 
 ```
 http://user:pass@host:port
+https://user:pass@host:port
 socks5://user:pass@host:port
 ```
 
-Leave the field empty to disable. The proxy applies to all headless-browser providers and takes
-effect on the next job run (no restart needed). Immoscout uses a separate mobile API and is not
-affected.
+Leave the field empty to disable. A change takes effect without a restart; only a browser that is
+already open keeps the proxy it was started with until its run ends.
+
+The proxy covers **every request Fredy sends to a portal**, not just the headless browser: the
+mobile and search APIs some providers read (ImmoScout, idealista, casa.it, Bien'ici, willhaben,
+...), detail pages, the availability check, price tracking and the listing photos a notification
+or the MCP server downloads. A portal that blocks a datacenter IP blocks it for all of those, and a
+request sent around the proxy would show the portal the address the proxy is meant to hide. If the
+configured URL cannot be used (a typo, or a scheme other than the three above), those requests fail
+instead of going out directly.
+
+Requests to Fredy's own infrastructure stay direct: geocoding (Nominatim), notification services,
+broadband and transit data, points of interest, the update check and the usage statistics. None of
+them is a portal, and routing them through a proxy that is billed per gigabyte would cost money
+without helping a single search.
+
+**Sticky sessions.** Many residential proxy services keep one exit IP per session ID written into
+the username or password. Put `{session}` where your service expects that ID, and Fredy replaces it
+with a new random ID for every search run (and for every browser it starts), so each run keeps one
+address and the next run gets another, for example:
+
+```
+http://customer-USER-session-{session}:PASS@proxy.example.com:7777
+```
 
 ### Where to get one
 

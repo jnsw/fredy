@@ -5,6 +5,12 @@
 
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 
+// Portal requests read the proxy setting. No database is open here, so there is none.
+vi.mock('../../lib/services/storage/settingsStorage.js', async (importOriginal) => ({
+  ...(await importOriginal()),
+  getSettings: async () => ({}),
+}));
+
 // The walk paces itself between pages. Waiting it out would cost this file a minute of real time
 // for what the fetch mock answers instantly, and the pace is the portal's business rather than
 // something a test has an opinion about.
