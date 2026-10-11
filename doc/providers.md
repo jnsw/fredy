@@ -7,7 +7,7 @@ platform into Fredy.
 > Always make sure the search results are sorted by **date**, so Fredy picks up the newest listings
 > first.
 
-## The 31 built-in providers
+## The 32 built-in providers
 
 **🇩🇪 Germany**
 
@@ -27,6 +27,7 @@ platform into Fredy.
 **🇮🇹 Italy** · Subito · Tecnocasa · Tecnorete · Casa.it
 **🇫🇷 France** · leboncoin · SeLoger · Bien'ici
 **🇧🇪 Belgium** · Immoweb
+**🇩🇰 Denmark** · Boligsiden
 
 If you run a portal Fredy does not cover yet, contributions are very welcome, see
 [CONTRIBUTING.md](../CONTRIBUTING.md).
@@ -216,6 +217,26 @@ count is the **number of bedrooms**, which is how Belgian adverts count, and a n
 quoting ranges is stored with the low end of each. There is no detail enrichment and no price
 tracking for Immoweb yet. Addresses are geocoded in Belgium, and application letters are written in
 English, since Fredy ships no French or Dutch template.
+
+## Boligsiden
+
+Denmark's portal for homes for sale: it gathers the adverts of most Danish estate agents (EDC,
+Nybolig, home, danbolig, ...) in one search. Boligsiden has no rentals. The website sits behind a
+Cloudflare challenge, but its results come from a JSON API that answers plainly, so Fredy asks that
+API and needs **no browser**: one request per run, for the 50 newest cases.
+
+Paste the address of a result page, for example
+`https://www.boligsiden.dk/kommune/odense/tilsalg/ejerlejlighed?priceMax=3000000`. The filters in
+the query string (price, rooms, area, radius, ...) are passed on as they are, since the API speaks
+the same language. The path is translated for a municipality (`/kommune/...`), a postcode
+(`/postnummer/...`) or the whole country, and for the types villa, rækkehus, ejerlejlighed,
+andelsbolig and villalejlighed. A path naming anything else (a town, a district, a road, another
+type) stops the job with a message rather than searching all of Denmark. For those, paste a query
+on the API itself instead, which is passed on untouched:
+`https://api.boligsiden.dk/search/cases?addressTypes=villa,condo&zipCodes=5000&zipCodes=5200`.
+Several places are written as a repeated parameter there, never comma separated.
+
+Prices are in Danish kroner. Listings link to the estate agent's own page.
 
 ## Countries and the map
 

@@ -156,6 +156,13 @@ const RECORDED_SEARCHES = [
     'https://www.immoweb.be/en/search/apartment/for-rent?countries=BE&minPrice=500&maxPrice=1000&page=1&orderBy=newest',
     { min: 500, max: 1000 },
   ],
+  // Boligsiden sells only, so this is a purchase band in kroner, as the site itself writes it. A
+  // query on its API spells the band the same way.
+  [
+    'boligsiden',
+    'https://www.boligsiden.dk/kommune/odense/tilsalg/ejerlejlighed?priceMax=3000000&priceMin=2100000&areaMin=1',
+    { min: 2100000, max: 3000000 },
+  ],
 ];
 
 /**

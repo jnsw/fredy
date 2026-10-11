@@ -23,7 +23,7 @@
  *
  * @type {string[]}
  */
-export const COUNTRY_ORDER = ['de', 'at', 'ch', 'es', 'it', 'fr', 'be', 'pt'];
+export const COUNTRY_ORDER = ['de', 'at', 'ch', 'es', 'it', 'fr', 'be', 'pt', 'dk'];
 
 /**
  * Providers by size within their market, largest first.
@@ -76,6 +76,8 @@ export const PROVIDER_SIZE_ORDER = [
   'bienici',
   // Belgium
   'immoweb',
+  // Denmark
+  'boligsiden',
 ];
 
 /** Sorts anything unranked or unknown behind everything ranked or known. */

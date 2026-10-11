@@ -1,0 +1,1057 @@
+{
+  "cases": [
+    {
+      "addressType": "condo",
+      "caseID": "4eb6201c-2051-43d6-a45a-71a6a66b7840",
+      "caseUrl": "https://www.nybolig.dk/services/redirect/case/N270176/N2701760001143",
+      "coordinates": {
+        "lat": 55.397575,
+        "lon": 10.378086,
+        "type": "EPSG4326"
+      },
+      "daysListed": {
+        "days": 0
+      },
+      "daysOnMarket": 0,
+      "defaultImage": {
+        "imageSources": [
+          {
+            "alt": "Et spisebord med en stor blomstervase står midt i et lyst rum. Bordet er omgivet af stole, og rummet har store vinduer med hvide gardiner og en elegant lysekrone.",
+            "size": {
+              "height": 80,
+              "width": 100
+            },
+            "url": "https://images.boligsiden.dk/images/case/4eb6201c-2051-43d6-a45a-71a6a66b7840/100x80/1163a557-ceda-4be9-995f-8818296fdbe1.webp"
+          },
+          {
+            "alt": "Et spisebord med en stor blomstervase står midt i et lyst rum. Bordet er omgivet af stole, og rummet har store vinduer med hvide gardiner og en elegant lysekrone.",
+            "size": {
+              "height": 118,
+              "width": 143
+            },
+            "url": "https://images.boligsiden.dk/images/case/4eb6201c-2051-43d6-a45a-71a6a66b7840/143x118/1163a557-ceda-4be9-995f-8818296fdbe1.webp"
+          },
+          {
+            "alt": "Et spisebord med en stor blomstervase står midt i et lyst rum. Bordet er omgivet af stole, og rummet har store vinduer med hvide gardiner og en elegant lysekrone.",
+            "size": {
+              "height": 200,
+              "width": 300
+            },
+            "url": "https://images.boligsiden.dk/images/case/4eb6201c-2051-43d6-a45a-71a6a66b7840/300x200/1163a557-ceda-4be9-995f-8818296fdbe1.webp"
+          },
+          {
+            "alt": "Et spisebord med en stor blomstervase står midt i et lyst rum. Bordet er omgivet af stole, og rummet har store vinduer med hvide gardiner og en elegant lysekrone.",
+            "size": {
+              "height": 400,
+              "width": 600
+            },
+            "url": "https://images.boligsiden.dk/images/case/4eb6201c-2051-43d6-a45a-71a6a66b7840/600x400/1163a557-ceda-4be9-995f-8818296fdbe1.webp"
+          },
+          {
+            "alt": "Et spisebord med en stor blomstervase står midt i et lyst rum. Bordet er omgivet af stole, og rummet har store vinduer med hvide gardiner og en elegant lysekrone.",
+            "size": {
+              "height": 600,
+              "width": 600
+            },
+            "url": "https://images.boligsiden.dk/images/case/4eb6201c-2051-43d6-a45a-71a6a66b7840/600x600/1163a557-ceda-4be9-995f-8818296fdbe1.webp"
+          },
+          {
+            "alt": "Et spisebord med en stor blomstervase står midt i et lyst rum. Bordet er omgivet af stole, og rummet har store vinduer med hvide gardiner og en elegant lysekrone.",
+            "size": {
+              "height": 960,
+              "width": 1440
+            },
+            "url": "https://images.boligsiden.dk/images/case/4eb6201c-2051-43d6-a45a-71a6a66b7840/1440x960/1163a557-ceda-4be9-995f-8818296fdbe1.webp"
+          }
+        ]
+      },
+      "descriptionBody": "Velkommen til Dronningensgade 8A, 2. – en flot og indbydende lejlighed, hvor den klassiske stil er bevaret, samtidig med at boligen er indrettet til en moderne hverdag. Trægulve, fyldningsdøre og fine loftsdetaljer går igen gennem hjemmet og skaber en rød tråd fra rum til rum.Køkken/alrummet er et naturligt sted at samles. Det moderne køkken ligger åbent i rummet og er indrettet med en stor køkkenø, der giver god arbejdsplads og binder køkkenet sammen med spiseområdet. De høje vinduer sørger for",
+      "descriptionTitle": "Når herskabscharme møder moderne komfort",
+      "energyLabel": "b",
+      "housingArea": 136,
+      "numberOfRooms": 5,
+      "priceCash": 4995000,
+      "slug": "dronningensgade-8a-2--5000-odense-c-04611508__8a__2____",
+      "slugAddress": "dronningensgade-8a-2--5000-odense-c",
+      "status": "open",
+      "yearBuilt": 1890,
+      "address": {
+        "cityName": "Odense C",
+        "coordinates": {
+          "lat": 55.397575,
+          "lon": 10.378086,
+          "type": "EPSG4326"
+        },
+        "floor": "2",
+        "houseNumber": "8A",
+        "roadName": "Dronningensgade",
+        "zipCode": 5000
+      }
+    },
+    {
+      "addressType": "condo",
+      "caseID": "9b31e475-7957-470d-a9d5-c92a4954110c",
+      "caseUrl": "https://www.nybolig.dk/services/redirect/case/N270176/N2701760001106",
+      "coordinates": {
+        "lat": 55.39215,
+        "lon": 10.405841,
+        "type": "EPSG4326"
+      },
+      "daysListed": {
+        "days": 1
+      },
+      "daysOnMarket": 1,
+      "defaultImage": {
+        "imageSources": [
+          {
+            "alt": "Grå sofa med farverige puder står i stue. Rundt sofabord står på mønstret tæppe. Spisebord med stole ved stort vindue, planter og reoler omkranser rummet.",
+            "size": {
+              "height": 80,
+              "width": 100
+            },
+            "url": "https://images.boligsiden.dk/images/case/9b31e475-7957-470d-a9d5-c92a4954110c/100x80/dd860468-a25a-4433-95b8-21bd133d28bc.webp"
+          },
+          {
+            "alt": "Grå sofa med farverige puder står i stue. Rundt sofabord står på mønstret tæppe. Spisebord med stole ved stort vindue, planter og reoler omkranser rummet.",
+            "size": {
+              "height": 118,
+              "width": 143
+            },
+            "url": "https://images.boligsiden.dk/images/case/9b31e475-7957-470d-a9d5-c92a4954110c/143x118/dd860468-a25a-4433-95b8-21bd133d28bc.webp"
+          },
+          {
+            "alt": "Grå sofa med farverige puder står i stue. Rundt sofabord står på mønstret tæppe. Spisebord med stole ved stort vindue, planter og reoler omkranser rummet.",
+            "size": {
+              "height": 200,
+              "width": 300
+            },
+            "url": "https://images.boligsiden.dk/images/case/9b31e475-7957-470d-a9d5-c92a4954110c/300x200/dd860468-a25a-4433-95b8-21bd133d28bc.webp"
+          },
+          {
+            "alt": "Grå sofa med farverige puder står i stue. Rundt sofabord står på mønstret tæppe. Spisebord med stole ved stort vindue, planter og reoler omkranser rummet.",
+            "size": {
+              "height": 400,
+              "width": 600
+            },
+            "url": "https://images.boligsiden.dk/images/case/9b31e475-7957-470d-a9d5-c92a4954110c/600x400/dd860468-a25a-4433-95b8-21bd133d28bc.webp"
+          },
+          {
+            "alt": "Grå sofa med farverige puder står i stue. Rundt sofabord står på mønstret tæppe. Spisebord med stole ved stort vindue, planter og reoler omkranser rummet.",
+            "size": {
+              "height": 600,
+              "width": 600
+            },
+            "url": "https://images.boligsiden.dk/images/case/9b31e475-7957-470d-a9d5-c92a4954110c/600x600/dd860468-a25a-4433-95b8-21bd133d28bc.webp"
+          },
+          {
+            "alt": "Grå sofa med farverige puder står i stue. Rundt sofabord står på mønstret tæppe. Spisebord med stole ved stort vindue, planter og reoler omkranser rummet.",
+            "size": {
+              "height": 960,
+              "width": 1440
+            },
+            "url": "https://images.boligsiden.dk/images/case/9b31e475-7957-470d-a9d5-c92a4954110c/1440x960/dd860468-a25a-4433-95b8-21bd133d28bc.webp"
+          }
+        ]
+      },
+      "descriptionBody": "Velkommen til Rødegårdsvej 65, 3. th - En moderne og herskabelig lejlighed, som fremstår 100% indflytningsklar og tilbyder et sjældent lysindfald og en fantastisk ro og udsigt til den bagvedliggende kolonihave!Træd indenfor i en rummelig entré som giver god plads til opbevaring af sko og jakker, samt imødekommelsen af dine gæster.Herfra ledes du videre ind i en stor stue, som med sin optimale planløsning, giver dig muligheden for både spisestue og sofastue uden at rummet føltes klemt. I stuen op",
+      "descriptionTitle": "Moderne lejlighed med stor altan og udsigt til kolonihaven",
+      "energyLabel": "d",
+      "housingArea": 64,
+      "numberOfRooms": 2,
+      "priceCash": 1895000,
+      "slug": "roedegaardsvej-65-3-th-5000-odense-c-04616902__65__3__th",
+      "slugAddress": "roedegaardsvej-65-3-th-5000-odense-c",
+      "status": "open",
+      "yearBuilt": 1938,
+      "address": {
+        "cityName": "Odense C",
+        "coordinates": {
+          "lat": 55.39215,
+          "lon": 10.405841,
+          "type": "EPSG4326"
+        },
+        "door": "th",
+        "floor": "3",
+        "houseNumber": "65",
+        "roadName": "Rødegårdsvej",
+        "zipCode": 5000
+      }
+    },
+    {
+      "addressType": "condo",
+      "caseID": "5c93f0ac-a0fc-4984-9a50-bd50a66452c2",
+      "caseUrl": "https://www.danbolig.dk?propertyid=2700001173&brokerid=270",
+      "coordinates": {
+        "lat": 55.39221,
+        "lon": 10.3993225,
+        "type": "EPSG4326"
+      },
+      "daysListed": {
+        "days": 2
+      },
+      "daysOnMarket": 2,
+      "defaultImage": {
+        "imageSources": [
+          {
+            "alt": "Et moderne køkken med hvide skabe og træbordplade. Køkkenet er fyldt med køkkenredskaber og nogle krydderier. To små lamper hænger fra loftet over en vask foran et vindue.",
+            "size": {
+              "height": 80,
+              "width": 100
+            },
+            "url": "https://images.boligsiden.dk/images/case/5c93f0ac-a0fc-4984-9a50-bd50a66452c2/100x80/3056e6c7-65af-453d-9ee8-049840022515.webp"
+          },
+          {
+            "alt": "Et moderne køkken med hvide skabe og træbordplade. Køkkenet er fyldt med køkkenredskaber og nogle krydderier. To små lamper hænger fra loftet over en vask foran et vindue.",
+            "size": {
+              "height": 118,
+              "width": 143
+            },
+            "url": "https://images.boligsiden.dk/images/case/5c93f0ac-a0fc-4984-9a50-bd50a66452c2/143x118/3056e6c7-65af-453d-9ee8-049840022515.webp"
+          },
+          {
+            "alt": "Et moderne køkken med hvide skabe og træbordplade. Køkkenet er fyldt med køkkenredskaber og nogle krydderier. To små lamper hænger fra loftet over en vask foran et vindue.",
+            "size": {
+              "height": 200,
+              "width": 300
+            },
+            "url": "https://images.boligsiden.dk/images/case/5c93f0ac-a0fc-4984-9a50-bd50a66452c2/300x200/3056e6c7-65af-453d-9ee8-049840022515.webp"
+          },
+          {
+            "alt": "Et moderne køkken med hvide skabe og træbordplade. Køkkenet er fyldt med køkkenredskaber og nogle krydderier. To små lamper hænger fra loftet over en vask foran et vindue.",
+            "size": {
+              "height": 400,
+              "width": 600
+            },
+            "url": "https://images.boligsiden.dk/images/case/5c93f0ac-a0fc-4984-9a50-bd50a66452c2/600x400/3056e6c7-65af-453d-9ee8-049840022515.webp"
+          },
+          {
+            "alt": "Et moderne køkken med hvide skabe og træbordplade. Køkkenet er fyldt med køkkenredskaber og nogle krydderier. To små lamper hænger fra loftet over en vask foran et vindue.",
+            "size": {
+              "height": 600,
+              "width": 600
+            },
+            "url": "https://images.boligsiden.dk/images/case/5c93f0ac-a0fc-4984-9a50-bd50a66452c2/600x600/3056e6c7-65af-453d-9ee8-049840022515.webp"
+          },
+          {
+            "alt": "Et moderne køkken med hvide skabe og træbordplade. Køkkenet er fyldt med køkkenredskaber og nogle krydderier. To små lamper hænger fra loftet over en vask foran et vindue.",
+            "size": {
+              "height": 960,
+              "width": 1440
+            },
+            "url": "https://images.boligsiden.dk/images/case/5c93f0ac-a0fc-4984-9a50-bd50a66452c2/1440x960/3056e6c7-65af-453d-9ee8-049840022515.webp"
+          }
+        ]
+      },
+      "descriptionBody": "IndretningVelkommen indenfor i en lys og veldisponeret lejlighed, hvor planløsningen byder på gode rum, praktiske løsninger og hele to altaner. Fra entréen er der rigtig gode muligheder for opbevaring af både overtøj og sko, hvilket giver en praktisk og velfungerende ankomst til boligen. Til venstre finder du boligens to gode værelser, som begge har en fin størrelse og er nemme at indrette efter behov. Det ene værelse egner sig oplagt som soveværelse, mens det andet kan bruges som kontor, gæstev",
+      "descriptionTitle": "Central beliggenhed, 2 altaner, og gode kvadratmeter",
+      "energyLabel": "d",
+      "housingArea": 95,
+      "numberOfRooms": 3,
+      "priceCash": 2395000,
+      "slug": "kragsbjergvej-15-1--5000-odense-c-04614538__15__1____",
+      "slugAddress": "kragsbjergvej-15-1--5000-odense-c",
+      "status": "open",
+      "yearBuilt": 1935,
+      "address": {
+        "cityName": "Odense C",
+        "coordinates": {
+          "lat": 55.39221,
+          "lon": 10.3993225,
+          "type": "EPSG4326"
+        },
+        "floor": "1",
+        "houseNumber": "15",
+        "roadName": "Kragsbjergvej",
+        "zipCode": 5000
+      }
+    },
+    {
+      "addressType": "condo",
+      "caseID": "120b1f81-1c65-4f4e-b840-8ef1ad406c0f",
+      "caseUrl": "https://home.dk/sag/9130002149",
+      "coordinates": {
+        "lat": 55.389687,
+        "lon": 10.387493,
+        "type": "EPSG4326"
+      },
+      "daysListed": {
+        "days": 2
+      },
+      "daysOnMarket": 2,
+      "defaultImage": {
+        "imageSources": [
+          {
+            "alt": "Rundt spisebord med fire stole står i en lys stue. En plante ved siden af bordet. Store vinduer og en sofa i baggrunden. Lysebrune vægge og lyst trægulv.",
+            "size": {
+              "height": 80,
+              "width": 100
+            },
+            "url": "https://images.boligsiden.dk/images/case/120b1f81-1c65-4f4e-b840-8ef1ad406c0f/100x80/67282187-f853-4cdc-b769-31baac19d362.webp"
+          },
+          {
+            "alt": "Rundt spisebord med fire stole står i en lys stue. En plante ved siden af bordet. Store vinduer og en sofa i baggrunden. Lysebrune vægge og lyst trægulv.",
+            "size": {
+              "height": 118,
+              "width": 143
+            },
+            "url": "https://images.boligsiden.dk/images/case/120b1f81-1c65-4f4e-b840-8ef1ad406c0f/143x118/67282187-f853-4cdc-b769-31baac19d362.webp"
+          },
+          {
+            "alt": "Rundt spisebord med fire stole står i en lys stue. En plante ved siden af bordet. Store vinduer og en sofa i baggrunden. Lysebrune vægge og lyst trægulv.",
+            "size": {
+              "height": 200,
+              "width": 300
+            },
+            "url": "https://images.boligsiden.dk/images/case/120b1f81-1c65-4f4e-b840-8ef1ad406c0f/300x200/67282187-f853-4cdc-b769-31baac19d362.webp"
+          },
+          {
+            "alt": "Rundt spisebord med fire stole står i en lys stue. En plante ved siden af bordet. Store vinduer og en sofa i baggrunden. Lysebrune vægge og lyst trægulv.",
+            "size": {
+              "height": 400,
+              "width": 600
+            },
+            "url": "https://images.boligsiden.dk/images/case/120b1f81-1c65-4f4e-b840-8ef1ad406c0f/600x400/67282187-f853-4cdc-b769-31baac19d362.webp"
+          },
+          {
+            "alt": "Rundt spisebord med fire stole står i en lys stue. En plante ved siden af bordet. Store vinduer og en sofa i baggrunden. Lysebrune vægge og lyst trægulv.",
+            "size": {
+              "height": 600,
+              "width": 600
+            },
+            "url": "https://images.boligsiden.dk/images/case/120b1f81-1c65-4f4e-b840-8ef1ad406c0f/600x600/67282187-f853-4cdc-b769-31baac19d362.webp"
+          },
+          {
+            "alt": "Rundt spisebord med fire stole står i en lys stue. En plante ved siden af bordet. Store vinduer og en sofa i baggrunden. Lysebrune vægge og lyst trægulv.",
+            "size": {
+              "height": 960,
+              "width": 1440
+            },
+            "url": "https://images.boligsiden.dk/images/case/120b1f81-1c65-4f4e-b840-8ef1ad406c0f/1440x960/67282187-f853-4cdc-b769-31baac19d362.webp"
+          }
+        ]
+      },
+      "descriptionBody": "Velkommen til Læssøegade 14, 1 tv. – en smuk, fuldt moderniseret ejerlejlighed beliggende centralt i Odense C. Her får du en bolig, der har den herskabelige og klassisk charme og som samtidig også er indflytningsklar.Lejligheden er en del af en charmerende rødstensejendom fra 1928, der ligger placeret i et attraktivt område tæt ved centrum samt med Munke Mose og det hyggelige gågademiljø. Derudover har man også gåafstand til caféer, indkøb samt offentlig transport.Her får du det bedste fra to ve",
+      "descriptionTitle": "Herskabelig 4 værelses lejlighed",
+      "energyLabel": "e",
+      "housingArea": 103,
+      "numberOfRooms": 4,
+      "priceCash": 3495000,
+      "slug": "laessoeegade-14-1-tv-5000-odense-c-04615199__14__1__tv",
+      "slugAddress": "laessoeegade-14-1-tv-5000-odense-c",
+      "status": "open",
+      "yearBuilt": 1928,
+      "address": {
+        "cityName": "Odense C",
+        "coordinates": {
+          "lat": 55.389687,
+          "lon": 10.387493,
+          "type": "EPSG4326"
+        },
+        "door": "tv",
+        "floor": "1",
+        "houseNumber": "14",
+        "roadName": "Læssøegade",
+        "zipCode": 5000
+      }
+    },
+    {
+      "addressType": "condo",
+      "caseID": "af348a4d-e314-4401-8b56-489b9ccdf948",
+      "caseUrl": "https://www.edc.dk/sag/?sagsnr=50005669",
+      "coordinates": {
+        "lat": 55.409073,
+        "lon": 10.386114,
+        "type": "EPSG4326"
+      },
+      "daysListed": {
+        "days": 2
+      },
+      "daysOnMarket": 2,
+      "defaultImage": {
+        "imageSources": [
+          {
+            "alt": "Et lyst, ryddeligt køkken med hvide skabe og træbordplader. Der er en vask og komfur, og vinduet giver udsigt til en murstensbygning udenfor.",
+            "size": {
+              "height": 80,
+              "width": 100
+            },
+            "url": "https://images.boligsiden.dk/images/case/af348a4d-e314-4401-8b56-489b9ccdf948/100x80/943b9dce-5d24-46db-a765-0a333d04c43c.webp"
+          },
+          {
+            "alt": "Et lyst, ryddeligt køkken med hvide skabe og træbordplader. Der er en vask og komfur, og vinduet giver udsigt til en murstensbygning udenfor.",
+            "size": {
+              "height": 118,
+              "width": 143
+            },
+            "url": "https://images.boligsiden.dk/images/case/af348a4d-e314-4401-8b56-489b9ccdf948/143x118/943b9dce-5d24-46db-a765-0a333d04c43c.webp"
+          },
+          {
+            "alt": "Et lyst, ryddeligt køkken med hvide skabe og træbordplader. Der er en vask og komfur, og vinduet giver udsigt til en murstensbygning udenfor.",
+            "size": {
+              "height": 200,
+              "width": 300
+            },
+            "url": "https://images.boligsiden.dk/images/case/af348a4d-e314-4401-8b56-489b9ccdf948/300x200/943b9dce-5d24-46db-a765-0a333d04c43c.webp"
+          },
+          {
+            "alt": "Et lyst, ryddeligt køkken med hvide skabe og træbordplader. Der er en vask og komfur, og vinduet giver udsigt til en murstensbygning udenfor.",
+            "size": {
+              "height": 400,
+              "width": 600
+            },
+            "url": "https://images.boligsiden.dk/images/case/af348a4d-e314-4401-8b56-489b9ccdf948/600x400/943b9dce-5d24-46db-a765-0a333d04c43c.webp"
+          },
+          {
+            "alt": "Et lyst, ryddeligt køkken med hvide skabe og træbordplader. Der er en vask og komfur, og vinduet giver udsigt til en murstensbygning udenfor.",
+            "size": {
+              "height": 600,
+              "width": 600
+            },
+            "url": "https://images.boligsiden.dk/images/case/af348a4d-e314-4401-8b56-489b9ccdf948/600x600/943b9dce-5d24-46db-a765-0a333d04c43c.webp"
+          },
+          {
+            "alt": "Et lyst, ryddeligt køkken med hvide skabe og træbordplader. Der er en vask og komfur, og vinduet giver udsigt til en murstensbygning udenfor.",
+            "size": {
+              "height": 960,
+              "width": 1440
+            },
+            "url": "https://images.boligsiden.dk/images/case/af348a4d-e314-4401-8b56-489b9ccdf948/1440x960/943b9dce-5d24-46db-a765-0a333d04c43c.webp"
+          }
+        ]
+      },
+      "descriptionBody": "EDC Åløkken byder velkommen til Nørrevoldgade 10, 1. – en rummelig lejlighed i Odense C med egen privat parkeringsplads + 2 gæsteparkeringspladser, en stor opholdsafdeling, fire værelser og en sydvendt altan. Her får I en lejlighed med mange indretningsmuligheder og plads til både familieliv, hjemmearbejde og gæster.\r\n\r\nPå Nørrevoldgade har man nemlig en ret unik beliggenhed let tilbagetrukket fra Odense Havn, men i gåafstand til alle Havnens tilbud, hvorfor man vil få beliggenhed i et kvarter i en spændende udvikling. Odense Havn er nemlig under en rivende udvikling disse år som byens nye bo-kvarter og rekreative område. Her er både restauranter, havnebad, basketbaner, fodboldfabrikken, minigolf, vandcykler og andre aktiviteter.\r\n\r\nDerudover er der løbende markeder og andre aktiviteter. Grundet den korte afstand til vandet har man også fra den fantastiske tagterrasse på ejendommen, hvorfra der er elevator til, en fantastisk udsigt til vandet og resten af byen. Dette skal opleves på en fremvisning.\r\n\r\nI bydes velkommen i entréen, som leder videre til fordelingsgangen. Herfra er der adgang til soveværelset og et af lejlighedens øvrige værelser samt badeværelset og det separate gæstetoilet. Badeværelset har en god størrelse med plads til vaskemaskine og giver sammen med gæstetoilettet en praktisk løsning i hverdagen.\r\n\r\nLejlighedens naturlige samlingspunkt er den store stue, hvor der er god plads til både et langt spisebord og en hyggelig sofaafdeling. Rummets størrelse giver mulighed for at skabe flere opholdszoner, og køkkenets åbne forbindelse til stuen gør det let at være sammen om madlavning og samvær. Køkkenet er indrettet med elementer på begge sider, som giver god bord- og skabsplads.\r\n\r\nFra stuen er der direkte udgang til den sydvendte altan, hvor I kan indrette jer med havemøbler og nyde solen og en pause under åben himmel.\r\n\r\nFra opholdsafdelingen er der desuden adgang til endnu et værelse, som leder videre til lejlighedens fjerde værelse. De to sammenhængende rum giver mulighed for eksempelvis børneværelse og legerum eller kontor og gæsteværelse.\r\n\r\nVi fremviser alle ugens dage!",
+      "descriptionTitle": "Med stor altan og gode parkeringsforhold!",
+      "energyLabel": "b",
+      "housingArea": 149,
+      "numberOfRooms": 5,
+      "priceCash": 4495000,
+      "slug": "noerrevoldgade-10-1--5000-odense-c-04615936__10__1____",
+      "slugAddress": "noerrevoldgade-10-1--5000-odense-c",
+      "status": "open",
+      "yearBuilt": 1898,
+      "address": {
+        "cityName": "Odense C",
+        "coordinates": {
+          "lat": 55.409073,
+          "lon": 10.386114,
+          "type": "EPSG4326"
+        },
+        "floor": "1",
+        "houseNumber": "10",
+        "roadName": "Nørrevoldgade",
+        "zipCode": 5000
+      }
+    },
+    {
+      "addressType": "condo",
+      "caseID": "14ecde29-614b-4bcc-91e1-97f4e6253f58",
+      "caseUrl": "https://home.dk/sag/9130002223",
+      "coordinates": {
+        "lat": 55.41437,
+        "lon": 10.395729,
+        "type": "EPSG4326"
+      },
+      "daysListed": {
+        "days": 2
+      },
+      "daysOnMarket": 2,
+      "defaultImage": {
+        "imageSources": [
+          {
+            "alt": "Spisebord med sorte stole står foran en blomsterdekoration og lysestager. I baggrunden er en stue med en lys sofa, trævæg og store vinduer, der lader naturligt lys ind.",
+            "size": {
+              "height": 80,
+              "width": 100
+            },
+            "url": "https://images.boligsiden.dk/images/case/14ecde29-614b-4bcc-91e1-97f4e6253f58/100x80/56880edf-5008-4ddd-9caa-b56d343b04d7.webp"
+          },
+          {
+            "alt": "Spisebord med sorte stole står foran en blomsterdekoration og lysestager. I baggrunden er en stue med en lys sofa, trævæg og store vinduer, der lader naturligt lys ind.",
+            "size": {
+              "height": 118,
+              "width": 143
+            },
+            "url": "https://images.boligsiden.dk/images/case/14ecde29-614b-4bcc-91e1-97f4e6253f58/143x118/56880edf-5008-4ddd-9caa-b56d343b04d7.webp"
+          },
+          {
+            "alt": "Spisebord med sorte stole står foran en blomsterdekoration og lysestager. I baggrunden er en stue med en lys sofa, trævæg og store vinduer, der lader naturligt lys ind.",
+            "size": {
+              "height": 200,
+              "width": 300
+            },
+            "url": "https://images.boligsiden.dk/images/case/14ecde29-614b-4bcc-91e1-97f4e6253f58/300x200/56880edf-5008-4ddd-9caa-b56d343b04d7.webp"
+          },
+          {
+            "alt": "Spisebord med sorte stole står foran en blomsterdekoration og lysestager. I baggrunden er en stue med en lys sofa, trævæg og store vinduer, der lader naturligt lys ind.",
+            "size": {
+              "height": 400,
+              "width": 600
+            },
+            "url": "https://images.boligsiden.dk/images/case/14ecde29-614b-4bcc-91e1-97f4e6253f58/600x400/56880edf-5008-4ddd-9caa-b56d343b04d7.webp"
+          },
+          {
+            "alt": "Spisebord med sorte stole står foran en blomsterdekoration og lysestager. I baggrunden er en stue med en lys sofa, trævæg og store vinduer, der lader naturligt lys ind.",
+            "size": {
+              "height": 600,
+              "width": 600
+            },
+            "url": "https://images.boligsiden.dk/images/case/14ecde29-614b-4bcc-91e1-97f4e6253f58/600x600/56880edf-5008-4ddd-9caa-b56d343b04d7.webp"
+          },
+          {
+            "alt": "Spisebord med sorte stole står foran en blomsterdekoration og lysestager. I baggrunden er en stue med en lys sofa, trævæg og store vinduer, der lader naturligt lys ind.",
+            "size": {
+              "height": 960,
+              "width": 1440
+            },
+            "url": "https://images.boligsiden.dk/images/case/14ecde29-614b-4bcc-91e1-97f4e6253f58/1440x960/56880edf-5008-4ddd-9caa-b56d343b04d7.webp"
+          }
+        ]
+      },
+      "descriptionBody": "Velkommen til Egebæksvej 2G – en rummelig og indbydende lejlighed beliggende i det attraktive Skibhuskvarter, også kendt som ”byen i byen”. Her får du en skøn beliggenhed tæt på Skt. Hans Skole, de mange hyggelige butikker og specialforretninger langs Skibhusvej samt med kort afstand til både Odense Banegård og havnen.Lejligheden byder på en god og funktionel indretning med masser af plads til både parret, delelejlighed, familien eller dig, der ønsker ekstra rum til hjemmekontor og gæster. Du by",
+      "descriptionTitle": "Fantastisk 3 værelses lejlighed med lækkert badeværelse",
+      "energyLabel": "c",
+      "housingArea": 97,
+      "numberOfRooms": 3,
+      "priceCash": 2395000,
+      "slug": "egebaeksvej-2g-0--5000-odense-c-04611604__2g_st____",
+      "slugAddress": "egebaeksvej-2g-0--5000-odense-c",
+      "status": "open",
+      "yearBuilt": 1917,
+      "address": {
+        "cityName": "Odense C",
+        "coordinates": {
+          "lat": 55.41437,
+          "lon": 10.395729,
+          "type": "EPSG4326"
+        },
+        "floor": "0",
+        "houseNumber": "2G",
+        "roadName": "Egebæksvej",
+        "zipCode": 5000
+      }
+    },
+    {
+      "addressType": "condo",
+      "caseID": "a49f1f4d-0387-49fd-b1d1-e36c5da99afd",
+      "caseUrl": "https://www.edc.dk/sag/?sagsnr=50205310",
+      "coordinates": {
+        "lat": 55.38103,
+        "lon": 10.36782,
+        "type": "EPSG4326"
+      },
+      "daysListed": {
+        "days": 3
+      },
+      "daysOnMarket": 3,
+      "defaultImage": {
+        "imageSources": [
+          {
+            "alt": "En to-etagers rød murstensvilla med rødt tegltag, ingen synlig aktivitet, beliggende på en parcel med græsplæne og flisebelagt indkørsel. En sort bil holder foran huset.",
+            "size": {
+              "height": 80,
+              "width": 100
+            },
+            "url": "https://images.boligsiden.dk/images/case/a49f1f4d-0387-49fd-b1d1-e36c5da99afd/100x80/a8e670ee-1d40-4eb9-a296-f3eb5806e9ac.webp"
+          },
+          {
+            "alt": "En to-etagers rød murstensvilla med rødt tegltag, ingen synlig aktivitet, beliggende på en parcel med græsplæne og flisebelagt indkørsel. En sort bil holder foran huset.",
+            "size": {
+              "height": 118,
+              "width": 143
+            },
+            "url": "https://images.boligsiden.dk/images/case/a49f1f4d-0387-49fd-b1d1-e36c5da99afd/143x118/a8e670ee-1d40-4eb9-a296-f3eb5806e9ac.webp"
+          },
+          {
+            "alt": "En to-etagers rød murstensvilla med rødt tegltag, ingen synlig aktivitet, beliggende på en parcel med græsplæne og flisebelagt indkørsel. En sort bil holder foran huset.",
+            "size": {
+              "height": 200,
+              "width": 300
+            },
+            "url": "https://images.boligsiden.dk/images/case/a49f1f4d-0387-49fd-b1d1-e36c5da99afd/300x200/a8e670ee-1d40-4eb9-a296-f3eb5806e9ac.webp"
+          },
+          {
+            "alt": "En to-etagers rød murstensvilla med rødt tegltag, ingen synlig aktivitet, beliggende på en parcel med græsplæne og flisebelagt indkørsel. En sort bil holder foran huset.",
+            "size": {
+              "height": 400,
+              "width": 600
+            },
+            "url": "https://images.boligsiden.dk/images/case/a49f1f4d-0387-49fd-b1d1-e36c5da99afd/600x400/a8e670ee-1d40-4eb9-a296-f3eb5806e9ac.webp"
+          },
+          {
+            "alt": "En to-etagers rød murstensvilla med rødt tegltag, ingen synlig aktivitet, beliggende på en parcel med græsplæne og flisebelagt indkørsel. En sort bil holder foran huset.",
+            "size": {
+              "height": 600,
+              "width": 600
+            },
+            "url": "https://images.boligsiden.dk/images/case/a49f1f4d-0387-49fd-b1d1-e36c5da99afd/600x600/a8e670ee-1d40-4eb9-a296-f3eb5806e9ac.webp"
+          },
+          {
+            "alt": "En to-etagers rød murstensvilla med rødt tegltag, ingen synlig aktivitet, beliggende på en parcel med græsplæne og flisebelagt indkørsel. En sort bil holder foran huset.",
+            "size": {
+              "height": 960,
+              "width": 1440
+            },
+            "url": "https://images.boligsiden.dk/images/case/a49f1f4d-0387-49fd-b1d1-e36c5da99afd/1440x960/a8e670ee-1d40-4eb9-a296-f3eb5806e9ac.webp"
+          }
+        ]
+      },
+      "descriptionBody": "Åbent hus med tilmeldingskrav 13/10 - klik på billede - \r\n\r\nPå en af byens mest eftertragtede og stemningsfulde adresser byder Junggreensvej 9B, 1. indenfor til en boligoplevelse ud over det sædvanlige. Her venter et sandt boligeventyr, hvor klassisk herskabelighed møder moderne kompromisløshed i en gennemrenoveret villalejlighed, der fremstår fuldstændig indflytningsklar. \r\n\r\nTræder I indenfor, åbner hjemmet sig med en udtalt varme, elegance og harmoni. Det eksklusive sildebensparket guider jer gennem rummene, mens de smukke, blotlagte spær tilfører kant og en rustik sjæl. \r\n\r\nHjemmets hjerte er det indbydende køkken-alrum og stuemiljø, hvor dagslyset strømmer frit, og hvor kulinariske udfoldelser og gode samtaler smelter sammen. Planløsningen er optimalt disponeret over to etager: På det nederste plan finder I et lyst værelse samt et lækkert, tidløst badeværelse. Følger I trappen op til lejlighedens øverste etage, finder i et godt værelse mere, og et praktisk toilet. \r\n\r\nUdelivet ved denne bolig er et sjældent syn i hjertet af Odense. Dagen kan begynde på den store, private altan med morgenkaffen i hånden og kig til trækronerne. Derudover får I jeres helt egen opdelte havedel med solrig terrasse – et ugeneret fristed med plads til loungemøbler, grillmiddage og lune sommeraftener under åben himmel.  \r\n\r\nBeliggenheden er helt i særklasse. Her bor I på en skøn adresse ganske tæt på både Odense Zoo og nemme togforbindelser, der gør hverdagen bekvem. Samtidig har I under tre kilometer ind til gågadens liv, hyggelige caféer og alt det bedste, Odense har at byde på. \r\n\r\nEn sjælden perle, der skaber de perfekte rammer for det unge par eller den lille familie, som ønsker det bedste fra to verdener – villadrømmen og lejlighedens lethed.",
+      "descriptionTitle": "Eksklusiv villalejlighed med stor altan",
+      "energyLabel": "c",
+      "housingArea": 117,
+      "numberOfRooms": 3,
+      "priceCash": 3795000,
+      "slug": "junggreensvej-9b-1--5000-odense-c-04614033__9b__1____",
+      "slugAddress": "junggreensvej-9b-1--5000-odense-c",
+      "status": "open",
+      "yearBuilt": 1920,
+      "address": {
+        "cityName": "Odense C",
+        "coordinates": {
+          "lat": 55.38103,
+          "lon": 10.36782,
+          "type": "EPSG4326"
+        },
+        "floor": "1",
+        "houseNumber": "9B",
+        "roadName": "Junggreensvej",
+        "zipCode": 5000
+      }
+    },
+    {
+      "addressType": "condo",
+      "caseID": "65616a1c-9e31-4a22-bda1-7e75e56ca191",
+      "caseUrl": "https://www.nybolig.dk/services/redirect/case/N100612/N1006120002235",
+      "coordinates": {
+        "lat": 55.3909,
+        "lon": 10.394758,
+        "type": "EPSG4326"
+      },
+      "daysListed": {
+        "days": 3
+      },
+      "daysOnMarket": 3,
+      "defaultImage": {
+        "imageSources": [
+          {
+            "alt": "Gulstenshus står stille omgivet af grønne planter og græsplæne med en træbænk i forgrunden, træer og en blå himmel.",
+            "size": {
+              "height": 80,
+              "width": 100
+            },
+            "url": "https://images.boligsiden.dk/images/case/65616a1c-9e31-4a22-bda1-7e75e56ca191/100x80/61230def-0fff-4ce9-b53d-482881b145d1.webp"
+          },
+          {
+            "alt": "Gulstenshus står stille omgivet af grønne planter og græsplæne med en træbænk i forgrunden, træer og en blå himmel.",
+            "size": {
+              "height": 118,
+              "width": 143
+            },
+            "url": "https://images.boligsiden.dk/images/case/65616a1c-9e31-4a22-bda1-7e75e56ca191/143x118/61230def-0fff-4ce9-b53d-482881b145d1.webp"
+          },
+          {
+            "alt": "Gulstenshus står stille omgivet af grønne planter og græsplæne med en træbænk i forgrunden, træer og en blå himmel.",
+            "size": {
+              "height": 200,
+              "width": 300
+            },
+            "url": "https://images.boligsiden.dk/images/case/65616a1c-9e31-4a22-bda1-7e75e56ca191/300x200/61230def-0fff-4ce9-b53d-482881b145d1.webp"
+          },
+          {
+            "alt": "Gulstenshus står stille omgivet af grønne planter og græsplæne med en træbænk i forgrunden, træer og en blå himmel.",
+            "size": {
+              "height": 400,
+              "width": 600
+            },
+            "url": "https://images.boligsiden.dk/images/case/65616a1c-9e31-4a22-bda1-7e75e56ca191/600x400/61230def-0fff-4ce9-b53d-482881b145d1.webp"
+          },
+          {
+            "alt": "Gulstenshus står stille omgivet af grønne planter og græsplæne med en træbænk i forgrunden, træer og en blå himmel.",
+            "size": {
+              "height": 600,
+              "width": 600
+            },
+            "url": "https://images.boligsiden.dk/images/case/65616a1c-9e31-4a22-bda1-7e75e56ca191/600x600/61230def-0fff-4ce9-b53d-482881b145d1.webp"
+          },
+          {
+            "alt": "Gulstenshus står stille omgivet af grønne planter og græsplæne med en træbænk i forgrunden, træer og en blå himmel.",
+            "size": {
+              "height": 960,
+              "width": 1440
+            },
+            "url": "https://images.boligsiden.dk/images/case/65616a1c-9e31-4a22-bda1-7e75e56ca191/1440x960/61230def-0fff-4ce9-b53d-482881b145d1.webp"
+          }
+        ]
+      },
+      "descriptionBody": "Herskabelig charme midt i Odense C Velkommen til Allégade 20B – en charmerende stuelejlighed, hvor herskabelig karakter, atmosfære og en attraktiv beliggenhed går hånd i hånd.Allerede ved ankomsten mærker man boligens særlige stemning. Her møder du klassisk charme og herskabelig atmosfære, som giver hjemmet personlighed og en helt særlig følelse. Det er en bolig for dig, der sætter pris på smukke detaljer, gode proportioner og den karakter, som kun ældre ejendomme kan tilbyde.Lejligheden byder p",
+      "descriptionTitle": "Skøn herskabslejlighed med stor, fælles have.",
+      "energyLabel": "d",
+      "housingArea": 129,
+      "numberOfRooms": 4,
+      "priceCash": 5145000,
+      "slug": "allegade-20b-0--5000-odense-c-04610175_20b_st____",
+      "slugAddress": "allegade-20b-0--5000-odense-c",
+      "status": "open",
+      "yearBuilt": 1896,
+      "address": {
+        "cityName": "Odense C",
+        "coordinates": {
+          "lat": 55.3909,
+          "lon": 10.394758,
+          "type": "EPSG4326"
+        },
+        "floor": "0",
+        "houseNumber": "20B",
+        "roadName": "Allégade",
+        "zipCode": 5000
+      }
+    },
+    {
+      "addressType": "condo",
+      "caseID": "e666e5b6-54bc-40be-945a-aadba98ceb7d",
+      "caseUrl": "https://www.edc.dk/sag/?sagsnr=50007079",
+      "coordinates": {
+        "lat": 55.403442,
+        "lon": 10.37077,
+        "type": "EPSG4326"
+      },
+      "daysListed": {
+        "days": 4
+      },
+      "daysOnMarket": 4,
+      "defaultImage": {
+        "imageSources": [
+          {
+            "alt": "Lyst stue med hvid sofa og sofabord, dekoreret med planter, vægkunst og en vægmonteret tv-skærm. Til højre er en spisestue med naturligt lys fra vinduerne.",
+            "size": {
+              "height": 80,
+              "width": 100
+            },
+            "url": "https://images.boligsiden.dk/images/case/e666e5b6-54bc-40be-945a-aadba98ceb7d/100x80/215b9c52-a6f7-4f89-b180-d376de7eb475.webp"
+          },
+          {
+            "alt": "Lyst stue med hvid sofa og sofabord, dekoreret med planter, vægkunst og en vægmonteret tv-skærm. Til højre er en spisestue med naturligt lys fra vinduerne.",
+            "size": {
+              "height": 118,
+              "width": 143
+            },
+            "url": "https://images.boligsiden.dk/images/case/e666e5b6-54bc-40be-945a-aadba98ceb7d/143x118/215b9c52-a6f7-4f89-b180-d376de7eb475.webp"
+          },
+          {
+            "alt": "Lyst stue med hvid sofa og sofabord, dekoreret med planter, vægkunst og en vægmonteret tv-skærm. Til højre er en spisestue med naturligt lys fra vinduerne.",
+            "size": {
+              "height": 200,
+              "width": 300
+            },
+            "url": "https://images.boligsiden.dk/images/case/e666e5b6-54bc-40be-945a-aadba98ceb7d/300x200/215b9c52-a6f7-4f89-b180-d376de7eb475.webp"
+          },
+          {
+            "alt": "Lyst stue med hvid sofa og sofabord, dekoreret med planter, vægkunst og en vægmonteret tv-skærm. Til højre er en spisestue med naturligt lys fra vinduerne.",
+            "size": {
+              "height": 400,
+              "width": 600
+            },
+            "url": "https://images.boligsiden.dk/images/case/e666e5b6-54bc-40be-945a-aadba98ceb7d/600x400/215b9c52-a6f7-4f89-b180-d376de7eb475.webp"
+          },
+          {
+            "alt": "Lyst stue med hvid sofa og sofabord, dekoreret med planter, vægkunst og en vægmonteret tv-skærm. Til højre er en spisestue med naturligt lys fra vinduerne.",
+            "size": {
+              "height": 600,
+              "width": 600
+            },
+            "url": "https://images.boligsiden.dk/images/case/e666e5b6-54bc-40be-945a-aadba98ceb7d/600x600/215b9c52-a6f7-4f89-b180-d376de7eb475.webp"
+          },
+          {
+            "alt": "Lyst stue med hvid sofa og sofabord, dekoreret med planter, vægkunst og en vægmonteret tv-skærm. Til højre er en spisestue med naturligt lys fra vinduerne.",
+            "size": {
+              "height": 960,
+              "width": 1440
+            },
+            "url": "https://images.boligsiden.dk/images/case/e666e5b6-54bc-40be-945a-aadba98ceb7d/1440x960/215b9c52-a6f7-4f89-b180-d376de7eb475.webp"
+          }
+        ]
+      },
+      "descriptionBody": "Åbent hus med tilmeldingskrav 13/10 - klik på billede - \r\n\r\nEDC Åløkken byder velkommen til Abigaelsvej 15, 2. – en spændende og velindrettet lejlighed i to plan med en attraktiv beliggenhed i det eftertragtede Åløkkekvarter. Her bor du i rolige omgivelser med kort afstand til både Odense C, Åløkkeskoven og det populære havnemiljø ved Odense Havn. Fra adressen er der samtidig nem adgang til Odense Banegård, bymidten og hverdagens fornødenheder.\r\nOdense Havn ligger blot en kort gåtur fra lejligheden og byder på et levende miljø med blandt andet havnebad, restauranter, caféer og forskellige aktivitetsmuligheder. Samtidig har du Åløkkeskoven tæt på, så beliggenheden kombinerer byliv, natur og rekreative områder på bedste vis.\r\nLejligheden fordeler sig over 2. salen og 3. salen som ikke er godkendt til beboelse og byder på en spændende planløsning med gode opholdsrum og et dejligt lysindfald.\r\n\r\nPå 2. sal bydes du velkommen i entréen, hvorfra lejlighedens rum fordeler sig naturligt. Her finder du et lyst og funktionelt køkken med gode arbejdsflader og opbevaringsmuligheder. Etagen rummer desuden et godt soveværelse med plads til både seng og garderobe, samt et nyere badeværelse med separat bruseniche.\r\nLejlighedens naturlige samlingspunkt er de to gode stuer, som ligger i åben forbindelse med hinanden. Her er der rig mulighed for at indrette med både spiseafdeling og hyggelig opholdsstue, mens de mange vinduespartier sørger for et skønt lysindfald. Fra stuen er der direkte udgang til den store altan, hvorfra udsigten mod Odense Havn kan nydes. Ønskes endnu et værelse på etagen, giver indretningen samtidig mulighed for at anvende den ene stue hertil.\r\nFra 2. sal fører trappen videre op til 3. sal, som tilfører lejligheden masser af ekstra plads. Her findes et stort, åbent disponibelt rum, som i dag er indrettet som stue, samt endnu et separat disponibelt rum. Etagen giver således flere gode anvendelsesmuligheder til eksempelvis hjemmekontor, hobbyrum eller ekstra opholdsafdeling.\r\n\r\nTil lejligheden hører desuden eget kælderrum, ligesom ejendommen byder på cykelopbevaring og en hyggelig, lukket fælleshave. Der er samtidig gode muligheder for parkering foran ejendommen. \r\n\r\nVi fremviser alle ugens dage.",
+      "descriptionTitle": "116 m2 i boligkvalitet heraf 29 m2 disponibelt rum på 3. salen!",
+      "energyLabel": "c",
+      "housingArea": 89,
+      "numberOfRooms": 4,
+      "priceCash": 2295000,
+      "slug": "abigaelsvej-15-2--5000-odense-c-04610087__15__2____",
+      "slugAddress": "abigaelsvej-15-2--5000-odense-c",
+      "status": "open",
+      "yearBuilt": 1939,
+      "address": {
+        "cityName": "Odense C",
+        "coordinates": {
+          "lat": 55.403442,
+          "lon": 10.37077,
+          "type": "EPSG4326"
+        },
+        "floor": "2",
+        "houseNumber": "15",
+        "roadName": "Abigaelsvej",
+        "zipCode": 5000
+      }
+    },
+    {
+      "addressType": "villa",
+      "caseID": "e410c9ee-aaca-41cf-b98a-fc032e7c909e",
+      "caseUrl": "https://home.dk/sag/9100001907",
+      "coordinates": {
+        "lat": 55.40853,
+        "lon": 10.38761,
+        "type": "EPSG4326"
+      },
+      "daysListed": {
+        "days": 5
+      },
+      "daysOnMarket": 5,
+      "defaultImage": {
+        "imageSources": [
+          {
+            "alt": "En sort bil holder parkeret foran et hvidt, to-etagers hus med rødt tegltag. Huset har en tilknyttet garage og omgives af andre bygninger og grønne buske.",
+            "size": {
+              "height": 80,
+              "width": 100
+            },
+            "url": "https://images.boligsiden.dk/images/case/e410c9ee-aaca-41cf-b98a-fc032e7c909e/100x80/96d2884d-ecd0-474f-8523-b40405db1c87.webp"
+          },
+          {
+            "alt": "En sort bil holder parkeret foran et hvidt, to-etagers hus med rødt tegltag. Huset har en tilknyttet garage og omgives af andre bygninger og grønne buske.",
+            "size": {
+              "height": 118,
+              "width": 143
+            },
+            "url": "https://images.boligsiden.dk/images/case/e410c9ee-aaca-41cf-b98a-fc032e7c909e/143x118/96d2884d-ecd0-474f-8523-b40405db1c87.webp"
+          },
+          {
+            "alt": "En sort bil holder parkeret foran et hvidt, to-etagers hus med rødt tegltag. Huset har en tilknyttet garage og omgives af andre bygninger og grønne buske.",
+            "size": {
+              "height": 200,
+              "width": 300
+            },
+            "url": "https://images.boligsiden.dk/images/case/e410c9ee-aaca-41cf-b98a-fc032e7c909e/300x200/96d2884d-ecd0-474f-8523-b40405db1c87.webp"
+          },
+          {
+            "alt": "En sort bil holder parkeret foran et hvidt, to-etagers hus med rødt tegltag. Huset har en tilknyttet garage og omgives af andre bygninger og grønne buske.",
+            "size": {
+              "height": 400,
+              "width": 600
+            },
+            "url": "https://images.boligsiden.dk/images/case/e410c9ee-aaca-41cf-b98a-fc032e7c909e/600x400/96d2884d-ecd0-474f-8523-b40405db1c87.webp"
+          },
+          {
+            "alt": "En sort bil holder parkeret foran et hvidt, to-etagers hus med rødt tegltag. Huset har en tilknyttet garage og omgives af andre bygninger og grønne buske.",
+            "size": {
+              "height": 600,
+              "width": 600
+            },
+            "url": "https://images.boligsiden.dk/images/case/e410c9ee-aaca-41cf-b98a-fc032e7c909e/600x600/96d2884d-ecd0-474f-8523-b40405db1c87.webp"
+          },
+          {
+            "alt": "En sort bil holder parkeret foran et hvidt, to-etagers hus med rødt tegltag. Huset har en tilknyttet garage og omgives af andre bygninger og grønne buske.",
+            "size": {
+              "height": 960,
+              "width": 1440
+            },
+            "url": "https://images.boligsiden.dk/images/case/e410c9ee-aaca-41cf-b98a-fc032e7c909e/1440x960/96d2884d-ecd0-474f-8523-b40405db1c87.webp"
+          }
+        ]
+      },
+      "descriptionBody": "Med stor glæde kan vi nu byde indenfor i denne fuldkommen fantastisk flotte og meget vedligeholdte ejendom. Ejendommen er pt. opdelt i 2 lejligheder, men HELE ejendommen er fri til en ny ejer. Ejendommen ligger dejlig centralt med kort afstand til havnen, indkøb, skole og centrum.Bagved ejendommen er der fine parkeringsforhold til flere biler. Ydermere en skøn grøn oase med flere hyggelige terrasser. En utrolig flot og hyggelig ejendom hvor en kommende ny ejer kan flytte direkte ind.Ejendommen i",
+      "descriptionTitle": "Fantastisk flot ejendom på attraktiv central beliggenhed pt. opdelt i 2 lejligheder",
+      "energyLabel": "d",
+      "housingArea": 206,
+      "numberOfRooms": 5,
+      "priceCash": 5195000,
+      "slug": "tolderlundsvej-55-5000-odense-c-5263fc1e-5b48-4abf-9b48-cdabfe79efe6",
+      "slugAddress": "tolderlundsvej-55-5000-odense-c-5263fc1e-5b48-4abf-9b48-cdabfe79efe6",
+      "status": "open",
+      "yearBuilt": 1909,
+      "address": {
+        "cityName": "Odense C",
+        "houseNumber": "55",
+        "roadName": "Tolderlundsvej",
+        "zipCode": 5000
+      }
+    },
+    {
+      "addressType": "villa",
+      "caseID": "c3579039-5d92-4133-a4e0-f6d772ad67f0",
+      "caseUrl": "https://www.nybolig.dk/services/redirect/case/N100612/N1006120002199",
+      "coordinates": {
+        "lat": 55.38907,
+        "lon": 10.389234,
+        "type": "EPSG4326"
+      },
+      "daysListed": {
+        "days": 9
+      },
+      "daysOnMarket": 9,
+      "defaultImage": {
+        "imageSources": [
+          {
+            "alt": "En rød murstensbygning står på et hjørne. Den har hvide vinduer og dekorativ gesims. Bygningen er omgivet af et fortov med lamper under en blå himmel med få skyer.",
+            "size": {
+              "height": 80,
+              "width": 100
+            },
+            "url": "https://images.boligsiden.dk/images/case/c3579039-5d92-4133-a4e0-f6d772ad67f0/100x80/4fac6cdf-4f76-44f0-b953-089092d9d28b.webp"
+          },
+          {
+            "alt": "En rød murstensbygning står på et hjørne. Den har hvide vinduer og dekorativ gesims. Bygningen er omgivet af et fortov med lamper under en blå himmel med få skyer.",
+            "size": {
+              "height": 118,
+              "width": 143
+            },
+            "url": "https://images.boligsiden.dk/images/case/c3579039-5d92-4133-a4e0-f6d772ad67f0/143x118/4fac6cdf-4f76-44f0-b953-089092d9d28b.webp"
+          },
+          {
+            "alt": "En rød murstensbygning står på et hjørne. Den har hvide vinduer og dekorativ gesims. Bygningen er omgivet af et fortov med lamper under en blå himmel med få skyer.",
+            "size": {
+              "height": 200,
+              "width": 300
+            },
+            "url": "https://images.boligsiden.dk/images/case/c3579039-5d92-4133-a4e0-f6d772ad67f0/300x200/4fac6cdf-4f76-44f0-b953-089092d9d28b.webp"
+          },
+          {
+            "alt": "En rød murstensbygning står på et hjørne. Den har hvide vinduer og dekorativ gesims. Bygningen er omgivet af et fortov med lamper under en blå himmel med få skyer.",
+            "size": {
+              "height": 400,
+              "width": 600
+            },
+            "url": "https://images.boligsiden.dk/images/case/c3579039-5d92-4133-a4e0-f6d772ad67f0/600x400/4fac6cdf-4f76-44f0-b953-089092d9d28b.webp"
+          },
+          {
+            "alt": "En rød murstensbygning står på et hjørne. Den har hvide vinduer og dekorativ gesims. Bygningen er omgivet af et fortov med lamper under en blå himmel med få skyer.",
+            "size": {
+              "height": 600,
+              "width": 600
+            },
+            "url": "https://images.boligsiden.dk/images/case/c3579039-5d92-4133-a4e0-f6d772ad67f0/600x600/4fac6cdf-4f76-44f0-b953-089092d9d28b.webp"
+          },
+          {
+            "alt": "En rød murstensbygning står på et hjørne. Den har hvide vinduer og dekorativ gesims. Bygningen er omgivet af et fortov med lamper under en blå himmel med få skyer.",
+            "size": {
+              "height": 960,
+              "width": 1440
+            },
+            "url": "https://images.boligsiden.dk/images/case/c3579039-5d92-4133-a4e0-f6d772ad67f0/1440x960/4fac6cdf-4f76-44f0-b953-089092d9d28b.webp"
+          }
+        ]
+      },
+      "descriptionBody": "Nu udbydes en sjældent udbudt og arkitektonisk markant villa i det eftertragtede Hunderupkvarter, blot få minutters gang fra Odense City. Her får du en unik mulighed for at sætte dit helt eget præg og forvandle den gamle bank til en imponerende herskabelig villa eller opdele den i lejligheder - det er kun fantasien der sætter grænser her.Den karakterfulde hjørneejendom byder på smukke originale detaljer, herskabelige vinduespartier og et markant kuppeltårn, der giver boligen et eksklusivt og sær",
+      "descriptionTitle": "Eksklusiv og markant Hunderupvilla",
+      "energyLabel": "d",
+      "housingArea": 326,
+      "numberOfRooms": 9,
+      "priceCash": 12500000,
+      "slug": "hunderupvej-48-5000-odense-c-04613464__48_______",
+      "slugAddress": "hunderupvej-48-5000-odense-c",
+      "status": "open",
+      "yearBuilt": 1908,
+      "address": {
+        "cityName": "Odense C",
+        "coordinates": {
+          "lat": 55.38907,
+          "lon": 10.389234,
+          "type": "EPSG4326"
+        },
+        "houseNumber": "48",
+        "roadName": "Hunderupvej",
+        "zipCode": 5000
+      }
+    },
+    {
+      "addressType": "condo",
+      "caseID": "49af4be0-c6fa-4690-bbe3-7cfa6845d768",
+      "caseUrl": "https://www.edc.dk/sag/?sagsnr=51107501",
+      "coordinates": {
+        "lat": 55.39314,
+        "lon": 10.408737,
+        "type": "EPSG4326"
+      },
+      "daysListed": {
+        "days": 9
+      },
+      "daysOnMarket": 9,
+      "defaultImage": {
+        "imageSources": [
+          {
+            "alt": "Bygning med murstensfacade, står langs en gade med parkerede biler. Fortovet er klart synligt, og himlen er blå med skyer.",
+            "size": {
+              "height": 80,
+              "width": 100
+            },
+            "url": "https://images.boligsiden.dk/images/case/49af4be0-c6fa-4690-bbe3-7cfa6845d768/100x80/e1883a60-bbe7-4ad7-93c9-c97682fa1af7.webp"
+          },
+          {
+            "alt": "Bygning med murstensfacade, står langs en gade med parkerede biler. Fortovet er klart synligt, og himlen er blå med skyer.",
+            "size": {
+              "height": 118,
+              "width": 143
+            },
+            "url": "https://images.boligsiden.dk/images/case/49af4be0-c6fa-4690-bbe3-7cfa6845d768/143x118/e1883a60-bbe7-4ad7-93c9-c97682fa1af7.webp"
+          },
+          {
+            "alt": "Bygning med murstensfacade, står langs en gade med parkerede biler. Fortovet er klart synligt, og himlen er blå med skyer.",
+            "size": {
+              "height": 200,
+              "width": 300
+            },
+            "url": "https://images.boligsiden.dk/images/case/49af4be0-c6fa-4690-bbe3-7cfa6845d768/300x200/e1883a60-bbe7-4ad7-93c9-c97682fa1af7.webp"
+          },
+          {
+            "alt": "Bygning med murstensfacade, står langs en gade med parkerede biler. Fortovet er klart synligt, og himlen er blå med skyer.",
+            "size": {
+              "height": 400,
+              "width": 600
+            },
+            "url": "https://images.boligsiden.dk/images/case/49af4be0-c6fa-4690-bbe3-7cfa6845d768/600x400/e1883a60-bbe7-4ad7-93c9-c97682fa1af7.webp"
+          },
+          {
+            "alt": "Bygning med murstensfacade, står langs en gade med parkerede biler. Fortovet er klart synligt, og himlen er blå med skyer.",
+            "size": {
+              "height": 600,
+              "width": 600
+            },
+            "url": "https://images.boligsiden.dk/images/case/49af4be0-c6fa-4690-bbe3-7cfa6845d768/600x600/e1883a60-bbe7-4ad7-93c9-c97682fa1af7.webp"
+          },
+          {
+            "alt": "Bygning med murstensfacade, står langs en gade med parkerede biler. Fortovet er klart synligt, og himlen er blå med skyer.",
+            "size": {
+              "height": 960,
+              "width": 1440
+            },
+            "url": "https://images.boligsiden.dk/images/case/49af4be0-c6fa-4690-bbe3-7cfa6845d768/1440x960/e1883a60-bbe7-4ad7-93c9-c97682fa1af7.webp"
+          }
+        ]
+      },
+      "descriptionBody": "Åbent hus med tilmeldingskrav 13/10 - klik på billede - \r\n\r\nI hjertet af Studiebyen i Odense C finder du denne charmerende 3-værelses ejerlejlighed, som er en del af en større, velfungerende ejerforening med styr på sagerne. Lejligheden byder på en lys og indbydende atmosfære, hvor funktionalitet og æstetik går hånd i hånd. Fra entréen er der god plads til overtøjet, og du ledes videre til det flotte, lyse køkken, der er udstyret med rigelig bordplads til madlavningens glæder.\r\n\r\nDet rummelige soveværelse imponerer med en stor skabsvæg, der sikrer masser af opbevaringsplads, og herfra er der direkte udgang til en solrig, sydvendt altan. Altanen er det perfekte sted at nyde morgenkaffen eller en stille stund i solen. Den store stue er et naturligt samlingspunkt i boligen, hvor det gode lysindfald skaber en behagelig atmosfære. Her er der rigelig plads til både opholds- og spiseafdeling, og der er endda mulighed for at etablere et ekstra værelse, hvis behovet skulle opstå. Lejlighedens badeværelse er lyst og funktionelt indrettet.\r\n\r\nMunkebjerg-kvarteret er kendt for sin skønne natur og nærhed til byens bekvemmeligheder. Her bor du tæt på både indkøbsmuligheder, restauranter og offentlig transport, herunder letbanen, som gør det nemt at komme rundt i byen. Området byder desuden på gode daginstitutioner, fritidsaktiviteter og den anerkendte Munkebjergskolen. Med kort afstand til både det eksisterende sygehus, det nye OUH og SDU, er beliggenheden ideel for både studerende og pendlere.\r\n\r\nLejligheden er perfekt for dem, der ønsker en central beliggenhed uden at gå på kompromis med ro og grønne omgivelser. Her får du en bolig, der både kan fungere som en tryg base og et oplagt investeringsobjekt. Kontakt os for en fremvisning og oplev selv denne dejlige lejlighed i et af Odenses mest eftertragtede kvarterer.\r\n\r\n\r\nNår du køber en bolig gennem EDC, har du mulighed for at få en gratis flytteforsikring. Ønsker du denne, skal du sende en mail med \"Ja tak\" til flytteforsikring@gjensidige.dk",
+      "descriptionTitle": "Centralt beliggende 3-værelses med sydvendt altan og velfungerende ejerforening",
+      "energyLabel": "d",
+      "housingArea": 73,
+      "numberOfRooms": 3,
+      "priceCash": 2065000,
+      "slug": "schacksgade-25-3-tv-5000-odense-c-04617273__25__3__tv",
+      "slugAddress": "schacksgade-25-3-tv-5000-odense-c",
+      "status": "open",
+      "yearBuilt": 1939,
+      "address": {
+        "cityName": "Odense C",
+        "coordinates": {
+          "lat": 55.39314,
+          "lon": 10.408737,
+          "type": "EPSG4326"
+        },
+        "door": "tv",
+        "floor": "3",
+        "houseNumber": "25",
+        "roadName": "Schacksgade",
+        "zipCode": 5000
+      }
+    }
+  ],
+  "totalHits": 199
+}

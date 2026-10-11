@@ -126,5 +126,9 @@
   "immoweb": {
     "url": "https://www.immoweb.be/en/search/apartment/for-rent?countries=BE&page=1&orderBy=newest",
     "enabled": true
+  },
+  "boligsiden": {
+    "url": "https://www.boligsiden.dk/postnummer/5000/tilsalg/villa,ejerlejlighed",
+    "enabled": true
   }
 }
