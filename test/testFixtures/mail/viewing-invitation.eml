@@ -1,0 +1,28 @@
+From: Wohnungsbau Beispiel GmbH <vermietung@wohnungsbau.example>
+To: wohnungssuche@example.org
+Subject: =?UTF-8?Q?Einladung_zum_Besichtigungstermin_=E2=80=93_Objektnummer_12345678?=
+ =?UTF-8?Q?9?=
+Date: Thu, 03 Sep 2026 10:05:00 +0200
+Message-ID: <invitation-3@wohnungsbau.example>
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="inv"
+
+--inv
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Guten Tag,
+
+vielen Dank f=C3=BCr Ihr Interesse an unserer Wohnung in der Musterstra=C3=9Fe 5,
+12345 Musterstadt.
+
+Der Besichtigungstermin findet am 14.09.2026 um 17:30 Uhr statt. Bitte bringen
+Sie einen Lichtbildausweis mit.
+
+Mit freundlichen Gr=C3=BC=C3=9Fen
+Ihr Vermietungsteam
+--inv
+Content-Type: text/html; charset=UTF-8
+
+<p>Guten Tag,</p><p>Der Besichtigungstermin findet am 14.09.2026 um 17:30 Uhr statt.</p>
+--inv--

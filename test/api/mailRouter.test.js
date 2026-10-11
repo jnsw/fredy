@@ -203,4 +203,79 @@ describe('mail routes', () => {
     expect(response.statusCode).toBe(409);
     expect(syncMailAccount).not.toHaveBeenCalled();
   });
+
+  describe('links to listings', () => {
+    let messageId;
+
+    beforeEach(async () => {
+      db.exec(`
+        INSERT INTO jobs (id, user_id, name) VALUES ('own', 'u1', 'mine'), ('other', 'u2', 'theirs');
+        INSERT INTO listings (id, job_id, title, address, link, created_at) VALUES
+          ('l1', 'own', 'Altbau', 'Goethestraße 18, Berlin', 'https://example.com/expose/123456', 1),
+          ('l2', 'other', 'Neubau', 'Kantstraße 10, Berlin', 'https://example.com/expose/654321', 1);
+      `);
+      await put({ ...ACCOUNT, password: 'pw' });
+      const { storeMailMessage, getMailAccount } = await import('../../lib/services/storage/mailStorage.js');
+      storeMailMessage({
+        accountId: getMailAccount('u1').id,
+        uidValidity: '1',
+        uid: 1,
+        subject: 'Ihre Anfrage zu Exposé 123456',
+        textBody: 'Vielen Dank.',
+      });
+      messageId = db.prepare(`SELECT id FROM mail_messages`).get().id;
+    });
+
+    it('links new mail on request', async () => {
+      const response = await app.inject({ method: 'POST', url: '/match' });
+
+      expect(response.json()).toEqual({ processed: 1, matched: 1, ambiguous: 0 });
+      const messages = (await app.inject({ method: 'GET', url: '/messages' })).json().messages;
+      expect(messages[0].match).toMatchObject({ listingId: 'l1', method: 'listing_code' });
+    });
+
+    it('links by hand, but only to the user’s own listings', async () => {
+      const own = await app.inject({
+        method: 'PUT',
+        url: `/messages/${messageId}/listing`,
+        payload: { listingId: 'l1' },
+      });
+      const foreign = await app.inject({
+        method: 'PUT',
+        url: `/messages/${messageId}/listing`,
+        payload: { listingId: 'l2' },
+      });
+
+      expect(own.json()).toEqual({ assigned: true });
+      expect(foreign.statusCode).toBe(404);
+    });
+
+    it('unlinks, and the next automatic run leaves the message alone', async () => {
+      await app.inject({ method: 'POST', url: '/match' });
+
+      const removed = await app.inject({ method: 'DELETE', url: `/messages/${messageId}/listing` });
+      const again = await app.inject({ method: 'POST', url: '/match' });
+
+      expect(removed.json()).toEqual({ removed: true });
+      expect(again.json().matched).toBe(0);
+    });
+
+    it('lists the mail of a listing, and says when there is no mailbox at all', async () => {
+      await app.inject({ method: 'POST', url: '/match' });
+      const other = await buildApp('u2');
+
+      const mine = await app.inject({ method: 'GET', url: '/listings/l1/messages' });
+      const theirs = await other.inject({ method: 'GET', url: '/listings/l1/messages' });
+      await other.close();
+
+      expect(mine.json()).toMatchObject({ configured: true, messages: [{ subject: 'Ihre Anfrage zu Exposé 123456' }] });
+      expect(theirs.json()).toEqual({ configured: false, messages: [] });
+    });
+
+    it('offers only the user’s own listings to link by hand', async () => {
+      const response = await app.inject({ method: 'GET', url: '/listings?query=bau' });
+
+      expect(response.json().listings.map((listing) => listing.id)).toEqual(['l1']);
+    });
+  });
 });

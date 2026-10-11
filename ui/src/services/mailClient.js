@@ -88,3 +88,55 @@ export async function getMailMessages(limit = 200) {
 export async function deleteAllMailMessages() {
   await xhrDelete('/api/mail/messages');
 }
+
+/**
+ * Link every message Fredy can attribute with confidence.
+ *
+ * @returns {Promise<{processed: number, matched: number, ambiguous: number}>}
+ */
+export async function matchMail() {
+  const response = await xhrPost('/api/mail/match');
+  return response.json;
+}
+
+/**
+ * The user's own listings a message can be linked to by hand.
+ *
+ * @param {string} [query]
+ * @returns {Promise<Array<{id: string, title: string|null, address: string|null, provider: string|null}>>}
+ */
+export async function searchMailListings(query = '') {
+  const response = await xhrGet(`/api/mail/listings?query=${encodeURIComponent(query)}`);
+  return response.json?.listings ?? [];
+}
+
+/**
+ * @param {string} messageId
+ * @param {string} listingId
+ * @returns {Promise<void>}
+ */
+export async function linkMailMessage(messageId, listingId) {
+  await xhrPut(`/api/mail/messages/${encodeURIComponent(messageId)}/listing`, { listingId });
+}
+
+/**
+ * Remove a link. Fredy will not make it again on its own.
+ *
+ * @param {string} messageId
+ * @returns {Promise<void>}
+ */
+export async function unlinkMailMessage(messageId) {
+  await xhrDelete(`/api/mail/messages/${encodeURIComponent(messageId)}/listing`);
+}
+
+/**
+ * The mail linked to one listing. `configured` is false when the user has no mailbox, in which
+ * case the listing page shows nothing at all.
+ *
+ * @param {string} listingId
+ * @returns {Promise<{configured: boolean, messages: Object[]}>}
+ */
+export async function getListingMailMessages(listingId) {
+  const response = await xhrGet(`/api/mail/listings/${encodeURIComponent(listingId)}/messages`);
+  return { configured: response.json?.configured === true, messages: response.json?.messages ?? [] };
+}

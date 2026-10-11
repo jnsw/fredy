@@ -14,6 +14,9 @@ let db;
 vi.mock('../../../lib/services/storage/SqliteConnection.js', async () =>
   (await import('./mailTestDb.js')).sqliteConnectionMock(() => db),
 );
+vi.mock('../../../lib/services/logger.js', () => ({
+  default: { debug: vi.fn(), info: vi.fn(), warn: vi.fn(), error: vi.fn() },
+}));
 // The real client must never be built here: every test hands in a fake through `clientFactory`,
 // and this makes a forgotten one fail loudly instead of dialling out.
 vi.mock('imapflow', () => ({
@@ -122,7 +125,7 @@ describe('imapSyncService', () => {
 
     const result = await syncMailAccount('u1', { clientFactory: () => client });
 
-    expect(result).toEqual({ fetched: 1, stored: 1 });
+    expect(result).toEqual({ fetched: 1, stored: 1, matched: 0 });
     const [stored] = storage.getMailMessages('u1');
     expect(stored).toMatchObject({
       senderName: 'Hausverwaltung Beispiel',
@@ -159,7 +162,7 @@ describe('imapSyncService', () => {
 
     expect(second.search).toHaveBeenCalledWith({ uid: '4:*' }, { uid: true });
     expect(second.fetchOne).not.toHaveBeenCalled();
-    expect(result).toEqual({ fetched: 0, stored: 0 });
+    expect(result).toEqual({ fetched: 0, stored: 0, matched: 0 });
     expect(storage.getMailMessages('u1')).toHaveLength(1);
   });
 
@@ -193,6 +196,35 @@ describe('imapSyncService', () => {
     await expect(syncMailAccount('u1', { clientFactory: () => client })).rejects.toThrow();
 
     expect(storage.getMailAccount('u1').lastSyncError).toBe('IMAP authentication failed.');
+  });
+
+  it('links what arrived to the listing it is about', async () => {
+    db.exec(`
+      INSERT INTO jobs (id, user_id, name) VALUES ('j1', 'u1', 'Suche');
+      INSERT INTO listings (id, job_id, title, address, provider, link, created_at) VALUES
+        ('l1', 'j1', 'Wohnung', 'Musterstraße 5, 12345 Musterstadt', 'immoscout',
+         'https://www.immobilienscout24.de/expose/123456789', 1),
+        ('l2', 'j1', 'Andere', 'Lindenallee 1, 12345 Musterstadt', 'immoscout',
+         'https://www.immobilienscout24.de/expose/987654321', 1);
+    `);
+    const client = fakeClient({ messages: { 9: fixture('viewing-invitation.eml') } });
+
+    const result = await syncMailAccount('u1', { clientFactory: () => client });
+
+    expect(result).toMatchObject({ stored: 1, matched: 1 });
+    expect(storage.getMailMessages('u1')[0].match).toMatchObject({ listingId: 'l1', method: 'listing_code' });
+  });
+
+  it('keeps the mail when linking fails', async () => {
+    const client = fakeClient({ messages: { 3: fixture('html-only.eml') } });
+    const matcher = vi.fn(async () => {
+      throw new Error('boom');
+    });
+
+    const result = await syncMailAccount('u1', { clientFactory: () => client, matcher });
+
+    expect(result).toEqual({ fetched: 1, stored: 1, matched: 0 });
+    expect(storage.getMailAccount('u1').lastSyncError).toBeNull();
   });
 
   it('runs one IMAP session for concurrent requests', async () => {

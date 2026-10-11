@@ -198,4 +198,143 @@ describe('mailStorage', () => {
     // Saving the account again clears it: the user changed something, the old failure is stale.
     expect(save().lastSyncError).toBeNull();
   });
+
+  describe('links to listings', () => {
+    beforeEach(() => {
+      db.exec(`
+        INSERT INTO jobs (id, user_id, name, shared_with_user) VALUES
+          ('own', 'u1', 'mine', '[]'),
+          ('shared', 'u2', 'theirs', '["u1"]');
+        INSERT INTO listings (id, job_id, title, address, provider, link, created_at) VALUES
+          ('l1', 'own', 'Altbau 100% saniert', 'Goethestraße 18, Berlin', 'immoscout', 'https://example.com/expose/123456', 2),
+          ('l2', 'shared', 'Shared flat', 'Kantstraße 10, Berlin', 'immowelt', 'https://example.com/expose/654321', 1);
+      `);
+      save();
+      storage.storeMailMessage(message(1));
+    });
+
+    const messageId = () => db.prepare(`SELECT id FROM mail_messages`).get().id;
+
+    it('links a message to one of the owner’s listings and shows it on both sides', () => {
+      expect(
+        storage.assignMailMessageToListing({
+          userId: 'u1',
+          messageId: messageId(),
+          listingId: 'l1',
+          method: 'listing_code',
+          confidence: 100,
+        }),
+      ).toBe(true);
+
+      expect(storage.getMailMessages('u1')[0].match).toMatchObject({
+        listingId: 'l1',
+        method: 'listing_code',
+        listing: { title: 'Altbau 100% saniert' },
+      });
+      expect(storage.getMailMessagesForListing('u1', 'l1')).toHaveLength(1);
+      expect(storage.getMatchedMailThreadAnchors('u1')).toEqual([{ messageId: '<m1@example.org>', listingId: 'l1' }]);
+    });
+
+    it('refuses listings of a job that is only shared with the mailbox owner', () => {
+      const linked = storage.assignMailMessageToListing({
+        userId: 'u1',
+        messageId: messageId(),
+        listingId: 'l2',
+        method: 'manual',
+        confidence: 100,
+      });
+
+      expect(linked).toBe(false);
+      expect(storage.getOwnedListingsForMailMatching('u1').map((l) => l.id)).toEqual(['l1']);
+    });
+
+    it('refuses somebody else’s message', () => {
+      const linked = storage.assignMailMessageToListing({
+        userId: 'u2',
+        messageId: messageId(),
+        listingId: 'l2',
+        method: 'manual',
+        confidence: 100,
+      });
+
+      expect(linked).toBe(false);
+    });
+
+    it('keeps the replies in the owner’s mailbox private from people the listing is shared with', () => {
+      storage.assignMailMessageToListing({
+        userId: 'u1',
+        messageId: messageId(),
+        listingId: 'l1',
+        method: 'manual',
+        confidence: 100,
+      });
+
+      expect(storage.getMailMessagesForListing('u2', 'l1')).toEqual([]);
+    });
+
+    it('stops offering a message to the matcher once the user unlinked it', () => {
+      storage.assignMailMessageToListing({
+        userId: 'u1',
+        messageId: messageId(),
+        listingId: 'l1',
+        method: 'address',
+        confidence: 85,
+      });
+      expect(storage.getUnmatchedMailMessages('u1')).toEqual([]);
+
+      expect(storage.unlinkMailMessage('u2', messageId())).toBe(false);
+      expect(storage.unlinkMailMessage('u1', messageId())).toBe(true);
+
+      expect(storage.getMailMessages('u1')[0].match).toBeNull();
+      expect(storage.getUnmatchedMailMessages('u1')).toEqual([]);
+      // By hand it can still be linked again.
+      expect(
+        storage.assignMailMessageToListing({
+          userId: 'u1',
+          messageId: messageId(),
+          listingId: 'l1',
+          method: 'manual',
+          confidence: 100,
+        }),
+      ).toBe(true);
+    });
+
+    it('hands unmatched messages to the matcher decrypted, with their thread headers', () => {
+      storage.storeMailMessage(message(2, { inReplyTo: '<m1@example.org>', references: ['<m0@example.org>'] }));
+
+      const [newest] = storage.getUnmatchedMailMessages('u1', 1);
+      expect(newest).toMatchObject({
+        messageId: '<m2@example.org>',
+        inReplyTo: '<m1@example.org>',
+        references: ['<m0@example.org>'],
+        subject: 'Betreff 2',
+        senderAddress: 'erika@vermieterin.example',
+      });
+      expect(storage.getUnmatchedMailMessages('u1', 1, { sortAt: newest.sortAt, id: newest.id })[0].id).not.toBe(
+        newest.id,
+      );
+    });
+
+    it('drops the link, not the message, when the listing is deleted', () => {
+      storage.assignMailMessageToListing({
+        userId: 'u1',
+        messageId: messageId(),
+        listingId: 'l1',
+        method: 'manual',
+        confidence: 100,
+      });
+
+      db.prepare(`DELETE FROM listings WHERE id = 'l1'`).run();
+
+      expect(storage.getMailMessages('u1')).toHaveLength(1);
+      expect(storage.getMailMessages('u1')[0].match).toBeNull();
+    });
+
+    it('searches the owner’s listings with wildcards taken literally', () => {
+      expect(storage.searchOwnedListingsForMail('u1', 'goethe').map((l) => l.id)).toEqual(['l1']);
+      expect(storage.searchOwnedListingsForMail('u1', '100%').map((l) => l.id)).toEqual(['l1']);
+      expect(storage.searchOwnedListingsForMail('u1', '_')).toEqual([]);
+      expect(storage.searchOwnedListingsForMail('u1', 'kant')).toEqual([]);
+    });
+  });
 });

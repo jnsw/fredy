@@ -56,6 +56,24 @@
     overflow-wrap: anywhere;
   }
 
+  &__badges {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: @space-1;
+  }
+
+  &__link {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: @space-2;
+  }
+
+  &__picker {
+    flex: 1 1 280px;
+    min-width: 0;
+  }
+
   &__body {
     summary {
       cursor: pointer;

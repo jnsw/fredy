@@ -34,6 +34,7 @@ import ListingKeyFacts from './components/ListingKeyFacts.jsx';
 import ListingOrigin from './components/ListingOrigin.jsx';
 import ListingLocationCard from './components/ListingLocationCard.jsx';
 import ListingWorkspace from './components/ListingWorkspace.jsx';
+import ListingMailCard, { useListingMail } from './components/ListingMailCard.jsx';
 import ListingDescriptionCard from './components/ListingDescriptionCard.jsx';
 import './ListingDetail.less';
 import { useTranslation } from '../../services/i18n/i18n.jsx';
@@ -104,6 +105,7 @@ export default function ListingDetail() {
   const screenWidth = useScreenWidth();
   const wide = screenWidth >= RAIL_BREAKPOINT;
   const phone = screenWidth < PHONE_BREAKPOINT;
+  const listingMail = useListingMail(listingId);
   const map = useRef(null);
   const [mapReady, setMapReady] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -613,6 +615,19 @@ export default function ListingDetail() {
               />
             </PhoneCollapse>
           </div>
+
+          {/* Only for somebody who connected a mailbox; without one there is nothing to show. */}
+          {listingMail.configured && (
+            <div className="listing-detail__sec--mail">
+              <PhoneCollapse
+                enabled={phone}
+                title={t('listing.detail.mailTitle')}
+                hint={listingMail.messages.length > 0 ? String(listingMail.messages.length) : undefined}
+              >
+                <ListingMailCard messages={listingMail.messages} />
+              </PhoneCollapse>
+            </div>
+          )}
         </div>
 
         <aside className="listing-detail__rail">

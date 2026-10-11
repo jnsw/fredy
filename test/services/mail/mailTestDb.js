@@ -5,6 +5,7 @@
 
 import Database from 'better-sqlite3';
 import { up as mailInbox } from '../../../lib/services/storage/migrations/sql/62.mail-inbox.js';
+import { up as mailListingMatches } from '../../../lib/services/storage/migrations/sql/63.mail-listing-matches.js';
 
 /**
  * An in-memory database holding the tables the mail features touch: the real mail migrations on
@@ -31,6 +32,7 @@ export function createMailTestDb() {
     );
   `);
   mailInbox(db);
+  mailListingMatches(db);
   return db;
 }
 

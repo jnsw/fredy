@@ -36,6 +36,28 @@ waiting for the next run.
 - **Downloaded mail → Delete downloaded mail** removes everything Fredy stored. Removing the mailbox
   removes the login and every message with it.
 
+## Linking mail to listings
+
+After every fetch Fredy tries to tell which of your listings each new message is about. It only
+links when exactly one listing qualifies, because a reply filed under the wrong flat is worse than
+one left unfiled. In this order:
+
+| Evidence | Shown as | |
+|---|---|---|
+| The listing's number from its portal link (e.g. `expose/123456789`), or a labelled number such as `Objektnummer: 123 456 789` | Listing number | Only ids with a digit and at least six characters count, so a postcode or a word never does. |
+| The street and house number of the listing | Address | A street or a city alone is not enough. |
+| A reply to a message that is already linked | Same conversation | Read from `In-Reply-To` and `References`. |
+
+When several listings fit, Fredy narrows them down by the portal the mail came from, the provider
+named in it and the listing's title, and leaves the message alone if that does not settle it. Only
+listings of your own jobs are considered; a job somebody shared with you is theirs to correspond
+about.
+
+In the inbox every message shows what it is linked to and how. Pick a listing to link one by hand,
+or **Unlink** a wrong link - Fredy then leaves that message alone for good. The messages linked to a
+listing also appear on the listing's page, for you only: somebody who can see the listing through a
+shared job does not see your mail.
+
 ## Encryption and the key
 
 The password and the message contents are sealed with AES-256-GCM. The key never lives in the

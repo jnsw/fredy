@@ -169,6 +169,9 @@ const COMPUTED_KEYS = [
   ...TOUR_STEPS.flatMap((step) => [stepTitleKey(step.id), stepBodyKey(step.id)]),
   'tour.prompt.body',
   'tour.prompt.bodyAdmin',
+  // How a message was linked to a listing, one tag per method the matcher or the user can record
+  // (MAIL_MATCH_METHODS in lib/services/storage/mailStorage.js).
+  ...['listing_code', 'address', 'thread', 'manual'].map((method) => `mail.matchMethod.${method}`),
   // `relativeTime` builds its key from the direction and the unit, one day included.
   ...['In', 'Ago'].flatMap((direction) =>
     ['Minutes', 'Hours', 'Day', 'Days'].map((unit) => `dashboard.time${direction}${unit}`),
