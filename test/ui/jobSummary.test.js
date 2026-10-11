@@ -73,6 +73,20 @@ describe('jobSummary', () => {
     ]);
   });
 
+  it('mentions a minimum yield on a purchase job', () => {
+    expect(describeJobRefinements({ dealType: 'buy', specFilter: { minGrossYield: 5 } }, context)).toEqual([
+      'jobs.mutation.summaryMinGrossYield',
+    ]);
+  });
+
+  // The pipeline ignores it on a rent job, so the summary must not claim it either - a value can be
+  // left behind in the spec filter when a purchase job is switched to renting.
+  it('says nothing about a minimum yield on a job that is not a purchase', () => {
+    expect(describeJobRefinements({ dealType: 'rent', specFilter: { minGrossYield: 5 } }, context)).toEqual([]);
+    expect(describeJobRefinements({ specFilter: { minGrossYield: 5 } }, context)).toEqual([]);
+    expect(describeJobRefinements({ dealType: 'buy', specFilter: { minGrossYield: null } }, context)).toEqual([]);
+  });
+
   it('joins them into one readable line', () => {
     const job = { specFilter: { maxPrice: 1200 }, spatialFilter: {} };
     expect(summariseJobRefinements(job, context)).toBe('jobs.mutation.summaryMaxPrice · jobs.mutation.summaryArea');
@@ -93,6 +107,7 @@ describe('jobSummary', () => {
       'jobs.mutation.summaryMaxPrice',
       'jobs.mutation.summaryMinSize',
       'jobs.mutation.summaryMinRooms',
+      'jobs.mutation.summaryMinGrossYield',
       'jobs.mutation.summaryBlacklist',
       'jobs.mutation.summaryArea',
       'jobs.mutation.summaryCommute',

@@ -101,6 +101,41 @@ export const applyMarketBenchmark = (jobId, listings) => {
   // noop
 };
 /**
+ * What the stand-in rent estimate answers per listing: a cold rent per square metre, or null for
+ * "too few rentals nearby". Set by a test that needs an estimate; without one nothing is attached,
+ * which is what the real one does on an instance without rent jobs.
+ * @type {((listing: Object) => number|null)|null}
+ */
+let rentEstimateFor = null;
+
+/**
+ * Every batch the pipeline asked to estimate, so a test can see that a rent job never asks.
+ * @type {Array<Object[]>}
+ */
+export const rentEstimateCalls = [];
+
+/**
+ * @param {((listing: Object) => number|null)|null} estimate
+ * @returns {void}
+ */
+export function setRentEstimate(estimate) {
+  rentEstimateFor = estimate;
+}
+
+/**
+ * The real one reads the rentals around each purchase and writes their median cold rent onto the row
+ * and the object. Here it writes whatever the test asked for onto the object, which is all the yield
+ * filter after it reads.
+ */
+export const applyRentEstimate = (listings) => {
+  rentEstimateCalls.push(listings);
+  if (rentEstimateFor == null) return;
+  for (const listing of listings) {
+    const perSqm = rentEstimateFor(listing);
+    if (perSqm != null) listing.rent_median_sqm = perSqm;
+  }
+};
+/**
  * The real one writes what the scam detector finds into each stored row. There is no row behind
  * these mocks, and nothing the pipeline does afterwards reads the signals, so like the benchmark it
  * only has to exist. The detector has tests of its own, against a real database.

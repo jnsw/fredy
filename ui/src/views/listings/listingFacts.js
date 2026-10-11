@@ -265,6 +265,84 @@ export function buildRentFacts(scored, budget, ctx) {
 }
 
 /**
+ * A figure with exactly one decimal, the precision the server rounds yields and factors to.
+ *
+ * Always one decimal rather than "as many as it has": a column reading "5 %", "4,8 %" and "6 %"
+ * looks like three different kinds of figure.
+ *
+ * @param {number} value
+ * @param {string} locale
+ * @returns {string}
+ */
+function formatOneDecimal(value, locale) {
+  return new Intl.NumberFormat(locale || 'de-DE', { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(value);
+}
+
+/**
+ * The figures on the yield card: what a purchase would earn if it were let.
+ *
+ * Every line says it is an estimate, in its label or in the sentence under the figures, because the
+ * rent all of them start from is either a median over the neighbourhood or a figure the user typed
+ * in - never something the advert stated.
+ *
+ * @param {Object|null|undefined} rentalYield As `GET /api/listings/:id` attaches it, see
+ *   `lib/services/finance/rentalYield.js`. `null` when there is no rent to start from.
+ * @param {{t: (key: string, params?: Object) => string, locale: string, formatEuro: (value: number, locale: string) => string}} ctx
+ * @returns {{facts: Array<{id: string, label: string, value: string, emphasis: boolean, note?: string}>, source: string, footnote: string}|null}
+ *   `null` without a yield, so the card can say why instead.
+ */
+export function buildYieldFacts(rentalYield, ctx) {
+  if (rentalYield?.coldRent == null) return null;
+
+  const { t, locale, formatEuro } = ctx;
+  const { coldRent } = rentalYield;
+  const isOverride = coldRent.source === 'override';
+
+  const facts = [
+    {
+      id: 'gross',
+      label: t('listing.detail.yieldGross'),
+      value: `${formatOneDecimal(rentalYield.grossYield, locale)} %`,
+      emphasis: true,
+    },
+    {
+      id: 'net',
+      label: t('listing.detail.yieldNet'),
+      value: `${formatOneDecimal(rentalYield.netYield, locale)} %`,
+      emphasis: false,
+    },
+    {
+      id: 'priceFactor',
+      label: t('listing.detail.yieldPriceFactor'),
+      value: formatOneDecimal(rentalYield.priceFactor, locale),
+      emphasis: false,
+    },
+    {
+      id: 'coldRent',
+      label: t(isOverride ? 'listing.detail.yieldColdRentOverride' : 'listing.detail.yieldColdRentEstimated'),
+      value: formatEuro(coldRent.monthly, locale),
+      emphasis: false,
+      note: coldRent.perSqm != null ? formatPricePerSqm(coldRent.perSqm, locale) : undefined,
+    },
+  ];
+
+  return {
+    facts,
+    source: isOverride
+      ? t('listing.detail.yieldSourceOverride')
+      : t('listing.detail.yieldSourceEstimate', {
+          count: String(coldRent.sampleSize ?? 0),
+          radius: String(coldRent.radiusKm ?? 0),
+        }),
+    footnote: t('listing.detail.yieldFootnote', {
+      nonAllocable: String(rentalYield.nonAllocableCostPct),
+      closingCosts: formatDecimal(rentalYield.closingCostsPct, locale),
+      bundesland: rentalYield.bundesland ?? '-',
+    }),
+  };
+}
+
+/**
  * Where this row came from: which portal, which of the user's searches found it, and when.
  *
  * None of it describes the flat, which is why it sits in its own quiet list instead of among the

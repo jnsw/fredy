@@ -494,6 +494,23 @@ export const useFredyState = create(
               throw Exception;
             }
           },
+          /**
+           * Set the cold rent a purchase would let for, or hand it back to the estimate with `null`.
+           *
+           * Re-read the listing afterwards through `getListing`: the yield is computed by that
+           * endpoint, not by this one.
+           *
+           * @param {string} listingId
+           * @param {number|null} coldRent EUR per month.
+           */
+          async setColdRentOverride(listingId, coldRent) {
+            try {
+              await xhrPost(`/api/listings/${listingId}/cold-rent`, { coldRent });
+            } catch (Exception) {
+              console.error(`Error while trying to set the cold rent for listing ${listingId}. Error:`, Exception);
+              throw Exception;
+            }
+          },
           async restoreListings(ids) {
             try {
               await xhrPost('/api/listings/restore', { ids });

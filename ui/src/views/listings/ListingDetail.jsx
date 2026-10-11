@@ -26,6 +26,7 @@ import ApplicationModal from './components/ApplicationModal.jsx';
 import IconEuro from '../../components/icons/IconEuro.jsx';
 import ScamPanel from './components/ScamPanel.jsx';
 import ListingFinanceCard from './components/ListingFinanceCard.jsx';
+import ListingYieldCard from './components/ListingYieldCard.jsx';
 import NearbyStops from '../../components/transit/NearbyStops.jsx';
 import ConnectivityCard from '../../components/connectivity/ConnectivityCard.jsx';
 import ListingActionBar from './components/ListingActionBar.jsx';
@@ -622,6 +623,13 @@ export default function ListingDetail() {
 
           <div className="listing-detail__sec--origin">
             <ListingOrigin listing={listing} />
+          </div>
+
+          {/* Purchases only - the card renders nothing for a rental. Directly above the financing,
+              because the two answer the same question from two sides: what the flat would bring
+              in, and what it would cost to carry. */}
+          <div className="listing-detail__sec--yield">
+            <ListingYieldCard listing={listing} onChange={() => actions.listingsData.getListing(listingId)} />
           </div>
 
           <div className="listing-detail__sec--finance">
