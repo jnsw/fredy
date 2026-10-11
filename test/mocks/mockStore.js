@@ -12,6 +12,12 @@ export const storeListings = (jobKey, providerId, listings) => {
 export const getKnownListingHashesForJobAndProvider = (jobKey, providerId) => {
   return db[providerId] || [];
 };
+/**
+ * The link lookup the novelty check makes for listings it does not know by hash. Nothing behind
+ * these mocks carries a link from an earlier run, so every listing stays new; the lookup itself is
+ * tested against a real database in `pipeline_priceChangeByLink.test.js`.
+ */
+export const getStoredListingsByLink = (jobKey, providerId, links) => [];
 
 /**
  * Forget every stored listing.
