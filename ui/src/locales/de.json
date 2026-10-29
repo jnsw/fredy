@@ -239,6 +239,7 @@
   "listings.aiVerdict.bad": "KI: Schlecht",
   "listings.aiVerdictNoReason": "Die Bewertung kam ohne Begründung.",
   "listings.aiVerdictSource": "Bewertet von {{source}}",
+  "listings.aiVerdictSourceMcp": "Bewertet von einem Assistenten über MCP",
   "listings.aiRateButton": "Mit meiner KI bewerten",
   "listings.aiRateSelected": "{{count}} ausgewählt",
   "listings.aiRateSelectPage": "Diese Seite auswählen",

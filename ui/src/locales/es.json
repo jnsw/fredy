@@ -239,6 +239,7 @@
   "listings.aiVerdict.bad": "IA: Malo",
   "listings.aiVerdictNoReason": "La valoración no incluye ningún motivo.",
   "listings.aiVerdictSource": "Valorado por {{source}}",
+  "listings.aiVerdictSourceMcp": "Valorado por un asistente a través de MCP",
   "listings.aiRateButton": "Valorar con mi IA",
   "listings.aiRateSelected": "{{count}} seleccionados",
   "listings.aiRateSelectPage": "Seleccionar esta página",

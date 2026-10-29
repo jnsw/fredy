@@ -239,6 +239,7 @@
   "listings.aiVerdict.bad": "IA: Scarso",
   "listings.aiVerdictNoReason": "La valutazione non contiene alcuna motivazione.",
   "listings.aiVerdictSource": "Valutato da {{source}}",
+  "listings.aiVerdictSourceMcp": "Valutato da un assistente tramite MCP",
   "listings.aiRateButton": "Valuta con la mia IA",
   "listings.aiRateSelected": "{{count}} selezionati",
   "listings.aiRateSelectPage": "Seleziona questa pagina",

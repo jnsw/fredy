@@ -5,7 +5,7 @@
 
 import { Tooltip } from '@douyinfe/semi-ui-19';
 
-import { aiVerdictOf } from '../../services/listings/aiVerdict.js';
+import { aiVerdictOf, describeAiVerdictSource } from '../../services/listings/aiVerdict.js';
 import { useTranslation } from '../../services/i18n/i18n.jsx';
 
 import './AiVerdictBadge.less';
@@ -34,14 +34,11 @@ export default function AiVerdictBadge({ listing }) {
   }
 
   const reason = listing.ai_verdict_reason;
+  const source = describeAiVerdictSource(listing, t);
   const tooltip = (
     <span className="aiVerdictBadge__why">
       {reason ? <span>{reason}</span> : <span>{t('listings.aiVerdictNoReason')}</span>}
-      {listing.ai_verdict_source && (
-        <span className="aiVerdictBadge__source">
-          {t('listings.aiVerdictSource', { source: listing.ai_verdict_source })}
-        </span>
-      )}
+      {source != null && <span className="aiVerdictBadge__source">{source}</span>}
     </span>
   );
 

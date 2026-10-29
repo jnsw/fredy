@@ -6,7 +6,7 @@
 import { Typography } from '@douyinfe/semi-ui-19';
 
 import AiVerdictBadge from '../../../components/listings/AiVerdictBadge.jsx';
-import { aiVerdictOf } from '../../../services/listings/aiVerdict.js';
+import { aiVerdictOf, describeAiVerdictSource } from '../../../services/listings/aiVerdict.js';
 import * as timeService from '../../../services/time/timeService.js';
 import { useTranslation, useLocale } from '../../../services/i18n/i18n.jsx';
 
@@ -48,7 +48,7 @@ export default function AiVerdictCard({ listing, action = null }) {
           {listing.ai_verdict_reason && <p className="aiVerdictCard__reason">{listing.ai_verdict_reason}</p>}
           <Text type="tertiary" size="small" className="aiVerdictCard__meta">
             {[
-              listing.ai_verdict_source ? t('listings.aiVerdictSource', { source: listing.ai_verdict_source }) : null,
+              describeAiVerdictSource(listing, t),
               listing.ai_verdict_at != null ? timeService.format(listing.ai_verdict_at, false, locale) : null,
             ]
               .filter(Boolean)

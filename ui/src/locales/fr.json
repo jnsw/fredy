@@ -239,6 +239,7 @@
   "listings.aiVerdict.bad": "IA : Mauvais",
   "listings.aiVerdictNoReason": "L'évaluation n'est accompagnée d'aucune justification.",
   "listings.aiVerdictSource": "Évalué par {{source}}",
+  "listings.aiVerdictSourceMcp": "Évalué par un assistant via MCP",
   "listings.aiRateButton": "Évaluer avec mon IA",
   "listings.aiRateSelected": "{{count}} sélectionnées",
   "listings.aiRateSelectPage": "Sélectionner cette page",

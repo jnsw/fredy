@@ -31,6 +31,29 @@ export const AI_VERDICT_UNRATED = 'none';
 export const AI_VERDICT_FILTER_VALUES = Object.freeze([...AI_VERDICT_VALUES, AI_VERDICT_UNRATED]);
 
 /**
+ * What `ai_verdict_source` holds when an assistant wrote the verdict through the MCP server, rather
+ * than a model id.
+ * @type {'mcp'}
+ */
+export const AI_VERDICT_SOURCE_MCP = 'mcp';
+
+/**
+ * Who rated a listing, as a sentence: the model by name, or "an assistant over MCP" for the one
+ * source that is not a model id and would read as a typo if printed as it is stored.
+ *
+ * @param {Object|null|undefined} listing A row as the listings API returns it.
+ * @param {(key: string, vars?: Object) => string} t
+ * @returns {string|null} Null when the row does not say.
+ */
+export function describeAiVerdictSource(listing, t) {
+  const source = listing?.ai_verdict_source;
+  if (typeof source !== 'string' || source.length === 0) return null;
+  return source === AI_VERDICT_SOURCE_MCP
+    ? t('listings.aiVerdictSourceMcp')
+    : t('listings.aiVerdictSource', { source });
+}
+
+/**
  * The verdict a listing row carries, or null when it carries none the UI knows how to show.
  *
  * @param {Object|null|undefined} listing A row as the listings API returns it.

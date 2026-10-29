@@ -384,4 +384,20 @@ describe('fetchListingImage', () => {
     });
     expect(await fetchListingImage('https://pictures.example/a.jpg', failing)).toBeNull();
   });
+
+  it('stops reading a body that grows past the limit, whatever its length header claimed', async () => {
+    let pulled = 0;
+    // An endless stream of 1 MB chunks with no content-length at all.
+    const endless = new ReadableStream({
+      pull(controller) {
+        pulled++;
+        controller.enqueue(new Uint8Array(1_000_000));
+      },
+    });
+    const fetchImpl = vi.fn(async () => new Response(endless, { headers: { 'content-type': 'image/jpeg' } }));
+
+    expect(await fetchListingImage('https://pictures.example/a.jpg', fetchImpl)).toBeNull();
+    // Gave up a few chunks past 3.5 MB instead of reading forever.
+    expect(pulled).toBeLessThan(10);
+  });
 });

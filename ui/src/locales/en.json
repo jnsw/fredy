@@ -239,6 +239,7 @@
   "listings.aiVerdict.bad": "AI: Bad",
   "listings.aiVerdictNoReason": "The rating came without a reason.",
   "listings.aiVerdictSource": "Rated by {{source}}",
+  "listings.aiVerdictSourceMcp": "Rated by an assistant over MCP",
   "listings.aiRateButton": "Rate with my AI",
   "listings.aiRateSelected": "{{count}} selected",
   "listings.aiRateSelectPage": "Select this page",

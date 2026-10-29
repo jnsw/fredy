@@ -239,6 +239,7 @@
   "listings.aiVerdict.bad": "YZ: Kötü",
   "listings.aiVerdictNoReason": "Değerlendirme bir gerekçe içermiyor.",
   "listings.aiVerdictSource": "Değerlendiren: {{source}}",
+  "listings.aiVerdictSourceMcp": "MCP üzerinden bir asistan tarafından değerlendirildi",
   "listings.aiRateButton": "Kendi YZ'mle değerlendir",
   "listings.aiRateSelected": "{{count}} seçili",
   "listings.aiRateSelectPage": "Bu sayfayı seç",
