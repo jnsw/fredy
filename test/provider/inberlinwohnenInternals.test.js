@@ -68,6 +68,7 @@ describe('#inberlinwohnen internals()', () => {
       const listings = await runConfig.getListings(
         'https://inberlinwohnen.de/wohnungsfinder/?district=mitte&page=9',
         browser,
+        undefined,
         extractPage,
       );
 
@@ -90,7 +91,7 @@ describe('#inberlinwohnen internals()', () => {
         .mockResolvedValueOnce(resultPage([1, 2], paginationElement([1, 2, 3], 2)))
         .mockResolvedValueOnce(resultPage([2, 3]));
 
-      const listings = await runConfig.getListings(SEARCH_URL, browser, extractPage);
+      const listings = await runConfig.getListings(SEARCH_URL, browser, undefined, extractPage);
 
       expect(listings.map((listing) => JSON.parse(listing.id).data.item[0].id)).toEqual([1, 2, 3]);
     });
@@ -98,14 +99,14 @@ describe('#inberlinwohnen internals()', () => {
     it('should accept a recognized search without any results', async () => {
       const extractPage = vi.fn().mockResolvedValue(resultPage([], paginationElement([], 10)));
 
-      await expect(runConfig.getListings(SEARCH_URL, browser, extractPage)).resolves.toEqual([]);
+      await expect(runConfig.getListings(SEARCH_URL, browser, undefined, extractPage)).resolves.toEqual([]);
     });
 
     it('should reject pages without recognizable Livewire search data', async () => {
       const unrelatedSnapshot = `<div wire:snapshot='${listingSnapshot({ id: 'unrelated' })}'></div>`;
       const extractPage = vi.fn().mockResolvedValue(`${paginationElement([1], 10)}${unrelatedSnapshot}`);
 
-      await expect(runConfig.getListings(SEARCH_URL, browser, extractPage)).rejects.toThrow(
+      await expect(runConfig.getListings(SEARCH_URL, browser, undefined, extractPage)).rejects.toThrow(
         'contained 0 of 1 expected listings',
       );
     });
@@ -117,15 +118,15 @@ describe('#inberlinwohnen internals()', () => {
         .mockResolvedValueOnce(resultPage([1], pagination))
         .mockResolvedValueOnce(pagination);
 
-      await expect(runConfig.getListings(SEARCH_URL, browser, extractPage)).rejects.toThrow(
+      await expect(runConfig.getListings(SEARCH_URL, browser, undefined, extractPage)).rejects.toThrow(
         'page 2 contained 0 of 1 expected listings',
       );
     });
 
     it('should reject browser failures and excessive pagination', async () => {
-      await expect(runConfig.getListings(SEARCH_URL, browser, vi.fn().mockResolvedValue(null))).rejects.toThrow(
-        'could not be loaded',
-      );
+      await expect(
+        runConfig.getListings(SEARCH_URL, browser, undefined, vi.fn().mockResolvedValue(null)),
+      ).rejects.toThrow('could not be loaded');
 
       const tooManyPages = resultPage(
         [1],
@@ -134,9 +135,9 @@ describe('#inberlinwohnen internals()', () => {
           1,
         ),
       );
-      await expect(runConfig.getListings(SEARCH_URL, browser, vi.fn().mockResolvedValue(tooManyPages))).rejects.toThrow(
-        'exceeding the safety limit',
-      );
+      await expect(
+        runConfig.getListings(SEARCH_URL, browser, undefined, vi.fn().mockResolvedValue(tooManyPages)),
+      ).rejects.toThrow('exceeding the safety limit');
     });
   });
 

@@ -57,6 +57,42 @@ const IDEALISTA_PAGES = {
  */
 const IMMOSCOUT_LIST_FIXTURES = { de: 'immoscout_list.json', at: 'immoscoutAt_list.json' };
 
+/** The second result page of each {@link IMMOSCOUT_LIST_FIXTURES} search. */
+const IMMOSCOUT_LIST_PAGE2_FIXTURES = { de: 'immoscout_list_page2.json', at: 'immoscoutAt_list_page2.json' };
+
+/**
+ * What a page past the recorded ones answers with: a page that loads and lists nothing, which is
+ * how a portal answers a page past its last one and ends a walk without anything having failed.
+ */
+const EMPTY_RESULT_PAGE = '<!DOCTYPE html><html><head></head><body></body></html>';
+
+/**
+ * Which result page of a recorded search a path asks for, for the portals that number their pages
+ * in the path rather than in the query string.
+ *
+ * Each of these searches is recorded as two pages: the provider's plain fixture is the first and
+ * `<provider>_page2.html` the second. Both link on to a further page, which was not recorded and is
+ * answered with {@link EMPTY_RESULT_PAGE}. `path` is the search's own path with the page taken out
+ * again, to compare against the configured search URL.
+ *
+ * @param {string} providerName
+ * @param {string} pathname
+ * @returns {{path: string, page: number}|null} Null for a provider that does not page in the path.
+ */
+function resultPageOf(providerName, pathname) {
+  if (providerName === 'kleinanzeigen') {
+    // `/anzeige:angebote/seite:2/wohnung/k0c195l2068r5`
+    const page = /\/seite:(\d+)(?=\/)/.exec(pathname);
+    return { path: pathname.replace(/\/seite:\d+(?=\/)/, ''), page: page == null ? 1 : Number(page[1]) };
+  }
+  if (providerName === 'wgGesucht') {
+    // `wg-zimmer-in-Duesseldorf.30.0.1.1.html` is the second page; the last number counts from zero.
+    const page = /\.(\d+)\.html$/.exec(pathname);
+    return page == null ? null : { path: pathname.replace(/\.\d+\.html$/, '.0.html'), page: Number(page[1]) + 1 };
+  }
+  return null;
+}
+
 /** The exposé counterpart of {@link IMMOSCOUT_LIST_FIXTURES}. */
 const IMMOSCOUT_DETAIL_FIXTURES = { de: 'immoscout_detail.json', at: 'immoscoutAt_detail.json' };
 
@@ -149,6 +185,13 @@ export async function readFixture(url, options) {
     // aggregators link to partner portals, so their detail fixture sits under an unknown hostname
     const detailProvider = providerFromExtractorName(options);
     return detailProvider == null ? null : tryReadFile(path.join(FIXTURES_DIR, `${detailProvider}_detail.html`));
+  }
+
+  const resultPage = resultPageOf(providerName, pathname);
+  if (resultPage != null && providerListPath[providerName] === resultPage.path) {
+    if (resultPage.page === 1) return tryReadFile(path.join(FIXTURES_DIR, `${providerName}.html`));
+    if (resultPage.page === 2) return tryReadFile(path.join(FIXTURES_DIR, `${providerName}_page2.html`));
+    return EMPTY_RESULT_PAGE;
   }
 
   // The tecnocasa group numbers its result pages in the path, so every page of a walk has to read
@@ -418,25 +461,43 @@ export function buildFetchMock() {
     // The one thing in a search request that says which national site it belongs to is its
     // geocode: Austrian adverts live in the German index under `/at/...`, everything else is
     // Germany's own.
+    //
+    // Each search is recorded as two pages and answers as a search of exactly two, so a walk ends
+    // on the page count the response states; a page past them comes back empty.
     if (urlStr.includes('api.mobile.immobilienscout24.de/search/list')) {
       const country = immoscoutCountryOf(urlStr);
       if (!immoscoutListData[country]) {
-        const raw = await tryReadFile(path.join(FIXTURES_DIR, IMMOSCOUT_LIST_FIXTURES[country]));
-        immoscoutListData[country] = raw ? JSON.parse(raw) : { resultListItems: [] };
+        const [first, second] = await Promise.all([
+          tryReadFile(path.join(FIXTURES_DIR, IMMOSCOUT_LIST_FIXTURES[country])),
+          tryReadFile(path.join(FIXTURES_DIR, IMMOSCOUT_LIST_PAGE2_FIXTURES[country])),
+        ]);
+        immoscoutListData[country] = [first, second].map((raw) => (raw ? JSON.parse(raw) : { resultListItems: [] }));
       }
 
-      const requestedType = new URL(urlStr).searchParams.get('realestatetype');
-      const responseData = withRealEstateType(immoscoutListData[country], requestedType);
+      const params = new URL(urlStr).searchParams;
+      const page = Number(params.get('pagenumber') ?? 1);
+      const recorded = immoscoutListData[country][page - 1] ?? {
+        ...immoscoutListData[country][0],
+        resultListItems: [],
+      };
+      const responseData = withRealEstateType(
+        { ...recorded, pageNumber: page, numberOfPages: immoscoutListData[country].length },
+        params.get('realestatetype'),
+      );
       return { ok: true, status: 200, json: () => Promise.resolve(responseData) };
     }
 
     // The exposé endpoint carries no geocode - both sites' adverts share one identifier space -
-    // so the recording is picked by whether the id is one the Austrian list fixture holds. An id
+    // so the recording is picked by whether the id is one the Austrian list fixtures hold. An id
     // from neither reads the German exposé, which is what keeps the German suites untouched.
     if (urlStr.includes('api.mobile.immobilienscout24.de/expose/')) {
       if (austrianExposeIds == null) {
-        const raw = await tryReadFile(path.join(FIXTURES_DIR, IMMOSCOUT_LIST_FIXTURES.at));
-        austrianExposeIds = exposeIdsOf(raw ? JSON.parse(raw) : null);
+        const pages = await Promise.all(
+          [IMMOSCOUT_LIST_FIXTURES.at, IMMOSCOUT_LIST_PAGE2_FIXTURES.at].map((file) =>
+            tryReadFile(path.join(FIXTURES_DIR, file)),
+          ),
+        );
+        austrianExposeIds = new Set(pages.flatMap((raw) => [...exposeIdsOf(raw ? JSON.parse(raw) : null)]));
       }
       const exposeId = urlStr.split('/expose/').pop().split(/[?#]/)[0];
       const country = austrianExposeIds.has(exposeId) ? 'at' : 'de';

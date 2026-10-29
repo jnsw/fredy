@@ -95,7 +95,7 @@ describe('Issue reproduction: listings filtered by similarity or area should be 
     expect(checkAndAddEntry).toHaveBeenCalledWith(expect.objectContaining({ chargesIncluded: false, charges: 50 }));
   });
 
-  it('should pass the shared browser to a custom getListings implementation', async () => {
+  it('should pass the shared browser and the result page budget to a custom getListings implementation', async () => {
     const Fredy = await mockFredy();
     const browser = { connected: true };
     const getListings = vi.fn().mockResolvedValue([]);
@@ -117,7 +117,13 @@ describe('Issue reproduction: listings filtered by similarity or area should be 
     const fredy = new Fredy(providerConfig, mockedJob, 'custom-provider', {}, browser);
     await fredy.execute();
 
-    expect(getListings).toHaveBeenCalledWith('http://example.com', browser);
+    // Nothing stored a page limit, so the run gets the default one, and a way to recognise a
+    // listing the job already knows.
+    expect(getListings).toHaveBeenCalledWith(
+      'http://example.com',
+      browser,
+      expect.objectContaining({ maxPages: 3, isKnown: expect.any(Function) }),
+    );
     expect(getListings.mock.contexts[0]).toBe(fredy);
   });
 

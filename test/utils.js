@@ -95,11 +95,13 @@ if (process.env.TEST_MODE === 'offline') {
 }
 
 /**
- * The pipeline, with the detail-page enrichment capped at one listing.
+ * The pipeline, with the detail-page enrichment capped at one listing and, offline, no pause
+ * between two result pages of a search.
  *
  * The cap used to live in the pipeline itself as `process.env.NODE_ENV === 'test'`. It belongs
  * here: a fixture run only needs to prove the enrichment path works once, and walking every
- * listing's detail page makes the provider suites slow (and, in live mode, rude).
+ * listing's detail page makes the provider suites slow (and, in live mode, rude). The pause exists
+ * for the portals' bot filters, which an offline fixture run never meets; a live run keeps it.
  *
  * @returns {Promise<typeof import('../lib/FredyPipelineExecutioner.js').default>} A subclass that
  *   applies the cap, so the tests can keep constructing it with the production signature.
@@ -109,7 +111,11 @@ export const mockFredy = async () => {
   const FredyPipelineExecutioner = mod.default;
   return class TestPipeline extends FredyPipelineExecutioner {
     constructor(providerConfig, job, providerId, similarityCache, browser, options = {}) {
-      super(providerConfig, job, providerId, similarityCache, browser, { maxDetailFetches: 1, ...options });
+      super(providerConfig, job, providerId, similarityCache, browser, {
+        maxDetailFetches: 1,
+        resultPagePauseMs: process.env.TEST_MODE === 'offline' ? 0 : null,
+        ...options,
+      });
     }
   };
 };

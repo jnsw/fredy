@@ -67,6 +67,7 @@ export const ROUTING_FIELDS = [
 export const EXECUTION_FIELDS = [
   'interval',
   'workingHours',
+  'maxResultPages',
   'proxyUrl',
   'priceTrackingEnabled',
   'priceCheckIntervalDays',
@@ -112,6 +113,9 @@ function toForm(settings) {
       // zone the next time they save an unrelated field on this page.
       timeZone: settings?.workingHours?.timeZone ?? null,
     },
+    // The backend's default (`DEFAULT_MAX_RESULT_PAGES`); no migration seeds it, so this is what an
+    // instance that never saved the field reads.
+    maxResultPages: settings?.maxResultPages ?? 3,
     proxyUrl: settings?.proxyUrl ?? '',
     priceTrackingEnabled: settings?.priceTrackingEnabled === true,
     priceCheckIntervalDays: settings?.priceCheckIntervalDays ?? 7,
@@ -264,6 +268,9 @@ export function useAdminSettings(settings) {
         payload.priceChangeThresholdPercent = Number(form.priceChangeThresholdPercent);
         payload.proxyUrl = form.proxyUrl?.trim() ?? '';
       }
+      if (fields.includes('maxResultPages')) {
+        payload.maxResultPages = Number(form.maxResultPages);
+      }
 
       setSaving(fields);
       try {
@@ -407,6 +414,16 @@ export function useAdminSettings(settings) {
           const { from, to } = form.workingHours;
           if ((!nullOrEmpty(from) && nullOrEmpty(to)) || (nullOrEmpty(from) && !nullOrEmpty(to))) {
             return t('settings.toastWorkingHoursIncomplete');
+          }
+          // Every page is another request at the portal, so a cleared box must not be coerced into
+          // a limit the operator never chose.
+          if (
+            nullOrEmpty(form.maxResultPages) ||
+            !Number.isInteger(Number(form.maxResultPages)) ||
+            Number(form.maxResultPages) < 1 ||
+            Number(form.maxResultPages) > 10
+          ) {
+            return t('settings.toastMaxResultPagesInvalid');
           }
           // Only the interval and the limit are guarded here. They decide how much traffic Fredy
           // sends at the portals, so a cleared field must not be silently coerced into a value the
