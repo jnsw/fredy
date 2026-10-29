@@ -523,7 +523,8 @@ function trimSmgEntry(entry) {
 }
 
 /**
- * Records an SMG portal's search (ImmoScout24.ch, Homegate) the way the offline suite replays it.
+ * Records an SMG portal's search (ImmoScout24.ch, Homegate) the way the offline suite replays it,
+ * with the place lookups and URL translations it needed.
  *
  * The API answers a request with its real values or a rewritten copy, at random, and the offline
  * suite has to prove the provider keeps the first and drops the second. So both are recorded for the
@@ -541,7 +542,7 @@ async function downloadSmgFixtures(name, runConfig) {
   const { searchListings } = await import('../../lib/services/smg/api.js');
   const { cheaperOf, judgeAnswer, HONEST } = await import('../../lib/services/smg/poison.js');
 
-  const recorded = { locations: {}, bodies: [] };
+  const recorded = { locations: {}, translations: {}, bodies: [] };
   const realFetch = globalThis.fetch;
   globalThis.fetch = async (url, init) => {
     const response = await realFetch(url, init);
@@ -550,6 +551,10 @@ async function downloadSmgFixtures(name, runConfig) {
       recorded.locations[`${asked.searchParams.get('lang')}|${asked.searchParams.get('name')}`] = await response
         .clone()
         .json();
+    } else if (asked.pathname === '/search/listings-by-url' && response.ok) {
+      // Only the query is read from a translation, so only the query is kept.
+      const { query } = await response.clone().json();
+      recorded.translations[JSON.parse(init.body).url] = { query, results: [] };
     } else if (asked.pathname === '/search/listings') {
       recorded.bodies.push(JSON.parse(init.body));
     }
@@ -585,7 +590,7 @@ async function downloadSmgFixtures(name, runConfig) {
   await writeFile(path.join(FIXTURES_DIR, `${name}_search.json`), JSON.stringify(fixture, null, 2), 'utf-8');
   console.log(`  Saved ${name}_search.json (${real.results.length} listings, both value sets)`);
 
-  const places = { locations: recorded.locations };
+  const places = { locations: recorded.locations, translations: recorded.translations };
   await writeFile(path.join(FIXTURES_DIR, `${name}_places.json`), JSON.stringify(places, null, 2), 'utf-8');
   console.log(`  Saved ${name}_places.json`);
 }
@@ -1183,6 +1188,7 @@ async function main() {
         await downloadBoligportalFixtures(runConfig.url, launchBrowser, closeBrowser);
         break;
       case 'immoscout24ch':
+      case 'homegate':
         await downloadSmgFixtures(name, runConfig);
         break;
       case 'tecnocasa':

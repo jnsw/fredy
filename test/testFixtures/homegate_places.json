@@ -1,0 +1,27 @@
+{
+  "locations": {},
+  "translations": {
+    "https://www.homegate.ch/affittare/appartamento/luogo-chiasso/lista-annunci?ac=3.5&ak=80&ah=2000": {
+      "query": {
+        "offerType": "RENT",
+        "propertyType": "APARTMENT",
+        "propertySubTypes": [],
+        "livingSpace": {
+          "from": 80
+        },
+        "numberOfRooms": {
+          "from": 3.5
+        },
+        "monthlyRent": {
+          "to": 2000
+        },
+        "location": {
+          "geoTags": [
+            "geo-city-chiasso"
+          ]
+        }
+      },
+      "results": []
+    }
+  }
+}

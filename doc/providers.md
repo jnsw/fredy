@@ -7,7 +7,7 @@ platform into Fredy.
 > Always make sure the search results are sorted by **date**, so Fredy picks up the newest listings
 > first.
 
-## The 32 built-in providers
+## The 33 built-in providers
 
 **🇩🇪 Germany**
 
@@ -22,7 +22,7 @@ platform into Fredy.
 
 **🇩🇪 Germany · 🇦🇹 Austria · 🇨🇭 Switzerland** · BETTERHOMES
 **🇦🇹 Austria** · willhaben · Immoscout Österreich
-**🇨🇭 Switzerland** · ImmoScout24.ch · Flatfox
+**🇨🇭 Switzerland** · Homegate · ImmoScout24.ch · Flatfox
 **🇪🇸 Spain · 🇮🇹 Italy · 🇵🇹 Portugal** · idealista
 **🇮🇹 Italy** · Subito · Tecnocasa · Tecnorete · Casa.it
 **🇫🇷 France** · leboncoin · SeLoger · Bien'ici
@@ -112,6 +112,18 @@ cannot verify after fifteen tries is not stored; the log says
 
 Rents are stored as the Nettomiete where the advert gives one, with the Nebenkosten as its charges,
 and as the Bruttomiete otherwise. Prices are in Swiss francs.
+
+## Homegate
+
+Switzerland's largest portal, run by the same group as ImmoScout24.ch and read the same way: through
+the SMG API its own app uses, in Homegate's index, with every page checked for rewritten values
+exactly as described above. No browser is needed.
+
+Paste the address of a result page, as your browser shows it after a search, for example
+`https://www.homegate.ch/mieten/wohnung/ort-zuerich/trefferliste?ah=3000`. The API translates
+Homegate URLs itself, so every filter the site offers is understood the way Homegate means it. A URL
+that is not a result page (no `/trefferliste`, `/matching-list`, `/liste-annonces` or `/lista-annunci`
+at the end) is refused, and the log says so. Listing links are written in the language of your URL.
 
 ## idealista
 

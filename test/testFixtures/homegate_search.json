@@ -1,0 +1,4101 @@
+{
+  "request": {
+    "query": {
+      "offerType": "RENT",
+      "propertyType": "APARTMENT",
+      "propertySubTypes": [],
+      "livingSpace": {
+        "from": 80
+      },
+      "numberOfRooms": {
+        "from": 3.5
+      },
+      "monthlyRent": {
+        "to": 2000
+      },
+      "location": {
+        "geoTags": [
+          "geo-city-chiasso"
+        ]
+      },
+      "platform": "homegate"
+    },
+    "sortBy": "dateCreated",
+    "sortDirection": "desc",
+    "from": 0,
+    "size": 20,
+    "trackTotalHits": true,
+    "fieldset": "srp-list"
+  },
+  "real": {
+    "from": 0,
+    "size": 20,
+    "total": 40,
+    "results": [
+      {
+        "id": "4003579401",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "accuracy": "HIGH",
+              "latitude": 45.835595347575,
+              "longitude": 9.031831882021
+            },
+            "geoTags": [
+              "geo-region-mendrisio",
+              "geo-canton-ticino",
+              "geo-country-switzerland",
+              "geo-city-chiasso",
+              "geo-zipcode-6830"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "street": "Via Emilio Bossi 30",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "floor": 1,
+            "hasBalcony": true,
+            "livingSpace": 160,
+            "numberOfRooms": 4.5
+          },
+          "id": "4003579401",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [
+                {
+                  "file": "imm_37481-20260906182208-900-_DRE_logo_Oriz_bianco_watermark_png_mc.jpg",
+                  "metadata": {
+                    "byteSize": 40595,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "772d633172e3fef7b08b172d2c0291354e1b6297e18c82302711b2a526e15542"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 600,
+                      "width": 900
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/p149/4003579401/image/3b6efc4e637e07d13e015400b878ad8a.jpg"
+                },
+                {
+                  "file": "imm_37482-20260906182210-900-_DRE_logo_Oriz_bianco_watermark_png_mc.jpg",
+                  "metadata": {
+                    "byteSize": 37578,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "43f2e603d7c0c335e6e620ca42185e904fdc5001e7303c6c0dda56124759c2b5"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 600,
+                      "width": 900
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/p149/4003579401/image/5fb8efcae91cdc085d66f6ae6ed4c702.jpg"
+                }
+              ],
+              "text": {
+                "title": "Signorile e ampio appartamento in centro",
+                "description": "Affittasi in centro Chiasso, in Via Emilio Bossi 30, a breve distanza da scuole, bar al piano terra, supermercati, piazza indipendenza, svincolo autostradale e "
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-10-24T21:02:00.466Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "flatfox"
+          ],
+          "prices": {
+            "currency": "CHF",
+            "rent": {
+              "area": "ALL",
+              "gross": 1500,
+              "interval": "MONTH",
+              "net": 1500
+            }
+          }
+        }
+      },
+      {
+        "id": "4003565277",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "accuracy": "HIGH",
+              "latitude": 45.833944346574,
+              "longitude": 9.030321882024
+            },
+            "geoTags": [
+              "geo-region-mendrisio",
+              "geo-canton-ticino",
+              "geo-country-switzerland",
+              "geo-city-chiasso",
+              "geo-zipcode-6830"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "street": "Corso San Gottardo 24",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "floor": 4,
+            "hasBalcony": true,
+            "hasCableTv": true,
+            "hasDishwasher": true,
+            "hasElevator": true,
+            "hasParking": true,
+            "hasWashingMachine": true,
+            "isChildFriendly": true,
+            "isOldBuilding": true,
+            "isQuiet": true,
+            "isSmokingAllowed": true,
+            "livingSpace": 120,
+            "numberOfRooms": 4
+          },
+          "id": "4003565277",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [
+                {
+                  "alt": null,
+                  "file": "fb7a6d3252.jpg",
+                  "metadata": {
+                    "byteSize": 256699,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "6f3db029fc9c107daabe1addf59593f1fa47690cfcdfd27d6a90c04395531b1d"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 2000,
+                      "width": 1124
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/p456/4003565277/image/c4dffc9d431f9adf86ce64c502d12d9e.jpg"
+                },
+                {
+                  "alt": null,
+                  "file": "d47ed0df25.jpg",
+                  "metadata": {
+                    "byteSize": 560212,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "f162760f96287d14b8ecd71c23bf5591dfbe790f57e149eeb86110de60ce9f4f"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 2664,
+                      "width": 1500
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/p456/4003565277/image/71acc275c2bd2aea608dc1352d56c6cc.jpg"
+                }
+              ],
+              "text": {
+                "title": "AMPIO E LUMINOSO 4 LOCALI IN POSIZIONE STRATEGICA",
+                "description": "Nel cuore della città di Chiasso, in posizione molto strategica, prossima ad ogni servizio e ordine di scuola, proponiamo in affitto ampio e luminoso appartamen"
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-10-19T13:45:23.686Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "flatfox"
+          ],
+          "prices": {
+            "buy": {},
+            "currency": "CHF",
+            "rent": {
+              "extra": 100,
+              "gross": 1100,
+              "interval": "MONTH",
+              "net": 1000
+            }
+          }
+        }
+      },
+      {
+        "id": "4003561497",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "accuracy": "LOW",
+              "latitude": 45.834904344572,
+              "longitude": 9.028071882027
+            },
+            "geoTags": [
+              "geo-region-mendrisio",
+              "geo-canton-ticino",
+              "geo-country-switzerland",
+              "geo-city-chiasso",
+              "geo-zipcode-6830"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "street": "Balerna",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "livingSpace": 90,
+            "numberOfRooms": 3.5
+          },
+          "id": "4003561497",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [
+                {
+                  "file": "anibis_orig_0016723819.jpg",
+                  "metadata": {
+                    "byteSize": 81574,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "2f39ca4dff18c937a72108b00dbd521e93b89c2381ce18af64b935e5144f8ade"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 766,
+                      "width": 1024
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/anibisfill/4003561497/image/688cadd0d607495a08e9a3bfc881c19c.jpg"
+                },
+                {
+                  "file": "anibis_orig_8166635445.jpg",
+                  "metadata": {
+                    "byteSize": 119770,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "f65cf804b3fb6eeb87af98b58b2bb719fbd1e252776a1dda81d90045602ac967"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 2000,
+                      "width": 1500
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/anibisfill/4003561497/image/f5a792b502520151317cf659b8ae4965.jpg"
+                }
+              ],
+              "text": {
+                "title": "Rent-to-buy 3.5 locali con posteggio",
+                "description": "Balerna, Rent-TO-buy ( affitto/acquisto) 3.5 locali, 2 camere, 2 balconi, doppio soggiorno, cucina con la finestra, posteggio esterno, giardino condominiale, ca"
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-10-17T10:10:21.884Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "flatfox"
+          ],
+          "prices": {
+            "currency": "CHF",
+            "rent": {
+              "area": "ALL",
+              "gross": 1200,
+              "interval": "MONTH"
+            }
+          },
+          "valueAddedServices": {
+            "isTenantPlusListing": true
+          }
+        }
+      },
+      {
+        "id": "4003561058",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "accuracy": "HIGH",
+              "latitude": 45.833134343571,
+              "longitude": 9.020051882025
+            },
+            "geoTags": [
+              "geo-region-mendrisio",
+              "geo-canton-ticino",
+              "geo-country-switzerland",
+              "geo-city-chiasso",
+              "geo-zipcode-6830"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "street": "Via Generale Enrico Guisan 23",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "livingSpace": 83,
+            "numberOfRooms": 3.5
+          },
+          "id": "4003561058",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [
+                {
+                  "file": "tutti_orig_0087927475.jpg",
+                  "metadata": {
+                    "byteSize": 561645,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "edd631cfc06fc7484d9855b1d7bb608e0b84adf5bacf42d949e815f746fcb75c"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 2048,
+                      "width": 1536
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/tuttifill/4003561058/image/915c22f353a0db0d5a29546d7d104b87.jpg"
+                },
+                {
+                  "file": "tutti_orig_2874284300.jpg",
+                  "metadata": {
+                    "byteSize": 649543,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "f186418a82361732d331d4d0072d711c6fd36539e8077b9de2b55da031c56ca4"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 2048,
+                      "width": 2048
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/tuttifill/4003561058/image/2031b72f7d0f00b6e14e77343d7e0f43.jpg"
+                }
+              ],
+              "text": {
+                "title": "Cercasi subentrante Spazioso e luminoso App a Chiasso",
+                "description": "Cerchiamo un subentrante per un accogliente e luminoso appartamento 3.5 locali, situato in posizione strategica e comodissima a tutti i servizi, in Via Generale"
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-10-16T22:59:34.931Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "flatfox"
+          ],
+          "prices": {
+            "currency": "CHF",
+            "rent": {
+              "area": "ALL",
+              "gross": 1070,
+              "interval": "MONTH"
+            }
+          },
+          "valueAddedServices": {
+            "isTenantPlusListing": true
+          }
+        }
+      },
+      {
+        "id": "4003560578",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "accuracy": "HIGH",
+              "latitude": 45.832224347575,
+              "longitude": 9.021491882028
+            },
+            "geoTags": [
+              "geo-canton-ticino",
+              "geo-country-switzerland",
+              "geo-city-chiasso",
+              "geo-zipcode-6830",
+              "geo-region-mendrisio"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "street": "Via Guglielmo Tell 11",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "arePetsAllowed": true,
+            "floor": 5,
+            "hasBalcony": true,
+            "hasDishwasher": true,
+            "hasElevator": true,
+            "hasNiceView": true,
+            "hasParking": true,
+            "isChildFriendly": true,
+            "livingSpace": 120,
+            "numberOfBathrooms": 3,
+            "numberOfRooms": 5.5
+          },
+          "id": "4003560578",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [
+                {
+                  "alt": null,
+                  "file": "b9402eea1a.jpg",
+                  "metadata": {
+                    "byteSize": 162250,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "43fda545928a723d301db23867acad8cb8112ddaf34de6daece0c3bd8dbb3bc6"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 1080,
+                      "width": 1500
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/p069/4003560578/image/d5cbecf06ba496e428c3298f115d0c0b.jpg"
+                },
+                {
+                  "alt": null,
+                  "file": "da8df80740.jpg",
+                  "metadata": {
+                    "byteSize": 239137,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "d7f06a25699a8ff430d69ae4568c1126398ea762dd29cf45fc945e7b6a9fc52e"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 1063,
+                      "width": 1500
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/p069/4003560578/image/6d86877d57f39059c9f3a0a72982176f.jpg"
+                }
+              ],
+              "text": {
+                "title": "Chiasso: spazioso appartamento di 5.5 locali con balconi",
+                "description": "Appartamento di 5,5 locali di ca 120 mq, composto da atrio d'ingresso, soggiorno con pranzo, cucina abitabile, corridoio con armadio a muro, tre camere, bagno c"
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-10-16T15:53:49.390Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "flatfox"
+          ],
+          "prices": {
+            "buy": {},
+            "currency": "CHF",
+            "rent": {
+              "gross": 1100,
+              "interval": "MONTH",
+              "net": 1100
+            }
+          }
+        }
+      },
+      {
+        "id": "4003560474",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "accuracy": "MEDIUM",
+              "latitude": 45.835674344572,
+              "longitude": 9.030531882022
+            },
+            "geoTags": [
+              "geo-region-mendrisio",
+              "geo-canton-ticino",
+              "geo-country-switzerland",
+              "geo-city-chiasso",
+              "geo-zipcode-6830"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "street": "via Lavizzari",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "livingSpace": 85,
+            "numberOfRooms": 3.5
+          },
+          "id": "4003560474",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [
+                {
+                  "file": "anibis_orig_9538461011.jpg",
+                  "metadata": {
+                    "byteSize": 1090933,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "512c4a049c614752f2e972e6dbdf837c69f434fea8adbe6361fde90b5738c7c1"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 1536,
+                      "width": 2048
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/anibisfill/4003560474/image/aededcd2aad8d01ec6c0fb19e5c3cdab.jpg"
+                },
+                {
+                  "file": "anibis_orig_3918376598.jpg",
+                  "metadata": {
+                    "byteSize": 589737,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "4b695df19b5701066356f9fd67dc704c2c123d79809a158ddeb473a8fc97e1a1"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 1365,
+                      "width": 2048
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/anibisfill/4003560474/image/0e61885263a257e7b74734a2e6ad0779.jpg"
+                }
+              ],
+              "text": {
+                "title": "CHIASSO: AMPIO APPARTAMENTO CON ARIA CONDIZIONATA",
+                "description": "Affittasi in centro Chiasso appartamento:85 m² ben distribuiti, 1 piano senza ascensore2 camere1 grande cucina abitabile1 bagno completo con vasca e finestra1 a"
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-10-16T15:09:22.522Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "flatfox"
+          ],
+          "prices": {
+            "currency": "CHF",
+            "rent": {
+              "area": "ALL",
+              "gross": 1200,
+              "interval": "MONTH"
+            }
+          },
+          "valueAddedServices": {
+            "isTenantPlusListing": true
+          }
+        }
+      },
+      {
+        "id": "4003544269",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "accuracy": "HIGH",
+              "latitude": 45.835819349577,
+              "longitude": 9.031051882021
+            },
+            "geoTags": [
+              "geo-canton-ticino",
+              "geo-country-switzerland",
+              "geo-city-chiasso",
+              "geo-zipcode-6830",
+              "geo-region-mendrisio"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "street": "Via Franscini, 20",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "livingSpace": 85,
+            "numberOfRooms": 3.5
+          },
+          "id": "4003544269",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [
+                {
+                  "file": "tutti_orig_0629427722.jpg",
+                  "metadata": {
+                    "byteSize": 38223,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "cb2f467572f6abce3021834136f7882b7e76f5234ac60289e5bf2d219df13fae"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 426,
+                      "width": 639
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/tuttifill/4003544269/image/b07efe77c28dbdd3e352d0e3d61d80d8.jpg"
+                },
+                {
+                  "file": "tutti_orig_8279195530.jpg",
+                  "metadata": {
+                    "byteSize": 32178,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "77230c065374b9654f619974cd22cd484929f82b3ac7a48d0a0e0bd3e5f28a0a"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 426,
+                      "width": 639
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/tuttifill/4003544269/image/ae3da140d9ac7ba900c5aaa0f9d4f810.jpg"
+                }
+              ],
+              "text": {
+                "title": "Cerco Subentrante - 3.5 locali Chiasso centro con balcone",
+                "description": "Appartamento ristrutturato, moderno, spazioso e molto luminoso, in centro Chiasso a 5 minuti  a piedi dalla stazione ferroviaria e 1 minuto da Corso S.Gottardo."
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-10-11T15:00:01.542Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "flatfox"
+          ],
+          "prices": {
+            "currency": "CHF",
+            "rent": {
+              "area": "ALL",
+              "gross": 1150,
+              "interval": "MONTH"
+            }
+          },
+          "valueAddedServices": {
+            "isTenantPlusListing": true
+          }
+        }
+      },
+      {
+        "id": "4003544196",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "accuracy": "HIGH",
+              "latitude": 45.834914344571,
+              "longitude": 9.029951882025
+            },
+            "geoTags": [
+              "geo-region-mendrisio",
+              "geo-canton-ticino",
+              "geo-country-switzerland",
+              "geo-city-chiasso",
+              "geo-zipcode-6830"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "street": "Via Luigi Lavizzari 5",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "floor": 4,
+            "hasBalcony": true,
+            "hasDishwasher": true,
+            "hasElevator": true,
+            "hasNiceView": true,
+            "isChildFriendly": true,
+            "isQuiet": true,
+            "livingSpace": 90,
+            "numberOfBathrooms": 1,
+            "numberOfRooms": 3.5,
+            "yearLastRenovated": 2025
+          },
+          "id": "4003544196",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [
+                {
+                  "alt": null,
+                  "file": "1457654d33.jpg",
+                  "metadata": {
+                    "byteSize": 228489,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "4ae663f274cdf7cfbbec4e4eb4076bd5559ca88fe2984f28fad8ba11bbbdf71a"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 1224,
+                      "width": 971
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/p375/4003544196/image/de7bb862091fb201e489a4593240dcb6.jpg"
+                },
+                {
+                  "alt": null,
+                  "file": "0bdcda6114.jpg",
+                  "metadata": {
+                    "byteSize": 386959,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "1ed8842148ce13ca9b81bc9c7aebec342d86be00bb08feba026661caa59639ca"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 1958,
+                      "width": 1469
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/p375/4003544196/image/3316899462744e23ae2a6f69a3a998e1.jpg"
+                }
+              ],
+              "text": {
+                "title": "Appartamento 3.5 locali Arredato e completamente rinnovato",
+                "description": "Chiasso, in posizione centrale e nelle immediate vicinanze di scuole, palestre e vari servizi, proponiamo in affitto al 4° piano in uno stabile dotato di pannel"
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-10-11T13:56:12.422Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "anibis",
+            "tutti"
+          ],
+          "prices": {
+            "buy": {},
+            "currency": "CHF",
+            "rent": {
+              "extra": 200,
+              "gross": 1380,
+              "interval": "MONTH",
+              "net": 1180
+            }
+          }
+        }
+      },
+      {
+        "id": "4003542817",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "accuracy": "MEDIUM",
+              "latitude": 45.834895344572,
+              "longitude": 9.033031882022
+            },
+            "geoTags": [
+              "geo-region-mendrisio",
+              "geo-canton-ticino",
+              "geo-country-switzerland",
+              "geo-city-chiasso",
+              "geo-zipcode-6830"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "street": "via volta",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "distancePrimarySchool": 550,
+            "distancePublicTransport": 50,
+            "distanceShop": 200,
+            "floor": 1,
+            "hasElevator": true,
+            "livingSpace": 110,
+            "numberOfRooms": 4.5,
+            "yearBuilt": 1990,
+            "yearLastRenovated": 2026
+          },
+          "id": "4003542817",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [
+                {
+                  "file": "2ae4501c46ab5748e1747e791b1dd3a3bd7deeea_1280x1280_meet-o-ww821.jpg",
+                  "metadata": {
+                    "byteSize": 489531,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "28b4fbe9a5bcabfe44fc007e2809fb600cb3e6971ddd7c13a64abb53844d5388"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 960,
+                      "width": 1280
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/infiam/4003542817/image/62fcf3f76acf128201aec8bebbec857b.jpg"
+                },
+                {
+                  "file": "79c2eeb518cd36be289a9f3f56a5e2489e9629fc_1280x1280_meet-o-ww821.jpg",
+                  "metadata": {
+                    "byteSize": 318738,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "f2442bef721d79af0b9c72bd28f26b83cffa398be102d0714ac98dccd088fb6d"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 960,
+                      "width": 1280
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/infiam/4003542817/image/35c506690a1bc351d4b50ccd6d226c03.jpg"
+                }
+              ],
+              "text": {
+                "title": "COMODO 4.5 LOCALI ARREDATO",
+                "description": "A Chiasso, via Volta, proponiamo in locazione annuale un appartamento 4.5 locali, al piano rialzato, arredato e subito disponibile.L'appartamento è in un contes"
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-10-10T08:41:37.153Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "anibis",
+            "tutti",
+            "flatfox"
+          ],
+          "prices": {
+            "currency": "CHF",
+            "rent": {
+              "area": "ALL",
+              "extra": 300,
+              "gross": 1500,
+              "interval": "MONTH",
+              "net": 1200
+            }
+          }
+        }
+      },
+      {
+        "id": "4003540982",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "accuracy": "LOW",
+              "latitude": 45.834904344572,
+              "longitude": 9.028071882027
+            },
+            "geoTags": [
+              "geo-canton-ticino",
+              "geo-country-switzerland",
+              "geo-city-chiasso",
+              "geo-zipcode-6830",
+              "geo-region-mendrisio"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "street": "Balerna, Mendrisiotto",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "livingSpace": 90,
+            "numberOfRooms": 3.5
+          },
+          "id": "4003540982",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [
+                {
+                  "file": "tutti_orig_1503835042.jpg",
+                  "metadata": {
+                    "byteSize": 39703,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "aaeb5f872fc73e4281704b32e4e8817fae7fb22e41867ac0cf01ac4c36fc8909"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 400,
+                      "width": 300
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/tuttifill/4003540982/image/076a5bd3bbfe368dab02ee2f49801c0a.jpg"
+                },
+                {
+                  "file": "tutti_orig_0092652373.jpg",
+                  "metadata": {
+                    "byteSize": 303916,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "d9749c2e5d6bb9658c0e94cff953c3c5bab73309f0c0bb9944234ac27039032c"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 2000,
+                      "width": 1500
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/tuttifill/4003540982/image/84eda86110c0989df1f14791b42ad7ad.jpg"
+                }
+              ],
+              "text": {
+                "title": "affitto con riscatto appartamento 3.5 locali con posteggio",
+                "description": "Balerna, privato affitta 3.5 con balcone con bellissima vista e molto comodo, vicino a tutte le comodità della città: bus, negozi, parco, ecc..L ' appartamento "
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-10-09T12:00:02.087Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "flatfox"
+          ],
+          "prices": {
+            "currency": "CHF",
+            "rent": {
+              "area": "ALL",
+              "gross": 1200,
+              "interval": "MONTH"
+            }
+          },
+          "valueAddedServices": {
+            "isTenantPlusListing": true
+          }
+        }
+      },
+      {
+        "id": "4003536395",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "accuracy": "LOW",
+              "latitude": 45.834904344572,
+              "longitude": 9.028071882027
+            },
+            "geoTags": [
+              "geo-canton-ticino",
+              "geo-country-switzerland",
+              "geo-city-chiasso",
+              "geo-zipcode-6830",
+              "geo-region-mendrisio"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "livingSpace": 100,
+            "numberOfRooms": 4
+          },
+          "id": "4003536395",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [
+                {
+                  "file": "tutti_orig_8752346166.jpg",
+                  "metadata": {
+                    "byteSize": 430877,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "2c7f587e8cde5eff0ed11ba9332ebaa719708f6e0e9f7c413ccf0a5499bcab93"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 1152,
+                      "width": 2048
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/tuttifill/4003536395/image/7a257a16d5c753defa5198ffe86c28b3.jpg"
+                },
+                {
+                  "file": "tutti_orig_6049050302.jpg",
+                  "metadata": {
+                    "byteSize": 397986,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "1e6301b3451ede5f69b0bd74bdd5b5f8ef9468dcc8289c052f35974ddd71a9fb"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 1152,
+                      "width": 2048
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/tuttifill/4003536395/image/24fbd33a4f177ee77b107a9224239d78.jpg"
+                }
+              ],
+              "text": {
+                "title": "Appartamento in ottimo stato a chiasso",
+                "description": "4.5 loc al 7 piano servito da ascensore BalconeCantinaAffitto chf 900Custode 21Spese chf 100Disponibilità da concordare NO animali Lavanderia e stenditoio in co"
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-10-08T10:00:30.107Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "flatfox"
+          ],
+          "prices": {
+            "currency": "CHF",
+            "rent": {
+              "area": "ALL",
+              "gross": 900,
+              "interval": "MONTH"
+            }
+          },
+          "valueAddedServices": {
+            "isTenantPlusListing": true
+          }
+        }
+      },
+      {
+        "id": "4003536295",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "accuracy": "HIGH",
+              "longitude": 9.031761882026,
+              "latitude": 45.837764343579
+            },
+            "geoTags": [
+              "geo-region-mendrisio",
+              "geo-canton-ticino",
+              "geo-country-switzerland",
+              "geo-city-chiasso",
+              "geo-zipcode-6830"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "street": "Via Pietro e Luisita Chiesa 3",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "livingSpace": 83,
+            "hasBalcony": true,
+            "numberOfRooms": 4.5,
+            "hasElevator": true,
+            "distancePrimarySchool": 349,
+            "arePetsAllowed": true,
+            "distancePublicTransport": 65,
+            "distanceShop": 270,
+            "floor": 7
+          },
+          "id": "4003536295",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [
+                {
+                  "metadata": {
+                    "checksum": {
+                      "value": "8e51bfbbe73171074a6e7a6689156cd7878c85dc8529c78d7726afbf4c4144a3",
+                      "algorithm": "SHA256"
+                    },
+                    "contentType": "image/jpeg",
+                    "byteSize": 197238,
+                    "image": {
+                      "height": 960,
+                      "width": 1280
+                    }
+                  },
+                  "url": "https://media2.homegate.ch/listings/v2/infiam/4003536295/image/81a1a0ea0852b41bdebf04289468a0e2.jpg",
+                  "type": "IMAGE",
+                  "file": "472f8aae3bee17dc9e20959d0ea5f31ee7b7a744_1280x1280_meet-o-ww821.jpg"
+                },
+                {
+                  "metadata": {
+                    "image": {
+                      "width": 1280,
+                      "height": 960
+                    },
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "1b786d0c3da52ace46b5eea2f7af8d376083595f362f4f1d87c3a489209a5e2e"
+                    },
+                    "contentType": "image/jpeg",
+                    "byteSize": 217227
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/infiam/4003536295/image/bcf90f428337f9b0ba1f1d4747c91036.jpg",
+                  "file": "4d17a92e41ba2477e5c81e05f97f03f4da87f55f_1280x1280_meet-o-ww821.jpg"
+                }
+              ],
+              "text": {
+                "title": "4.5 LOCALI CON BALCONE IN POSIZIONE CENTRALE",
+                "description": "Proponiamo in posizione centrale, vicino agli svincoli autostradali nord-sud, alla fermata dell'autobus e a soli 10 minuti a piedi dalla stazione ferroviaria, a"
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-10-08T09:32:40.137Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "anibis",
+            "tutti",
+            "flatfox"
+          ],
+          "prices": {
+            "rent": {
+              "area": "ALL",
+              "interval": "MONTH",
+              "gross": 1180,
+              "net": 980,
+              "extra": 200
+            },
+            "currency": "CHF"
+          }
+        }
+      },
+      {
+        "id": "4003527245",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "accuracy": "HIGH",
+              "latitude": 45.835314343571,
+              "longitude": 9.031221882029
+            },
+            "geoTags": [
+              "geo-region-mendrisio",
+              "geo-canton-ticino",
+              "geo-country-switzerland",
+              "geo-city-chiasso",
+              "geo-zipcode-6830"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "street": "Via Ciseri 2",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "livingSpace": 100,
+            "numberOfRooms": 4
+          },
+          "id": "4003527245",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [
+                {
+                  "file": "tutti_orig_2516349525.jpg",
+                  "metadata": {
+                    "byteSize": 543549,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "3b41da9545d105a3c97066357df561f477806adf33b585b894b7186524934b0a"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 2048,
+                      "width": 1152
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/tuttifill/4003527245/image/2829eb8e25992dad1b6cff0b87655b0f.jpg"
+                },
+                {
+                  "file": "tutti_orig_5602877834.jpg",
+                  "metadata": {
+                    "byteSize": 671535,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "d63d55b33bf024939ac49fa21801c0d41918b1936f0fe3a093cf779f6c9a4d39"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 1152,
+                      "width": 2048
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/tuttifill/4003527245/image/4b0273c7583a70b71da0cb51d57f05c1.jpg"
+                }
+              ],
+              "text": {
+                "title": "Affittiamo bellissimo 4,5 completamente ristrutturato",
+                "description": "Affittiamo bellissimo e luminosissimo appartamento 4,5 con balcone per uso abitativo o commerciale ."
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-10-05T15:00:39.401Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "flatfox"
+          ],
+          "prices": {
+            "currency": "CHF",
+            "rent": {
+              "area": "ALL",
+              "gross": 1200,
+              "interval": "MONTH"
+            }
+          },
+          "valueAddedServices": {
+            "isTenantPlusListing": true
+          }
+        }
+      },
+      {
+        "id": "4003523916",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "accuracy": "HIGH",
+              "latitude": 45.838314349577,
+              "longitude": 9.027481882024
+            },
+            "geoTags": [
+              "geo-region-mendrisio",
+              "geo-canton-ticino",
+              "geo-country-switzerland",
+              "geo-city-chiasso",
+              "geo-zipcode-6830"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "street": "VIA SIMEN 12",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "livingSpace": 97,
+            "numberOfRooms": 4.5
+          },
+          "id": "4003523916",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [
+                {
+                  "file": "tutti_orig_3771974847.jpg",
+                  "metadata": {
+                    "byteSize": 160333,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "572aabb3470d51909aa4223204a7bedb96bf29b8775e1992089d9b8a0fb83d5b"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 1024,
+                      "width": 768
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/tuttifill/4003523916/image/9b52a9a4020b7c240438490e53c083e8.jpg"
+                },
+                {
+                  "file": "tutti_orig_9401081519.jpg",
+                  "metadata": {
+                    "byteSize": 324164,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "42bd77a2dc884ad9e51c2f6bf9bf3c64cb7cddcb8db776f065b36aab889cc6dd"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 1600,
+                      "width": 1200
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/tuttifill/4003523916/image/25c6d9532e2135a10edb740e7519a841.jpg"
+                }
+              ],
+              "text": {
+                "title": "ZONA SCUOLE, POSIZIONE STRATEGICA - 4 e 1/2 RISTRUTTURATO",
+                "description": "In una tranquilla palazzina che mantiene il fascino degli anni '40, con elegante ingresso condominiale e soffitti alti, si affitta un appartamento di 4 locali e"
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-10-03T20:00:26.953Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "flatfox"
+          ],
+          "prices": {
+            "currency": "CHF",
+            "rent": {
+              "area": "ALL",
+              "gross": 1350,
+              "interval": "MONTH"
+            }
+          },
+          "valueAddedServices": {
+            "isTenantPlusListing": true
+          }
+        }
+      },
+      {
+        "id": "4003523453",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "accuracy": "HIGH",
+              "latitude": 45.834044346574,
+              "longitude": 9.027981882029
+            },
+            "geoTags": [
+              "geo-region-mendrisio",
+              "geo-canton-ticino",
+              "geo-country-switzerland",
+              "geo-city-chiasso",
+              "geo-zipcode-6830"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "street": "Via Livio 18",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "livingSpace": 90,
+            "numberOfRooms": 3.5
+          },
+          "id": "4003523453",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [
+                {
+                  "file": "tutti_orig_1025925251.jpg",
+                  "metadata": {
+                    "byteSize": 40382,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "06bd287af2deef89c7dc3ad5fa52558ea35a42985a4d9eb30050e6633cb6c3d9"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 480,
+                      "width": 640
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/tuttifill/4003523453/image/40804a7f7b14d9be885bc33f4e5a143f.jpg"
+                },
+                {
+                  "file": "tutti_orig_6919941255.jpg",
+                  "metadata": {
+                    "byteSize": 44888,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "30cffa772a3c8581aed104e97613dc160576676fb7cc3c8309545dbc8ffa0144"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 480,
+                      "width": 640
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/tuttifill/4003523453/image/84b6a95aaa423591878407d656d88a03.jpg"
+                }
+              ],
+              "text": {
+                "title": "Nuovo appartamento completamento rinnovato elevato standing.",
+                "description": "Nuovo appartamento al 2."
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-10-03T10:59:25.100Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "flatfox"
+          ],
+          "prices": {
+            "currency": "CHF",
+            "rent": {
+              "area": "ALL",
+              "gross": 1250,
+              "interval": "MONTH"
+            }
+          },
+          "valueAddedServices": {
+            "isTenantPlusListing": true
+          }
+        }
+      },
+      {
+        "id": "4003522720",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "accuracy": "HIGH",
+              "latitude": 45.835284346574,
+              "longitude": 9.032421882021
+            },
+            "geoTags": [
+              "geo-region-mendrisio",
+              "geo-canton-ticino",
+              "geo-country-switzerland",
+              "geo-city-chiasso",
+              "geo-zipcode-6830"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "street": "Via Simone Cantoni 5",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "livingSpace": 80,
+            "numberOfRooms": 3.5
+          },
+          "id": "4003522720",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [
+                {
+                  "file": "tutti_orig_5220068748.jpg",
+                  "metadata": {
+                    "byteSize": 610314,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "b6fa5226ae2dc60abb1afa02f2ea2438c4cf7a474b1b17f4712fb050bf1a147f"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 2048,
+                      "width": 1536
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/tuttifill/4003522720/image/5b98b597a3ef012b9c2293725f4d7dcc.jpg"
+                },
+                {
+                  "file": "tutti_orig_2233758420.jpg",
+                  "metadata": {
+                    "byteSize": 620219,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "a6f552a50e612aab2457393d68474e9457f49fc5ab4a94a9221382b519c77801"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 2048,
+                      "width": 1536
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/tuttifill/4003522720/image/8b02374251556e14f3aa2062cbc041c9.jpg"
+                }
+              ],
+              "text": {
+                "title": "Chiasso zona centro affittasi 3.5",
+                "description": "3.5 di ca 80 mq,  con balcone, in prima locazione dopo ristrutturazione completa."
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-10-02T19:59:28.322Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "flatfox"
+          ],
+          "prices": {
+            "currency": "CHF",
+            "rent": {
+              "area": "ALL",
+              "gross": 1550,
+              "interval": "MONTH"
+            }
+          },
+          "valueAddedServices": {
+            "isTenantPlusListing": true
+          }
+        }
+      },
+      {
+        "id": "4003520970",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "accuracy": "HIGH",
+              "latitude": 45.837774346574,
+              "longitude": 9.020941882028
+            },
+            "geoTags": [
+              "geo-region-mendrisio",
+              "geo-canton-ticino",
+              "geo-country-switzerland",
+              "geo-city-chiasso",
+              "geo-zipcode-6830"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "street": "Via Pestalozzi 12",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "arePetsAllowed": true,
+            "distancePrimarySchool": 479,
+            "distancePublicTransport": 75,
+            "distanceShop": 223,
+            "floor": 3,
+            "hasBalcony": true,
+            "hasElevator": true,
+            "hasParking": true,
+            "livingSpace": 102,
+            "numberOfRooms": 4.5,
+            "yearLastRenovated": 2026
+          },
+          "id": "4003520970",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [
+                {
+                  "file": "2ce5bd689ad293e5d5a0b08894b248fb66ac429f_1280x1280_meet-o-ww821.jpg",
+                  "metadata": {
+                    "byteSize": 209423,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "8b76ff31e49461d5a61ed57fdf3ab34b43aa516ad1607ba514f8e5ca016d344e"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 960,
+                      "width": 1280
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/infiam/4003520970/image/ca3458a5029a1979828068915180d5ba.jpg"
+                },
+                {
+                  "file": "ac7360ea03a4a8e5d855a3a5d1e5b02457e59b86_1280x1280_meet-o-ww821.jpg",
+                  "metadata": {
+                    "byteSize": 208061,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "6b8053ab4f2fc9b1e7c36dbd5a969b867fa40d3641d72385a44ab1414e2d431c"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 960,
+                      "width": 1280
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/infiam/4003520970/image/c8f9cc7c634e27d75bf8814516ee7b4b.jpg"
+                }
+              ],
+              "text": {
+                "title": "CHIASSO - APPARTAMENTO 4.5 LOCALI RISTRUTTURATO",
+                "description": "Proponiamo in locazione a Chiasso, un appartamento 4.5 locali completamente ristrutturato.L'abitazione è così composta: cucina aperta con soggiorno, 3 camere, 2"
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-10-02T09:32:10.311Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "anibis",
+            "tutti",
+            "flatfox"
+          ],
+          "prices": {
+            "currency": "CHF",
+            "rent": {
+              "area": "ALL",
+              "gross": 1290,
+              "interval": "MONTH",
+              "net": 1290
+            }
+          }
+        }
+      },
+      {
+        "id": "4003514913",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "latitude": 45.833250340578,
+              "accuracy": "HIGH",
+              "longitude": 9.024631882028
+            },
+            "geoTags": [
+              "geo-region-mendrisio",
+              "geo-canton-ticino",
+              "geo-country-switzerland",
+              "geo-city-chiasso",
+              "geo-zipcode-6830"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "street": "Via Fontana da Sagno 4",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "hasParking": true,
+            "yearBuilt": 1933,
+            "isChildFriendly": true,
+            "hasDishwasher": true,
+            "floor": 2,
+            "isQuiet": true,
+            "yearLastRenovated": 2014,
+            "numberOfRooms": 4.5,
+            "hasElevator": true,
+            "numberOfBathrooms": 2,
+            "arePetsAllowed": true,
+            "livingSpace": 98,
+            "hasBalcony": true
+          },
+          "id": "4003514913",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [
+                {
+                  "url": "https://media2.homegate.ch/listings/v2/c016my/4003514913/image/e2a59c0db32382feb716e25597670d13.png",
+                  "type": "IMAGE",
+                  "alt": null,
+                  "file": "387f15119d.png",
+                  "metadata": {
+                    "contentType": "image/png",
+                    "byteSize": 1887280,
+                    "image": {
+                      "height": 1086,
+                      "width": 1448
+                    },
+                    "checksum": {
+                      "value": "222b2ece1a6efe088ae3dfba423a330e8069c60ee3a8b5535298fadf5e50373e",
+                      "algorithm": "SHA256"
+                    }
+                  }
+                },
+                {
+                  "alt": null,
+                  "file": "cbe6cc4fc8.png",
+                  "type": "IMAGE",
+                  "metadata": {
+                    "byteSize": 1860361,
+                    "contentType": "image/png",
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "b6ef29e5c89a1291860a89476465ba28d2176f2d9ac7530aefd1e9e5e1a84516"
+                    },
+                    "image": {
+                      "height": 1086,
+                      "width": 1448
+                    }
+                  },
+                  "url": "https://media2.homegate.ch/listings/v2/c016my/4003514913/image/1c37f900be0b58df3e312eeb9abc7479.png"
+                }
+              ],
+              "text": {
+                "title": "Chiasso: Affittasi moderno appartamento 4.5 locali in villa storica rinnovata",
+                "description": "In un quartiere residenziale di Chiasso proponiamo un favoloso appartamento 4.5 locali di elevato standing, sito all’interno di una prestigiosa villa d’epoca in"
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-09-30T11:27:16.943Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "anibis",
+            "tutti"
+          ],
+          "prices": {
+            "rent": {
+              "extra": 200,
+              "net": 1750,
+              "gross": 1950,
+              "interval": "MONTH"
+            },
+            "buy": {},
+            "currency": "CHF"
+          }
+        }
+      },
+      {
+        "id": "4003499716",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "accuracy": "HIGH",
+              "latitude": 45.836260344572,
+              "longitude": 9.032331882026
+            },
+            "geoTags": [
+              "geo-region-mendrisio",
+              "geo-canton-ticino",
+              "geo-country-switzerland",
+              "geo-city-chiasso",
+              "geo-zipcode-6830"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "street": "Viale Stoppa 2",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "livingSpace": 96,
+            "numberOfRooms": 4
+          },
+          "id": "4003499716",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [],
+              "text": {
+                "title": "Luminoso appartamento",
+                "description": "Appartamento luminoso di 4.5 locali di 96 mq.Situato in Viale Stoppa 4, Chiasso  1 cucina attrezzata, 1 bagno grande, 3 camere da letto (pavimento in parquet), "
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-09-24T14:59:43.934Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "flatfox"
+          ],
+          "prices": {
+            "currency": "CHF",
+            "rent": {
+              "area": "ALL",
+              "gross": 1150,
+              "interval": "MONTH"
+            }
+          },
+          "valueAddedServices": {
+            "isTenantPlusListing": true
+          }
+        }
+      },
+      {
+        "id": "4003495724",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "accuracy": "HIGH",
+              "latitude": 45.826984343571,
+              "longitude": 9.000011882029
+            },
+            "geoTags": [
+              "geo-zipcode-6830",
+              "geo-city-chiasso",
+              "geo-region-mendrisio",
+              "geo-canton-ticino",
+              "geo-country-switzerland"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "street": "Via campagna 70 Seseglio",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "livingSpace": 120,
+            "numberOfRooms": 4
+          },
+          "id": "4003495724",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [
+                {
+                  "file": "tutti_orig_6125180199.jpg",
+                  "metadata": {
+                    "byteSize": 609649,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "86d4330afc1471a9db479f0622a7cadc556d2435faa3a97356585965ed2cb50b"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 1511,
+                      "width": 2048
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/tuttifill/4003495724/image/27ae1185684e5ab5518e7b9079510dc6.jpg"
+                },
+                {
+                  "file": "tutti_orig_7833919767.jpg",
+                  "metadata": {
+                    "byteSize": 323022,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "480ebbea5efb16065eced9cc0764f2bbfd5482f76190953109a809ab42cdd7b6"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 1173,
+                      "width": 2048
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/tuttifill/4003495724/image/2baedb449532a792a35c5d0d9b02f66e.jpg"
+                }
+              ],
+              "text": {
+                "title": "Appartamento a pian terreno",
+                "description": "Affittasi in zona tranquilla e soleggiata, vicino ai mezzi di trasporto pubblici, inserito in una corte con giardino, ampi locali.Prezzo 1640, comprensivo di sp"
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-09-23T09:59:35.078Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "flatfox"
+          ],
+          "prices": {
+            "currency": "CHF",
+            "rent": {
+              "area": "ALL",
+              "gross": 1640,
+              "interval": "MONTH"
+            }
+          },
+          "valueAddedServices": {
+            "isTenantPlusListing": true
+          }
+        }
+      }
+    ],
+    "maxFrom": 20
+  },
+  "rewritten": {
+    "from": 0,
+    "size": 20,
+    "total": 40,
+    "results": [
+      {
+        "id": "4003579401",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "accuracy": "HIGH",
+              "latitude": 45.835595347575,
+              "longitude": 9.031831882021
+            },
+            "geoTags": [
+              "geo-region-mendrisio",
+              "geo-canton-ticino",
+              "geo-country-switzerland",
+              "geo-city-chiasso",
+              "geo-zipcode-6830"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "street": "Via Emilio Bossi 30",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "floor": 1,
+            "hasBalcony": true,
+            "livingSpace": 210,
+            "numberOfRooms": 5.5
+          },
+          "id": "4003579401",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [
+                {
+                  "file": "imm_37481-20260906182208-900-_DRE_logo_Oriz_bianco_watermark_png_mc.jpg",
+                  "metadata": {
+                    "byteSize": 40595,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "772d633172e3fef7b08b172d2c0291354e1b6297e18c82302711b2a526e15542"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 600,
+                      "width": 900
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/p149/4003579401/image/3b6efc4e637e07d13e015400b878ad8a.jpg"
+                },
+                {
+                  "file": "imm_37482-20260906182210-900-_DRE_logo_Oriz_bianco_watermark_png_mc.jpg",
+                  "metadata": {
+                    "byteSize": 37578,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "43f2e603d7c0c335e6e620ca42185e904fdc5001e7303c6c0dda56124759c2b5"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 600,
+                      "width": 900
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/p149/4003579401/image/5fb8efcae91cdc085d66f6ae6ed4c702.jpg"
+                }
+              ],
+              "text": {
+                "title": "Signorile e ampio appartamento in centro",
+                "description": "Affittasi in centro Chiasso, in Via Emilio Bossi 30, a breve distanza da scuole, bar al piano terra, supermercati, piazza indipendenza, svincolo autostradale e "
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-10-24T21:02:00.466Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "flatfox"
+          ],
+          "prices": {
+            "currency": "CHF",
+            "rent": {
+              "area": "ALL",
+              "gross": 2020,
+              "interval": "MONTH"
+            }
+          }
+        }
+      },
+      {
+        "id": "4003565277",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "accuracy": "HIGH",
+              "latitude": 45.833944346574,
+              "longitude": 9.030321882024
+            },
+            "geoTags": [
+              "geo-region-mendrisio",
+              "geo-canton-ticino",
+              "geo-country-switzerland",
+              "geo-city-chiasso",
+              "geo-zipcode-6830"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "street": "Corso San Gottardo 24",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "floor": 4,
+            "hasBalcony": true,
+            "hasCableTv": true,
+            "hasDishwasher": true,
+            "hasElevator": true,
+            "hasParking": true,
+            "hasWashingMachine": true,
+            "isChildFriendly": true,
+            "isOldBuilding": true,
+            "isQuiet": true,
+            "isSmokingAllowed": true,
+            "livingSpace": 150,
+            "numberOfRooms": 3
+          },
+          "id": "4003565277",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [
+                {
+                  "alt": null,
+                  "file": "fb7a6d3252.jpg",
+                  "metadata": {
+                    "byteSize": 256699,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "6f3db029fc9c107daabe1addf59593f1fa47690cfcdfd27d6a90c04395531b1d"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 2000,
+                      "width": 1124
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/p456/4003565277/image/c4dffc9d431f9adf86ce64c502d12d9e.jpg"
+                },
+                {
+                  "alt": null,
+                  "file": "d47ed0df25.jpg",
+                  "metadata": {
+                    "byteSize": 560212,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "f162760f96287d14b8ecd71c23bf5591dfbe790f57e149eeb86110de60ce9f4f"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 2664,
+                      "width": 1500
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/p456/4003565277/image/71acc275c2bd2aea608dc1352d56c6cc.jpg"
+                }
+              ],
+              "text": {
+                "title": "AMPIO E LUMINOSO 3 LOCALI IN POSIZIONE STRATEGICA",
+                "description": "Nel cuore della città di Chiasso, in posizione molto strategica, prossima ad ogni servizio e ordine di scuola, proponiamo in affitto ampio e luminoso appartamen"
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-10-19T13:45:23.686Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "flatfox"
+          ],
+          "prices": {
+            "buy": {},
+            "currency": "CHF",
+            "rent": {
+              "gross": 1480,
+              "interval": "MONTH"
+            }
+          }
+        }
+      },
+      {
+        "id": "4003561497",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "accuracy": "LOW",
+              "latitude": 45.834904344572,
+              "longitude": 9.028071882027
+            },
+            "geoTags": [
+              "geo-region-mendrisio",
+              "geo-canton-ticino",
+              "geo-country-switzerland",
+              "geo-city-chiasso",
+              "geo-zipcode-6830"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "street": "Balerna",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "livingSpace": 89,
+            "numberOfRooms": 4.5
+          },
+          "id": "4003561497",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [
+                {
+                  "file": "anibis_orig_0016723819.jpg",
+                  "metadata": {
+                    "byteSize": 81574,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "2f39ca4dff18c937a72108b00dbd521e93b89c2381ce18af64b935e5144f8ade"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 766,
+                      "width": 1024
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/anibisfill/4003561497/image/688cadd0d607495a08e9a3bfc881c19c.jpg"
+                },
+                {
+                  "file": "anibis_orig_8166635445.jpg",
+                  "metadata": {
+                    "byteSize": 119770,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "f65cf804b3fb6eeb87af98b58b2bb719fbd1e252776a1dda81d90045602ac967"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 2000,
+                      "width": 1500
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/anibisfill/4003561497/image/f5a792b502520151317cf659b8ae4965.jpg"
+                }
+              ],
+              "text": {
+                "title": "Rent-to-buy 4.5 locali con posteggio",
+                "description": "Balerna, Rent-TO-buy ( affitto/acquisto) 4.5 locali, 2 camere, 2 balconi, doppio soggiorno, cucina con la finestra, posteggio esterno, giardino condominiale, ca"
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-10-17T10:10:21.884Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "flatfox"
+          ],
+          "prices": {
+            "currency": "CHF",
+            "rent": {
+              "area": "ALL",
+              "gross": 1610,
+              "interval": "MONTH"
+            }
+          },
+          "valueAddedServices": {
+            "isTenantPlusListing": true
+          }
+        }
+      },
+      {
+        "id": "4003561058",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "accuracy": "HIGH",
+              "latitude": 45.833134343571,
+              "longitude": 9.020051882025
+            },
+            "geoTags": [
+              "geo-region-mendrisio",
+              "geo-canton-ticino",
+              "geo-country-switzerland",
+              "geo-city-chiasso",
+              "geo-zipcode-6830"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "street": "Via Generale Enrico Guisan 23",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "livingSpace": 82,
+            "numberOfRooms": 4.5
+          },
+          "id": "4003561058",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [
+                {
+                  "file": "tutti_orig_0087927475.jpg",
+                  "metadata": {
+                    "byteSize": 561645,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "edd631cfc06fc7484d9855b1d7bb608e0b84adf5bacf42d949e815f746fcb75c"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 2048,
+                      "width": 1536
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/tuttifill/4003561058/image/915c22f353a0db0d5a29546d7d104b87.jpg"
+                },
+                {
+                  "file": "tutti_orig_2874284300.jpg",
+                  "metadata": {
+                    "byteSize": 649543,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "f186418a82361732d331d4d0072d711c6fd36539e8077b9de2b55da031c56ca4"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 2048,
+                      "width": 2048
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/tuttifill/4003561058/image/2031b72f7d0f00b6e14e77343d7e0f43.jpg"
+                }
+              ],
+              "text": {
+                "title": "Cercasi subentrante Spazioso e luminoso App a Chiasso",
+                "description": "Cerchiamo un subentrante per un accogliente e luminoso appartamento 4.5 locali, situato in posizione strategica e comodissima a tutti i servizi, in Via Generale"
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-10-16T22:59:34.931Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "flatfox"
+          ],
+          "prices": {
+            "currency": "CHF",
+            "rent": {
+              "area": "ALL",
+              "gross": 1430,
+              "interval": "MONTH"
+            }
+          },
+          "valueAddedServices": {
+            "isTenantPlusListing": true
+          }
+        }
+      },
+      {
+        "id": "4003560578",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "accuracy": "HIGH",
+              "latitude": 45.832224347575,
+              "longitude": 9.021491882028
+            },
+            "geoTags": [
+              "geo-canton-ticino",
+              "geo-country-switzerland",
+              "geo-city-chiasso",
+              "geo-zipcode-6830",
+              "geo-region-mendrisio"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "street": "Via Guglielmo Tell 11",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "arePetsAllowed": true,
+            "floor": 5,
+            "hasBalcony": true,
+            "hasDishwasher": true,
+            "hasElevator": true,
+            "hasNiceView": true,
+            "hasParking": true,
+            "isChildFriendly": true,
+            "livingSpace": 150,
+            "numberOfBathrooms": 3,
+            "numberOfRooms": 6.5
+          },
+          "id": "4003560578",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [
+                {
+                  "alt": null,
+                  "file": "b9402eea1a.jpg",
+                  "metadata": {
+                    "byteSize": 162250,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "43fda545928a723d301db23867acad8cb8112ddaf34de6daece0c3bd8dbb3bc6"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 1080,
+                      "width": 1500
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/p069/4003560578/image/d5cbecf06ba496e428c3298f115d0c0b.jpg"
+                },
+                {
+                  "alt": null,
+                  "file": "da8df80740.jpg",
+                  "metadata": {
+                    "byteSize": 239137,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "d7f06a25699a8ff430d69ae4568c1126398ea762dd29cf45fc945e7b6a9fc52e"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 1063,
+                      "width": 1500
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/p069/4003560578/image/6d86877d57f39059c9f3a0a72982176f.jpg"
+                }
+              ],
+              "text": {
+                "title": "Chiasso: spazioso appartamento di 6.5 locali con balconi",
+                "description": "Appartamento di 6.5 locali di ca 150 mq, composto da atrio d'ingresso, soggiorno con pranzo, cucina abitabile, corridoio con armadio a muro, tre camere, bagno c"
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-10-16T15:53:49.390Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "flatfox"
+          ],
+          "prices": {
+            "buy": {},
+            "currency": "CHF",
+            "rent": {
+              "gross": 1480,
+              "interval": "MONTH"
+            }
+          }
+        }
+      },
+      {
+        "id": "4003560474",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "accuracy": "MEDIUM",
+              "latitude": 45.835674344572,
+              "longitude": 9.030531882022
+            },
+            "geoTags": [
+              "geo-region-mendrisio",
+              "geo-canton-ticino",
+              "geo-country-switzerland",
+              "geo-city-chiasso",
+              "geo-zipcode-6830"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "street": "via Lavizzari",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "livingSpace": 84,
+            "numberOfRooms": 4.5
+          },
+          "id": "4003560474",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [
+                {
+                  "file": "anibis_orig_9538461011.jpg",
+                  "metadata": {
+                    "byteSize": 1090933,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "512c4a049c614752f2e972e6dbdf837c69f434fea8adbe6361fde90b5738c7c1"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 1536,
+                      "width": 2048
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/anibisfill/4003560474/image/aededcd2aad8d01ec6c0fb19e5c3cdab.jpg"
+                },
+                {
+                  "file": "anibis_orig_3918376598.jpg",
+                  "metadata": {
+                    "byteSize": 589737,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "4b695df19b5701066356f9fd67dc704c2c123d79809a158ddeb473a8fc97e1a1"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 1365,
+                      "width": 2048
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/anibisfill/4003560474/image/0e61885263a257e7b74734a2e6ad0779.jpg"
+                }
+              ],
+              "text": {
+                "title": "CHIASSO: AMPIO APPARTAMENTO CON ARIA CONDIZIONATA",
+                "description": "Affittasi in centro Chiasso appartamento:84 m² ben distribuiti, 1 piano senza ascensore2 camere1 grande cucina abitabile1 bagno completo con vasca e finestra1 a"
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-10-16T15:09:22.522Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "flatfox"
+          ],
+          "prices": {
+            "currency": "CHF",
+            "rent": {
+              "area": "ALL",
+              "gross": 1610,
+              "interval": "MONTH"
+            }
+          },
+          "valueAddedServices": {
+            "isTenantPlusListing": true
+          }
+        }
+      },
+      {
+        "id": "4003544269",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "accuracy": "HIGH",
+              "latitude": 45.835819349577,
+              "longitude": 9.031051882021
+            },
+            "geoTags": [
+              "geo-canton-ticino",
+              "geo-country-switzerland",
+              "geo-city-chiasso",
+              "geo-zipcode-6830",
+              "geo-region-mendrisio"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "street": "Via Franscini, 20",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "livingSpace": 84,
+            "numberOfRooms": 4.5
+          },
+          "id": "4003544269",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [
+                {
+                  "file": "tutti_orig_0629427722.jpg",
+                  "metadata": {
+                    "byteSize": 38223,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "cb2f467572f6abce3021834136f7882b7e76f5234ac60289e5bf2d219df13fae"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 426,
+                      "width": 639
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/tuttifill/4003544269/image/b07efe77c28dbdd3e352d0e3d61d80d8.jpg"
+                },
+                {
+                  "file": "tutti_orig_8279195530.jpg",
+                  "metadata": {
+                    "byteSize": 32178,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "77230c065374b9654f619974cd22cd484929f82b3ac7a48d0a0e0bd3e5f28a0a"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 426,
+                      "width": 639
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/tuttifill/4003544269/image/ae3da140d9ac7ba900c5aaa0f9d4f810.jpg"
+                }
+              ],
+              "text": {
+                "title": "Cerco Subentrante - 4.5 locali Chiasso centro con balcone",
+                "description": "Appartamento ristrutturato, moderno, spazioso e molto luminoso, in centro Chiasso a 5 minuti  a piedi dalla stazione ferroviaria e 1 minuto da Corso S.Gottardo."
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-10-11T15:00:01.542Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "flatfox"
+          ],
+          "prices": {
+            "currency": "CHF",
+            "rent": {
+              "area": "ALL",
+              "gross": 1540,
+              "interval": "MONTH"
+            }
+          },
+          "valueAddedServices": {
+            "isTenantPlusListing": true
+          }
+        }
+      },
+      {
+        "id": "4003544196",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "accuracy": "HIGH",
+              "latitude": 45.834914344571,
+              "longitude": 9.029951882025
+            },
+            "geoTags": [
+              "geo-region-mendrisio",
+              "geo-canton-ticino",
+              "geo-country-switzerland",
+              "geo-city-chiasso",
+              "geo-zipcode-6830"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "street": "Via Luigi Lavizzari 5",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "floor": 4,
+            "hasBalcony": true,
+            "hasDishwasher": true,
+            "hasElevator": true,
+            "hasNiceView": true,
+            "isChildFriendly": true,
+            "isQuiet": true,
+            "livingSpace": 89,
+            "numberOfBathrooms": 1,
+            "numberOfRooms": 4.5,
+            "yearLastRenovated": 2025
+          },
+          "id": "4003544196",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [
+                {
+                  "alt": null,
+                  "file": "1457654d33.jpg",
+                  "metadata": {
+                    "byteSize": 228489,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "4ae663f274cdf7cfbbec4e4eb4076bd5559ca88fe2984f28fad8ba11bbbdf71a"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 1224,
+                      "width": 971
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/p375/4003544196/image/de7bb862091fb201e489a4593240dcb6.jpg"
+                },
+                {
+                  "alt": null,
+                  "file": "0bdcda6114.jpg",
+                  "metadata": {
+                    "byteSize": 386959,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "1ed8842148ce13ca9b81bc9c7aebec342d86be00bb08feba026661caa59639ca"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 1958,
+                      "width": 1469
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/p375/4003544196/image/3316899462744e23ae2a6f69a3a998e1.jpg"
+                }
+              ],
+              "text": {
+                "title": "Appartamento 4.5 locali Arredato e completamente rinnovato",
+                "description": "Chiasso, in posizione centrale e nelle immediate vicinanze di scuole, palestre e vari servizi, proponiamo in affitto al 4° piano in uno stabile dotato di pannel"
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-10-11T13:56:12.422Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "anibis",
+            "tutti"
+          ],
+          "prices": {
+            "buy": {},
+            "currency": "CHF",
+            "rent": {
+              "gross": 1850,
+              "interval": "MONTH"
+            }
+          }
+        }
+      },
+      {
+        "id": "4003542817",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "accuracy": "MEDIUM",
+              "latitude": 45.834895344572,
+              "longitude": 9.033031882022
+            },
+            "geoTags": [
+              "geo-region-mendrisio",
+              "geo-canton-ticino",
+              "geo-country-switzerland",
+              "geo-city-chiasso",
+              "geo-zipcode-6830"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "street": "via volta",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "distancePrimarySchool": 550,
+            "distancePublicTransport": 50,
+            "distanceShop": 200,
+            "floor": 1,
+            "hasElevator": true,
+            "livingSpace": 140,
+            "numberOfRooms": 5.5,
+            "yearBuilt": 1990,
+            "yearLastRenovated": 2026
+          },
+          "id": "4003542817",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [
+                {
+                  "file": "2ae4501c46ab5748e1747e791b1dd3a3bd7deeea_1280x1280_meet-o-ww821.jpg",
+                  "metadata": {
+                    "byteSize": 489531,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "28b4fbe9a5bcabfe44fc007e2809fb600cb3e6971ddd7c13a64abb53844d5388"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 960,
+                      "width": 1280
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/infiam/4003542817/image/62fcf3f76acf128201aec8bebbec857b.jpg"
+                },
+                {
+                  "file": "79c2eeb518cd36be289a9f3f56a5e2489e9629fc_1280x1280_meet-o-ww821.jpg",
+                  "metadata": {
+                    "byteSize": 318738,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "f2442bef721d79af0b9c72bd28f26b83cffa398be102d0714ac98dccd088fb6d"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 960,
+                      "width": 1280
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/infiam/4003542817/image/35c506690a1bc351d4b50ccd6d226c03.jpg"
+                }
+              ],
+              "text": {
+                "title": "COMODO 5.5 LOCALI ARREDATO",
+                "description": "A Chiasso, via Volta, proponiamo in locazione annuale un appartamento 5.5 locali, al piano rialzato, arredato e subito disponibile.L'appartamento è in un contes"
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-10-10T08:41:37.153Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "anibis",
+            "tutti",
+            "flatfox"
+          ],
+          "prices": {
+            "currency": "CHF",
+            "rent": {
+              "area": "ALL",
+              "gross": 2020,
+              "interval": "MONTH"
+            }
+          }
+        }
+      },
+      {
+        "id": "4003540982",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "accuracy": "LOW",
+              "latitude": 45.834904344572,
+              "longitude": 9.028071882027
+            },
+            "geoTags": [
+              "geo-canton-ticino",
+              "geo-country-switzerland",
+              "geo-city-chiasso",
+              "geo-zipcode-6830",
+              "geo-region-mendrisio"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "street": "Balerna, Mendrisiotto",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "livingSpace": 89,
+            "numberOfRooms": 4.5
+          },
+          "id": "4003540982",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [
+                {
+                  "file": "tutti_orig_1503835042.jpg",
+                  "metadata": {
+                    "byteSize": 39703,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "aaeb5f872fc73e4281704b32e4e8817fae7fb22e41867ac0cf01ac4c36fc8909"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 400,
+                      "width": 300
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/tuttifill/4003540982/image/076a5bd3bbfe368dab02ee2f49801c0a.jpg"
+                },
+                {
+                  "file": "tutti_orig_0092652373.jpg",
+                  "metadata": {
+                    "byteSize": 303916,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "d9749c2e5d6bb9658c0e94cff953c3c5bab73309f0c0bb9944234ac27039032c"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 2000,
+                      "width": 1500
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/tuttifill/4003540982/image/84eda86110c0989df1f14791b42ad7ad.jpg"
+                }
+              ],
+              "text": {
+                "title": "affitto con riscatto appartamento 4.5 locali con posteggio",
+                "description": "Balerna, privato affitta 4.5 con balcone con bellissima vista e molto comodo, vicino a tutte le comodità della città: bus, negozi, parco, ecc..L ' appartamento "
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-10-09T12:00:02.087Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "flatfox"
+          ],
+          "prices": {
+            "currency": "CHF",
+            "rent": {
+              "area": "ALL",
+              "gross": 1610,
+              "interval": "MONTH"
+            }
+          },
+          "valueAddedServices": {
+            "isTenantPlusListing": true
+          }
+        }
+      },
+      {
+        "id": "4003536395",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "accuracy": "LOW",
+              "latitude": 45.834904344572,
+              "longitude": 9.028071882027
+            },
+            "geoTags": [
+              "geo-canton-ticino",
+              "geo-country-switzerland",
+              "geo-city-chiasso",
+              "geo-zipcode-6830",
+              "geo-region-mendrisio"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "livingSpace": 130,
+            "numberOfRooms": 3
+          },
+          "id": "4003536395",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [
+                {
+                  "file": "tutti_orig_8752346166.jpg",
+                  "metadata": {
+                    "byteSize": 430877,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "2c7f587e8cde5eff0ed11ba9332ebaa719708f6e0e9f7c413ccf0a5499bcab93"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 1152,
+                      "width": 2048
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/tuttifill/4003536395/image/7a257a16d5c753defa5198ffe86c28b3.jpg"
+                },
+                {
+                  "file": "tutti_orig_6049050302.jpg",
+                  "metadata": {
+                    "byteSize": 397986,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "1e6301b3451ede5f69b0bd74bdd5b5f8ef9468dcc8289c052f35974ddd71a9fb"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 1152,
+                      "width": 2048
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/tuttifill/4003536395/image/24fbd33a4f177ee77b107a9224239d78.jpg"
+                }
+              ],
+              "text": {
+                "title": "Appartamento in ottimo stato a chiasso",
+                "description": "3.5 loc al 7 piano servito da ascensore BalconeCantinaAffitto chf 1210Custode 21Spese chf 130Disponibilità da concordare NO animali Lavanderia e stenditoio in c"
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-10-08T10:00:30.107Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "flatfox"
+          ],
+          "prices": {
+            "currency": "CHF",
+            "rent": {
+              "area": "ALL",
+              "gross": 1210,
+              "interval": "MONTH"
+            }
+          },
+          "valueAddedServices": {
+            "isTenantPlusListing": true
+          }
+        }
+      },
+      {
+        "id": "4003536295",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "accuracy": "HIGH",
+              "longitude": 9.031761882026,
+              "latitude": 45.837764343579
+            },
+            "geoTags": [
+              "geo-region-mendrisio",
+              "geo-canton-ticino",
+              "geo-country-switzerland",
+              "geo-city-chiasso",
+              "geo-zipcode-6830"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "street": "Via Pietro e Luisita Chiesa 3",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "livingSpace": 82,
+            "hasBalcony": true,
+            "numberOfRooms": 5.5,
+            "hasElevator": true,
+            "distancePrimarySchool": 349,
+            "arePetsAllowed": true,
+            "distancePublicTransport": 65,
+            "distanceShop": 270,
+            "floor": 7
+          },
+          "id": "4003536295",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [
+                {
+                  "metadata": {
+                    "checksum": {
+                      "value": "8e51bfbbe73171074a6e7a6689156cd7878c85dc8529c78d7726afbf4c4144a3",
+                      "algorithm": "SHA256"
+                    },
+                    "contentType": "image/jpeg",
+                    "byteSize": 197238,
+                    "image": {
+                      "height": 960,
+                      "width": 1280
+                    }
+                  },
+                  "url": "https://media2.homegate.ch/listings/v2/infiam/4003536295/image/81a1a0ea0852b41bdebf04289468a0e2.jpg",
+                  "type": "IMAGE",
+                  "file": "472f8aae3bee17dc9e20959d0ea5f31ee7b7a744_1280x1280_meet-o-ww821.jpg"
+                },
+                {
+                  "metadata": {
+                    "image": {
+                      "width": 1280,
+                      "height": 960
+                    },
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "1b786d0c3da52ace46b5eea2f7af8d376083595f362f4f1d87c3a489209a5e2e"
+                    },
+                    "contentType": "image/jpeg",
+                    "byteSize": 217227
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/infiam/4003536295/image/bcf90f428337f9b0ba1f1d4747c91036.jpg",
+                  "file": "4d17a92e41ba2477e5c81e05f97f03f4da87f55f_1280x1280_meet-o-ww821.jpg"
+                }
+              ],
+              "text": {
+                "title": "5.5 LOCALI CON BALCONE IN POSIZIONE CENTRALE",
+                "description": "Proponiamo in posizione centrale, vicino agli svincoli autostradali nord-sud, alla fermata dell'autobus e a soli 10 minuti a piedi dalla stazione ferroviaria, a"
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-10-08T09:32:40.137Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "anibis",
+            "tutti",
+            "flatfox"
+          ],
+          "prices": {
+            "rent": {
+              "area": "ALL",
+              "interval": "MONTH",
+              "gross": 1580
+            },
+            "currency": "CHF"
+          }
+        }
+      },
+      {
+        "id": "4003527245",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "accuracy": "HIGH",
+              "latitude": 45.835314343571,
+              "longitude": 9.031221882029
+            },
+            "geoTags": [
+              "geo-region-mendrisio",
+              "geo-canton-ticino",
+              "geo-country-switzerland",
+              "geo-city-chiasso",
+              "geo-zipcode-6830"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "street": "Via Ciseri 2",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "livingSpace": 130,
+            "numberOfRooms": 3
+          },
+          "id": "4003527245",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [
+                {
+                  "file": "tutti_orig_2516349525.jpg",
+                  "metadata": {
+                    "byteSize": 543549,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "3b41da9545d105a3c97066357df561f477806adf33b585b894b7186524934b0a"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 2048,
+                      "width": 1152
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/tuttifill/4003527245/image/2829eb8e25992dad1b6cff0b87655b0f.jpg"
+                },
+                {
+                  "file": "tutti_orig_5602877834.jpg",
+                  "metadata": {
+                    "byteSize": 671535,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "d63d55b33bf024939ac49fa21801c0d41918b1936f0fe3a093cf779f6c9a4d39"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 1152,
+                      "width": 2048
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/tuttifill/4003527245/image/4b0273c7583a70b71da0cb51d57f05c1.jpg"
+                }
+              ],
+              "text": {
+                "title": "Affittiamo bellissimo 3,5 completamente ristrutturato",
+                "description": "Affittiamo bellissimo e luminosissimo appartamento 3,5 con balcone per uso abitativo o commerciale ."
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-10-05T15:00:39.401Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "flatfox"
+          ],
+          "prices": {
+            "currency": "CHF",
+            "rent": {
+              "area": "ALL",
+              "gross": 1610,
+              "interval": "MONTH"
+            }
+          },
+          "valueAddedServices": {
+            "isTenantPlusListing": true
+          }
+        }
+      },
+      {
+        "id": "4003523916",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "accuracy": "HIGH",
+              "latitude": 45.838314349577,
+              "longitude": 9.027481882024
+            },
+            "geoTags": [
+              "geo-region-mendrisio",
+              "geo-canton-ticino",
+              "geo-country-switzerland",
+              "geo-city-chiasso",
+              "geo-zipcode-6830"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "street": "VIA SIMEN 12",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "livingSpace": 96,
+            "numberOfRooms": 5.5
+          },
+          "id": "4003523916",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [
+                {
+                  "file": "tutti_orig_3771974847.jpg",
+                  "metadata": {
+                    "byteSize": 160333,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "572aabb3470d51909aa4223204a7bedb96bf29b8775e1992089d9b8a0fb83d5b"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 1024,
+                      "width": 768
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/tuttifill/4003523916/image/9b52a9a4020b7c240438490e53c083e8.jpg"
+                },
+                {
+                  "file": "tutti_orig_9401081519.jpg",
+                  "metadata": {
+                    "byteSize": 324164,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "42bd77a2dc884ad9e51c2f6bf9bf3c64cb7cddcb8db776f065b36aab889cc6dd"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 1600,
+                      "width": 1200
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/tuttifill/4003523916/image/25c6d9532e2135a10edb740e7519a841.jpg"
+                }
+              ],
+              "text": {
+                "title": "ZONA SCUOLE, POSIZIONE STRATEGICA - 5 e 1/2 RISTRUTTURATO",
+                "description": "In una tranquilla palazzina che mantiene il fascino degli anni '50, con elegante ingresso condominiale e soffitti alti, si affitta un appartamento di 5 locali e"
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-10-03T20:00:26.953Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "flatfox"
+          ],
+          "prices": {
+            "currency": "CHF",
+            "rent": {
+              "area": "ALL",
+              "gross": 1810,
+              "interval": "MONTH"
+            }
+          },
+          "valueAddedServices": {
+            "isTenantPlusListing": true
+          }
+        }
+      },
+      {
+        "id": "4003523453",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "accuracy": "HIGH",
+              "latitude": 45.834044346574,
+              "longitude": 9.027981882029
+            },
+            "geoTags": [
+              "geo-region-mendrisio",
+              "geo-canton-ticino",
+              "geo-country-switzerland",
+              "geo-city-chiasso",
+              "geo-zipcode-6830"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "street": "Via Livio 18",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "livingSpace": 89,
+            "numberOfRooms": 4.5
+          },
+          "id": "4003523453",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [
+                {
+                  "file": "tutti_orig_1025925251.jpg",
+                  "metadata": {
+                    "byteSize": 40382,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "06bd287af2deef89c7dc3ad5fa52558ea35a42985a4d9eb30050e6633cb6c3d9"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 480,
+                      "width": 640
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/tuttifill/4003523453/image/40804a7f7b14d9be885bc33f4e5a143f.jpg"
+                },
+                {
+                  "file": "tutti_orig_6919941255.jpg",
+                  "metadata": {
+                    "byteSize": 44888,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "30cffa772a3c8581aed104e97613dc160576676fb7cc3c8309545dbc8ffa0144"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 480,
+                      "width": 640
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/tuttifill/4003523453/image/84b6a95aaa423591878407d656d88a03.jpg"
+                }
+              ],
+              "text": {
+                "title": "Nuovo appartamento completamento rinnovato elevato standing.",
+                "description": "Nuovo appartamento al 2."
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-10-03T10:59:25.100Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "flatfox"
+          ],
+          "prices": {
+            "currency": "CHF",
+            "rent": {
+              "area": "ALL",
+              "gross": 1680,
+              "interval": "MONTH"
+            }
+          },
+          "valueAddedServices": {
+            "isTenantPlusListing": true
+          }
+        }
+      },
+      {
+        "id": "4003522720",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "accuracy": "HIGH",
+              "latitude": 45.835284346574,
+              "longitude": 9.032421882021
+            },
+            "geoTags": [
+              "geo-region-mendrisio",
+              "geo-canton-ticino",
+              "geo-country-switzerland",
+              "geo-city-chiasso",
+              "geo-zipcode-6830"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "street": "Via Simone Cantoni 5",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "livingSpace": 79,
+            "numberOfRooms": 4.5
+          },
+          "id": "4003522720",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [
+                {
+                  "file": "tutti_orig_5220068748.jpg",
+                  "metadata": {
+                    "byteSize": 610314,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "b6fa5226ae2dc60abb1afa02f2ea2438c4cf7a474b1b17f4712fb050bf1a147f"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 2048,
+                      "width": 1536
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/tuttifill/4003522720/image/5b98b597a3ef012b9c2293725f4d7dcc.jpg"
+                },
+                {
+                  "file": "tutti_orig_2233758420.jpg",
+                  "metadata": {
+                    "byteSize": 620219,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "a6f552a50e612aab2457393d68474e9457f49fc5ab4a94a9221382b519c77801"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 2048,
+                      "width": 1536
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/tuttifill/4003522720/image/8b02374251556e14f3aa2062cbc041c9.jpg"
+                }
+              ],
+              "text": {
+                "title": "Chiasso zona centro affittasi 4.5",
+                "description": "4.5 di ca 79 mq,  con balcone, in prima locazione dopo ristrutturazione completa."
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-10-02T19:59:28.322Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "flatfox"
+          ],
+          "prices": {
+            "currency": "CHF",
+            "rent": {
+              "area": "ALL",
+              "gross": 2080,
+              "interval": "MONTH"
+            }
+          },
+          "valueAddedServices": {
+            "isTenantPlusListing": true
+          }
+        }
+      },
+      {
+        "id": "4003520970",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "accuracy": "HIGH",
+              "latitude": 45.837774346574,
+              "longitude": 9.020941882028
+            },
+            "geoTags": [
+              "geo-region-mendrisio",
+              "geo-canton-ticino",
+              "geo-country-switzerland",
+              "geo-city-chiasso",
+              "geo-zipcode-6830"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "street": "Via Pestalozzi 12",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "arePetsAllowed": true,
+            "distancePrimarySchool": 479,
+            "distancePublicTransport": 75,
+            "distanceShop": 223,
+            "floor": 3,
+            "hasBalcony": true,
+            "hasElevator": true,
+            "hasParking": true,
+            "livingSpace": 130,
+            "numberOfRooms": 5.5,
+            "yearLastRenovated": 2026
+          },
+          "id": "4003520970",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [
+                {
+                  "file": "2ce5bd689ad293e5d5a0b08894b248fb66ac429f_1280x1280_meet-o-ww821.jpg",
+                  "metadata": {
+                    "byteSize": 209423,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "8b76ff31e49461d5a61ed57fdf3ab34b43aa516ad1607ba514f8e5ca016d344e"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 960,
+                      "width": 1280
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/infiam/4003520970/image/ca3458a5029a1979828068915180d5ba.jpg"
+                },
+                {
+                  "file": "ac7360ea03a4a8e5d855a3a5d1e5b02457e59b86_1280x1280_meet-o-ww821.jpg",
+                  "metadata": {
+                    "byteSize": 208061,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "6b8053ab4f2fc9b1e7c36dbd5a969b867fa40d3641d72385a44ab1414e2d431c"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 960,
+                      "width": 1280
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/infiam/4003520970/image/c8f9cc7c634e27d75bf8814516ee7b4b.jpg"
+                }
+              ],
+              "text": {
+                "title": "CHIASSO - APPARTAMENTO 5.5 LOCALI RISTRUTTURATO",
+                "description": "Proponiamo in locazione a Chiasso, un appartamento 5.5 locali completamente ristrutturato.L'abitazione è così composta: cucina aperta con soggiorno, 3 camere, 2"
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-10-02T09:32:10.311Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "anibis",
+            "tutti",
+            "flatfox"
+          ],
+          "prices": {
+            "currency": "CHF",
+            "rent": {
+              "area": "ALL",
+              "gross": 1720,
+              "interval": "MONTH"
+            }
+          }
+        }
+      },
+      {
+        "id": "4003514913",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "latitude": 45.833250340578,
+              "accuracy": "HIGH",
+              "longitude": 9.024631882028
+            },
+            "geoTags": [
+              "geo-region-mendrisio",
+              "geo-canton-ticino",
+              "geo-country-switzerland",
+              "geo-city-chiasso",
+              "geo-zipcode-6830"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "street": "Via Fontana da Sagno 4",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "hasParking": true,
+            "yearBuilt": 1933,
+            "isChildFriendly": true,
+            "hasDishwasher": true,
+            "floor": 2,
+            "isQuiet": true,
+            "yearLastRenovated": 2014,
+            "numberOfRooms": 5.5,
+            "hasElevator": true,
+            "numberOfBathrooms": 2,
+            "arePetsAllowed": true,
+            "livingSpace": 97,
+            "hasBalcony": true
+          },
+          "id": "4003514913",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [
+                {
+                  "url": "https://media2.homegate.ch/listings/v2/c016my/4003514913/image/e2a59c0db32382feb716e25597670d13.png",
+                  "type": "IMAGE",
+                  "alt": null,
+                  "file": "387f15119d.png",
+                  "metadata": {
+                    "contentType": "image/png",
+                    "byteSize": 1887280,
+                    "image": {
+                      "height": 1086,
+                      "width": 1448
+                    },
+                    "checksum": {
+                      "value": "222b2ece1a6efe088ae3dfba423a330e8069c60ee3a8b5535298fadf5e50373e",
+                      "algorithm": "SHA256"
+                    }
+                  }
+                },
+                {
+                  "alt": null,
+                  "file": "cbe6cc4fc8.png",
+                  "type": "IMAGE",
+                  "metadata": {
+                    "byteSize": 1860361,
+                    "contentType": "image/png",
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "b6ef29e5c89a1291860a89476465ba28d2176f2d9ac7530aefd1e9e5e1a84516"
+                    },
+                    "image": {
+                      "height": 1086,
+                      "width": 1448
+                    }
+                  },
+                  "url": "https://media2.homegate.ch/listings/v2/c016my/4003514913/image/1c37f900be0b58df3e312eeb9abc7479.png"
+                }
+              ],
+              "text": {
+                "title": "Chiasso: Affittasi moderno appartamento 5.5 locali in villa storica rinnovata",
+                "description": "In un quartiere residenziale di Chiasso proponiamo un favoloso appartamento 5.5 locali di elevato standing, sito all’interno di una prestigiosa villa d’epoca in"
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-09-30T11:27:16.943Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "anibis",
+            "tutti"
+          ],
+          "prices": {
+            "rent": {
+              "gross": 2620,
+              "interval": "MONTH"
+            },
+            "buy": {},
+            "currency": "CHF"
+          }
+        }
+      },
+      {
+        "id": "4003499716",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "accuracy": "HIGH",
+              "latitude": 45.836260344572,
+              "longitude": 9.032331882026
+            },
+            "geoTags": [
+              "geo-region-mendrisio",
+              "geo-canton-ticino",
+              "geo-country-switzerland",
+              "geo-city-chiasso",
+              "geo-zipcode-6830"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "street": "Viale Stoppa 2",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "livingSpace": 95,
+            "numberOfRooms": 3
+          },
+          "id": "4003499716",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [],
+              "text": {
+                "title": "Luminoso appartamento",
+                "description": "Appartamento luminoso di 3.5 locali di 95 mq.Situato in Viale Stoppa 3, Chiasso  1 cucina attrezzata, 1 bagno grande, 3 camere da letto (pavimento in parquet), "
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-09-24T14:59:43.934Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "flatfox"
+          ],
+          "prices": {
+            "currency": "CHF",
+            "rent": {
+              "area": "ALL",
+              "gross": 1540,
+              "interval": "MONTH"
+            }
+          },
+          "valueAddedServices": {
+            "isTenantPlusListing": true
+          }
+        }
+      },
+      {
+        "id": "4003495724",
+        "listing": {
+          "address": {
+            "geoCoordinates": {
+              "accuracy": "HIGH",
+              "latitude": 45.826984343571,
+              "longitude": 9.000011882029
+            },
+            "geoTags": [
+              "geo-zipcode-6830",
+              "geo-city-chiasso",
+              "geo-region-mendrisio",
+              "geo-canton-ticino",
+              "geo-country-switzerland"
+            ],
+            "locality": "Chiasso",
+            "postalCode": "6830",
+            "street": "Via campagna 70 Seseglio",
+            "region": "TI"
+          },
+          "categories": [
+            "APARTMENT",
+            "FLAT"
+          ],
+          "characteristics": {
+            "livingSpace": 150,
+            "numberOfRooms": 3
+          },
+          "id": "4003495724",
+          "localization": {
+            "primary": "it",
+            "it": {
+              "attachments": [
+                {
+                  "file": "tutti_orig_6125180199.jpg",
+                  "metadata": {
+                    "byteSize": 609649,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "86d4330afc1471a9db479f0622a7cadc556d2435faa3a97356585965ed2cb50b"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 1511,
+                      "width": 2048
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/tuttifill/4003495724/image/27ae1185684e5ab5518e7b9079510dc6.jpg"
+                },
+                {
+                  "file": "tutti_orig_7833919767.jpg",
+                  "metadata": {
+                    "byteSize": 323022,
+                    "checksum": {
+                      "algorithm": "SHA256",
+                      "value": "480ebbea5efb16065eced9cc0764f2bbfd5482f76190953109a809ab42cdd7b6"
+                    },
+                    "contentType": "image/jpeg",
+                    "image": {
+                      "height": 1173,
+                      "width": 2048
+                    }
+                  },
+                  "type": "IMAGE",
+                  "url": "https://media2.homegate.ch/listings/v2/tuttifill/4003495724/image/2baedb449532a792a35c5d0d9b02f66e.jpg"
+                }
+              ],
+              "text": {
+                "title": "Appartamento a pian terreno",
+                "description": "Affittasi in zona tranquilla e soleggiata, vicino ai mezzi di trasporto pubblici, inserito in una corte con giardino, ampi locali.Prezzo 1630, comprensivo di sp"
+              }
+            }
+          },
+          "meta": {
+            "createdAt": "2026-09-23T09:59:35.078Z"
+          },
+          "offerType": "RENT",
+          "platforms": [
+            "homegate",
+            "immoscout24",
+            "alleimmobilien",
+            "home",
+            "immostreet",
+            "flatfox"
+          ],
+          "prices": {
+            "currency": "CHF",
+            "rent": {
+              "area": "ALL",
+              "gross": 2200,
+              "interval": "MONTH"
+            }
+          },
+          "valueAddedServices": {
+            "isTenantPlusListing": true
+          }
+        }
+      }
+    ],
+    "maxFrom": 20
+  }
+}

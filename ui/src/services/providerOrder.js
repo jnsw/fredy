@@ -61,6 +61,7 @@ export const PROVIDER_SIZE_ORDER = [
   'willhaben',
   'immoscoutAt',
   // Switzerland
+  'homegate',
   'immoscout24ch',
   'flatfox',
   // Spain, Italy and Portugal
