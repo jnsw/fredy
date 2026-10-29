@@ -138,5 +138,9 @@
   "immoscout24ch": {
     "url": "https://www.immoscout24.ch/de/wohnung/mieten/ort-chiasso?nrf=3.5&slf=80&pt=2000",
     "enabled": true
+  },
+  "homegate": {
+    "url": "https://www.homegate.ch/affittare/appartamento/luogo-chiasso/lista-annunci?ac=3.5&ak=80&ah=2000",
+    "enabled": true
   }
 }

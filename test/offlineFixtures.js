@@ -205,7 +205,10 @@ export async function readLeboncoinFixtures() {
 const SMG_API = 'https://api.re.swissmarketplace.group';
 
 /** The recorded search of each SMG portal, by the `platform` its query names. */
-const SMG_SEARCH_FIXTURES = { immoscout24: 'immoscout24ch_search.json' };
+const SMG_SEARCH_FIXTURES = { immoscout24: 'immoscout24ch_search.json', homegate: 'homegate_search.json' };
+
+/** The place lookups and URL translations each SMG portal's recording needed. */
+const SMG_PLACE_FIXTURES = ['immoscout24ch_places.json', 'homegate_places.json'];
 
 /** Hosts whose providers request their pages themselves instead of going through the extractor. */
 const FETCHED_PAGE_HOSTS = [
@@ -261,6 +264,7 @@ export function buildFetchMock() {
   let bieniciList = null;
   let bieniciDetail = null;
   let boligsidenCases = null;
+  /** @type {{locations: Record<string, any>, translations: Record<string, any>}|null} */
   let smgPlaces = null;
   /** @type {Record<string, any>} the recorded SMG searches, by the platform they ran in */
   const smgSearches = {};
@@ -440,15 +444,26 @@ export function buildFetchMock() {
       return { ok: true, status: 200, json: () => Promise.resolve(bieniciDetail) };
     }
 
-    // The SMG API answers both Swiss portals from one host. A place lookup is answered with what was
-    // recorded for the same language and name, and nothing for anything else.
-    if (urlStr.startsWith(`${SMG_API}/geo/locations`)) {
+    // The SMG API answers both Swiss portals from one host. A place lookup and a URL translation are
+    // answered with what was recorded for the same request; an unknown URL is refused the way the
+    // translator refuses one.
+    if (urlStr.startsWith(`${SMG_API}/geo/locations`) || urlStr === `${SMG_API}/search/listings-by-url`) {
       if (smgPlaces == null) {
-        const raw = await tryReadFile(path.join(FIXTURES_DIR, 'immoscout24ch_places.json'));
-        smgPlaces = { ...JSON.parse(raw ?? '{}').locations };
+        smgPlaces = { locations: {}, translations: {} };
+        for (const fixture of SMG_PLACE_FIXTURES) {
+          const recorded = JSON.parse((await tryReadFile(path.join(FIXTURES_DIR, fixture))) ?? '{}');
+          Object.assign(smgPlaces.locations, recorded.locations);
+          Object.assign(smgPlaces.translations, recorded.translations);
+        }
+      }
+      if (urlStr === `${SMG_API}/search/listings-by-url`) {
+        const translation = smgPlaces.translations[JSON.parse(init?.body ?? '{}').url];
+        return translation == null
+          ? { ok: false, status: 422, statusText: 'Unprocessable Entity', text: () => Promise.resolve('not a SRP uri') }
+          : { ok: true, status: 200, json: () => Promise.resolve(translation) };
       }
       const asked = new URL(urlStr).searchParams;
-      const found = smgPlaces[`${asked.get('lang')}|${asked.get('name')}`] ?? { results: [] };
+      const found = smgPlaces.locations[`${asked.get('lang')}|${asked.get('name')}`] ?? { results: [] };
       return { ok: true, status: 200, json: () => Promise.resolve(found) };
     }
 

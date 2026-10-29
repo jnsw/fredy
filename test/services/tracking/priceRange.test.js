@@ -173,6 +173,9 @@ const RECORDED_SEARCHES = [
   // ImmoScout24.ch's website cannot be reached from a server to record one, so this is written the
   // way its own web client writes a band; a bound may carry a unit letter (`2t` is 2000).
   ['immoscout24ch', 'https://www.immoscout24.ch/de/wohnung/mieten/ort-zuerich?pf=500&pt=1t', { min: 500, max: 1000 }],
+  // Homegate's band is written the same way, with a pair of its own for a purchase (`ai`/`aj`); the
+  // API's own URL translator reads this one as monthlyRent 500 to 1000.
+  ['homegate', 'https://www.homegate.ch/mieten/wohnung/ort-zuerich/trefferliste?ag=500&ah=1t', { min: 500, max: 1000 }],
 ];
 
 /**
