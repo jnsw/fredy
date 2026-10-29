@@ -458,3 +458,62 @@ describe('telegram send() - custom API url', () => {
     },
   );
 });
+
+/**
+ * The "Open in Fredy" link was the configured base URL with the hash route appended as text. The
+ * settings page only trims one trailing slash, so a base URL entered without a scheme gave a link
+ * Telegram does not open, and one copied from the address bar of an open Fredy page carried its
+ * hash route along and sent the reader to `#/dashboard/#/listings/...`.
+ */
+describe('telegram send() - Open in Fredy link', () => {
+  const listing = {
+    id: 'abc',
+    title: 'Flat',
+    link: 'https://ex.com/flat',
+    address: 'Berlin',
+    price: '800 €',
+    size: '50 m²',
+    image: null,
+  };
+
+  /** @returns {Promise<string>} the text of the message sent for the listing above */
+  async function sentText(baseUrl, fields = {}) {
+    mockNodeFetch.mockResolvedValue(jsonOk());
+    await send({
+      serviceName: 'immoscout',
+      newListings: [listing],
+      notificationConfig: [{ id: 'telegram', fields: { token: 'TKN', chatId: '999', ...fields } }],
+      jobKey: 'Berlin',
+      baseUrl,
+    });
+    return JSON.parse(mockNodeFetch.mock.calls[0][1].body).text;
+  }
+
+  it('links to the listing for a regular base URL', async () => {
+    expect(await sentText('https://fredy.example')).toContain(
+      "<a href='https://fredy.example/#/listings/listing/abc'>Open in Fredy</a>",
+    );
+  });
+
+  it('replaces a hash route copied along with the base URL', async () => {
+    expect(await sentText('https://fredy.example/#/dashboard')).toContain(
+      "<a href='https://fredy.example/#/listings/listing/abc'>Open in Fredy</a>",
+    );
+  });
+
+  it('adds a scheme to a base URL entered without one', async () => {
+    expect(await sentText('192.168.1.10:9998')).toContain(
+      "<a href='http://192.168.1.10:9998/#/listings/listing/abc'>Open in Fredy</a>",
+    );
+  });
+
+  it('builds the same link in plain text mode', async () => {
+    expect(await sentText('https://fredy.example/#/dashboard', { plainText: true })).toContain(
+      'Open in Fredy: https://fredy.example/#/listings/listing/abc',
+    );
+  });
+
+  it('leaves the link out when no base URL is configured', async () => {
+    expect(await sentText('')).not.toContain('Open in Fredy');
+  });
+});

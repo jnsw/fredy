@@ -56,7 +56,7 @@ scheduler (every N minutes) or manual trigger via POST /api/jobs/:id/run
       2. provider.getListings()            # API or Puppeteer+Cheerio
       3. provider.normalize(listing)       # raw → ParsedListing
       4. provider.filter(listing)          # blacklist + required fields
-      5. filter to hashes not yet in DB
+      5. filter to hashes not yet in DB    # a known link under a new hash is a price change instead
       6. provider.fetchDetails()           # optional enrichment
       7. geocodeAddress()                  # optional lat/lng
       8. storeListings()

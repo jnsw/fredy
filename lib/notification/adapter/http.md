@@ -7,6 +7,8 @@ Functions, a Node.js server, etc.)
 HTTP adapter supports a `authToken` field, which can be used to include an authorization token in the request headers.
 Your token would be included as a Bearer token in the `Authorization` header, which is a common method for securing API requests.
 
+Your endpoint has 10 seconds to answer, and it must answer with a 2xx status. A slower answer or any other status counts as a failed notification and is logged as an error, together with the first part of the response body.
+
 Request Details:
 <details>
 Request Method: POST  
