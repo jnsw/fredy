@@ -7,7 +7,7 @@ platform into Fredy.
 > Always make sure the search results are sorted by **date**, so Fredy picks up the newest listings
 > first.
 
-## The 33 built-in providers
+## The 34 built-in providers
 
 **🇩🇪 Germany**
 
@@ -22,7 +22,7 @@ platform into Fredy.
 
 **🇩🇪 Germany · 🇦🇹 Austria · 🇨🇭 Switzerland** · BETTERHOMES
 **🇦🇹 Austria** · willhaben · Immoscout Österreich
-**🇨🇭 Switzerland** · Flatfox
+**🇨🇭 Switzerland** · ImmoScout24.ch · Flatfox
 **🇪🇸 Spain · 🇮🇹 Italy · 🇵🇹 Portugal** · idealista
 **🇮🇹 Italy** · Subito · Tecnocasa · Tecnorete · Casa.it
 **🇫🇷 France** · leboncoin · SeLoger · Bien'ici
@@ -85,8 +85,34 @@ served by the German index under a German id, and the API states that page as th
 share link.
 
 **Switzerland is not covered by this provider.** `immoscout24.ch` belongs to a different company and
-runs a different platform, with no listings in this index at all. Switzerland is served by Flatfox
-and BETTERHOMES.
+runs a different platform, with no listings in this index at all. It has a provider of its own,
+ImmoScout24.ch, below.
+
+## ImmoScout24.ch
+
+The Swiss portal of Swiss Marketplace Group, unrelated to ImmoScout24 in Germany and Austria. Its
+website and its own API sit behind DataDome, so Fredy reads the SMG API the Homegate app uses, which
+serves ImmoScout24.ch's listings as well and needs **no browser**.
+
+Paste the search URL from `immoscout24.ch` as usual, for example
+`https://www.immoscout24.ch/de/wohnung/mieten/ort-zuerich?nrf=3&pt=3000`. Flats (`wohnung`, `flat`,
+...), houses (`haus`, `house`, ...) and the flats-and-houses category (`immobilien`, `real-estate`,
+...) are covered, to rent or to buy, in all four languages, for a town, a canton, a postcode or a
+district, or all of Switzerland. Rooms, living space, price, radius, object types (`pty`) and
+facilities (`an`) are translated; a filter Fredy has no translation for is dropped and named in the
+log, so the search then runs **wider** than you set it. Other property types (parking, commercial,
+furnished, ...) stop the job with a message. Paging and sorting are ignored: Fredy reads the 60 newest
+adverts itself.
+
+That API answers each request at random with the real listings or with a **rewritten copy** in which
+prices, rooms, living space and text are changed. Fredy checks every page before keeping it - a net
+rent proves an answer real, a row breaking your own filters proves it rewritten, and of two
+different answers the cheaper one is the real one - and asks again until it can tell. A page it
+cannot verify after ten tries is not stored; the log says
+`kept answering rewritten values ... left for the next run`, and the next run asks again.
+
+Rents are stored as the Nettomiete where the advert gives one, with the Nebenkosten as its charges,
+and as the Bruttomiete otherwise. Prices are in Swiss francs.
 
 ## idealista
 

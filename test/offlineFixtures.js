@@ -201,6 +201,12 @@ export async function readLeboncoinFixtures() {
   return raw ? JSON.parse(raw) : [];
 }
 
+/** The SMG API host both Swiss portals of that group are read through. */
+const SMG_API = 'https://api.re.swissmarketplace.group';
+
+/** The recorded search of each SMG portal, by the `platform` its query names. */
+const SMG_SEARCH_FIXTURES = { immoscout24: 'immoscout24ch_search.json' };
+
 /** Hosts whose providers request their pages themselves instead of going through the extractor. */
 const FETCHED_PAGE_HOSTS = [
   'subito.it',
@@ -255,6 +261,11 @@ export function buildFetchMock() {
   let bieniciList = null;
   let bieniciDetail = null;
   let boligsidenCases = null;
+  let smgPlaces = null;
+  /** @type {Record<string, any>} the recorded SMG searches, by the platform they ran in */
+  const smgSearches = {};
+  /** @type {Record<string, number>} how often each platform's first page has been asked for */
+  const smgAsked = {};
 
   return async (url, init) => {
     const urlStr = String(url);
@@ -427,6 +438,42 @@ export function buildFetchMock() {
         return { ok: false, status: 404, json: () => Promise.reject(new Error('Not Found')) };
       }
       return { ok: true, status: 200, json: () => Promise.resolve(bieniciDetail) };
+    }
+
+    // The SMG API answers both Swiss portals from one host. A place lookup is answered with what was
+    // recorded for the same language and name, and nothing for anything else.
+    if (urlStr.startsWith(`${SMG_API}/geo/locations`)) {
+      if (smgPlaces == null) {
+        const raw = await tryReadFile(path.join(FIXTURES_DIR, 'immoscout24ch_places.json'));
+        smgPlaces = { ...JSON.parse(raw ?? '{}').locations };
+      }
+      const asked = new URL(urlStr).searchParams;
+      const found = smgPlaces[`${asked.get('lang')}|${asked.get('name')}`] ?? { results: [] };
+      return { ok: true, status: 200, json: () => Promise.resolve(found) };
+    }
+
+    // The search answers with the real values or a rewritten copy, at random. The recording holds one
+    // of each, and the first page is served rewritten first and real after it, alternating, so every
+    // run has to tell them apart to get anywhere. Any later page is empty, which ends the walk.
+    if (urlStr === `${SMG_API}/search/listings`) {
+      const body = JSON.parse(init?.body ?? '{}');
+      const platform = body.query?.platform;
+      const fixture = SMG_SEARCH_FIXTURES[platform];
+      if (fixture == null) {
+        throw new Error(`No SMG search fixture for platform ${platform}`);
+      }
+      smgSearches[platform] ??= JSON.parse((await tryReadFile(path.join(FIXTURES_DIR, fixture))) ?? '{}');
+      const recorded = smgSearches[platform];
+      if (body.from !== 0) {
+        return {
+          ok: true,
+          status: 200,
+          json: () => Promise.resolve({ from: body.from, size: body.size, total: recorded.real.total, results: [] }),
+        };
+      }
+      smgAsked[platform] = (smgAsked[platform] ?? 0) + 1;
+      const answer = smgAsked[platform] % 2 === 1 ? recorded.rewritten : recorded.real;
+      return { ok: true, status: 200, json: () => Promise.resolve(answer) };
     }
 
     // Boligsiden is one request against its JSON API, whichever kind of URL the job carries.

@@ -170,6 +170,9 @@ const RECORDED_SEARCHES = [
     'https://www.boligportal.dk/lejeboliger/hiller%C3%B8d/alle-v%C3%A6relser/?max_monthly_rent=18424',
     { min: null, max: 18424 },
   ],
+  // ImmoScout24.ch's website cannot be reached from a server to record one, so this is written the
+  // way its own web client writes a band; a bound may carry a unit letter (`2t` is 2000).
+  ['immoscout24ch', 'https://www.immoscout24.ch/de/wohnung/mieten/ort-zuerich?pf=500&pt=1t', { min: 500, max: 1000 }],
 ];
 
 /**
