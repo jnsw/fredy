@@ -56,11 +56,12 @@ describe('judgeAnswer', () => {
     expect(judgeAnswer({ listings: halved, query: { livingSpace: { from: 80 } } }).verdict).toBe(POISONED);
   });
 
-  it('accepts a rent inside the price filter on either the net or the gross figure', () => {
-    const rows = [row('1', { gross: 2100, net: 1950, interval: 'MONTH' }, 3)];
-    expect(judgeAnswer({ listings: rows, query: { monthlyRent: { to: 2000 } } }).verdict).toBe(HONEST);
-    const grossOnly = [row('1', { gross: 2540, interval: 'MONTH' }, 3)];
-    expect(judgeAnswer({ listings: grossOnly, query: { monthlyRent: { to: 2000 } } }).verdict).toBe(POISONED);
+  // A rent filter bounds the net rent, which a gross-only row does not show; measured on a real answer.
+  it('does not hold a gross rent against the rent filter, but holds a purchase price against its own', () => {
+    const grossOnly = [row('1', { gross: 2280, interval: 'MONTH' }, 3)];
+    expect(judgeAnswer({ listings: grossOnly, query: { monthlyRent: { to: 2000 } } }).verdict).toBe(UNKNOWN);
+    expect(judgeAnswer({ listings: REWRITTEN_BUY, query: { purchasePrice: { to: 1500000 } } }).verdict).toBe(POISONED);
+    expect(judgeAnswer({ listings: REAL_BUY, query: { purchasePrice: { to: 1700000 } } }).verdict).toBe(UNKNOWN);
   });
 
   it('cannot tell anything about an answer with no net rent and no filter to break', () => {
