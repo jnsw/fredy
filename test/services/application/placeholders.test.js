@@ -82,6 +82,14 @@ describe('listing values', () => {
     expect(resolve({ language: 'en' })['listing.price']).toBe('€1,200');
   });
 
+  it('writes the price in the currency the listing is advertised in', () => {
+    const swiss = { ...listing, price: 2710, price_per_sqm: 36.13, currency: 'CHF' };
+    expect(resolve({ listing: swiss })['listing.price']).toBe('2.710 CHF');
+    expect(resolve({ listing: swiss })['listing.pricePerSqm']).toBe('36,13 CHF');
+    // The applicant's income is entered in euros, whichever portal the flat is on.
+    expect(resolve({ listing: swiss })['applicant.netIncome']).toMatch(/€$/);
+  });
+
   it('formats the living space with its unit', () => {
     expect(resolve()['listing.size']).toBe('75,5 m²');
     expect(resolve({ language: 'en' })['listing.size']).toBe('75.5 m²');

@@ -3,7 +3,7 @@
  * Licensed under Apache-2.0 with Commons Clause and Attribution/Naming Clause
  */
 
-import { formatEuroPrice } from '../price/priceService.js';
+import { DEFAULT_CURRENCY, formatPrice, normalizeCurrency } from '../price/priceService.js';
 
 /**
  * Reading the price per square metre a listing carries, and how it compares to the area.
@@ -97,9 +97,12 @@ export function marketVerdict(percent) {
  * always has a quotient; whether it also has something to compare that quotient against depends on
  * how many listings Fredy has seen nearby, which is nothing to do with the listing itself.
  *
+ * Both figures are in the listing's own currency: the server only measures a listing against
+ * neighbours priced in the same one, so `currency` describes the median as well as the quotient.
+ *
  * @param {Object|null|undefined} listing A row as the listings API returns it.
  * @returns {{pricePerSqm: number, median: number|null, sampleSize: number|null, radiusKm: number|null,
- *   percent: number|null, verdict: ('below'|'inline'|'above'|null)}|null}
+ *   percent: number|null, verdict: ('below'|'inline'|'above'|null), currency: string}|null}
  *   `null` when the listing has no price per square metre at all, which is the case for anything
  *   the provider did not state a size for.
  */
@@ -117,6 +120,7 @@ export function readMarketBenchmark(listing) {
     radiusKm: toNumber(listing?.market_radius_km),
     percent,
     verdict: marketVerdict(percent),
+    currency: normalizeCurrency(listing?.currency),
   };
 }
 
@@ -128,19 +132,20 @@ export function readMarketBenchmark(listing) {
  * @param {boolean} [withUnit=true] Whether to append `/m²`. A figure sitting under a label that
  *   already reads "price per m²" does not need it, and carrying it there costs the four characters
  *   that push the number out of a narrow tile.
+ * @param {string} [currency='EUR'] ISO 4217 code - the listing's, or the one a median is quoted in.
  * @returns {string} e.g. `12,40 €/m²`.
  */
-export function formatPricePerSqm(value, locale, withUnit = true) {
+export function formatPricePerSqm(value, locale, withUnit = true, currency = DEFAULT_CURRENCY) {
   const parsed = toNumber(value);
   if (parsed == null) {
     return '';
   }
   // Two decimals below the threshold whether or not the value happens to have any, so a column of
-  // rents reads as one kind of number. Above it, whole euros: nobody compares purchase prices per
+  // rents reads as one kind of number. Above it, whole units: nobody compares purchase prices per
   // square metre to the cent.
   const whole = parsed >= WHOLE_EURO_ABOVE;
   const rounded = whole ? Math.round(parsed) : Math.round(parsed * 100) / 100;
-  const amount = formatEuroPrice(rounded, locale, whole ? 0 : 2);
+  const amount = formatPrice(rounded, locale, whole ? 0 : 2, currency);
   return withUnit ? `${amount}/m²` : amount;
 }
 

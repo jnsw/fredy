@@ -46,6 +46,7 @@ describe('the dashboard listing reads', () => {
         title TEXT,
         address TEXT,
         price REAL,
+        currency TEXT NOT NULL DEFAULT 'EUR',
         size REAL,
         rooms REAL,
         price_per_sqm REAL,
@@ -153,6 +154,8 @@ describe('the dashboard listing reads', () => {
           'image_url',
           'job_id',
           'price',
+          // The panel prints the price in it, so a franc rent does not read as euros.
+          'currency',
           'price_per_sqm',
           'rooms',
           'size',

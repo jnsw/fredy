@@ -7,6 +7,8 @@ import { describe, it, expect, vi } from 'vitest';
 
 import {
   BENCHMARK_RADII_KM,
+  COMPARABLES_IN_CURRENCY_SQL,
+  COMPARABLES_SQL,
   MARKET_BAND_PCT,
   MAX_COMPARABLES,
   MIN_SAMPLE,
@@ -158,6 +160,28 @@ describe('benchmark for one listing', () => {
       sampleSize: MIN_SAMPLE,
       radiusKm: BENCHMARK_RADII_KM[0],
     });
+  });
+
+  it('asks only for comparables in the currency it is given', () => {
+    const runQuery = vi.fn(() => Array.from({ length: MIN_SAMPLE }, () => comparable(1, 500)));
+    computeBenchmark(listing, 'rent', runQuery, { currency: 'CHF' });
+
+    const [sql, params] = runQuery.mock.calls[0];
+    expect(sql).toBe(COMPARABLES_IN_CURRENCY_SQL);
+    expect(sql).toMatch(/AND l\.currency = @currency/);
+    expect(params.currency).toBe('CHF');
+  });
+
+  // Migration 41 backfills with this before migration 51 has added the column, so the query it
+  // prepares must not name it.
+  it('asks across every currency when it is given none', () => {
+    const runQuery = vi.fn(() => []);
+    computeBenchmark(listing, 'rent', runQuery);
+
+    const [sql, params] = runQuery.mock.calls[0];
+    expect(sql).toBe(COMPARABLES_SQL);
+    expect(COMPARABLES_SQL).not.toMatch(/currency/);
+    expect(params).not.toHaveProperty('currency');
   });
 
   it('widens to the next radius rather than answering from too small a sample', () => {

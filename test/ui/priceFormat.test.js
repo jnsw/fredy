@@ -4,8 +4,20 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { formatEuroPrice } from '../../ui/src/services/price/priceService.js';
-import { formatEuro } from '../../ui/src/components/cards/chartTheme.js';
+import {
+  DEFAULT_CURRENCY,
+  currenciesOfProviders,
+  formatEuroPrice,
+  formatPrice,
+  formatPriceInCurrencies,
+  normalizeCurrency,
+} from '../../ui/src/services/price/priceService.js';
+import {
+  formatCompactPrice,
+  formatEuro,
+  formatEuroCompact,
+  formatWholePrice,
+} from '../../ui/src/components/cards/chartTheme.js';
 
 /**
  * `Intl` separates the amount from the currency symbol with a narrow no-break space, which is
@@ -72,5 +84,80 @@ describe('formatEuro (charts)', () => {
   it('keeps its own dash for values that are not numbers', () => {
     expect(formatEuro(null, 'de-DE')).toBe('–');
     expect(formatEuro('auf Anfrage', 'de-DE')).toBe('–');
+  });
+});
+
+/**
+ * A listing's price is in the currency its portal quotes, and nothing converts it. Every place that
+ * prints one passes the listing's own `currency`; one without it reads as euros, which is what every
+ * price was before currencies existed.
+ */
+describe('formatPrice, in the currency of the listing', () => {
+  it('writes the symbol or code of the currency the price is in', () => {
+    expect(normalize(formatPrice(2710, 'de-DE', null, 'CHF'))).toBe('2.710 CHF');
+    expect(normalize(formatPrice(2710, 'en-US', null, 'CHF'))).toBe('CHF 2,710');
+    expect(normalize(formatPrice(2000000, 'de-DE', null, 'DKK'))).toBe('2.000.000 DKK');
+  });
+
+  it('reads a missing or malformed currency as euros', () => {
+    expect(normalize(formatPrice(1200, 'de-DE'))).toBe('1.200 €');
+    expect(normalize(formatPrice(1200, 'de-DE', null, null))).toBe('1.200 €');
+    expect(normalize(formatPrice(1200, 'de-DE', null, 'Franken'))).toBe('1.200 €');
+  });
+
+  it('keeps a text price as it came, with the code of its currency', () => {
+    expect(formatPrice('auf Anfrage', 'de-DE', null, 'CHF')).toBe('auf Anfrage CHF');
+  });
+
+  it('keeps euros for the finance tools, whatever they are handed', () => {
+    expect(normalize(formatEuroPrice(1200, 'de-DE'))).toBe('1.200 €');
+  });
+});
+
+describe('normalizeCurrency', () => {
+  it('upper-cases a code and falls back to euros for anything else', () => {
+    expect(normalizeCurrency('chf')).toBe('CHF');
+    expect(normalizeCurrency(undefined)).toBe(DEFAULT_CURRENCY);
+    expect(normalizeCurrency('CH')).toBe('EUR');
+  });
+});
+
+describe('currenciesOfProviders', () => {
+  const providers = [{ id: 'flatfox', currency: 'CHF' }, { id: 'immoscout' }, { id: 'boligsiden', currency: 'dkk' }];
+
+  it('reads the currency each provider declares, euros where it declares none', () => {
+    expect(currenciesOfProviders(['flatfox'], providers)).toEqual(['CHF']);
+    expect(currenciesOfProviders(['immoscout'], providers)).toEqual(['EUR']);
+    expect(currenciesOfProviders(['immoscout', 'flatfox', 'boligsiden'], providers)).toEqual(['CHF', 'DKK', 'EUR']);
+  });
+
+  it('falls back to euros when nothing resolves', () => {
+    expect(currenciesOfProviders([], providers)).toEqual(['EUR']);
+    expect(currenciesOfProviders(['gone'], providers)).toEqual(['EUR']);
+    expect(currenciesOfProviders(['flatfox'], null)).toEqual(['EUR']);
+  });
+});
+
+describe('formatPriceInCurrencies', () => {
+  it('is an ordinary price when the bound applies in one currency', () => {
+    expect(normalize(formatPriceInCurrencies(1500, 'de-DE', ['CHF']))).toBe('1.500 CHF');
+    expect(normalize(formatPriceInCurrencies(1500, 'de-DE', ['EUR']))).toBe('1.500 €');
+  });
+
+  // Held against each listing in its own currency, so the reader is told which ones.
+  it('names every currency a bound applies in, rather than pretending to one', () => {
+    expect(formatPriceInCurrencies(1500, 'de-DE', ['CHF', 'EUR'])).toBe('1.500 CHF / EUR');
+  });
+});
+
+describe('chart formatting in a currency', () => {
+  it('rounds and writes a whole price in the currency asked for', () => {
+    expect(normalize(formatWholePrice(2710.4, 'de-DE', 'CHF'))).toBe('2.710 CHF');
+    expect(formatWholePrice(null, 'de-DE', 'CHF')).toBe('–');
+  });
+
+  it('writes compact slider and axis labels in the currency asked for', () => {
+    expect(normalize(formatCompactPrice(250000, 'de-DE', 'CHF'))).toMatch(/CHF$/);
+    expect(normalize(formatEuroCompact(250000, 'de-DE'))).toMatch(/€$/);
   });
 });

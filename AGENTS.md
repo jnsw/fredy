@@ -78,7 +78,15 @@ scheduler (every N minutes) or manual trigger via POST /api/jobs/:id/run
   geocoder searches within the resolved countries; the map's `maxBounds` is the union of their
   boxes from `ui/src/components/map/countryBounds.js`. Where no provider exists to ask - home
   addresses, the listings map, the listing detail - the answer is the union across the jobs the user
-  can see, and where the job form is open it is the providers ticked in it
+  can see, and where the job form is open it is the providers ticked in it. Also an optional
+  `currency` (ISO 4217, e.g. `'CHF'`); absent means `'EUR'`, so only a portal quoting another
+  currency declares it (Flatfox does). A provider serving several currencies sets `currency` on each
+  listing in `normalize()` instead (BETTERHOMES), which wins. The pipeline stamps the resolved code on
+  every listing before storing it (`listings.currency`, migration 51; pure half in
+  `lib/services/providers/currencies.js`). Nothing converts between currencies: every price is
+  printed in its own, and everything that compares prices - market benchmark, dashboard medians,
+  price filters - compares only prices in one currency. The finance model is euros only, so a
+  non-euro listing gets no affordability verdict or costing
 - `config` - the **static** `ProviderConfig` template: `requiredFieldNames`, `crawlContainer`, `crawlFields`, `sortByDateParam`, `normalize()`, optional `getListings()`, `fetchDetails()`, `activityProbe()`. `url` is `null` here and there is no bound `filter`. A portal whose pages only answer a browser session (DataDome answers node with 403 whether an advert is online or not - immowelt, SeLoger) declares `browserActivityProbe(link, browser)` and `priceTracking.browserProbe(listing, browser)` instead; the alive-checker and the price tracker start one browser per run for them, and only when a due listing needs it.
 - `createConfig(sourceConfig, blacklist)` - returns a **fresh** `ProviderConfig` per job run: the template plus this run's `url`, `enabled`, and a `filter` closed over this run's blacklist.
 

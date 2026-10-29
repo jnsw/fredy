@@ -320,4 +320,22 @@ describe('verdicts and the rent basis', () => {
     expect(body.affordabilityVerdict).toBe('affordable');
     expect(body).toMatchObject({ charges_included: 1, charges: 90 });
   });
+
+  // The ceilings are euros; a rent in francs has nothing to be judged by.
+  it('gives a listing priced in another currency no verdict, in the overview and on its page', async () => {
+    queryListings.mockReturnValue({
+      totalNumber: 2,
+      page: 1,
+      result: [rentRow('zh', 1, { currency: 'CHF' }), rentRow('k', 1, { currency: 'EUR' })],
+    });
+    getListingById.mockReturnValue(rentRow('zh', 1, { currency: 'CHF' }));
+    const app = await buildApp();
+
+    const page = (await app.inject({ method: 'GET', url: '/table' })).json();
+    expect(page.result.find((row) => row.id === 'zh').affordabilityVerdict).toBeNull();
+    expect(page.result.find((row) => row.id === 'k').affordabilityVerdict).toBe('affordable');
+
+    const detail = (await app.inject({ method: 'GET', url: '/zh' })).json();
+    expect(detail.affordabilityVerdict).toBeNull();
+  });
 });

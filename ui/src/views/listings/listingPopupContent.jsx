@@ -7,7 +7,7 @@ import { renderToString } from 'react-dom/server';
 import { IconChevronLeft, IconChevronRight } from '@douyinfe/semi-icons';
 import no_image from '../../assets/no_image.png';
 import { availableModes, formatMinutes, hasAnyTime } from '../../components/transit/travelTimeFormat.js';
-import { formatEuroPrice } from '../../services/price/priceService.js';
+import { formatPrice } from '../../services/price/priceService.js';
 import { formatDecimal } from '../../services/number/numberService.js';
 import { mountPopupNode } from '../../components/map/popupContent.jsx';
 import MapPopupActions from './components/MapPopupActions.jsx';
@@ -207,7 +207,7 @@ function renderListingBody(listing, index, total, t, locale) {
     <a class="map-popup-content__title" href="#/listings/listing/${encodeURIComponent(listing.id)}">${escapeHtml(listing.title)}</a>
     <div class="map-popup-content__facts">
       <span>${t('map.popupPrice')}</span>
-      <span class="map-popup-content__num">${listing.price ? escapeHtml(formatEuroPrice(listing.price, locale)) : t('common.na')}</span>
+      <span class="map-popup-content__num">${listing.price ? escapeHtml(formatPrice(listing.price, locale, null, listing.currency)) : t('common.na')}</span>
       <span>${t('map.popupAddress')}</span>
       <span>${escapeHtml(listing.address || t('common.na'))}</span>
       <span>${t('map.popupJob')}</span>

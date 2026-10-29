@@ -17,7 +17,7 @@ import {
   Tooltip,
 } from 'chart.js';
 
-import { formatEuroPrice } from '../../services/price/priceService.js';
+import { DEFAULT_CURRENCY, formatPrice, normalizeCurrency } from '../../services/price/priceService.js';
 
 /*
  * Chart colours and typography, read from the theme rather than copied out of it.
@@ -172,39 +172,64 @@ export function registerFinanceCharts() {
 }
 
 /**
- * Format a value as whole euros. Cents are noise on six-figure sums.
+ * Format a value as a whole amount in a currency. Cents are noise on six-figure sums.
+ *
+ * @param {number} value
+ * @param {string} [locale='de-DE']
+ * @param {string} [currency='EUR'] ISO 4217 code - a listing's own, for a listing's price history.
+ * @returns {string}
+ */
+export function formatWholePrice(value, locale = 'de-DE', currency = DEFAULT_CURRENCY) {
+  if (value == null || !Number.isFinite(Number(value))) {
+    return '–';
+  }
+  // Rounded before it is handed over: `formatPrice` keeps the cents a value actually has, and on an
+  // axis label or a tooltip those two digits are exactly the noise this function exists to drop.
+  // What is left is the same grouping and symbol the listings use.
+  return formatPrice(Math.round(Number(value)), locale, null, currency);
+}
+
+/**
+ * {@link formatWholePrice} in euros, for the finance charts and figures, which are euros by
+ * construction.
  *
  * @param {number} value
  * @param {string} [locale='de-DE']
  * @returns {string}
  */
 export function formatEuro(value, locale = 'de-DE') {
-  if (value == null || !Number.isFinite(Number(value))) {
-    return '–';
-  }
-  // Rounded before it is handed over: `formatEuroPrice` keeps the cents a value actually has, and
-  // on an axis label or a tooltip those two digits are exactly the noise this function exists to
-  // drop. What is left is the same grouping and symbol the listings use.
-  return formatEuroPrice(Math.round(Number(value)), locale);
+  return formatWholePrice(value, locale, DEFAULT_CURRENCY);
 }
 
 /**
- * Compact euro formatting for axis ticks, where "250k" beats "250.000 €".
+ * Compact formatting for axis ticks and slider labels, where "250k" beats "250.000 €".
+ *
+ * @param {number} value
+ * @param {string} [locale='de-DE']
+ * @param {string} [currency='EUR'] ISO 4217 code.
+ * @returns {string}
+ */
+export function formatCompactPrice(value, locale = 'de-DE', currency = DEFAULT_CURRENCY) {
+  if (value == null || !Number.isFinite(Number(value))) {
+    return '';
+  }
+  return new Intl.NumberFormat(locale, {
+    style: 'currency',
+    currency: normalizeCurrency(currency),
+    notation: 'compact',
+    maximumFractionDigits: 1,
+  }).format(Number(value));
+}
+
+/**
+ * {@link formatCompactPrice} in euros, for the finance charts' axes.
  *
  * @param {number} value
  * @param {string} [locale='de-DE']
  * @returns {string}
  */
 export function formatEuroCompact(value, locale = 'de-DE') {
-  if (value == null || !Number.isFinite(Number(value))) {
-    return '';
-  }
-  return new Intl.NumberFormat(locale, {
-    style: 'currency',
-    currency: 'EUR',
-    notation: 'compact',
-    maximumFractionDigits: 1,
-  }).format(Number(value));
+  return formatCompactPrice(value, locale, DEFAULT_CURRENCY);
 }
 
 /**

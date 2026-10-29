@@ -70,6 +70,7 @@ describe('queryListings affordability band against real SQLite', () => {
         id TEXT PRIMARY KEY,
         job_id TEXT,
         price REAL,
+        currency TEXT NOT NULL DEFAULT 'EUR',
         charges_included INTEGER,
         charges REAL,
         size REAL,

@@ -75,6 +75,36 @@ describe('formatPrice', () => {
   it('uses German grouping even when the interface is English', () => {
     expect(formatListing({ id: 'l3', title: 'House', price: 450000 }, 'en').price).toBe('450.000 €');
   });
+
+  it('writes the unit of the currency the price is in', () => {
+    expect(formatPrice(2710, 'CHF')).toBe('2.710 CHF');
+    expect(formatPrice(2000000, 'DKK')).toBe('2.000.000 DKK');
+    expect(formatPrice(1234.5, 'chf')).toBe('1.234,5 CHF');
+  });
+
+  it('reads anything that is not a currency code as euros', () => {
+    expect(formatPrice(1200, undefined)).toBe('1.200 €');
+    expect(formatPrice(1200, 'Franken')).toBe('1.200 €');
+  });
+
+  // A byte that looks like a space but is not one is how a downstream parser breaks.
+  it('separates the amount from the unit with a plain space', () => {
+    expect(formatPrice(1200)).not.toMatch(/[  ]/);
+    expect(formatPrice(1200, 'CHF')).not.toMatch(/[  ]/);
+  });
+});
+
+describe('formatListing, in the currency of the listing', () => {
+  it("prints a Swiss listing's price in francs", () => {
+    const formatted = formatListing({ id: 'ch', title: 'Wohnung', price: 2710, currency: 'CHF' }, 'de');
+    expect(formatted.price).toBe('2.710 CHF');
+    // The code itself rides along for the adapters that hand listings to a machine.
+    expect(formatted.currency).toBe('CHF');
+  });
+
+  it('keeps euros for a listing that carries no currency', () => {
+    expect(formatListing({ id: 'old', title: 'Flat', price: 950 }).price).toBe('950 €');
+  });
 });
 
 describe('formatPriceChange', () => {
@@ -93,5 +123,21 @@ describe('formatPriceChange', () => {
     expect(formatted.newPrice).toBe('475.000 €');
     expect(formatted.price).toBe('475.000 €');
     expect(formatted.changePercent).toBe('-4.8 %');
+  });
+
+  it('quotes both prices in the currency of the listing', () => {
+    const formatted = formatPriceChange(
+      {
+        listing: { id: 'l5', title: 'Wohnung', price: 2500, currency: 'CHF' },
+        oldPrice: 2710,
+        newPrice: 2500,
+        changePercent: -7.75,
+        direction: 'down',
+      },
+      'de',
+    );
+    expect(formatted.oldPrice).toBe('2.710 CHF');
+    expect(formatted.newPrice).toBe('2.500 CHF');
+    expect(formatted.price).toBe('2.500 CHF');
   });
 });

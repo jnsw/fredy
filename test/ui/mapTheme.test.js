@@ -262,7 +262,7 @@ describe('the page', () => {
   });
 
   it('formats both ends of the price slider', () => {
-    expect(viewJsx).toMatch(/formatEuroCompact\(priceRange\[0\]/);
+    expect(viewJsx).toMatch(/formatCompactPrice\(priceRange\[0\]/);
     expect(viewJsx).not.toMatch(/<span>\{priceRange\[0\]\}<\/span>/);
   });
 
@@ -377,7 +377,9 @@ describe('the view state survives a trip to a detail page and back', () => {
     // The open id is read through a ref on purpose: as a dependency it would tear down the popup
     // that had just been opened.
     expect(viewJsx).toMatch(/openListingIdRef/);
-    const deps = viewJsx.match(/\}, \[listings, priceRange, homeAddresses, distanceFilter, commuteFilter, isDark\]\);/);
+    const deps = viewJsx.match(
+      /\}, \[listings, priceRange, priceCurrency, priceFilterActive, homeAddresses, distanceFilter, commuteFilter, isDark\]\);/,
+    );
     expect(deps, 'the marker effect keeps its dependency list').not.toBeNull();
   });
 

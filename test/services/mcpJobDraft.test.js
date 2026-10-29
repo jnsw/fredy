@@ -10,6 +10,7 @@ import {
   applyDraftUpdate,
   describeDraft,
   discardDraft,
+  draftCurrencies,
   emptyDraft,
   getDraft,
   missingRequired,
@@ -390,6 +391,27 @@ describe('the summary read back to the user', () => {
   it('names the deal type once there is one', () => {
     expect(describeDraft(apply({ dealType: 'buy' }).draft, CTX)).toContain('**Deal type:** buying');
     expect(describeDraft(apply({ dealType: 'rent' }).draft, CTX)).toContain('**Deal type:** renting');
+  });
+
+  // Nothing converts between currencies: a ceiling is held against each listing in the currency its
+  // portal quotes, so the summary has to say which one that is.
+  it('quotes the maximum price in the currency of the portals', () => {
+    const draft = completedDraft({ specFilter: { maxPrice: 2000 } });
+    expect(describeDraft(draft, CTX)).toContain('max 2000 EUR');
+
+    const swiss = { ...CTX, providers: [{ ...IMMOSCOUT, currency: 'CHF' }, IMMOWELT] };
+    expect(draftCurrencies(draft, swiss)).toEqual(['CHF']);
+    expect(describeDraft(draft, swiss)).toContain('max 2000 CHF');
+
+    const mixed = { ...draft, providers: [...draft.providers, { id: 'immowelt', name: 'Immowelt', url: WELT_URL }] };
+    expect(describeDraft(mixed, swiss)).toContain('max 2000 CHF/EUR');
+  });
+
+  it('asks for the maximum price in the currency of the portals', () => {
+    const draft = { ...completedDraft(), refinementsAnswered: false };
+    const swiss = { ...CTX, providers: [{ ...IMMOSCOUT, currency: 'CHF' }, IMMOWELT] };
+    expect(nextStep(draft, swiss).question).toContain('maximum price in CHF');
+    expect(nextStep(draft, CTX).question).toContain('maximum price in EUR');
   });
 });
 

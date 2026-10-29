@@ -35,7 +35,7 @@ import Headline from '../../components/headline/Headline.jsx';
 
 import './Dashboard.less';
 import { xhrPost, errorMessage } from '../../services/xhr.js';
-import { formatEuroPrice } from '../../services/price/priceService.js';
+import { formatPrice } from '../../services/price/priceService.js';
 import { formatPricePerSqm } from '../../services/listings/marketBenchmark.js';
 import { format } from '../../services/time/timeService.js';
 import { useTranslation, useLocale } from '../../services/i18n/i18n.jsx';
@@ -237,7 +237,9 @@ export default function Dashboard() {
               ? '---'
               : // Rounded before formatting: an even number of listings averages the two middle
                 // prices, and half a cent of that arithmetic is not a fact about the market.
-                formatEuroPrice(Math.round(kpis.medianPriceOfListings), locale)
+                // In the currency the server took the median in: the one most priced listings are
+                // in, never two at once.
+                formatPrice(Math.round(kpis.medianPriceOfListings), locale, null, kpis.currency)
           }
           icon={<IconEuro />}
           // Both medians are taken over every listing that was ever found, active or not, while
@@ -260,7 +262,11 @@ export default function Dashboard() {
         <KpiCard
           title={t('dashboard.kpiMedianSqm')}
           color="plain"
-          value={kpis.medianPricePerSqm == null ? '---' : formatPricePerSqm(kpis.medianPricePerSqm.value, locale)}
+          value={
+            kpis.medianPricePerSqm == null
+              ? '---'
+              : formatPricePerSqm(kpis.medianPricePerSqm.value, locale, true, kpis.currency)
+          }
           icon={<IconExpand />}
           description={
             kpis.medianPricePerSqm == null

@@ -67,6 +67,7 @@ describe('listings published_at', () => {
         provider TEXT,
         job_id TEXT,
         price REAL,
+        currency TEXT NOT NULL DEFAULT 'EUR',
         charges_included INTEGER,
         charges REAL,
         size REAL,

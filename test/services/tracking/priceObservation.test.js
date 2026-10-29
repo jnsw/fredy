@@ -133,6 +133,20 @@ describe('services/tracking - price observation', () => {
     });
   });
 
+  // The receiving side reads every figure as euros, and nothing converts a franc into one.
+  it('reports nothing for a job whose medians are taken in another currency', async () => {
+    const { trackJobPriceObservation } = await loadTracker({ kpi: { ...kpisFor(), currency: 'CHF' } });
+
+    await trackJobPriceObservation(jobWith(), [PORTAL]);
+
+    expect(priceRequests()).toEqual([]);
+  });
+
+  it('reports a job whose medians are taken in euros', async () => {
+    const body = await reportOne(jobWith(), { kpi: { ...kpisFor(), currency: 'EUR' } });
+    expect(body).toMatchObject({ median_price: 14.2 });
+  });
+
   describe('the price range', () => {
     const url = (query) => `https://portal.example/s?${query}`;
 

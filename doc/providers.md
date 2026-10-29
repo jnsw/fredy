@@ -208,6 +208,30 @@ export const metaInformation = {
 Addresses are then geocoded in those countries, and the map opens on them so you can draw a search
 area there. A provider spanning several is fine: `countries: ['de', 'at', 'ch']`.
 
+## Currency
+
+Prices are euros unless a provider says otherwise. A portal quoting another currency declares its
+ISO 4217 code next to the countries:
+
+```javascript
+export const metaInformation = {
+  name: 'your provider name',
+  baseUrl: 'https://www.yourprovider.ch/',
+  id: 'yourprovider',
+  countries: ['ch'],
+  currency: 'CHF',
+};
+```
+
+Every listing is stored with its currency, and every place that shows a price - the listings, the
+detail page, the map, notifications, MCP - shows it in that currency. Nothing is converted, so
+places that compare prices (the market comparison, the dashboard medians, price filters) only ever
+compare prices in the same currency, and the financing calculator, which is a German model, only
+scores listings in euros.
+
+A provider whose sites quote different currencies (BETTERHOMES runs `.de`, `.at` and `.ch`) sets
+`currency` on each listing in `normalize()` instead; that wins over the declaration.
+
 ## 🛡️ Bot detection & proxies
 
 Most browser-based providers (kleinanzeigen, wg-gesucht, ohnemakler, ...) are scraped through a
