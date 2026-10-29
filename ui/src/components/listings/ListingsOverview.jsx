@@ -24,6 +24,7 @@ import { useActions, useSelector } from '../../services/state/store.js';
 import { debounce, measuredPlaces } from '../../utils';
 import FilterSelect from './FilterSelect.jsx';
 import ListingsFilterPanel from './ListingsFilterPanel.jsx';
+import { statusLabel } from './statusOptions.js';
 import ActiveFilterChips from '../filters/ActiveFilterChips.jsx';
 import FilterButton from '../filters/FilterButton.jsx';
 import {
@@ -248,7 +249,11 @@ const ListingsOverview = () => {
   const handleStatusChange = async (item, nextStatus) => {
     try {
       await actions.listingsData.setListingStatus(item.id, nextStatus);
-      Toast.success(nextStatus ? `Marked as ${nextStatus}` : t('listings.toastStatusCleared'));
+      Toast.success(
+        nextStatus
+          ? t('listings.toastStatusMarked', { status: statusLabel(t, nextStatus) })
+          : t('listings.toastStatusCleared'),
+      );
       loadData();
     } catch (e) {
       console.error(e);
@@ -593,6 +598,7 @@ const ListingsOverview = () => {
       <ApplicationModal
         visible={applicationListingId != null}
         listingId={applicationListingId}
+        status={listings.find((item) => item.id === applicationListingId)?.status?.status ?? null}
         onCancel={() => setApplicationListingId(null)}
         // Copying the letter sets the status, so the row's status control has to follow it.
         onApplied={loadData}

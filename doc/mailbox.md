@@ -58,6 +58,32 @@ or **Unlink** a wrong link - Fredy then leaves that message alone for good. The 
 listing also appear on the listing's page, for you only: somebody who can see the listing through a
 shared job does not see your mail.
 
+## Application status and viewings
+
+A listing's status follows an application through its stages: **Applied**, **Documents sent**,
+**Invited to viewing**, **Viewed**, and the outcome - **Accepted**, **Rejected**, or **Not invited**
+when the answer came before any viewing. Set it on the listing page, in the tables, or let the
+mailbox do it.
+
+When Fredy links a German reply to a listing, it also reads the reply for one of a few unmistakable
+phrases and moves the status forward:
+
+| The mail says | Status |
+|---|---|
+| "Einladung zum Besichtigungstermin", "Terminbestätigung", "Terminerinnerung", "Einladung zur Besichtigung" | Invited to viewing - with the appointment, when a date like `14.09.2026 um 17:30 Uhr` is given (read as German time) |
+| "Unterlagen hochladen", "erforderliche Unterlagen", "Formularbestätigung", Schufa, Einkommensnachweis, Mietschuldenfreiheit | Documents sent |
+| "konnten wir Ihre Anfrage nicht berücksichtigen" | Not invited |
+| "Bestätigung Ihrer Anfrage", "Anfragebestätigung", "wir freuen uns über Ihre Anfrage" | Applied |
+
+Generic words such as "Termin" or "Unterlagen" on their own change nothing, and a status only ever
+moves forward: a late acknowledgement does not undo an invitation, and nothing undoes an outcome. Like
+a status set by hand, it puts the listing on your watch list.
+
+**Viewings** in the sidebar lists the listings you are invited to view, soonest appointment first,
+with the date to set or correct, the mail that belongs to each and a button to mark it as viewed.
+Viewed ones move to their own tab and keep their date. The appointment also shows under the status
+on the listing page and in the MCP server's `get_listing`.
+
 ## Encryption and the key
 
 The password and the message contents are sealed with AES-256-GCM. The key never lives in the

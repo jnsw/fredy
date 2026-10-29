@@ -213,6 +213,12 @@ describe('imapSyncService', () => {
 
     expect(result).toMatchObject({ stored: 1, matched: 1 });
     expect(storage.getMailMessages('u1')[0].match).toMatchObject({ listingId: 'l1', method: 'listing_code' });
+    // The fixture is an invitation for 14.09.2026, 17:30 Berlin time.
+    expect(JSON.parse(db.prepare(`SELECT status FROM listings WHERE id = 'l1'`).get().status)).toMatchObject({
+      status: 'invited',
+      appointmentAt: Date.parse('2026-09-14T15:30:00Z'),
+    });
+    expect(db.prepare(`SELECT status FROM listings WHERE id = 'l2'`).get().status).toBeNull();
   });
 
   it('keeps the mail when linking fails', async () => {

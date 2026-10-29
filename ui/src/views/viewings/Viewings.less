@@ -1,0 +1,118 @@
+/*
+ * Copyright (c) 2026 by Christian Kellner.
+ * Licensed under Apache-2.0 with Commons Clause and Attribution/Naming Clause
+ */
+
+@import '../../tokens.less';
+
+.viewings {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: @space-4;
+
+  &__loading {
+    display: flex;
+    justify-content: center;
+    padding: @space-12 0;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: @space-3;
+  }
+}
+
+.viewing {
+  display: flex;
+  gap: @space-4;
+  padding: @space-4;
+  border: 1px solid @color-border;
+  border-radius: @radius-card;
+  background: @color-surface;
+
+  &__image {
+    flex: 0 0 160px;
+    width: 160px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: @radius-input;
+    background: @color-fill-1;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: @space-3;
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: @space-2;
+  }
+
+  &__identity {
+    display: flex;
+    flex-direction: column;
+    gap: @space-1;
+    min-width: 0;
+  }
+
+  &__title {
+    overflow-wrap: anywhere;
+  }
+
+  &__badges {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: @space-1;
+  }
+
+  &__appointment,
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: @space-2;
+  }
+
+  &__label {
+    font-size: @text-sm;
+    color: @color-muted;
+  }
+
+  &__external {
+    display: inline-flex;
+    align-items: center;
+    gap: @space-1;
+    color: @color-muted;
+    font-size: @text-sm;
+
+    &:hover {
+      color: @color-text;
+    }
+  }
+
+  &__mail summary {
+    cursor: pointer;
+    color: @color-muted;
+    font-size: @text-sm;
+    margin-bottom: @space-2;
+  }
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+
+    &__image {
+      flex: 0 0 auto;
+      width: 100%;
+      height: 160px;
+    }
+  }
+}

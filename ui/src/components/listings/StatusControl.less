@@ -64,4 +64,35 @@
       background: rgb(@color-success-rgb / 14%) !important;
     }
   }
+
+  // Waiting on the landlord after handing documents in: in progress, not yet a viewing.
+  &--documents_sent {
+    color: @color-orange-text !important;
+    border-color: rgb(@color-orange-text-rgb / 40%) !important;
+    background: rgb(@color-orange-text-rgb / 8%) !important;
+    &:hover {
+      background: rgb(@color-orange-text-rgb / 14%) !important;
+    }
+  }
+
+  // The viewing, before and after: the stage worth noticing in a long table.
+  &--invited,
+  &--visited {
+    color: @color-purple-text !important;
+    border-color: rgb(@color-purple-text-rgb / 40%) !important;
+    background: rgb(@color-purple-text-rgb / 8%) !important;
+    &:hover {
+      background: rgb(@color-purple-text-rgb / 14%) !important;
+    }
+  }
+
+  // Turned down before a viewing: an outcome like a rejection, told apart by being quieter.
+  &--not_invited {
+    color: @color-error !important;
+    border-color: rgb(@color-error-rgb / 25%) !important;
+    background: transparent !important;
+    &:hover {
+      background: rgb(@color-error-rgb / 8%) !important;
+    }
+  }
 }

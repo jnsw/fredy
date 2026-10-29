@@ -43,6 +43,7 @@ import Dashboard from './views/dashboard/Dashboard.jsx';
 import FinanceCalculator from './views/finance/FinanceCalculator.jsx';
 import ListingDetail from './views/listings/ListingDetail.jsx';
 import MailInbox from './views/mail/MailInbox.jsx';
+import Viewings from './views/viewings/Viewings.jsx';
 import NewsModal from './components/news/NewsModal.jsx';
 import OnboardingTour from './components/tour/OnboardingTour.jsx';
 import inDevelopment from './services/developmentMode.js';
@@ -231,6 +232,7 @@ export default function FredyApp() {
                     <Route path="/map" element={<MapView />} />
                     <Route path="/finance" element={<FinanceCalculator />} />
                     <Route path="/mail" element={<MailInbox />} />
+                    <Route path="/viewings" element={<Viewings />} />
 
                     {/* Settings that belong to whoever is signed in. No guard: they are theirs.
                       One entry in the sidebar, and the tabs below the heading are the only place

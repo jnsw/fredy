@@ -330,6 +330,51 @@ describe('mailStorage', () => {
       expect(storage.getMailMessages('u1')[0].match).toBeNull();
     });
 
+    const statusOf = (id) => JSON.parse(db.prepare(`SELECT status FROM listings WHERE id = ?`).get(id).status);
+    const link = (statusUpdate) =>
+      storage.assignMailMessageToListing({
+        userId: 'u1',
+        messageId: messageId(),
+        listingId: 'l1',
+        method: 'listing_code',
+        confidence: 100,
+        statusUpdate,
+      });
+
+    it('moves the listing to the stage the message announces and watches it', () => {
+      link({ status: 'invited', appointmentAt: 1_790_000_000_000 });
+
+      expect(statusOf('l1')).toMatchObject({ status: 'invited', appointmentAt: 1_790_000_000_000 });
+      expect(
+        db.prepare(`SELECT COUNT(*) AS n FROM watch_list WHERE listing_id = 'l1' AND user_id = 'u1'`).get().n,
+      ).toBe(1);
+    });
+
+    it('never moves a listing backwards', () => {
+      db.prepare(`UPDATE listings SET status = ? WHERE id = 'l1'`).run(
+        JSON.stringify({ status: 'visited', setAt: 1, appointmentAt: 5 }),
+      );
+
+      link({ status: 'applied' });
+
+      expect(statusOf('l1')).toEqual({ status: 'visited', setAt: 1, appointmentAt: 5 });
+      expect(storage.getMailMessages('u1')[0].match).not.toBeNull();
+    });
+
+    it('lets a later reminder update the appointment of an invitation', () => {
+      db.prepare(`UPDATE listings SET status = ? WHERE id = 'l1'`).run(
+        JSON.stringify({ status: 'invited', setAt: 1, appointmentAt: 5 }),
+      );
+
+      link({ status: 'invited', appointmentAt: 9 });
+
+      expect(statusOf('l1')).toMatchObject({ status: 'invited', appointmentAt: 9 });
+    });
+
+    it('rejects a status that does not exist', () => {
+      expect(() => link({ status: 'maybe' })).toThrow(/Invalid listing status/);
+    });
+
     it('searches the owner’s listings with wildcards taken literally', () => {
       expect(storage.searchOwnedListingsForMail('u1', 'goethe').map((l) => l.id)).toEqual(['l1']);
       expect(storage.searchOwnedListingsForMail('u1', '100%').map((l) => l.id)).toEqual(['l1']);

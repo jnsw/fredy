@@ -6,6 +6,7 @@
 import { Radio, RadioGroup, Select } from '@douyinfe/semi-ui-19';
 
 import FilterSelect from './FilterSelect.jsx';
+import { statusOptions } from './statusOptions.js';
 import FilterDrawer, { FilterGroup, FilterHelp } from '../filters/FilterDrawer.jsx';
 import { COMMUTE_OPTIONS } from '../transit/travelTimeFormat.js';
 import {
@@ -115,9 +116,13 @@ export default function ListingsFilterPanel({
           value={values.status}
           style={{ width: '100%' }}
         >
-          <Select.Option value="applied">{t('listings.filterStatusApplied')}</Select.Option>
-          <Select.Option value="rejected">{t('listings.filterStatusRejected')}</Select.Option>
-          <Select.Option value="accepted">{t('listings.filterStatusAccepted')}</Select.Option>
+          {statusOptions(t)
+            .filter((option) => option.value != null)
+            .map((option) => (
+              <Select.Option key={option.value} value={option.value}>
+                {option.label}
+              </Select.Option>
+            ))}
           <Select.Option value="none">{t('listings.filterStatusNone')}</Select.Option>
         </FilterSelect>
       </FilterGroup>

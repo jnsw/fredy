@@ -114,8 +114,9 @@ Fredy is in the [Unraid](https://unraid.net/) community store.
     expensive are facts rather than a feeling
 -   📎 **Document uploads**: attach the exposé, floor plans and photos to a listing, so they survive
     the portal taking the ad down. A listing with documents is never cleaned up automatically
--   📬 **[Mailbox](doc/mailbox.md)**: connect your own IMAP mailbox and read the replies to your
-    applications in Fredy, stored encrypted
+-   📬 **[Mailbox](doc/mailbox.md)**: connect your own IMAP mailbox, read the replies to your
+    applications next to their listings, and let invitations and document requests move each
+    application's status forward, with your viewings and their dates in one list
 -   🖥️ **Web UI** in several languages, with configurable search intervals and working hours
 -   🤖 **[MCP server](lib/mcp/README.md)**: query your listings from Claude, ChatGPT or a local LLM
 -   🌍 Runs anywhere: Docker, Node.js, self-hosted, and uses the reverse engineered
@@ -241,7 +242,7 @@ class node_debug,node_mcp toneMint
 | [Scam detection](doc/scam-detection.md) | The signals, their weights, the languages, and how to overrule Fredy |
 | [Financing calculator](doc/financing.md) | Rent and Annuitätendarlehen, Kaufnebenkosten, Restschuld, the 35 % rule |
 | [Travel time & public transport](doc/travel-time.md) | Addresses and place types, estimated vs exact, route drawing, departure boards, operator settings |
-| [Mailbox](doc/mailbox.md) | Connecting an IMAP mailbox, linking mail to listings, what is stored, the encryption key, network safety |
+| [Mailbox](doc/mailbox.md) | Connecting an IMAP mailbox, linking mail to listings, application status and viewings, the encryption key, network safety |
 | [MCP server](lib/mcp/README.md) | Connecting Claude, ChatGPT or a local LLM to your listings |
 | [Reverse proxy sign-in](doc/reverse-proxy-auth.md) | Forward auth with Authelia, Authentik, oauth2-proxy, Traefik, Pangolin |
 | [Debug bundles](doc/debugging.md) | Capturing logs for a bug report |

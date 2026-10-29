@@ -25,7 +25,7 @@ export function createMailTestDb() {
     CREATE TABLE listings (
       id TEXT PRIMARY KEY, created_at INTEGER, hash TEXT, provider TEXT, job_id TEXT, price INTEGER,
       size INTEGER, rooms REAL, title TEXT, image_url TEXT, description TEXT, address TEXT, link TEXT,
-      manually_deleted INTEGER NOT NULL DEFAULT 0, status JSON
+      manually_deleted INTEGER NOT NULL DEFAULT 0, is_active INTEGER NOT NULL DEFAULT 1, status JSON
     );
     CREATE TABLE watch_list (
       id TEXT PRIMARY KEY, listing_id TEXT NOT NULL, user_id TEXT NOT NULL, UNIQUE (listing_id, user_id)

@@ -113,6 +113,9 @@ An adapter *configuration* is separate from the adapter itself: it is a row in `
 | SqliteConnection | `lib/services/storage/SqliteConnection.js` | Singleton, WAL mode; `execute()`, `query()`, `withTransaction()` |
 | Migrations | `lib/services/storage/migrations/` | Numbered JS files each exporting `up(db)`; checksum-tracked in `schema_migrations` |
 | Extractor | `lib/services/extractor/` | Orchestrates Puppeteer + Cheerio; shared browser instance per job |
+| Mailbox | `lib/services/mail/`, `lib/services/storage/mailStorage.js` | A user's own IMAP mailbox (`doc/mailbox.md`). Synced by `mail-sync-cron.js` only while a mailbox exists; messages are linked to listings by `mailListingMatcher.js`, which also moves the listing status forward from recognised German replies |
+| Sealed secrets | `lib/services/security/secretBox.js` | AES-256-GCM for values Fredy must read back (the IMAP password, mail contents). Key from `FREDY_ENCRYPTION_KEY` or `conf/secret.key`, never the database |
+| Listing status | `lib/services/listings/listingStatus.js` | The application stages and the rules for moving between them; mirrored in `ui/src/components/listings/statusOptions.js` |
 | Listing documents | `lib/services/storage/listingAttachmentsStorage.js` | Uploaded exposés (`listing_attachments`), bytes and all. Type and filename guards in `lib/services/listings/attachmentTypes.js`; routes in `lib/api/routes/listingAttachmentsRouter.js` |
 
 ### Uploaded documents live in the database

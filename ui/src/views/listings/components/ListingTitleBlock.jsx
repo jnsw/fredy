@@ -3,20 +3,16 @@
  * Licensed under Apache-2.0 with Commons Clause and Attribution/Naming Clause
  */
 
-import { RadioGroup, Radio, Typography } from '@douyinfe/semi-ui-19';
+import { Typography } from '@douyinfe/semi-ui-19';
 import { IconMapPin } from '@douyinfe/semi-icons';
 
 import AddressEditor from './AddressEditor.jsx';
 import StatusControl from '../../../components/listings/StatusControl.jsx';
-import { statusOptions } from '../../../components/listings/statusOptions.js';
 import * as timeService from '../../../services/time/timeService.js';
 import { useTranslation, useLocale } from '../../../services/i18n/i18n.jsx';
 import './ListingTitleBlock.less';
 
 const { Text } = Typography;
-
-/** The sentinel the radio group carries for "no decision recorded", since a Radio cannot hold null. */
-const NO_STATUS = '__none__';
 
 /**
  * Who this listing is: its headline, where it is, and where the reader has got to with it.
@@ -25,13 +21,13 @@ const NO_STATUS = '__none__';
  * though - it is the state of the reader's own process - so it belongs to the listing's identity,
  * next to the address rather than next to the actions.
  *
- * Four states fit across a desktop column as a segmented control, which says what the alternatives
- * are without being asked. Below the two-column breakpoint the same four go back into the dropdown
- * the tables use, because a segment that wraps to two lines is worse than a closed menu.
+ * It is the dropdown the tables use. Four states used to fit across a desktop column as a segmented
+ * control; the stages of an application - documents, viewing, the outcome - are eight, and a
+ * segment that wraps to two lines is worse than a closed menu.
  *
  * @param {Object} props
  * @param {Object} props.listing
- * @param {boolean} props.wide - Whether the viewport carries the segmented control.
+ * @param {boolean} props.wide - Whether there is room to caption the control.
  * @param {(position: {address: string, latitude: number, longitude: number}) => Promise<void>} props.onSaveAddress
  * @param {(address: string) => void} props.onPickOnMap
  * @param {(next: string|null) => void} props.onStatusChange
@@ -42,6 +38,7 @@ export default function ListingTitleBlock({ listing, wide, onSaveAddress, onPick
   const locale = useLocale();
   const status = listing?.status?.status ?? null;
   const setAt = listing?.status?.setAt;
+  const appointmentAt = listing?.status?.appointmentAt;
 
   return (
     <header className="listing-title">
@@ -67,29 +64,15 @@ export default function ListingTitleBlock({ listing, wide, onSaveAddress, onPick
 
         <div className="listing-title__status">
           {wide && <span className="listing-title__status-caption">{t('listings.status.statusLabel')}</span>}
-          {wide ? (
-            <RadioGroup
-              className="listing-title__segment"
-              type="button"
-              value={status ?? NO_STATUS}
-              onChange={(event) => {
-                const next = event.target.value;
-                onStatusChange(next === NO_STATUS ? null : next);
-              }}
-              aria-label={t('listings.status.statusLabel')}
-            >
-              {statusOptions(t).map((option) => (
-                <Radio key={option.value ?? NO_STATUS} value={option.value ?? NO_STATUS}>
-                  {option.label}
-                </Radio>
-              ))}
-            </RadioGroup>
-          ) : (
-            <StatusControl status={status} onChange={onStatusChange} />
-          )}
+          <StatusControl status={status} onChange={onStatusChange} />
           {setAt && (
             <Text size="small" type="tertiary" className="listing-title__status-set">
               {t('listing.detail.statusSetAt', { date: timeService.format(setAt, true, locale) })}
+            </Text>
+          )}
+          {appointmentAt && (
+            <Text size="small" type="tertiary" className="listing-title__status-set">
+              {t('listing.detail.viewingAt', { date: timeService.format(appointmentAt, true, locale) })}
             </Text>
           )}
         </div>

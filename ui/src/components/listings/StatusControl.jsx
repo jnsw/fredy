@@ -16,8 +16,8 @@ import { useTranslation } from '../../services/i18n/i18n.jsx';
  */
 
 /**
- * Shared control for setting a listing's user-decision status
- * (Applied / Rejected / Accepted).
+ * Shared control for setting where the user stands with a listing, from Applied through the
+ * viewing to the outcome.
  *
  * Both compact (table/grid rows) and full (listing detail header) modes
  * render a Button that picks up the project's CI tokens via the

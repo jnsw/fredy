@@ -82,6 +82,7 @@ describe('matchUnmatchedMailMessages', () => {
       listingId: 'is24',
       method: 'listing_code',
       confidence: 100,
+      statusUpdate: null,
     });
     expect(result).toEqual({ processed: 1, matched: 1, ambiguous: 0 });
   });
@@ -209,6 +210,23 @@ describe('matchUnmatchedMailMessages', () => {
 
     expect(getMessages).toHaveBeenNthCalledWith(2, 'u1', 1, { sortAt: 3, id: 'm3' });
     expect(result).toEqual({ processed: 2, matched: 2, ambiguous: 0 });
+  });
+
+  it('passes the stage a reply announces along with the link', async () => {
+    const { assign } = await match([
+      {
+        id: 'm1',
+        subject: 'Einladung zum Besichtigungstermin',
+        textBody: 'Objekt 123456789, Termin am 14.09.2026 um 17:30 Uhr.',
+      },
+    ]);
+
+    expect(assign).toHaveBeenCalledWith(
+      expect.objectContaining({
+        messageId: 'm1',
+        statusUpdate: { status: 'invited', appointmentAt: Date.parse('2026-09-14T15:30:00Z') },
+      }),
+    );
   });
 
   it('does nothing without listings', async () => {
