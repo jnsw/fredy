@@ -62,6 +62,7 @@ beforeEach(async () => {
       notes TEXT,
       status TEXT,
       price_per_sqm REAL,
+      currency TEXT NOT NULL DEFAULT 'EUR',
       UNIQUE (job_id, hash)
     );
     CREATE TABLE settings (id TEXT PRIMARY KEY, create_date INTEGER, name TEXT, value TEXT, user_id TEXT);
