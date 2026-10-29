@@ -490,6 +490,106 @@ async function downloadBoligsidenFixtures(url) {
   console.log(`  Saved boligsiden_cases.json (${cases.length} cases)`);
 }
 
+/** E-mail addresses and phone numbers, which private advertisers put into their descriptions. */
+const CONTACT_DETAILS = /[\w.+-]+@[\w-]+\.[\w.]+|\+?\d[\d ()/.-]{7,}\d/g;
+
+/**
+ * One SMG search result cut down to what the provider reads: the advertiser's own language block,
+ * with two pictures, and none of the branding around it. A private advert ends with whom to call,
+ * so the description keeps its first sentence only, without contact details.
+ *
+ * @param {any} entry
+ * @returns {any}
+ */
+function trimSmgEntry(entry) {
+  const listing = entry?.listing ?? {};
+  const primary = listing.localization?.primary;
+  const block = listing.localization?.[primary] ?? {};
+  const scrub = (value) => (typeof value === 'string' ? value.replace(CONTACT_DETAILS, '[…]') : value);
+  const firstSentence = (value) => (typeof value === 'string' ? value.split(/(?<=[.!?])\s/)[0].slice(0, 160) : value);
+  return {
+    id: entry.id,
+    listing: {
+      ...listing,
+      localization: {
+        primary,
+        [primary]: {
+          attachments: (block.attachments ?? []).filter((attachment) => attachment?.type === 'IMAGE').slice(0, 2),
+          text: { title: scrub(block.text?.title), description: scrub(firstSentence(block.text?.description)) },
+        },
+      },
+    },
+  };
+}
+
+/**
+ * Records an SMG portal's search (ImmoScout24.ch, Homegate) the way the offline suite replays it.
+ *
+ * The API answers a request with its real values or a rewritten copy, at random, and the offline
+ * suite has to prove the provider keeps the first and drops the second. So both are recorded for the
+ * provider's own first-page request: the run is made through the provider, with `fetch` watched to
+ * keep the place lookups and the request body it sent, and the body is then asked again until one
+ * answer of each kind has come back.
+ *
+ * @param {string} name the provider id, which names the fixtures
+ * @param {import('../../lib/types/providerConfig.js').ProviderConfig} runConfig
+ * @returns {Promise<void>}
+ */
+async function downloadSmgFixtures(name, runConfig) {
+  console.log(`\nDownloading ${name}...`);
+
+  const { searchListings } = await import('../../lib/services/smg/api.js');
+  const { cheaperOf, judgeAnswer, HONEST } = await import('../../lib/services/smg/poison.js');
+
+  const recorded = { locations: {}, bodies: [] };
+  const realFetch = globalThis.fetch;
+  globalThis.fetch = async (url, init) => {
+    const response = await realFetch(url, init);
+    const asked = new URL(String(url));
+    if (asked.pathname === '/geo/locations' && response.ok) {
+      recorded.locations[`${asked.searchParams.get('lang')}|${asked.searchParams.get('name')}`] = await response
+        .clone()
+        .json();
+    } else if (asked.pathname === '/search/listings') {
+      recorded.bodies.push(JSON.parse(init.body));
+    }
+    return response;
+  };
+  try {
+    await runConfig.getListings(runConfig.url);
+  } finally {
+    globalThis.fetch = realFetch;
+  }
+
+  const body = recorded.bodies.find((request) => request.from === 0);
+  if (body == null) {
+    console.warn(`  ${name} never asked for a search - nothing recorded`);
+    return;
+  }
+
+  let real = null;
+  let rewritten = null;
+  for (let attempt = 0; attempt < 40 && (real == null || rewritten == null); attempt++) {
+    const answer = await searchListings(body, name);
+    if (answer == null) continue;
+    if (judgeAnswer({ listings: answer.results, query: body.query }).verdict === HONEST) real ??= answer;
+    else if (real != null && cheaperOf(real.results, answer.results) === 'first') rewritten = answer;
+  }
+  if (real == null || rewritten == null) {
+    console.warn(`  Did not see both value sets of ${name}'s search - nothing recorded`);
+    return;
+  }
+
+  const trimmed = (answer) => ({ ...answer, results: answer.results.map(trimSmgEntry) });
+  const fixture = { request: body, real: trimmed(real), rewritten: trimmed(rewritten) };
+  await writeFile(path.join(FIXTURES_DIR, `${name}_search.json`), JSON.stringify(fixture, null, 2), 'utf-8');
+  console.log(`  Saved ${name}_search.json (${real.results.length} listings, both value sets)`);
+
+  const places = { locations: recorded.locations };
+  await writeFile(path.join(FIXTURES_DIR, `${name}_places.json`), JSON.stringify(places, null, 2), 'utf-8');
+  console.log(`  Saved ${name}_places.json`);
+}
+
 /**
  * Records one ImmoScout national site's search and exposé responses.
  *
@@ -1081,6 +1181,9 @@ async function main() {
         break;
       case 'boligportal':
         await downloadBoligportalFixtures(runConfig.url, launchBrowser, closeBrowser);
+        break;
+      case 'immoscout24ch':
+        await downloadSmgFixtures(name, runConfig);
         break;
       case 'tecnocasa':
       case 'tecnorete':
