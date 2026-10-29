@@ -108,7 +108,7 @@ That API answers each request at random with the real listings or with a **rewri
 prices, rooms, living space and text are changed. Fredy checks every page before keeping it - a net
 rent proves an answer real, a row breaking your own filters proves it rewritten, and of two
 different answers the cheaper one is the real one - and asks again until it can tell. A page it
-cannot verify after ten tries is not stored; the log says
+cannot verify after fifteen tries is not stored; the log says
 `kept answering rewritten values ... left for the next run`, and the next run asks again.
 
 Rents are stored as the Nettomiete where the advert gives one, with the Nebenkosten as its charges,
