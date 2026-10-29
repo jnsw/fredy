@@ -17,6 +17,15 @@ const FIXTURES_DIR = path.join(ROOT, 'test', 'testFixtures');
 const TEST_PROVIDER_PATH = path.join(ROOT, 'test', 'provider', 'testProvider.json');
 
 /**
+ * Where a listing's detail page lives, per provider on the Vonovia group's platform. Both share the
+ * list endpoint's row shape and differ only in where a slug is published.
+ */
+const VONOVIA_PLATFORM_DETAIL_URL = {
+  deutscheWohnen: (slug) => `https://www.deutsche-wohnen.com/mieten/mietangebote/${slug}`,
+  vonovia: (slug) => `https://www.vonovia.de/zuhause-finden/immobilien/${slug}`,
+};
+
+/**
  * The list endpoint caps a page at 50 and the provider walks the rest with `offset`, so a fixture
  * of the first page alone would be a truncated search - `paging.info.count` promising listings the
  * offline suite can never reach. The pages are merged into one payload instead, keeping the first
@@ -25,12 +34,16 @@ const TEST_PROVIDER_PATH = path.join(ROOT, 'test', 'provider', 'testProvider.jso
  * The endpoint refuses a search without the token the website fetches first, so the provider's
  * own token request is used rather than a copy of it.
  *
+ * The detail page names the contact person, in the embedded record and in the contact card. Replace
+ * that with placeholders before committing the fixture.
+ *
+ * @param {'deutscheWohnen'|'vonovia'} name The provider whose fixtures are recorded.
  * @param {string} apiUrl The run's list endpoint.
  * @param {string} refererUrl The search page the user pasted.
  * @param {(headers: Object.<string, string>) => Promise<string|null>} fetchSearchToken
  */
-async function downloadDeutscheWohnenFixtures(apiUrl, refererUrl, fetchSearchToken) {
-  console.log('\nDownloading deutscheWohnen...');
+async function downloadVonoviaPlatformFixtures(name, apiUrl, refererUrl, fetchSearchToken) {
+  console.log(`\nDownloading ${name}...`);
 
   const headers = {
     'User-Agent':
@@ -55,7 +68,7 @@ async function downloadDeutscheWohnenFixtures(apiUrl, refererUrl, fetchSearchTok
 
     const listResponse = await fetch(pageUrl, { headers });
     if (!listResponse.ok) {
-      console.warn(`  Failed to download deutscheWohnen list: ${listResponse.statusText}`);
+      console.warn(`  Failed to download ${name} list: ${listResponse.statusText}`);
       if (page === 0) return;
       break;
     }
@@ -68,8 +81,8 @@ async function downloadDeutscheWohnenFixtures(apiUrl, refererUrl, fetchSearchTok
     if ((body.results ?? []).length === 0 || total == null || listData.results.length >= total) break;
   }
 
-  await writeFile(path.join(FIXTURES_DIR, 'deutscheWohnen_list.json'), JSON.stringify(listData, null, 2), 'utf-8');
-  console.log(`  Saved deutscheWohnen_list.json (${listData.results.length} listings)`);
+  await writeFile(path.join(FIXTURES_DIR, `${name}_list.json`), JSON.stringify(listData, null, 2), 'utf-8');
+  console.log(`  Saved ${name}_list.json (${listData.results.length} listings)`);
 
   const firstListing = listData.results?.[0];
   if (!firstListing?.slug) {
@@ -77,8 +90,8 @@ async function downloadDeutscheWohnenFixtures(apiUrl, refererUrl, fetchSearchTok
     return;
   }
 
-  const detailUrl = `https://www.deutsche-wohnen.com/mieten/mietangebote/${firstListing.slug}`;
-  console.log(`  Downloading deutscheWohnen detail (${firstListing.slug})...`);
+  const detailUrl = VONOVIA_PLATFORM_DETAIL_URL[name](firstListing.slug);
+  console.log(`  Downloading ${name} detail (${firstListing.slug})...`);
   const detailResponse = await fetch(detailUrl, {
     headers: {
       'User-Agent':
@@ -87,13 +100,13 @@ async function downloadDeutscheWohnenFixtures(apiUrl, refererUrl, fetchSearchTok
   });
 
   if (!detailResponse.ok) {
-    console.warn(`  Failed to download deutscheWohnen detail: ${detailResponse.statusText}`);
+    console.warn(`  Failed to download ${name} detail: ${detailResponse.statusText}`);
     return;
   }
 
   const detailHtml = await detailResponse.text();
-  await writeFile(path.join(FIXTURES_DIR, 'deutscheWohnen_detail.html'), detailHtml, 'utf-8');
-  console.log('  Saved deutscheWohnen_detail.html');
+  await writeFile(path.join(FIXTURES_DIR, `${name}_detail.html`), detailHtml, 'utf-8');
+  console.log(`  Saved ${name}_detail.html`);
 }
 
 /** A desktop browser, which is what both portals below answer fastest. */
@@ -388,6 +401,211 @@ async function downloadFlatfoxFixtures(url) {
   const listings = await listingResponse.json();
   await writeFile(path.join(FIXTURES_DIR, 'flatfox_listings.json'), JSON.stringify(listings, null, 2), 'utf-8');
   console.log('  Saved flatfox_listings.json');
+}
+
+/** The fields of a Boligsiden case the fixture keeps: what the provider reads, and a little context. */
+const BOLIGSIDEN_CASE_FIELDS = [
+  'addressType',
+  'caseID',
+  'caseUrl',
+  'coordinates',
+  'daysListed',
+  'daysOnMarket',
+  'defaultImage',
+  'descriptionBody',
+  'descriptionTitle',
+  'energyLabel',
+  'housingArea',
+  'numberOfRooms',
+  'priceCash',
+  'slug',
+  'slugAddress',
+  'status',
+  'yearBuilt',
+];
+
+/** The fields of a case's address the fixture keeps. */
+const BOLIGSIDEN_ADDRESS_FIELDS = ['cityName', 'coordinates', 'door', 'floor', 'houseNumber', 'roadName', 'zipCode'];
+
+/**
+ * BoligPortal's result page, read through the provider's own navigation, which waits out the
+ * Cloudflare challenge in front of it. Nothing is written when the page never arrives, so a blocked
+ * connection never replaces the fixture with the wall. Cloudflare may block a datacenter connection
+ * outright, so run this from a residential one.
+ *
+ * @param {string} url the search url from testProvider.json
+ * @param {Function} launchBrowser
+ * @param {Function} closeBrowser
+ * @returns {Promise<void>}
+ */
+async function downloadBoligportalFixtures(url, launchBrowser, closeBrowser) {
+  console.log('\nDownloading boligportal...');
+
+  const { fetchSearchHtml } = await import('../../lib/services/boligportal/boligportalSearch.js');
+  const browser = await launchBrowser(url, {});
+  try {
+    const html = await fetchSearchHtml(url, browser);
+    if (html == null) {
+      console.warn('  The browser did not get past the wall - boligportal.html not written');
+      return;
+    }
+    await writeFile(path.join(FIXTURES_DIR, 'boligportal.html'), html, 'utf-8');
+    console.log('  Saved boligportal.html');
+  } finally {
+    await closeBrowser(browser);
+  }
+}
+
+/**
+ * Boligsiden is one request against its JSON API, for the search the website URL translates to.
+ *
+ * A case is a large record - every building on the plot, earlier sales, the agent's contact sheet -
+ * so a dozen cases are recorded and each is cut down to the fields the provider reads.
+ *
+ * @param {string} url the search url from testProvider.json
+ * @returns {Promise<void>}
+ */
+async function downloadBoligsidenFixtures(url) {
+  console.log('\nDownloading boligsiden...');
+
+  const { toApiParams } = await import('../../lib/provider/boligsiden.js');
+  const { params, problem } = toApiParams(url);
+  if (params == null) {
+    console.warn(`  Cannot translate ${url}: ${problem}`);
+    return;
+  }
+  params.set('sortBy', 'daysListed');
+  params.set('sortAscending', 'true');
+  params.set('per_page', '12');
+  params.set('page', '1');
+
+  const response = await fetch(`https://api.boligsiden.dk/search/cases?${params}`, {
+    headers: { 'User-Agent': BROWSER_USER_AGENT, Accept: 'application/json' },
+  });
+  if (!response.ok) {
+    console.warn(`  Failed to download boligsiden cases: ${response.statusText}`);
+    return;
+  }
+
+  const body = await response.json();
+  const pick = (source, fields) =>
+    Object.fromEntries(fields.filter((key) => key in source).map((key) => [key, source[key]]));
+  const cases = (body.cases ?? []).map((entry) => ({
+    ...pick(entry, BOLIGSIDEN_CASE_FIELDS),
+    address: pick(entry.address ?? {}, BOLIGSIDEN_ADDRESS_FIELDS),
+  }));
+
+  await writeFile(
+    path.join(FIXTURES_DIR, 'boligsiden_cases.json'),
+    JSON.stringify({ cases, totalHits: body.totalHits }, null, 2),
+    'utf-8',
+  );
+  console.log(`  Saved boligsiden_cases.json (${cases.length} cases)`);
+}
+
+/** E-mail addresses and phone numbers, which private advertisers put into their descriptions. */
+const CONTACT_DETAILS = /[\w.+-]+@[\w-]+\.[\w.]+|\+?\d[\d ()/.-]{7,}\d/g;
+
+/**
+ * One SMG search result cut down to what the provider reads: the advertiser's own language block,
+ * with two pictures, and none of the branding around it. A private advert ends with whom to call,
+ * so the description keeps its first sentence only, without contact details.
+ *
+ * @param {any} entry
+ * @returns {any}
+ */
+function trimSmgEntry(entry) {
+  const listing = entry?.listing ?? {};
+  const primary = listing.localization?.primary;
+  const block = listing.localization?.[primary] ?? {};
+  const scrub = (value) => (typeof value === 'string' ? value.replace(CONTACT_DETAILS, '[…]') : value);
+  const firstSentence = (value) => (typeof value === 'string' ? value.split(/(?<=[.!?])\s/)[0].slice(0, 160) : value);
+  return {
+    id: entry.id,
+    listing: {
+      ...listing,
+      localization: {
+        primary,
+        [primary]: {
+          attachments: (block.attachments ?? []).filter((attachment) => attachment?.type === 'IMAGE').slice(0, 2),
+          text: { title: scrub(block.text?.title), description: scrub(firstSentence(block.text?.description)) },
+        },
+      },
+    },
+  };
+}
+
+/**
+ * Records an SMG portal's search (ImmoScout24.ch, Homegate) the way the offline suite replays it,
+ * with the place lookups and URL translations it needed.
+ *
+ * The API answers a request with its real values or a rewritten copy, at random, and the offline
+ * suite has to prove the provider keeps the first and drops the second. So both are recorded for the
+ * provider's own first-page request: the run is made through the provider, with `fetch` watched to
+ * keep the place lookups and the request body it sent, and the body is then asked again until one
+ * answer of each kind has come back.
+ *
+ * @param {string} name the provider id, which names the fixtures
+ * @param {import('../../lib/types/providerConfig.js').ProviderConfig} runConfig
+ * @returns {Promise<void>}
+ */
+async function downloadSmgFixtures(name, runConfig) {
+  console.log(`\nDownloading ${name}...`);
+
+  const { searchListings } = await import('../../lib/services/smg/api.js');
+  const { cheaperOf, judgeAnswer, HONEST } = await import('../../lib/services/smg/poison.js');
+
+  const recorded = { locations: {}, translations: {}, bodies: [] };
+  const realFetch = globalThis.fetch;
+  globalThis.fetch = async (url, init) => {
+    const response = await realFetch(url, init);
+    const asked = new URL(String(url));
+    if (asked.pathname === '/geo/locations' && response.ok) {
+      recorded.locations[`${asked.searchParams.get('lang')}|${asked.searchParams.get('name')}`] = await response
+        .clone()
+        .json();
+    } else if (asked.pathname === '/search/listings-by-url' && response.ok) {
+      // Only the query is read from a translation, so only the query is kept.
+      const { query } = await response.clone().json();
+      recorded.translations[JSON.parse(init.body).url] = { query, results: [] };
+    } else if (asked.pathname === '/search/listings') {
+      recorded.bodies.push(JSON.parse(init.body));
+    }
+    return response;
+  };
+  try {
+    await runConfig.getListings(runConfig.url);
+  } finally {
+    globalThis.fetch = realFetch;
+  }
+
+  const body = recorded.bodies.find((request) => request.from === 0);
+  if (body == null) {
+    console.warn(`  ${name} never asked for a search - nothing recorded`);
+    return;
+  }
+
+  let real = null;
+  let rewritten = null;
+  for (let attempt = 0; attempt < 40 && (real == null || rewritten == null); attempt++) {
+    const answer = await searchListings(body, name);
+    if (answer == null) continue;
+    if (judgeAnswer({ listings: answer.results, query: body.query }).verdict === HONEST) real ??= answer;
+    else if (real != null && cheaperOf(real.results, answer.results) === 'first') rewritten = answer;
+  }
+  if (real == null || rewritten == null) {
+    console.warn(`  Did not see both value sets of ${name}'s search - nothing recorded`);
+    return;
+  }
+
+  const trimmed = (answer) => ({ ...answer, results: answer.results.map(trimSmgEntry) });
+  const fixture = { request: body, real: trimmed(real), rewritten: trimmed(rewritten) };
+  await writeFile(path.join(FIXTURES_DIR, `${name}_search.json`), JSON.stringify(fixture, null, 2), 'utf-8');
+  console.log(`  Saved ${name}_search.json (${real.results.length} listings, both value sets)`);
+
+  const places = { locations: recorded.locations, translations: recorded.translations };
+  await writeFile(path.join(FIXTURES_DIR, `${name}_places.json`), JSON.stringify(places, null, 2), 'utf-8');
+  console.log(`  Saved ${name}_places.json`);
 }
 
 /**
@@ -988,7 +1206,8 @@ async function main() {
         await downloadImmoscoutFixtures(runConfig.url, name);
         break;
       case 'deutscheWohnen':
-        await downloadDeutscheWohnenFixtures(runConfig.url, cfg.url, provider.fetchSearchToken);
+      case 'vonovia':
+        await downloadVonoviaPlatformFixtures(name, runConfig.url, cfg.url, provider.fetchSearchToken);
         break;
       case 'immowelt':
       case 'seloger':
@@ -1008,6 +1227,16 @@ async function main() {
         break;
       case 'betterhomes':
         await downloadBetterhomesFixtures(runConfig.url);
+        break;
+      case 'boligsiden':
+        await downloadBoligsidenFixtures(runConfig.url);
+        break;
+      case 'boligportal':
+        await downloadBoligportalFixtures(runConfig.url, launchBrowser, closeBrowser);
+        break;
+      case 'immoscout24ch':
+      case 'homegate':
+        await downloadSmgFixtures(name, runConfig);
         break;
       case 'tecnocasa':
       case 'tecnorete':

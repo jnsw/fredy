@@ -7,7 +7,7 @@ platform into Fredy.
 > Always make sure the search results are sorted by **date**, so Fredy picks up the newest listings
 > first.
 
-## The 29 built-in providers
+## The 35 built-in providers
 
 **🇩🇪 Germany**
 
@@ -18,14 +18,16 @@ platform into Fredy.
 | Engel & Völkers | Immoscout | Regionalimmobilien24 |
 | IMAXX | Immowelt | Schwarzes Brett Bremen |
 | InBerlinWohnen | Kleinanzeigen | Sparkasse Immobilien |
-| McMakler | Wg gesucht | |
+| McMakler | Vonovia | Wg gesucht |
 
 **🇩🇪 Germany · 🇦🇹 Austria · 🇨🇭 Switzerland** · BETTERHOMES
 **🇦🇹 Austria** · willhaben · Immoscout Österreich
-**🇨🇭 Switzerland** · Flatfox
+**🇨🇭 Switzerland** · Homegate · ImmoScout24.ch · Flatfox
 **🇪🇸 Spain · 🇮🇹 Italy · 🇵🇹 Portugal** · idealista
 **🇮🇹 Italy** · Subito · Tecnocasa · Tecnorete · Casa.it
 **🇫🇷 France** · leboncoin · SeLoger · Bien'ici
+**🇧🇪 Belgium** · Immoweb
+**🇩🇰 Denmark** · Boligsiden · BoligPortal
 
 If you run a portal Fredy does not cover yet, contributions are very welcome, see
 [CONTRIBUTING.md](../CONTRIBUTING.md).
@@ -102,8 +104,46 @@ served by the German index under a German id, and the API states that page as th
 share link.
 
 **Switzerland is not covered by this provider.** `immoscout24.ch` belongs to a different company and
-runs a different platform, with no listings in this index at all. Switzerland is served by Flatfox
-and BETTERHOMES.
+runs a different platform, with no listings in this index at all. It has a provider of its own,
+ImmoScout24.ch, below.
+
+## ImmoScout24.ch
+
+The Swiss portal of Swiss Marketplace Group, unrelated to ImmoScout24 in Germany and Austria. Its
+website and its own API sit behind DataDome, so Fredy reads the SMG API the Homegate app uses, which
+serves ImmoScout24.ch's listings as well and needs **no browser**.
+
+Paste the search URL from `immoscout24.ch` as usual, for example
+`https://www.immoscout24.ch/de/wohnung/mieten/ort-zuerich?nrf=3&pt=3000`. Flats (`wohnung`, `flat`,
+...), houses (`haus`, `house`, ...) and the flats-and-houses category (`immobilien`, `real-estate`,
+...) are covered, to rent or to buy, in all four languages, for a town, a canton, a postcode or a
+district, or all of Switzerland. Rooms, living space, price, radius, object types (`pty`) and
+facilities (`an`) are translated; a filter Fredy has no translation for is dropped and named in the
+log, so the search then runs **wider** than you set it. Other property types (parking, commercial,
+furnished, ...) stop the job with a message. Paging and sorting are ignored: Fredy reads the 60 newest
+adverts itself.
+
+That API answers each request at random with the real listings or with a **rewritten copy** in which
+prices, rooms, living space and text are changed. Fredy checks every page before keeping it - a net
+rent proves an answer real, a row breaking your own filters proves it rewritten, and of two
+different answers the cheaper one is the real one - and asks again until it can tell. A page it
+cannot verify after fifteen tries is not stored; the log says
+`kept answering rewritten values ... left for the next run`, and the next run asks again.
+
+Rents are stored as the Nettomiete where the advert gives one, with the Nebenkosten as its charges,
+and as the Bruttomiete otherwise. Prices are in Swiss francs.
+
+## Homegate
+
+Switzerland's largest portal, run by the same group as ImmoScout24.ch and read the same way: through
+the SMG API its own app uses, in Homegate's index, with every page checked for rewritten values
+exactly as described above. No browser is needed.
+
+Paste the address of a result page, as your browser shows it after a search, for example
+`https://www.homegate.ch/mieten/wohnung/ort-zuerich/trefferliste?ah=3000`. The API translates
+Homegate URLs itself, so every filter the site offers is understood the way Homegate means it. A URL
+that is not a result page (no `/trefferliste`, `/matching-list`, `/liste-annonces` or `/lista-annunci`
+at the end) is refused, and the log says so. Listing links are written in the language of your URL.
 
 ## idealista
 
@@ -138,6 +178,18 @@ portal itself shows are its town's centre, so they are only used for an advert w
 A rent is stored as the Nettomiete, like every other provider's, because the affordability check
 adds the Nebenkosten itself; the Bruttomiete is only the fallback for an advert that states no net
 figure.
+
+## Vonovia & Deutsche Wohnen
+
+Germany's largest landlord and its subsidiary publish their flats on one platform, so the two
+providers are one implementation over two sites. Paste the address of a search from
+`vonovia.de/zuhause-finden/immobilien` or `deutsche-wohnen.com/mieten/mietangebote`: its results page
+fills itself from a JSON endpoint, which is what Fredy asks as well, so neither needs a browser for
+the search. A search larger than the 50 listings the endpoint hands out at once is read page by page.
+
+Both providers read rentals, and store the Kaltmiete. The full description comes from the listing's
+own page and leaves out the contact person's name, e-mail and phone number, which the page carries
+in fields of their own.
 
 ## leboncoin
 
@@ -208,6 +260,56 @@ Not supported: an area drawn on the map, a circle and a travel-time area. Bien'i
 own servers and the url carries nothing but an id, so the job stops and says so - search the town
 and narrow it down with Fredy's own map area filter instead. A place Bien'ici no longer knows stops
 the job too, rather than being searched as whatever its place lookup guesses instead.
+
+## Immoweb
+
+Belgium's largest property portal. Paste the address of a result page, which reads
+`https://www.immoweb.be/en/search/apartment/for-rent?countries=BE&page=1&orderBy=newest`; the
+French and Dutch versions (`/fr/`, `/nl/`) work the same way, and Fredy sorts by `orderBy=newest`
+itself. The page is read in Fredy's browser, so the proxy section below applies: Immoweb sits
+behind Cloudflare, which tends to refuse a datacenter IP.
+
+What Fredy reads is the result card: price, living space, bedrooms, locality and photo. The room
+count is the **number of bedrooms**, which is how Belgian adverts count, and a new-build project
+quoting ranges is stored with the low end of each. There is no detail enrichment and no price
+tracking for Immoweb yet. Addresses are geocoded in Belgium, and application letters are written in
+English, since Fredy ships no French or Dutch template.
+
+## Boligsiden
+
+Denmark's portal for homes for sale: it gathers the adverts of most Danish estate agents (EDC,
+Nybolig, home, danbolig, ...) in one search. Boligsiden has no rentals. The website sits behind a
+Cloudflare challenge, but its results come from a JSON API that answers plainly, so Fredy asks that
+API and needs **no browser**: one request per run, for the 50 newest cases.
+
+Paste the address of a result page, for example
+`https://www.boligsiden.dk/kommune/odense/tilsalg/ejerlejlighed?priceMax=3000000`. The filters in
+the query string (price, rooms, area, radius, ...) are passed on as they are, since the API speaks
+the same language. The path is translated for a municipality (`/kommune/...`), a postcode
+(`/postnummer/...`) or the whole country, and for the types villa, rækkehus, ejerlejlighed,
+andelsbolig and villalejlighed. A path naming anything else (a town, a district, a road, another
+type) stops the job with a message rather than searching all of Denmark. For those, paste a query
+on the API itself instead, which is passed on untouched:
+`https://api.boligsiden.dk/search/cases?addressTypes=villa,condo&zipCodes=5000&zipCodes=5200`.
+Several places are written as a repeated parameter there, never comma separated.
+
+Prices are in Danish kroner. Listings link to the estate agent's own page.
+
+## BoligPortal
+
+Denmark's largest rental portal, private landlords included. Paste the address of a result page as
+usual, for example `https://www.boligportal.dk/lejeboliger/hiller%C3%B8d/alle-v%C3%A6relser/?max_monthly_rent=15000`:
+every filter in its path and query string is used as it is. A sort you picked on the site and the
+page you copied it from are dropped, so Fredy always reads the newest adverts first, two result
+pages per run.
+
+BoligPortal sits behind Cloudflare, so this provider uses the browser and waits for the challenge to
+clear. A datacenter IP can be blocked outright; if runs end with
+`BoligPortal did not serve the page`, see the proxy section below and use a Danish residential IP.
+Each new advert's own page is read once for its full description, a few seconds apart.
+
+Rents are in Danish kroner and stored as advertised; running costs an advert states on top of the
+rent (heating, water a conto) are stored as its charges.
 
 ## Countries and the map
 

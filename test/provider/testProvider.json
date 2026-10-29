@@ -73,6 +73,10 @@
     "url": "https://www.deutsche-wohnen.com/mieten/mietangebote?rentType=miete&city=Berlin&immoType=wohnung",
     "enabled": true
   },
+  "vonovia": {
+    "url": "https://www.vonovia.de/zuhause-finden/immobilien?rentType=miete&city=Dresden&perimeter=5&immoType=wohnung",
+    "enabled": true
+  },
   "willhaben": {
     "url": "https://www.willhaben.at/iad/immobilien/mietwohnungen/wien",
     "enabled": true
@@ -117,6 +121,26 @@
   },
   "bienici": {
     "url": "https://www.bienici.com/recherche/location/paris-75000/appartement",
+    "enabled": true
+  },
+  "immoweb": {
+    "url": "https://www.immoweb.be/en/search/apartment/for-rent?countries=BE&page=1&orderBy=newest",
+    "enabled": true
+  },
+  "boligsiden": {
+    "url": "https://www.boligsiden.dk/postnummer/5000/tilsalg/villa,ejerlejlighed",
+    "enabled": true
+  },
+  "boligportal": {
+    "url": "https://www.boligportal.dk/lejeboliger/hiller%C3%B8d/alle-v%C3%A6relser/?max_monthly_rent=18424",
+    "enabled": true
+  },
+  "immoscout24ch": {
+    "url": "https://www.immoscout24.ch/de/wohnung/mieten/ort-chiasso?nrf=3.5&slf=80&pt=2000",
+    "enabled": true
+  },
+  "homegate": {
+    "url": "https://www.homegate.ch/affittare/appartamento/luogo-chiasso/lista-annunci?ac=3.5&ak=80&ah=2000",
     "enabled": true
   }
 }

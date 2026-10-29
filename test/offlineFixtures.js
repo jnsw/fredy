@@ -244,6 +244,15 @@ export async function readLeboncoinFixtures() {
   return raw ? JSON.parse(raw) : [];
 }
 
+/** The SMG API host both Swiss portals of that group are read through. */
+const SMG_API = 'https://api.re.swissmarketplace.group';
+
+/** The recorded search of each SMG portal, by the `platform` its query names. */
+const SMG_SEARCH_FIXTURES = { immoscout24: 'immoscout24ch_search.json', homegate: 'homegate_search.json' };
+
+/** The place lookups and URL translations each SMG portal's recording needed. */
+const SMG_PLACE_FIXTURES = ['immoscout24ch_places.json', 'homegate_places.json'];
+
 /** Hosts whose providers request their pages themselves instead of going through the extractor. */
 const FETCHED_PAGE_HOSTS = [
   'subito.it',
@@ -261,6 +270,18 @@ const IDEALISTA_LOCATIONS = /app\.idealista\.(it|com|pt)\/api\/3\.5\/(it|es|pt)\
 const IDEALISTA_SEARCH = /app\.idealista\.(it|com|pt)\/api\/3\.5\/(it|es|pt)\/search/;
 
 /**
+ * The sites on the Vonovia group's rental platform. Both ask the same token endpoint and answer the
+ * same way from a list endpoint of their own, so one handler serves each from its own recording.
+ */
+const VONOVIA_PLATFORM_HOSTS = ['www.deutsche-wohnen.com', 'www.vonovia.de'];
+
+/** Each platform site's list endpoint, with the recording that stands in for it. */
+const VONOVIA_PLATFORM_LISTS = {
+  'https://www.deutsche-wohnen.com/api/deuwo-real-estate/list': 'deutscheWohnen_list.json',
+  'https://www.vonovia.de/api/real-estate/list': 'vonovia_list.json',
+};
+
+/**
  * Returns a fetch replacement that intercepts immoscout mobile API calls and
  * serves pre-downloaded JSON fixtures. Throws for any other URL to prevent
  * accidental live network traffic in offline mode.
@@ -275,7 +296,8 @@ export function buildFetchMock() {
   const immoscoutListData = { de: null, at: null };
   const immoscoutDetailData = { de: null, at: null };
   let austrianExposeIds = null;
-  let deutscheWohnenListData = null;
+  /** @type {Object.<string, any>} the recorded list of each site on the Vonovia platform, by fixture */
+  const vonoviaPlatformListData = {};
   let willhabenHtml = null;
   let flatfoxPins = null;
   let flatfoxListings = null;
@@ -284,6 +306,13 @@ export function buildFetchMock() {
   let bieniciPlaces = null;
   let bieniciList = null;
   let bieniciDetail = null;
+  let boligsidenCases = null;
+  /** @type {{locations: Record<string, any>, translations: Record<string, any>}|null} */
+  let smgPlaces = null;
+  /** @type {Record<string, any>} the recorded SMG searches, by the platform they ran in */
+  const smgSearches = {};
+  /** @type {Record<string, number>} how often each platform's first page has been asked for */
+  const smgAsked = {};
 
   return async (url, init) => {
     const urlStr = String(url);
@@ -458,6 +487,62 @@ export function buildFetchMock() {
       return { ok: true, status: 200, json: () => Promise.resolve(bieniciDetail) };
     }
 
+    // The SMG API answers both Swiss portals from one host. A place lookup and a URL translation are
+    // answered with what was recorded for the same request; an unknown URL is refused the way the
+    // translator refuses one.
+    if (urlStr.startsWith(`${SMG_API}/geo/locations`) || urlStr === `${SMG_API}/search/listings-by-url`) {
+      if (smgPlaces == null) {
+        smgPlaces = { locations: {}, translations: {} };
+        for (const fixture of SMG_PLACE_FIXTURES) {
+          const recorded = JSON.parse((await tryReadFile(path.join(FIXTURES_DIR, fixture))) ?? '{}');
+          Object.assign(smgPlaces.locations, recorded.locations);
+          Object.assign(smgPlaces.translations, recorded.translations);
+        }
+      }
+      if (urlStr === `${SMG_API}/search/listings-by-url`) {
+        const translation = smgPlaces.translations[JSON.parse(init?.body ?? '{}').url];
+        return translation == null
+          ? { ok: false, status: 422, statusText: 'Unprocessable Entity', text: () => Promise.resolve('not a SRP uri') }
+          : { ok: true, status: 200, json: () => Promise.resolve(translation) };
+      }
+      const asked = new URL(urlStr).searchParams;
+      const found = smgPlaces.locations[`${asked.get('lang')}|${asked.get('name')}`] ?? { results: [] };
+      return { ok: true, status: 200, json: () => Promise.resolve(found) };
+    }
+
+    // The search answers with the real values or a rewritten copy, at random. The recording holds one
+    // of each, and the first page is served rewritten first and real after it, alternating, so every
+    // run has to tell them apart to get anywhere. Any later page is empty, which ends the walk.
+    if (urlStr === `${SMG_API}/search/listings`) {
+      const body = JSON.parse(init?.body ?? '{}');
+      const platform = body.query?.platform;
+      const fixture = SMG_SEARCH_FIXTURES[platform];
+      if (fixture == null) {
+        throw new Error(`No SMG search fixture for platform ${platform}`);
+      }
+      smgSearches[platform] ??= JSON.parse((await tryReadFile(path.join(FIXTURES_DIR, fixture))) ?? '{}');
+      const recorded = smgSearches[platform];
+      if (body.from !== 0) {
+        return {
+          ok: true,
+          status: 200,
+          json: () => Promise.resolve({ from: body.from, size: body.size, total: recorded.real.total, results: [] }),
+        };
+      }
+      smgAsked[platform] = (smgAsked[platform] ?? 0) + 1;
+      const answer = smgAsked[platform] % 2 === 1 ? recorded.rewritten : recorded.real;
+      return { ok: true, status: 200, json: () => Promise.resolve(answer) };
+    }
+
+    // Boligsiden is one request against its JSON API, whichever kind of URL the job carries.
+    if (urlStr.startsWith('https://api.boligsiden.dk/search/cases')) {
+      if (boligsidenCases == null) {
+        const raw = await tryReadFile(path.join(FIXTURES_DIR, 'boligsiden_cases.json'));
+        boligsidenCases = raw ? JSON.parse(raw) : { cases: [] };
+      }
+      return { ok: true, status: 200, json: () => Promise.resolve(boligsidenCases) };
+    }
+
     // The one thing in a search request that says which national site it belongs to is its
     // geocode: Austrian adverts live in the German index under `/at/...`, everything else is
     // Germany's own.
@@ -511,11 +596,12 @@ export function buildFetchMock() {
 
     // The token is minted per request and says nothing about the search, so like idealista's it is
     // not recorded: offline mode hands out one of its own.
-    if (urlStr.includes('deutsche-wohnen.com/api/real-estate/search-token')) {
+    if (VONOVIA_PLATFORM_HOSTS.some((host) => urlStr.startsWith(`https://${host}/api/real-estate/search-token`))) {
       return { ok: true, status: 200, json: () => Promise.resolve({ token: 'offline', ttl: 900 }) };
     }
 
-    if (urlStr.includes('deutsche-wohnen.com/api/deuwo-real-estate/list')) {
+    const vonoviaPlatformList = Object.keys(VONOVIA_PLATFORM_LISTS).find((endpoint) => urlStr.startsWith(endpoint));
+    if (vonoviaPlatformList != null) {
       // Refused the way the endpoint refuses it, so a provider that stops sending the token fails
       // here instead of passing against a recording that never asks for one.
       if (new Headers(init?.headers).get('X-VON-Search-Token') !== 'offline') {
@@ -526,20 +612,19 @@ export function buildFetchMock() {
           json: () => Promise.resolve({ error: 'Unauthorized' }),
         };
       }
-      if (!deutscheWohnenListData) {
-        const raw = await tryReadFile(path.join(FIXTURES_DIR, 'deutscheWohnen_list.json'));
-        deutscheWohnenListData = raw ? JSON.parse(raw) : { results: [] };
+      const fixture = VONOVIA_PLATFORM_LISTS[vonoviaPlatformList];
+      if (vonoviaPlatformListData[fixture] == null) {
+        const raw = await tryReadFile(path.join(FIXTURES_DIR, fixture));
+        vonoviaPlatformListData[fixture] = raw ? JSON.parse(raw) : { results: [] };
       }
+      const listData = vonoviaPlatformListData[fixture];
       // The endpoint caps a page at 50 and the provider walks the rest with `offset`, so serving
       // the whole fixture to every request would hand the same listings back on each page and
       // never let the walk end. Slicing is what makes the fixture behave like the endpoint.
       const params = new URL(urlStr).searchParams;
       const offset = Number.parseInt(params.get('offset') ?? '0', 10) || 0;
-      const limit = Number.parseInt(params.get('limit') ?? '', 10) || (deutscheWohnenListData.results ?? []).length;
-      const page = {
-        ...deutscheWohnenListData,
-        results: (deutscheWohnenListData.results ?? []).slice(offset, offset + limit),
-      };
+      const limit = Number.parseInt(params.get('limit') ?? '', 10) || (listData.results ?? []).length;
+      const page = { ...listData, results: (listData.results ?? []).slice(offset, offset + limit) };
       return { ok: true, status: 200, json: () => Promise.resolve(page) };
     }
 

@@ -27,6 +27,11 @@ const RECORDED_SEARCHES = [
     { min: 500, max: 1000 },
   ],
   [
+    'vonovia',
+    'https://www.vonovia.de/zuhause-finden/immobilien?rentType=miete&city=K%C3%B6ln&perimeter=5&immoType=wohnung&priceMin=500&priceMax=800',
+    { min: 500, max: 800 },
+  ],
+  [
     'engelVoelkers',
     'https://www.engelvoelkers.com/de/de/propertysearch?businessArea[]=residential&currency=EUR&page=1&placeName=Berlin%2C%20Deutschland&price.max=1000&price.min=500&propertyMarketingType[]=sale',
     { min: 500, max: 1000 },
@@ -144,6 +149,33 @@ const RECORDED_SEARCHES = [
     'https://www.seloger.com/classified-search?distributionTypes=Rent&estateTypes=Apartment&locations=AD08FR31096&priceMin=500&priceMax=1000',
     { min: 500, max: 1000 },
   ],
+  // Immoweb refuses connections that are not residential, so this band is written the way the
+  // site's price filter spells it rather than recorded.
+  [
+    'immoweb',
+    'https://www.immoweb.be/en/search/apartment/for-rent?countries=BE&minPrice=500&maxPrice=1000&page=1&orderBy=newest',
+    { min: 500, max: 1000 },
+  ],
+  // Boligsiden sells only, so this is a purchase band in kroner, as the site itself writes it. A
+  // query on its API spells the band the same way.
+  [
+    'boligsiden',
+    'https://www.boligsiden.dk/kommune/odense/tilsalg/ejerlejlighed?priceMax=3000000&priceMin=2100000&areaMin=1',
+    { min: 2100000, max: 3000000 },
+  ],
+  // Recorded with only a ceiling set. The floor's parameter is the filter's own name for it, but it
+  // has not been seen in a URL, so this records what has.
+  [
+    'boligportal',
+    'https://www.boligportal.dk/lejeboliger/hiller%C3%B8d/alle-v%C3%A6relser/?max_monthly_rent=18424',
+    { min: null, max: 18424 },
+  ],
+  // ImmoScout24.ch's website cannot be reached from a server to record one, so this is written the
+  // way its own web client writes a band; a bound may carry a unit letter (`2t` is 2000).
+  ['immoscout24ch', 'https://www.immoscout24.ch/de/wohnung/mieten/ort-zuerich?pf=500&pt=1t', { min: 500, max: 1000 }],
+  // Homegate's band is written the same way, with a pair of its own for a purchase (`ai`/`aj`); the
+  // API's own URL translator reads this one as monthlyRent 500 to 1000.
+  ['homegate', 'https://www.homegate.ch/mieten/wohnung/ort-zuerich/trefferliste?ag=500&ah=1t', { min: 500, max: 1000 }],
 ];
 
 /**

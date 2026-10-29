@@ -89,6 +89,18 @@ vi.mock('../lib/services/idealista/idealistaSearch.js', async (importOriginal) =
   return { fetchSearchHtml: async (url) => readFixture(url) };
 });
 
+// BoligPortal sits behind a Cloudflare challenge only a browser clears, so offline runs replace its
+// navigation with the recorded result page the same way. The selector constant is kept, since the
+// provider reads its data by it.
+vi.mock('../lib/services/boligportal/boligportalSearch.js', async (importOriginal) => {
+  const actual = await importOriginal();
+  if (process.env.TEST_MODE !== 'offline') {
+    return actual;
+  }
+  const { readFixture } = await import('./offlineFixtures.js');
+  return { ...actual, fetchSearchHtml: async (url) => readFixture(url) };
+});
+
 if (process.env.TEST_MODE === 'offline') {
   const { buildFetchMock } = await import('./offlineFixtures.js');
   vi.stubGlobal('fetch', buildFetchMock());

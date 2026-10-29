@@ -1,0 +1,191 @@
+<!--
+  Immoweb search results (English site, apartments for rent), as the extractor hands them over: the
+  inner html of <body> once the cards have rendered.
+
+  Not a recording. immoweb.be answers non-residential addresses with a Cloudflare block page, so this
+  page was rebuilt from the card markup the provider's selectors were written against on the live
+  site: the card list, the screen-reader price, the bedroom and living-space paragraph in its
+  abbreviated and its spelled-out form, the locality line and the photo in a background style. The
+  advert numbers, places and photos are made up. `yarn test:download-fixtures immoweb` replaces it
+  with a real page from a connection Immoweb serves.
+-->
+<div id="main-content" class="search-results">
+  <h1 class="search-results__title">Apartments for rent in Belgium</h1>
+  <ul class="search-results__list card-list">
+    <li class="card-list__item">
+      <article class="card card--list-classified" id="classified_21000101">
+        <div
+          class="card__media-container"
+          style="background-image: url(&quot;https://media-resize.immowebstatic.be/classifieds/fixture/21000101-1.jpg&quot;);"
+        ></div>
+        <div class="card__content">
+          <h2 class="card__title card--list-classified__title">
+            <a
+              class="card__title-link"
+              href="https://www.immoweb.be/en/classified/apartment/for-rent/ixelles/1050/21000101?searchId=6703c1f1e2b4a"
+            >
+              Apartment
+            </a>
+          </h2>
+          <p class="card--list-classified__price">
+            <span class="sr-only">1250€</span>
+            <span aria-hidden="true">€1,250</span>
+          </p>
+          <p class="card__information card--list-classified__information card__information--property">
+            <span class="abbreviation"><span aria-hidden="true">2 bdr.</span><span class="sr-only">2 bedrooms</span></span>
+            ·
+            78
+            <span class="abbreviation"><span aria-hidden="true">m²</span><span class="sr-only">square meters</span></span>
+          </p>
+          <p class="card__information card--list-classified__information card__information--locality">1050 Ixelles</p>
+        </div>
+      </article>
+    </li>
+    <li class="card-list__item">
+      <article class="card card--list-classified" id="classified_21000102">
+        <div
+          class="card__media-container"
+          style="background-image: url(https://media-resize.immowebstatic.be/classifieds/fixture/21000102-1.jpg);"
+        ></div>
+        <div class="card__content">
+          <h2 class="card__title card--list-classified__title">
+            <a
+              class="card__title-link"
+              href="https://www.immoweb.be/en/classified/villa/for-rent/uccle/1180/21000102?searchId=6703c1f1e2b4a"
+            >
+              Villa
+            </a>
+          </h2>
+          <p class="card--list-classified__price">
+            <span class="sr-only">9500€</span>
+            <span aria-hidden="true">€9,500</span>
+          </p>
+          <p class="card__information card--list-classified__information card__information--property">
+            <span class="abbreviation"><span aria-hidden="true">6 bdr.</span><span class="sr-only">6 bedrooms</span></span>
+            1,140
+            <span class="abbreviation"><span aria-hidden="true">m²</span><span class="sr-only">square meters</span></span>
+          </p>
+          <p class="card__information card--list-classified__information card__information--locality">1180 Uccle</p>
+        </div>
+      </article>
+    </li>
+    <li class="card-list__item card-list__item--ad">
+      <div class="advertising advertising--card" data-ad-slot="search-results-native-1"></div>
+    </li>
+    <li class="card-list__item">
+      <article class="card card--list-classified" id="classified_21000103">
+        <div
+          class="card__media-container"
+          style="background-image: url(&quot;https://media-resize.immowebstatic.be/classifieds/fixture/21000103-1.jpg&quot;);"
+        ></div>
+        <div class="card__content">
+          <h2 class="card__title card--list-classified__title">
+            <a
+              class="card__title-link"
+              href="https://www.immoweb.be/en/classified/duplex/for-rent/gent/9000/21000103?searchId=6703c1f1e2b4a"
+            >
+              Duplex
+            </a>
+          </h2>
+          <p class="card--list-classified__price">
+            <span class="sr-only">980€</span>
+            <span aria-hidden="true">€980</span>
+          </p>
+          <p class="card__information card--list-classified__information card__information--property">
+            <span class="abbreviation"><span aria-hidden="true">3 bdr.</span><span class="sr-only">3 bedrooms</span></span>
+          </p>
+          <p class="card__information card--list-classified__information card__information--locality">9000 Gent</p>
+        </div>
+      </article>
+    </li>
+    <li class="card-list__item">
+      <article class="card card--list-classified card--project" id="classified_21000104">
+        <div
+          class="card__media-container"
+          style="background-image: url(&quot;https://media-resize.immowebstatic.be/classifieds/fixture/21000104-1.jpg&quot;);"
+        ></div>
+        <div class="card__content">
+          <h2 class="card__title card--list-classified__title">
+            <a
+              class="card__title-link"
+              href="https://www.immoweb.be/en/classified/new-real-estate-project-apartments/for-rent/leuven/3000/21000104?searchId=6703c1f1e2b4a"
+            >
+              New real estate project - Apartments
+            </a>
+          </h2>
+          <p class="card--list-classified__price">
+            <span class="sr-only">From 1100€ to 1450€</span>
+            <span aria-hidden="true">€1,100 - €1,450</span>
+          </p>
+          <p class="card__information card--list-classified__information card__information--property">
+            <span class="sr-only">1</span> - <span class="sr-only">2 bedrooms</span>
+            55 - 90
+            <span class="abbreviation"><span aria-hidden="true">m²</span><span class="sr-only">square meters</span></span>
+          </p>
+          <p class="card__information card--list-classified__information card__information--locality">3000 Leuven</p>
+        </div>
+      </article>
+    </li>
+    <li class="card-list__item">
+      <article class="card card--list-classified" id="classified_21000105">
+        <div
+          class="card__media-container"
+          style="background-image: url(&quot;https://media-resize.immowebstatic.be/classifieds/fixture/21000105-1.jpg&quot;);"
+        ></div>
+        <div class="card__content">
+          <h2 class="card__title card--list-classified__title">
+            <a
+              class="card__title-link"
+              href="https://www.immoweb.be/en/classified/apartment/for-rent/antwerpen/2000/21000105?searchId=6703c1f1e2b4a"
+            >
+              Apartment
+            </a>
+          </h2>
+          <p class="card--list-classified__price">
+            <span class="sr-only">875€</span>
+            <span aria-hidden="true">€875</span>
+          </p>
+          <p class="card__information card--list-classified__information card__information--property">
+            <span class="abbreviation"><span aria-hidden="true">1 bdr.</span><span class="sr-only">1 bedroom</span></span>
+            ·
+            62
+            <span class="abbreviation"><span aria-hidden="true">m²</span><span class="sr-only">square meters</span></span>
+          </p>
+          <p class="card__information card--list-classified__information card__information--locality">2000 Antwerpen</p>
+        </div>
+      </article>
+    </li>
+    <li class="card-list__item">
+      <article class="card card--list-classified" id="classified_21000106">
+        <div
+          class="card__media-container"
+          style="background-image: url(&quot;https://media-resize.immowebstatic.be/classifieds/fixture/21000106-1.jpg&quot;);"
+        ></div>
+        <div class="card__content">
+          <h2 class="card__title card--list-classified__title">
+            <a
+              class="card__title-link"
+              href="https://www.immoweb.be/en/classified/ground-floor/for-rent/liege/4000/21000106?searchId=6703c1f1e2b4a"
+            >
+              Ground floor
+            </a>
+          </h2>
+          <p class="card--list-classified__price">
+            <span class="sr-only">795€</span>
+            <span aria-hidden="true">€795</span>
+          </p>
+          <p class="card__information card--list-classified__information card__information--property">
+            <span class="abbreviation"><span aria-hidden="true">2 bdr.</span><span class="sr-only">2 bedrooms</span></span>
+            ·
+            85
+            <span class="abbreviation"><span aria-hidden="true">m²</span><span class="sr-only">square meters</span></span>
+          </p>
+          <p class="card__information card--list-classified__information card__information--locality">4000 Liège</p>
+        </div>
+      </article>
+    </li>
+  </ul>
+  <nav class="pagination" aria-label="Pagination">
+    <a class="pagination__link pagination__link--next" href="https://www.immoweb.be/en/search/apartment/for-rent?countries=BE&amp;page=2&amp;orderBy=newest">Next</a>
+  </nav>
+</div>
