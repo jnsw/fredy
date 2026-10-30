@@ -5,6 +5,7 @@
 
 import { parseCommuteFilter } from '../../components/transit/travelTimeFormat.js';
 import { parseNullableBoolean, parseNumber, parseString } from '../../hooks/useSearchParamState.js';
+import { AI_VERDICT_FILTER_VALUES } from './aiVerdict.js';
 
 /**
  * What the listings overview is filtered by, and how to say it out loud.
@@ -33,6 +34,7 @@ export const NEUTRAL = {
   active: null,
   provider: null,
   status: null,
+  ai: null,
   afford: null,
   commute: null,
   down: null,
@@ -60,6 +62,7 @@ export const FILTER_URL_STATE = {
   active: { defaultValue: true, codec: parseNullableBoolean },
   provider: { defaultValue: null, codec: parseString },
   status: { defaultValue: null, codec: parseString },
+  ai: { defaultValue: null, codec: parseString },
   afford: { defaultValue: null, codec: parseString },
   // Mode and ceiling in one key, as `transit:30`. Two keys would let a bookmarked URL carry half a
   // filter, which the server would then have to guess the other half of.
@@ -88,6 +91,7 @@ export const FILTER_KEYS = [
   'active',
   'watch',
   'status',
+  'ai',
   'afford',
   'commute',
   'down',
@@ -225,6 +229,7 @@ export function toListingsQuery(values) {
       activityFilter: isHiddenView ? null : values.active,
       providerFilter: values.provider,
       statusFilter: values.status,
+      aiVerdictFilter: values.ai,
       // The server turns this into a price range from the saved profile; it ignores the
       // filter entirely when there is no profile to derive one from.
       affordabilityFilter: values.afford,
@@ -266,6 +271,8 @@ export function describeActiveFilters(values, { t, jobs = [], providers = [] }) 
         accepted: t('listings.filterStatusAccepted'),
         none: t('listings.filterStatusNone'),
       })[values.status] ?? values.status,
+    ai: () =>
+      AI_VERDICT_FILTER_VALUES.includes(values.ai) ? t(`listings.filterAiVerdict.${values.ai}`) : String(values.ai),
     afford: () =>
       ({
         affordable: t('listings.filterAffordabilityYes'),

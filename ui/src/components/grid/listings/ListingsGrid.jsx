@@ -4,6 +4,7 @@
  */
 
 import { Link } from 'react-router';
+import { Checkbox } from '@douyinfe/semi-ui-19';
 import { IconBriefcase, IconMapPin, IconPaperclip } from '@douyinfe/semi-icons';
 import no_image from '../../../assets/no_image.png';
 import { formatPrice } from '../../../services/price/priceService.js';
@@ -14,6 +15,8 @@ import { rentIncludesCharges } from '../../../services/finance/rentBasis.js';
 import PriceChangeBadge from '../../listings/PriceChangeBadge.jsx';
 import PricePerSqmBadge from '../../listings/PricePerSqmBadge.jsx';
 import ScamBadge from '../../listings/ScamBadge.jsx';
+import AiVerdictBadge from '../../listings/AiVerdictBadge.jsx';
+import { aiVerdictOf } from '../../../services/listings/aiVerdict.js';
 import WatchToggle from '../../listings/WatchToggle.jsx';
 import ListingActions from '../../listings/ListingActions.jsx';
 import CommuteBadge from '../../transit/CommuteBadge.jsx';
@@ -22,7 +25,9 @@ import './ListingsGrid.less';
 import { useTranslation, useLocale } from '../../../services/i18n/i18n.jsx';
 
 /**
- * @param {{ listings: object[], onWatch: Function, onNavigate: Function, onDelete: Function, onRestore?: Function, onReactivate?: Function, isHiddenView?: boolean, onStatusChange: Function, onApplication?: Function }} props
+ * @param {{ listings: object[], onWatch: Function, onNavigate: Function, onDelete: Function, onRestore?: Function, onReactivate?: Function, isHiddenView?: boolean, onStatusChange: Function, onApplication?: Function, selection?: {isSelected: (id: string) => boolean, onToggle: (id: string) => void}|null }} props
+ *   `selection` adds a tick box to every card, for rating listings with the user's own AI key. Null
+ *   (the default) for everybody without a key, whose cards stay as they were.
  */
 const ListingsGrid = ({
   listings,
@@ -34,6 +39,7 @@ const ListingsGrid = ({
   isHiddenView = false,
   onStatusChange,
   onApplication,
+  selection = null,
 }) => {
   const t = useTranslation();
   const locale = useLocale();
@@ -104,6 +110,14 @@ const ListingsGrid = ({
               </div>
             )}
 
+            {/* A line of its own, and only on rated listings: an unrated card keeps the height it
+                always had. */}
+            {aiVerdictOf(item) != null && (
+              <div className="listingsGrid__card__ai">
+                <AiVerdictBadge listing={item} />
+              </div>
+            )}
+
             {item.address && (
               <div className="listingsGrid__card__meta">
                 <IconMapPin />
@@ -151,6 +165,14 @@ const ListingsGrid = ({
 
           {/* One place that stops the click, instead of one call per button inside. */}
           <div className="listingsGrid__card__actions" onClick={(e) => e.stopPropagation()}>
+            {selection != null && (
+              <Checkbox
+                className="aiRatingSelect"
+                checked={selection.isSelected(item.id)}
+                onChange={() => selection.onToggle(item.id)}
+                aria-label={t('listings.aiRateSelectListing', { title: item.title ?? '' })}
+              />
+            )}
             <ListingActions
               listing={item}
               density="card"

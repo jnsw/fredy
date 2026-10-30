@@ -19,6 +19,7 @@ import {
 } from '../../ui/src/components/connectivity/connectivityFormat.js';
 import { PLACE_CATEGORIES } from '../../ui/src/services/travelTime/placeCategories.js';
 import { SCAM_SIGNALS } from '../../ui/src/services/listings/scamSignals.js';
+import { AI_VERDICT_VALUES, AI_VERDICT_FILTER_VALUES } from '../../ui/src/services/listings/aiVerdict.js';
 import { PLACEHOLDERS, FLAG_PLACEHOLDERS } from '../../lib/services/application/placeholders.js';
 import { TEMPLATE_LANGUAGES } from '../../lib/services/application/templates/index.js';
 import { TOUR_STEPS, stepBodyKey, stepTitleKey } from '../../ui/src/services/tour/tourSteps.js';
@@ -146,6 +147,10 @@ const COMPUTED_KEYS = [
   // signal to the detector is what adds the assertion here, and a missing entry paints the raw key
   // into the warning panel where the reason should be.
   ...SCAM_SIGNALS.map((signal) => `listings.scamSignal.${signal}`),
+  // The AI verdict badge and the filter options are built from the verdict list, so a fourth verdict
+  // is what adds the assertion - and a missing label would paint the raw key into the chip.
+  ...AI_VERDICT_VALUES.map((verdict) => `listings.aiVerdict.${verdict}`),
+  ...AI_VERDICT_FILTER_VALUES.map((verdict) => `listings.filterAiVerdict.${verdict}`),
   // The place types a travel time can be measured to. Built from the list rather than written out,
   // so adding a category is what adds the assertion - an unnamed one would otherwise reach the
   // dropdown in the travel time settings as the raw key next to its icon.

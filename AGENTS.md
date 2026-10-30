@@ -122,6 +122,7 @@ An adapter *configuration* is separate from the adapter itself: it is a row in `
 | Migrations | `lib/services/storage/migrations/` | Numbered JS files each exporting `up(db)`; checksum-tracked in `schema_migrations` |
 | Extractor | `lib/services/extractor/` | Orchestrates Puppeteer + Cheerio; shared browser instance per job |
 | Listing documents | `lib/services/storage/listingAttachmentsStorage.js` | Uploaded exposés (`listing_attachments`), bytes and all. Type and filename guards in `lib/services/listings/attachmentTypes.js`; routes in `lib/api/routes/listingAttachmentsRouter.js` |
+| AI rating | `lib/services/ai/` | Rates listings GOOD/MAYBE/BAD with each user's own key (Anthropic SDK or an OpenAI-compatible server). One non-agentic call with structured output; key in `ai_rating_settings`, write-only. Background sweep after job runs (`crons/ai-rating-cron.js`), bounded per run, per day and per listing |
 
 ### Uploaded documents live in the database
 
@@ -244,7 +245,7 @@ Two transports:
 2. **HTTP** (`/api/mcp`) - authenticated via Bearer token (`mcp_token` column in `users` table)
 
 Read tools: `list_jobs`, `get_job`, `list_listings`, `get_listing`, `get_photo_for_listing`, `calculate_financing`, `get_current_date_time`.
-Write tools: `add_listing_note`, `set_listing_notes`, `watch_listing`, `unwatch_listing`, and the four that create a job.
+Write tools: `add_listing_note`, `set_listing_notes`, `set_listing_ai_verdict`, `watch_listing`, `unwatch_listing`, and the four that create a job.
 Responses are Markdown via `lib/mcp/mcpNormalizer.js`.
 
 Job creation is a draft-based interview, not a single call: `lib/mcp/jobDraftStore.js` holds the state (in memory, per user, 30 min) and computes the next question; `lib/mcp/jobDraftContext.js` is the only part that reads the database and is what strips channel secrets. Write tools go through `authenticateWriteToolCall`, which also enforces the `mcp:write` OAuth scope and refuses non-admins while demo mode is on.

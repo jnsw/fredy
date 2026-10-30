@@ -3,7 +3,15 @@
  * Licensed under Apache-2.0 with Commons Clause and Attribution/Naming Clause
  */
 
-import { IconHome, IconMapPin, IconListView, IconBell, IconKey, IconMail } from '@douyinfe/semi-icons';
+import {
+  IconHome,
+  IconMapPin,
+  IconListView,
+  IconBell,
+  IconKey,
+  IconMail,
+  IconAIStrokedLevel1,
+} from '@douyinfe/semi-icons';
 
 import ScopeBadge from '../../components/scopeBadge/ScopeBadge.jsx';
 import SettingsShell from '../../components/settingsShell/SettingsShell.jsx';
@@ -33,6 +41,7 @@ export default function SettingsLayout() {
     { path: '/settings/travel-time', label: t('settings.tabTravelTime'), icon: <IconMapPin size="small" /> },
     { path: '/settings/listings', label: t('settings.tabListingDetails'), icon: <IconListView size="small" /> },
     { path: '/settings/application', label: t('settings.tabApplication'), icon: <IconMail size="small" /> },
+    { path: '/settings/ai-rating', label: t('settings.tabAiRating'), icon: <IconAIStrokedLevel1 size="small" /> },
     { path: '/settings/notifications', label: t('settings.tabNotifications'), icon: <IconBell size="small" /> },
     { path: '/settings/connections', label: t('settings.tabConnections'), icon: <IconKey size="small" /> },
   ];

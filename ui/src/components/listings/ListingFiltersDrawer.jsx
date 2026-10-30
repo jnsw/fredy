@@ -27,9 +27,19 @@ import { affordabilityFilterHelp } from '../../services/finance/rentBasis.js';
  * @param {Object} props.values The full URL state.
  * @param {(patch: Object) => void} props.onChange Applies a URL patch.
  * @param {string[]|null} [props.availableProviders] Providers that have results, to narrow the list.
+ * @param {boolean} [props.aiFilterAvailable=false] Whether to offer the AI verdict filter. Only the
+ *   overview knows whether the user rates listings or the page shows rated ones; the map leaves it
+ *   off, and a verdict filter carried over from the overview stays visible as a chip there.
  * @returns {React.ReactElement}
  */
-export default function ListingFiltersDrawer({ visible, onClose, values, onChange, availableProviders = null }) {
+export default function ListingFiltersDrawer({
+  visible,
+  onClose,
+  values,
+  onChange,
+  availableProviders = null,
+  aiFilterAvailable = false,
+}) {
   const t = useTranslation();
   const locale = useLocale();
   const actions = useActions();
@@ -67,6 +77,7 @@ export default function ListingFiltersDrawer({ visible, onClose, values, onChang
       financeComplete={financeComplete}
       affordabilityHelp={affordabilityHelp}
       hasAddresses={hasAddresses}
+      aiFilterAvailable={aiFilterAvailable}
       connectivityEnabled={generalSettings?.connectivityEnabled === true}
       onAffordabilityUsed={() => actions.tracking.trackPoi(pois.FINANCE_AFFORDABILITY_FILTER_USED)}
       onConnectivityFilterUsed={(kind) =>

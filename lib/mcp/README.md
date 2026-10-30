@@ -46,6 +46,7 @@ These change something. Each is annotated so a client can warn before calling it
 |------|-------------|-------------|
 | `add_listing_note` | Append a note to a listing, keeping what is already there | no |
 | `set_listing_notes` | Replace a listing's notes outright; an empty string clears them | **yes** |
+| `set_listing_ai_verdict` | Rate a listing GOOD, MAYBE or BAD with a short reasoning; `none` clears it | no |
 | `watch_listing` | Put a listing on the watchlist. Repeating it is not an error | no |
 | `unwatch_listing` | Take it off again. Repeating it is not an error | no |
 | `start_job_draft` | Begin the interview that creates a search job | no |
@@ -53,7 +54,7 @@ These change something. Each is annotated so a client can warn before calling it
 | `create_job_from_draft` | Create the job, once the user has confirmed the summary | no |
 | `discard_job_draft` | Throw the interview away | no |
 
-Only `set_listing_notes` is marked destructive, and the rule is narrow on purpose: destructive means *this can overwrite or delete something the user wrote*. A watch flag and an in-memory draft are neither, and marking them destructive would train people to click straight through the prompt that guards the one that is.
+Only `set_listing_notes` is marked destructive, and the rule is narrow on purpose: destructive means *this can overwrite or delete something the user wrote*. A watch flag, an AI verdict and an in-memory draft are none of that, and marking them destructive would train people to click straight through the prompt that guards the one that is.
 
 Two note tools rather than one with a `mode` parameter, because the annotations are per tool: a single tool would have to be marked destructive, and Claude.ai would then confirm every harmless append.
 
@@ -111,13 +112,16 @@ Response: markdown table with columns ID, Name, Enabled, Active Listings. Includ
 - `maxPrice` (number, optional) - Only include listings with price <= this value (e.g. `1500`). Numeric, no currency symbol.
 - `sortField` (string, optional) - Sort by: created_at, price, size, provider, title, is_active
 - `sortDir` (string, optional) - Sort direction: asc or desc
+- `aiVerdict` (string, optional) - `good`, `maybe` or `bad` for listings rated that way, `none` for listings nobody has rated yet
 
-Response: markdown table with columns ID, Title, Address, Price, Size, Provider, Active, Created, Job. Includes summary and pagination info. Use `get_listing` for full details.
+Response: markdown table with columns ID, Title, Address, Price, Size, Provider, Active, AI, Created, Job. Includes summary and pagination info. Use `get_listing` for full details.
 
 > **Note:** All timestamps are **unix timestamps in milliseconds** (e.g. `1772008362564`), not seconds.
 
 #### get_listing
 - `listingId` (string, required) - The listing ID to retrieve
+
+The answer includes the AI verdict, its reasoning, and which model rated the listing when - see [AI rating](../../doc/ai-rating.md).
 
 #### calculate_financing
 Prices up a property as a German Annuitätendarlehen and judges it against the 35 % rule.

@@ -4,6 +4,7 @@
  */
 
 import { Link } from 'react-router';
+import { Checkbox } from '@douyinfe/semi-ui-19';
 import { IconMapPin } from '@douyinfe/semi-icons';
 import no_image from '../../assets/no_image.png';
 import { formatPrice } from '../../services/price/priceService.js';
@@ -14,6 +15,8 @@ import { rentIncludesCharges } from '../../services/finance/rentBasis.js';
 import PriceChangeBadge from '../listings/PriceChangeBadge.jsx';
 import PricePerSqmBadge from '../listings/PricePerSqmBadge.jsx';
 import ScamBadge from '../listings/ScamBadge.jsx';
+import AiVerdictBadge from '../listings/AiVerdictBadge.jsx';
+import { aiVerdictOf } from '../../services/listings/aiVerdict.js';
 import WatchToggle from '../listings/WatchToggle.jsx';
 import ListingActions from '../listings/ListingActions.jsx';
 import CommuteBadge from '../transit/CommuteBadge.jsx';
@@ -22,7 +25,8 @@ import './ListingsTable.less';
 import { useTranslation, useLocale } from '../../services/i18n/i18n.jsx';
 
 /**
- * @param {{ listings: object[], onWatch: Function, onNavigate: Function, onDelete: Function, onRestore?: Function, onReactivate?: Function, isHiddenView?: boolean, onStatusChange: Function, onApplication?: Function }} props
+ * @param {{ listings: object[], onWatch: Function, onNavigate: Function, onDelete: Function, onRestore?: Function, onReactivate?: Function, isHiddenView?: boolean, onStatusChange: Function, onApplication?: Function, selection?: {isSelected: (id: string) => boolean, onToggle: (id: string) => void}|null }} props
+ *   `selection` adds a tick box to every row, for rating listings with the user's own AI key.
  */
 const ListingsTable = ({
   listings,
@@ -34,6 +38,7 @@ const ListingsTable = ({
   isHiddenView = false,
   onStatusChange,
   onApplication,
+  selection = null,
 }) => {
   const t = useTranslation();
   const locale = useLocale();
@@ -89,9 +94,13 @@ const ListingsTable = ({
             )}
             {/* Under the headline rather than in front of it. In front, the badge had to give up
                 its word to leave room for the title, and a warning without a word is a shape. */}
-            {(!item.is_active || item.scam_signals?.length > 0 || item.scam_override != null) && (
+            {(!item.is_active ||
+              item.scam_signals?.length > 0 ||
+              item.scam_override != null ||
+              aiVerdictOf(item) != null) && (
               <div className="listingsTable__row__flags">
                 <ScamBadge listing={item} />
+                <AiVerdictBadge listing={item} />
                 {!item.is_active && <span className="listingsTable__row__inactive">{t('listings.cardInactive')}</span>}
               </div>
             )}
@@ -160,6 +169,14 @@ const ListingsTable = ({
 
           {/* One place that stops the click, instead of one call per button inside. */}
           <div className="listingsTable__row__actions" onClick={(e) => e.stopPropagation()}>
+            {selection != null && (
+              <Checkbox
+                className="aiRatingSelect"
+                checked={selection.isSelected(item.id)}
+                onChange={() => selection.onToggle(item.id)}
+                aria-label={t('listings.aiRateSelectListing', { title: item.title ?? '' })}
+              />
+            )}
             <WatchToggle listing={item} onWatch={onWatch} variant="inline" />
             <ListingActions
               listing={item}
