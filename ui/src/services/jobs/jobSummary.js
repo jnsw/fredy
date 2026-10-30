@@ -23,8 +23,10 @@ import { countCommuteLimits } from './commuteFilter.js';
  *
  * @param {Object} job
  * @param {string[]} [job.blacklist]
- * @param {{maxPrice?: number, minSize?: number, minRooms?: number,
+ * @param {{maxPrice?: number, minSize?: number, minRooms?: number, minGrossYield?: number,
  *   moveInEarliest?: string, moveInLatest?: string}|null} [job.specFilter]
+ * @param {('rent'|'buy'|null)} [job.dealType] The minimum yield is only reported for a purchase job,
+ *   because that is the only kind the pipeline applies it to.
  * @param {Object|null} [job.spatialFilter]
  * @param {{action?: string, limits?: Record<string, number>}|null} [job.commuteFilter]
  * @param {Object} context
@@ -61,6 +63,9 @@ export function describeJobRefinements(job, { t, formatPrice, formatDate = (isoD
     parts.push(t('jobs.mutation.summaryMoveInFrom', { date: formatDate(moveInFrom) }));
   } else if (moveInUntil != null) {
     parts.push(t('jobs.mutation.summaryMoveInUntil', { date: formatDate(moveInUntil) }));
+  }
+  if (spec.minGrossYield != null && job?.dealType === 'buy') {
+    parts.push(t('jobs.mutation.summaryMinGrossYield', { value: spec.minGrossYield }));
   }
   if ((job?.blacklist?.length ?? 0) > 0) {
     parts.push(t('jobs.mutation.summaryBlacklist', { count: job.blacklist.length }));

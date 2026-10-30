@@ -11,6 +11,7 @@ import {
   buildObjectFacts,
   buildOriginFacts,
   buildRentFacts,
+  buildYieldFacts,
   providerName,
 } from '../../ui/src/views/listings/listingFacts.js';
 import { formatPricePerSqm } from '../../ui/src/services/listings/marketBenchmark.js';
@@ -281,6 +282,72 @@ describe('buildRentFacts', () => {
         .map((text) => text.replace(/\(.*$/, ''));
       for (const key of keys) {
         expect(english).toHaveProperty([key]);
+      }
+    }
+  });
+});
+
+describe('buildYieldFacts', () => {
+  const english = JSON.parse(fs.readFileSync(path.resolve('ui/src/locales/en.json'), 'utf8'));
+  const yieldCtx = { t, locale: 'de-DE', formatEuro: (value) => `${value} EUR` };
+
+  /** As GET /api/listings/:id attaches it to a 60 m² flat for 200.000 EUR. */
+  const estimated = {
+    coldRent: { monthly: 600, perSqm: 10, source: 'estimate', sampleSize: 12, radiusKm: 5 },
+    grossYield: 3.6,
+    netYield: 2.6,
+    priceFactor: 27.8,
+    closingCostsPct: 11.57,
+    bundesland: 'NW',
+    nonAllocableCostPct: 20,
+  };
+  const entered = {
+    ...estimated,
+    coldRent: { monthly: 900, perSqm: 15, source: 'override', sampleSize: null, radiusKm: null },
+    grossYield: 5.4,
+  };
+
+  it('leads with the gross yield and lists the net yield, the Kaufpreisfaktor and the rent', () => {
+    const { facts } = buildYieldFacts(estimated, yieldCtx);
+
+    expect(facts.map((fact) => [fact.label, fact.value, fact.note ?? null])).toEqual([
+      ['listing.detail.yieldGross', '3,6 %', null],
+      ['listing.detail.yieldNet', '2,6 %', null],
+      ['listing.detail.yieldPriceFactor', '27,8', null],
+      ['listing.detail.yieldColdRentEstimated', '600 EUR', formatPricePerSqm(10, 'de-DE')],
+    ]);
+    expect(facts.filter((fact) => fact.emphasis).map((fact) => fact.id)).toEqual(['gross']);
+  });
+
+  // Never a bare number: the reader is told the rent is a median of rentals, and how many.
+  it('says where an estimated rent came from', () => {
+    expect(buildYieldFacts(estimated, yieldCtx).source).toBe('listing.detail.yieldSourceEstimate(count=12,radius=5)');
+  });
+
+  it('labels a rent the user entered as theirs', () => {
+    const { facts, source } = buildYieldFacts(entered, yieldCtx);
+
+    expect(facts.find((fact) => fact.id === 'coldRent').label).toBe('listing.detail.yieldColdRentOverride');
+    expect(facts.find((fact) => fact.id === 'gross').value).toBe('5,4 %');
+    expect(source).toBe('listing.detail.yieldSourceOverride');
+  });
+
+  it('names the assumptions behind the net yield', () => {
+    expect(buildYieldFacts(estimated, yieldCtx).footnote).toBe(
+      'listing.detail.yieldFootnote(nonAllocable=20,closingCosts=11,57,bundesland=NW)',
+    );
+  });
+
+  it('has nothing to show without a yield, so the card can say why instead', () => {
+    expect(buildYieldFacts(null, yieldCtx)).toBeNull();
+    expect(buildYieldFacts(undefined, yieldCtx)).toBeNull();
+  });
+
+  it('has every label, source and footnote in english', () => {
+    for (const rentalYield of [estimated, entered]) {
+      const { facts, source, footnote } = buildYieldFacts(rentalYield, yieldCtx);
+      for (const text of [...facts.map((fact) => fact.label), source, footnote]) {
+        expect(english).toHaveProperty([text.replace(/\(.*$/, '')]);
       }
     }
   });

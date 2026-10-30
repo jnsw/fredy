@@ -77,10 +77,13 @@ export default function JobMutator() {
   const t = useTranslation();
   const locale = useLocale();
 
+  // `dealType` limits a filter to jobs of that kind. The minimum yield only means something for a
+  // purchase, and the pipeline ignores it on a rent job, so the form does not offer it there.
   const SPEC_FILTERS = [
     { key: 'maxPrice', translation: t('jobs.mutation.filterMaxPrice') },
     { key: 'minSize', translation: t('jobs.mutation.filterMinSize') },
     { key: 'minRooms', translation: t('jobs.mutation.filterMinRooms') },
+    { key: 'minGrossYield', translation: t('jobs.mutation.filterMinGrossYield'), dealType: 'buy' },
   ];
 
   // Stored as `YYYY-MM-DD`, the form the pipeline compares against the date a portal states.
@@ -390,7 +393,7 @@ export default function JobMutator() {
 
   // What the collapsed section holds, so it does not have to be opened to find out.
   const refinementSummary = summariseJobRefinements(
-    { blacklist, specFilter, spatialFilter, commuteFilter },
+    { blacklist, specFilter, spatialFilter, commuteFilter, dealType },
     {
       t,
       formatPrice: (value) => formatPriceInCurrencies(value, locale, jobCurrencies),
@@ -739,18 +742,20 @@ export default function JobMutator() {
               helpMode="popover"
             >
               <div className="jobMutation__specFilter">
-                {SPEC_FILTERS.map((filter) => (
-                  <div key={filter.key} className="jobMutation__specFilterItem">
-                    <div className="jobMutation__specFilterLabel">{filter.translation}</div>
-                    <Input
-                      type="number"
-                      placeholder={t('jobs.mutation.criteriaNumberPlaceholder')}
-                      value={specFilter?.[filter.key]}
-                      onChange={(value) => handleSpecFilterChange(filter.key, value)}
-                      suffix={filter.key === 'maxPrice' ? jobCurrencies.join(' / ') : undefined}
-                    />
-                  </div>
-                ))}
+                {SPEC_FILTERS.filter((filter) => filter.dealType == null || filter.dealType === dealType).map(
+                  (filter) => (
+                    <div key={filter.key} className="jobMutation__specFilterItem">
+                      <div className="jobMutation__specFilterLabel">{filter.translation}</div>
+                      <Input
+                        type="number"
+                        placeholder={t('jobs.mutation.criteriaNumberPlaceholder')}
+                        value={specFilter?.[filter.key]}
+                        onChange={(value) => handleSpecFilterChange(filter.key, value)}
+                        suffix={filter.key === 'maxPrice' ? jobCurrencies.join(' / ') : undefined}
+                      />
+                    </div>
+                  ),
+                )}
                 {MOVE_IN_FILTERS.map((filter) => (
                   <div key={filter.key} className="jobMutation__specFilterItem">
                     <div className="jobMutation__specFilterLabel">{filter.translation}</div>
@@ -781,6 +786,11 @@ export default function JobMutator() {
                 {t('jobs.mutation.filterMoveInDateRequired')}
               </Checkbox>
               <p className="jobMutation__specFilterNote">{t('jobs.mutation.moveInHelp')}</p>
+              {/* Said where the field is, not only behind the help icon: what happens to a listing
+                  the yield cannot be estimated for decides whether this filter is safe to set. */}
+              {dealType === 'buy' && (
+                <p className="jobMutation__specFilterHint">{t('jobs.mutation.filterMinGrossYieldHint')}</p>
+              )}
             </SegmentPart>
 
             {/* After the price and size criteria and before the blacklist: it is the same kind of

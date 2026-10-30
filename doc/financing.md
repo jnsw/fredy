@@ -41,6 +41,34 @@ opposite ends, so editing one rewrites the other and you can enter whichever fig
 term is calculated at a constant Sollzins. Fredy does not guess what a follow-up loan will cost
 after the Zinsbindung, it reports the Restschuld instead.
 
+## Rental yield (buying jobs)
+
+A listing found by a buying job also gets an estimate of what it would earn if you let it out, on a
+**Mietrendite (Schätzung)** card on its detail page:
+
+- **gross yield**: a year of cold rent over the purchase price
+- **net yield**: that rent less a flat 20 % for costs an owner cannot pass on to the tenant
+  (management, maintenance, vacancy), over the price plus the Kaufnebenkosten from your buying tab
+- **Kaufpreisfaktor**: the purchase price over a year of cold rent
+
+The cold rent is never the advert's own. Fredy takes the **median cold rent per m² of the rentals it
+has found around the listing**, with the same radius and minimum sample as the price per m²
+comparison: at least eight rentals within 5 km, widened to 15 km where 5 km holds too few. That
+needs rentals in the table, so it only works where a rent job of yours, or of another user on the
+same instance, covers the same area. Rents quoted with the charges in them are brought down to the
+cold rent where the advert states the charges, and left out where it does not. Without enough
+rentals nearby the card shows no yield and says why. Fredy ships no Mietspiegel table. Like the
+price per m² comparison, the estimate is taken when Fredy finds the listing (and once, on upgrade,
+for the purchases already stored), so it describes the rentals on the market at that time.
+
+If you know the actual rent, from the exposé or the agent, enter it on the card; every figure is
+then computed from your rent instead, and **Use the estimate** goes back.
+
+A buying job can also set a **minimum gross yield** among its criteria. Listings below it are
+dropped the way the area filter drops listings outside the drawn area. A listing Fredy cannot
+estimate a rent for is **kept**: a missing estimate says nothing about the flat, and dropping those
+would silently empty a search in any area your rent jobs do not cover. Rent jobs are not affected.
+
 ## Where the result shows up
 
 Each tab saves and deletes on its own. Once one is saved, its verdict appears elsewhere:
