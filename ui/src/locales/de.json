@@ -681,7 +681,7 @@
   "settings.workingHoursTimeZone": "Zeitzone",
   "settings.workingHoursTimeZonePlaceholder": "Zeitzone des Servers",
   "settings.proxyUrl": "Proxy-URL",
-  "settings.proxyUrlHelp": "Optional. Leitet den Scraping-Browser durch einen Proxy. Server/Rechenzentrum-IPs werden von Anbietern (z. B. Immowelt) unabhängig vom Browser-Fingerprint häufig blockiert. Ein deutscher Wohnproxy lässt Anfragen wie einen normalen Haushalt erscheinen. Format: http://benutzer:passwort@host:port oder socks5://benutzer:passwort@host:port. Leer lassen zum Deaktivieren.",
+  "settings.proxyUrlHelp": "Optional. Jede Anfrage, die Fredy an ein Portal schickt, läuft über diesen Proxy: der Scraping-Browser, die Schnittstellen der Portale, Detailseiten, Aktivitäts- und Preisprüfungen sowie Fotos der Inserate. Geocoding, Benachrichtigungen und Fredys andere Dienste werden direkt erreicht. Server/Rechenzentrum-IPs werden von Anbietern (z. B. Immowelt) unabhängig vom Browser-Fingerprint häufig blockiert. Ein deutscher Wohnproxy lässt Anfragen wie einen normalen Haushalt erscheinen. Format: http://benutzer:passwort@host:port, https://benutzer:passwort@host:port oder socks5://benutzer:passwort@host:port. {session} an beliebiger Stelle der URL wird bei jedem Suchlauf durch eine neue Zufalls-ID ersetzt, für Proxy-Dienste, die pro Session-ID eine Ausgangs-IP behalten. Leer lassen zum Deaktivieren.",
   "settings.proxyUrlPlaceholder": "http://benutzer:passwort@host:port",
   "settings.homeAddresses": "Adressen",
   "settings.homeAddressesHelp": "Wird zur Berechnung der Entfernung zwischen jeder Adresse und jedem Inserat verwendet. Eine Aktualisierung berechnet die Entfernungen für alle aktiven Inserate neu.",

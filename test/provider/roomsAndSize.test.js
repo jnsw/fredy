@@ -17,6 +17,12 @@ import puppeteerExtractor from '../../lib/services/extractor/puppeteerExtractor.
 import { config as immoscoutConfig } from '../../lib/provider/immoscout.js';
 import { config as kleinanzeigenConfig } from '../../lib/provider/kleinanzeigen.js';
 
+// Portal requests read the proxy setting. No database is open here, so there is none.
+vi.mock('../../lib/services/storage/settingsStorage.js', async (importOriginal) => ({
+  ...(await importOriginal()),
+  getSettings: async () => ({}),
+}));
+
 /**
  * Regression tests for https://github.com/orangecoding/fredy/issues/380 - rooms and living space
  * showed up as "N/A" although the listing carried both.

@@ -26,6 +26,12 @@ import {
   simplifyRing,
 } from '../../lib/services/idealista/zones.js';
 
+// Portal requests read the proxy setting. No database is open here, so there is none.
+vi.mock('../../lib/services/storage/settingsStorage.js', async (importOriginal) => ({
+  ...(await importOriginal()),
+  getSettings: async () => ({}),
+}));
+
 /** The three sites, as the modules below want them. */
 const IT = PORTALS['idealista.it'];
 const ES = PORTALS['idealista.com'];

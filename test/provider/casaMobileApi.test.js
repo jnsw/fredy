@@ -10,6 +10,12 @@ import { readFilters, toApiValue } from '../../lib/services/casa/search-filters.
 import { clearPlaceCache, resolvePlace, LEVELS } from '../../lib/services/casa/geography.js';
 import { translateSearchUrl } from '../../lib/services/casa/web-translator.js';
 
+// Portal requests read the proxy setting. No database is open here, so there is none.
+vi.mock('../../lib/services/storage/settingsStorage.js', async (importOriginal) => ({
+  ...(await importOriginal()),
+  getSettings: async () => ({}),
+}));
+
 /**
  * Casa.it is read through the api its android app talks to, and a job holds the url a user copied
  * out of their browser, so the whole provider rests on reading that url correctly.

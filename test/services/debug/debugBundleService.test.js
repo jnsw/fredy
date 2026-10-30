@@ -91,6 +91,18 @@ describe('services/debug/debugBundleService.js', () => {
       expect(sys).toContain('port: 9998');
     });
 
+    // The browser and the portal requests both take a proxy url without a scheme, which parses as
+    // a url with no host - the case the generic redaction returns untouched.
+    it.each([
+      ['without a scheme', 'someone:hunter2@proxy.internal.example:8080', 'proxyUrl: http://<redacted>:8080/'],
+      ['that is no url at all', 'http://someone:hunter2@proxy internal:80 80', 'proxyUrl: <redacted>'],
+    ])('redacts a proxy URL %s as well', async (_what, proxyUrl, expected) => {
+      const sys = await svc.buildSystemInfo({ settings: { proxyUrl } });
+      expect(sys).not.toContain('hunter2');
+      expect(sys).not.toContain('someone');
+      expect(sys).toContain(expected);
+    });
+
     it('redacts the host of baseUrl, which used to expose the deployment', async () => {
       const sys = await svc.buildSystemInfo({
         settings: { baseUrl: 'https://fredy.intranet.acme.corp/immo' },

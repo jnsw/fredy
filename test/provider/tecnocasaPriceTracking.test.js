@@ -7,6 +7,12 @@ import { readFileSync } from 'node:fs';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { extractPrice, readComponentData } from '../../lib/services/tecnocasa/network.js';
 
+// Portal requests read the proxy setting. No database is open here, so there is none.
+vi.mock('../../lib/services/storage/settingsStorage.js', async (importOriginal) => ({
+  ...(await importOriginal()),
+  getSettings: async () => ({}),
+}));
+
 const { config: tecnocasa } = await import('../../lib/provider/tecnocasa.js');
 const { config: tecnorete } = await import('../../lib/provider/tecnorete.js');
 const fixture = (name) => readFileSync(new URL(`../testFixtures/${name}.html`, import.meta.url), 'utf8');

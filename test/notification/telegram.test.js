@@ -5,6 +5,12 @@
 
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 
+// Portal requests read the proxy setting. No database is open here, so there is none.
+vi.mock('../../lib/services/storage/settingsStorage.js', async (importOriginal) => ({
+  ...(await importOriginal()),
+  getSettings: async () => ({}),
+}));
+
 // Mock external deps BEFORE importing the module under test.
 vi.mock('node-fetch', () => ({ default: vi.fn() }));
 // The adapter lets one call a second through per chat, which Telegram wants and no case here

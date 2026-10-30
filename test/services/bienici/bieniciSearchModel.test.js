@@ -7,6 +7,12 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { buildFilters, parseSearchUrl, placeMatchesSlug } from '../../../lib/services/bienici/search-model.js';
 import { resolveZoneIds, searchAds } from '../../../lib/services/bienici/api.js';
 
+// Portal requests read the proxy setting. No database is open here, so there is none.
+vi.mock('../../../lib/services/storage/settingsStorage.js', async (importOriginal) => ({
+  ...(await importOriginal()),
+  getSettings: async () => ({}),
+}));
+
 const BASE = 'https://www.bienici.com/recherche';
 
 /**

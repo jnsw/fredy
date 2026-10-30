@@ -25,6 +25,7 @@ describe('services/jobs/jobExecutionService', () => {
     const notifyPath = root + '/lib/notification/notify.js';
     const pipelinePath = root + '/lib/FredyPipelineExecutioner.js';
     const puppeteerPath = root + '/lib/services/extractor/puppeteerExtractor.js';
+    const portalProxyPath = root + '/lib/services/proxy/portalProxy.js';
 
     vi.resetModules();
     vi.doMock(busPath, () => ({ bus }));
@@ -55,9 +56,13 @@ describe('services/jobs/jobExecutionService', () => {
       return { default: m };
     });
     vi.doMock(notifyPath, () => ({ send: async () => [] }));
+    vi.doMock(portalProxyPath, () => ({
+      renewProxySession: () => calls.order.push('renewProxySession'),
+    }));
     vi.doMock(puppeteerPath, () => ({
       launchBrowser: async (...args) => {
         calls.launchBrowser.push(args);
+        calls.order.push('launchBrowser');
         return state.browser;
       },
       closeBrowser: async (browser) => {
@@ -104,6 +109,7 @@ describe('services/jobs/jobExecutionService', () => {
       launchBrowser: [],
       closeBrowser: [],
       pipeline: [],
+      order: [],
     };
     state = {
       jobsById: {},
@@ -212,6 +218,26 @@ describe('services/jobs/jobExecutionService', () => {
     expect(calls.launchBrowser).toEqual([['https://api.example/', {}]]);
     expect(calls.pipeline.map(({ browser }) => browser)).toEqual([state.browser, state.browser, state.browser]);
     expect(calls.closeBrowser).toEqual([state.browser]);
+  });
+
+  // The providers that ask their portal without the browser share the proxy through portalProxy,
+  // whose `{session}` placeholder gets a new id per run - before anything of the run is sent.
+  it('starts a new proxy session for every run and hands the browser the configured proxy', async () => {
+    const provider = { metaInformation: { id: 'p1' }, createConfig: () => ({ url: 'https://portal.example/' }) };
+    state.providers = [provider];
+    state.jobsById.j1 = { id: 'j1', enabled: true, userId: 'u1', provider: [{ id: 'p1' }] };
+
+    await initService({ demoMode: false, proxyUrl: ' http://user:pass@proxy.example:8080 ' });
+    bus.emit('jobs:runOne', { jobId: 'j1' });
+    await vi.waitFor(() => expect(calls.markFinished).toEqual(['j1']));
+    bus.emit('jobs:runOne', { jobId: 'j1' });
+    await vi.waitFor(() => expect(calls.markFinished).toEqual(['j1', 'j1']));
+
+    expect(calls.order).toEqual(['renewProxySession', 'launchBrowser', 'renewProxySession', 'launchBrowser']);
+    expect(calls.launchBrowser[0]).toEqual([
+      'https://portal.example/',
+      { proxyUrl: 'http://user:pass@proxy.example:8080' },
+    ]);
   });
 
   describe('onboarding tour', () => {

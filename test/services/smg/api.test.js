@@ -4,6 +4,12 @@
  */
 
 import { describe, it, expect, vi, afterEach } from 'vitest';
+// Portal requests read the proxy setting. No database is open here, so there is none.
+vi.mock('../../../lib/services/storage/settingsStorage.js', async (importOriginal) => ({
+  ...(await importOriginal()),
+  getSettings: async () => ({}),
+}));
+
 import { resolveGeoTag, searchListings, SMG_API } from '../../../lib/services/smg/api.js';
 
 /** A place as the location lookup answers it. */

@@ -12,6 +12,12 @@ vi.mock('../../lib/services/logger.js', () => ({
   default: { error: vi.fn(), warn: vi.fn(), info: vi.fn(), debug: vi.fn() },
 }));
 
+// Portal requests read the proxy setting. No database is open here, so there is none.
+vi.mock('../../lib/services/storage/settingsStorage.js', async (importOriginal) => ({
+  ...(await importOriginal()),
+  getSettings: async () => ({}),
+}));
+
 import logger from '../../lib/services/logger.js';
 import * as immoscout from '../../lib/provider/immoscout.js';
 import * as immoscoutAt from '../../lib/provider/immoscoutAt.js';
