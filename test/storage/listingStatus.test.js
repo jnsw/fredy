@@ -111,6 +111,12 @@ describe('listingsStorage.queryListings statusFilter', () => {
     expect(pageQuery.params.statusValue).toBe('applied');
   });
 
+  it.each(['documents_sent', 'invited', 'visited', 'not_invited'])('filters on the application stage %s', (status) => {
+    listingsStorage.queryListings({ statusFilter: status, userId: 'u1', isAdmin: true });
+    const pageQuery = calls.query.find((c) => !/COUNT\(1\)/.test(c.sql));
+    expect(pageQuery.params.statusValue).toBe(status);
+  });
+
   it('ignores unknown statusFilter values silently', () => {
     listingsStorage.queryListings({ statusFilter: 'bogus', userId: 'u1', isAdmin: true });
     const pageQuery = calls.query.find((c) => !/COUNT\(1\)/.test(c.sql));

@@ -15,6 +15,7 @@ import ApplicationPage from './views/settings/pages/ApplicationPage';
 import AiRatingPage from './views/settings/pages/AiRatingPage';
 import NotificationsPage from './views/settings/pages/NotificationsPage';
 import ConnectionsPage from './views/settings/pages/ConnectionsPage';
+import MailboxPage from './views/settings/pages/MailboxPage.jsx';
 import AdminLayout from './views/admin/AdminLayout';
 import SystemPage from './views/admin/pages/SystemPage';
 import ExecutionPage from './views/admin/pages/ExecutionPage';
@@ -42,6 +43,8 @@ import FredyFooter from './components/footer/FredyFooter.jsx';
 import Dashboard from './views/dashboard/Dashboard.jsx';
 import FinanceCalculator from './views/finance/FinanceCalculator.jsx';
 import ListingDetail from './views/listings/ListingDetail.jsx';
+import MailInbox from './views/mail/MailInbox.jsx';
+import Viewings from './views/viewings/Viewings.jsx';
 import NewsModal from './components/news/NewsModal.jsx';
 import OnboardingTour from './components/tour/OnboardingTour.jsx';
 import inDevelopment from './services/developmentMode.js';
@@ -229,6 +232,8 @@ export default function FredyApp() {
                     <Route path="/listings/listing/:listingId" element={<ListingDetail />} />
                     <Route path="/map" element={<MapView />} />
                     <Route path="/finance" element={<FinanceCalculator />} />
+                    <Route path="/mail" element={<MailInbox />} />
+                    <Route path="/viewings" element={<Viewings />} />
 
                     {/* Settings that belong to whoever is signed in. No guard: they are theirs.
                       One entry in the sidebar, and the tabs below the heading are the only place
@@ -240,6 +245,7 @@ export default function FredyApp() {
                       <Route path="listings" element={<ListingDetailsPage />} />
                       <Route path="application" element={<ApplicationPage />} />
                       <Route path="ai-rating" element={<AiRatingPage />} />
+                      <Route path="mailbox" element={<MailboxPage />} />
                       <Route path="notifications" element={<NotificationsPage />} />
                       <Route path="connections" element={<ConnectionsPage />} />
                     </Route>

@@ -1,0 +1,99 @@
+/*
+ * Copyright (c) 2026 by Christian Kellner.
+ * Licensed under Apache-2.0 with Commons Clause and Attribution/Naming Clause
+ */
+
+@import '../../tokens.less';
+
+.mailInbox {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: @space-4;
+
+  &__error {
+    display: block;
+  }
+
+  &__loading {
+    display: flex;
+    justify-content: center;
+    padding: @space-12 0;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: @space-3;
+  }
+}
+
+.mailMessage {
+  display: flex;
+  flex-direction: column;
+  gap: @space-3;
+  padding: @space-4;
+  border: 1px solid @color-border;
+  border-radius: @radius-card;
+  background: @color-surface;
+
+  &__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: @space-2;
+  }
+
+  &__identity {
+    display: flex;
+    flex-direction: column;
+    gap: @space-1;
+    min-width: 0;
+  }
+
+  &__subject {
+    overflow-wrap: anywhere;
+  }
+
+  &__badges {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: @space-1;
+  }
+
+  &__link {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: @space-2;
+  }
+
+  &__picker {
+    flex: 1 1 280px;
+    min-width: 0;
+  }
+
+  &__body {
+    summary {
+      cursor: pointer;
+      color: @color-muted;
+      font-size: @text-sm;
+    }
+
+    pre {
+      margin: @space-2 0 0;
+      padding: @space-3;
+      max-height: 24rem;
+      overflow: auto;
+      border-radius: @radius-input;
+      background: @color-fill-1;
+      color: @color-text;
+      font-family: @font-ui;
+      font-size: @text-base;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+  }
+}

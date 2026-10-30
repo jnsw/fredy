@@ -80,6 +80,8 @@
     "cloakbrowser": "^0.5.11",
     "fastify": "^5.12.5",
     "handlebars": "4.7.9",
+    "imapflow": "2.0.8",
+    "mailparser": "3.9.29",
     "maplibre-gl": "6.11.2",
     "marked": "^18.0.14",
     "nanoid": "6.0.1",

@@ -38,9 +38,12 @@ const { Text, Paragraph } = Typography;
  * @param {() => void} props.onCancel
  * @param {() => void} [props.onApplied] - Called once the listing has been marked as applied, so
  *   the view behind the dialog can re-read whatever it shows.
+ * @param {string|null} [props.status] - Where the listing stands now. Copying the letter only marks
+ *   it as applied when it has no status or is already applied: a listing further along - invited,
+ *   viewed, decided - must not be set back by copying the letter once more.
  * @returns {React.ReactElement}
  */
-export default function ApplicationModal({ visible, listingId, onCancel, onApplied }) {
+export default function ApplicationModal({ visible, listingId, onCancel, onApplied, status = null }) {
   const t = useTranslation();
   const navigate = useNavigate();
   const actions = useActions();
@@ -124,6 +127,12 @@ export default function ApplicationModal({ visible, listingId, onCancel, onAppli
       const copied = await copyToClipboard(text);
       if (!copied) {
         Toast.error(t('listing.application.copyError'));
+        return;
+      }
+
+      if (status != null && status !== 'applied') {
+        Toast.success(t('listing.application.copied'));
+        onCancel();
         return;
       }
 

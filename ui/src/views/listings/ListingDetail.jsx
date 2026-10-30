@@ -37,6 +37,8 @@ import ListingKeyFacts from './components/ListingKeyFacts.jsx';
 import ListingOrigin from './components/ListingOrigin.jsx';
 import ListingLocationCard from './components/ListingLocationCard.jsx';
 import ListingWorkspace from './components/ListingWorkspace.jsx';
+import ListingMailCard, { useListingMail } from './components/ListingMailCard.jsx';
+import { statusLabel } from '../../components/listings/statusOptions.js';
 import ListingDescriptionCard from './components/ListingDescriptionCard.jsx';
 import './ListingDetail.less';
 import { useTranslation } from '../../services/i18n/i18n.jsx';
@@ -109,6 +111,7 @@ export default function ListingDetail() {
   const screenWidth = useScreenWidth();
   const wide = screenWidth >= RAIL_BREAKPOINT;
   const phone = screenWidth < PHONE_BREAKPOINT;
+  const listingMail = useListingMail(listingId);
   const map = useRef(null);
   const [mapReady, setMapReady] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -356,7 +359,9 @@ export default function ListingDetail() {
     try {
       await actions.listingsData.setListingStatus(listing.id, next);
       await actions.listingsData.getListing(listingId);
-      Toast.success(next ? t('listings.toastStatusMarked', { status: next }) : t('listings.toastStatusCleared'));
+      Toast.success(
+        next ? t('listings.toastStatusMarked', { status: statusLabel(t, next) }) : t('listings.toastStatusCleared'),
+      );
     } catch (e) {
       console.error('Failed to update status:', e);
       Toast.error(t('listings.toastStatusUpdateError'));
@@ -655,6 +660,19 @@ export default function ListingDetail() {
               />
             </PhoneCollapse>
           </div>
+
+          {/* Only for somebody who connected a mailbox; without one there is nothing to show. */}
+          {listingMail.configured && (
+            <div className="listing-detail__sec--mail">
+              <PhoneCollapse
+                enabled={phone}
+                title={t('listing.detail.mailTitle')}
+                hint={listingMail.messages.length > 0 ? String(listingMail.messages.length) : undefined}
+              >
+                <ListingMailCard messages={listingMail.messages} />
+              </PhoneCollapse>
+            </div>
+          )}
         </div>
 
         <aside className="listing-detail__rail">
@@ -753,8 +771,9 @@ export default function ListingDetail() {
       <ApplicationModal
         visible={applicationVisible}
         listingId={listing.id}
+        status={listing.status?.status ?? null}
         onCancel={() => setApplicationVisible(false)}
-        // Copying the letter sets the status, so the segment in the title block has to follow it.
+        // Copying the letter sets the status, so the control in the title block has to follow it.
         onApplied={() => actions.listingsData.getListing(listingId)}
       />
     </div>

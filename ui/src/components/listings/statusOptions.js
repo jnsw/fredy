@@ -4,32 +4,50 @@
  */
 
 /**
- * The decision a user can record about a listing.
+ * Where the user stands with a listing.
  *
  * `null` is a value here rather than the absence of one: "not decided yet" is a state somebody
- * returns a listing to, so it needs a label and a place in the control like the other three.
+ * returns a listing to, so it needs a label and a place in the control like the others.
  *
- * @typedef {('applied'|'rejected'|'accepted'|null)} ListingStatus
+ * The order is the order an application goes through. The backend keeps the same list in
+ * `lib/services/listings/listingStatus.js`, which the frontend may not import;
+ * `test/ui/listingStatusInSync.test.js` fails when the two drift apart.
+ *
+ * @typedef {('applied'|'documents_sent'|'invited'|'visited'|'accepted'|'rejected'|'not_invited'|null)} ListingStatus
  */
 
 /** @type {ListingStatus[]} */
-export const STATUS_VALUES = [null, 'applied', 'rejected', 'accepted'];
+export const STATUS_VALUES = [
+  null,
+  'applied',
+  'documents_sent',
+  'invited',
+  'visited',
+  'accepted',
+  'rejected',
+  'not_invited',
+];
 
 /**
- * The four options with their labels, in the order both controls show them.
+ * The label of one status.
  *
- * Shared because the detail page draws them as a segmented control and the tables draw them as a
- * dropdown, and two copies of the list is how the two end up offering different words for the same
- * state.
+ * @param {(key: string) => string} t
+ * @param {ListingStatus} status
+ * @returns {string}
+ */
+export function statusLabel(t, status) {
+  return t(`listings.status.${status ?? 'none'}`);
+}
+
+/**
+ * Every option with its label, in the order the controls show them.
+ *
+ * Shared because the detail page, the tables and the filter all offer them, and separate copies of
+ * the list is how they end up offering different words for the same state.
  *
  * @param {(key: string) => string} t
  * @returns {Array<{value: ListingStatus, label: string}>}
  */
 export function statusOptions(t) {
-  return [
-    { value: null, label: t('listings.status.none') },
-    { value: 'applied', label: t('listings.status.applied') },
-    { value: 'rejected', label: t('listings.status.rejected') },
-    { value: 'accepted', label: t('listings.status.accepted') },
-  ];
+  return STATUS_VALUES.map((value) => ({ value, label: statusLabel(t, value) }));
 }

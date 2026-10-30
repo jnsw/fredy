@@ -1,0 +1,16 @@
+From: Hausverwaltung Beispiel <vermietung@hausverwaltung.example>
+To: Max Mustermann <wohnungssuche@example.org>
+Subject: =?UTF-8?Q?Ihre_Anfrage_zur_Wohnung_Musterstra=C3=9Fe?=
+Date: Tue, 01 Sep 2026 09:15:00 +0200
+Message-ID: <html-only-1@hausverwaltung.example>
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<html><head><style>p{color:red}</style><script>alert("x")</script></head><body>
+<p>Guten Tag Herr Mustermann,</p>
+<p>vielen Dank f=C3=BCr Ihr Interesse an der Wohnung.<img src=3D"https://track=
+er.example/pixel.gif" onerror=3D"alert(1)"></p>
+<p><a href=3D"javascript:alert(2)">Hier klicken</a></p>
+<p>Mit freundlichen Gr=C3=BC=C3=9Fen<br>Ihre Hausverwaltung</p>
+</body></html>

@@ -6,6 +6,7 @@
 import { parseCommuteFilter } from '../../components/transit/travelTimeFormat.js';
 import { parseNullableBoolean, parseNumber, parseString } from '../../hooks/useSearchParamState.js';
 import { AI_VERDICT_FILTER_VALUES } from './aiVerdict.js';
+import { STATUS_VALUES, statusLabel } from '../../components/listings/statusOptions.js';
 
 /**
  * What the listings overview is filtered by, and how to say it out loud.
@@ -265,12 +266,11 @@ export function describeActiveFilters(values, { t, jobs = [], providers = [] }) 
     active: () => (values.active === true ? t('listings.filterActive') : t('listings.filterInactive')),
     watch: () => (values.watch === true ? t('listings.filterWatched') : t('listings.filterUnwatched')),
     status: () =>
-      ({
-        applied: t('listings.filterStatusApplied'),
-        rejected: t('listings.filterStatusRejected'),
-        accepted: t('listings.filterStatusAccepted'),
-        none: t('listings.filterStatusNone'),
-      })[values.status] ?? values.status,
+      values.status === 'none'
+        ? t('listings.filterStatusNone')
+        : STATUS_VALUES.includes(values.status)
+          ? statusLabel(t, values.status)
+          : values.status,
     ai: () =>
       AI_VERDICT_FILTER_VALUES.includes(values.ai) ? t(`listings.filterAiVerdict.${values.ai}`) : String(values.ai),
     afford: () =>

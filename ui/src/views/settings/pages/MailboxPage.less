@@ -1,0 +1,38 @@
+/*
+ * Copyright (c) 2026 by Christian Kellner.
+ * Licensed under Apache-2.0 with Commons Clause and Attribution/Naming Clause
+ */
+
+@import '../../../tokens.less';
+
+.mailboxPage {
+  &__grid {
+    display: grid;
+    // Same pairing as the application profile: two short fields per row where there is room.
+    grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+    gap: @space-3;
+  }
+
+  &__switch {
+    display: inline-flex;
+    align-items: center;
+    gap: @space-2;
+    margin-top: @space-4;
+    cursor: pointer;
+  }
+
+  &__status {
+    display: flex;
+    flex-direction: column;
+    gap: @space-1;
+    margin-top: @space-3;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: @space-2;
+    margin-top: @space-4;
+  }
+}

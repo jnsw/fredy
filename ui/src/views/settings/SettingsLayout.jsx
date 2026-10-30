@@ -11,6 +11,7 @@ import {
   IconKey,
   IconMail,
   IconAIStrokedLevel1,
+  IconInbox,
 } from '@douyinfe/semi-icons';
 
 import ScopeBadge from '../../components/scopeBadge/ScopeBadge.jsx';
@@ -42,6 +43,7 @@ export default function SettingsLayout() {
     { path: '/settings/listings', label: t('settings.tabListingDetails'), icon: <IconListView size="small" /> },
     { path: '/settings/application', label: t('settings.tabApplication'), icon: <IconMail size="small" /> },
     { path: '/settings/ai-rating', label: t('settings.tabAiRating'), icon: <IconAIStrokedLevel1 size="small" /> },
+    { path: '/settings/mailbox', label: t('settings.tabMailbox'), icon: <IconInbox size="small" /> },
     { path: '/settings/notifications', label: t('settings.tabNotifications'), icon: <IconBell size="small" /> },
     { path: '/settings/connections', label: t('settings.tabConnections'), icon: <IconKey size="small" /> },
   ];

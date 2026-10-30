@@ -36,17 +36,19 @@ describe('navModel', () => {
     expect(routeKeysOf(navTreeFor(true))).toContain('/admin');
   });
 
-  it('offers seven destinations to an admin and six to everyone else', () => {
+  it('offers nine destinations to an admin and eight to everyone else', () => {
     expect(routeKeysOf(navTreeFor(true))).toEqual([
       '/dashboard',
       '/jobs',
       '/listings',
       '/map',
       '/finance',
+      '/mail',
+      '/viewings',
       '/settings',
       '/admin',
     ]);
-    expect(routeKeysOf(navTreeFor(false))).toHaveLength(6);
+    expect(routeKeysOf(navTreeFor(false))).toHaveLength(8);
   });
 
   it('translates every label it shows', () => {
@@ -66,6 +68,8 @@ describe('navModel', () => {
     ['/listings/listing/42', '/listings'],
     ['/map', '/map'],
     ['/finance', '/finance'],
+    ['/mail', '/mail'],
+    ['/viewings', '/viewings'],
     ['/settings', '/settings'],
     ['/admin', '/admin'],
     ['/admin/settings', '/admin'],

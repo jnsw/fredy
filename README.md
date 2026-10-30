@@ -114,6 +114,9 @@ Fredy is in the [Unraid](https://unraid.net/) community store.
     expensive are facts rather than a feeling
 -   📎 **Document uploads**: attach the exposé, floor plans and photos to a listing, so they survive
     the portal taking the ad down. A listing with documents is never cleaned up automatically
+-   📬 **[Mailbox](doc/mailbox.md)**: connect your own IMAP mailbox, read the replies to your
+    applications next to their listings, and let invitations and document requests move each
+    application's status forward, with your viewings and their dates in one list
 -   🖥️ **Web UI** in several languages, with configurable search intervals and working hours
 -   🤖 **[MCP server](lib/mcp/README.md)**: query your listings from Claude, ChatGPT or a local LLM
 -   ✨ **[AI rating](doc/ai-rating.md)**: have Claude or any OpenAI-compatible model rate listings as
@@ -241,6 +244,7 @@ class node_debug,node_mcp toneMint
 | [Scam detection](doc/scam-detection.md) | The signals, their weights, the languages, and how to overrule Fredy |
 | [Financing calculator](doc/financing.md) | Rent and Annuitätendarlehen, Kaufnebenkosten, Restschuld, the 35 % rule |
 | [Travel time & public transport](doc/travel-time.md) | Addresses and place types, estimated vs exact, route drawing, departure boards, operator settings |
+| [Mailbox](doc/mailbox.md) | Connecting an IMAP mailbox, linking mail to listings, application status and viewings, the encryption key, network safety |
 | [MCP server](lib/mcp/README.md) | Connecting Claude, ChatGPT or a local LLM to your listings |
 | [AI rating](doc/ai-rating.md) | Rating listings with your own AI key: what is sent, what it costs, how the key is kept |
 | [Reverse proxy sign-in](doc/reverse-proxy-auth.md) | Forward auth with Authelia, Authentik, oauth2-proxy, Traefik, Pangolin |
