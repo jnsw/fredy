@@ -128,7 +128,7 @@ Fredy is in the [Unraid](https://unraid.net/) community store.
 | **Provider** 🌐 | A real-estate platform. You paste a search URL from the portal into Fredy, sorted by **date**. |
 | **Adapter** 📡 | A *kind* of connection Fredy can send through (Slack, Telegram, Email, ntfy, Discord ...). You never configure one on its own. |
 | **Channel** 🔔 | One filled-in adapter, e.g. "Telegram → family chat", saved once under **Settings → Notification channels** and reused in as many jobs as you like. |
-| **Job** 📅 | Providers + channels: "search ImmoScout24 and Immowelt, send to Slack and Telegram". Runs at the interval set under **Administration → Execution**. |
+| **Job** 📅 | Providers + channels: "search ImmoScout24 and Immowelt, send to Slack and Telegram". Runs at the interval set under **Administration → Execution**, or at one of its own (never under 5 minutes) set in the job. An optional random delay there keeps the searches off a fixed beat. |
 
 A job can hold as many channels as you want, including several of the same type, and every new
 listing goes out through all of them at once. Rotating a token means editing one channel instead of

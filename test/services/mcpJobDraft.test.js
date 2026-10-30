@@ -280,6 +280,45 @@ describe('optional refinements', () => {
   });
 });
 
+describe('an interval of its own', () => {
+  it('is taken when the user gives one, and carried into the job', () => {
+    const draft = apply({ intervalMinutes: 15 }, completedDraft()).draft;
+
+    expect(draft.intervalMinutes).toBe(15);
+    expect(toUpsertPayload(draft, 'u1', 'job-1').intervalMinutes).toBe(15);
+    expect(describeDraft(draft, CTX)).toContain('**Search interval:** every 15 min');
+  });
+
+  it('follows the instance until somebody sets one', () => {
+    expect(emptyDraft().intervalMinutes).toBeNull();
+    expect(describeDraft(emptyDraft(), CTX)).toContain('**Search interval:** the instance default');
+    expect(apply({ intervalMinutes: null }, completedDraft({ intervalMinutes: 30 })).draft.intervalMinutes).toBeNull();
+  });
+
+  it('refuses one below the floor, with the bounds in the message', () => {
+    const result = apply({ intervalMinutes: 2 });
+
+    expect(result.ok).toBe(false);
+    expect(result.problems[0]).toContain('between 5 and 1440');
+    expect(result.draft).toEqual(emptyDraft());
+  });
+
+  it('does not count as declining the filters before the interview has asked about them', () => {
+    // Same trap as `enabled`: "a search called Köln, every 15 minutes" in one breath must not skip
+    // price, size, rooms and the rest.
+    const early = apply({ name: 'Köln', intervalMinutes: 15 }).draft;
+    expect(early.refinementsAnswered).toBe(false);
+
+    const ready = { ...completedDraft(), refinementsAnswered: false };
+    expect(apply({ intervalMinutes: 15 }, ready).draft.refinementsAnswered).toBe(true);
+  });
+
+  it('is not one of the questions the interview asks', () => {
+    const ready = { ...completedDraft(), refinementsAnswered: false };
+    expect(nextStep(ready, CTX).question).not.toMatch(/interval/i);
+  });
+});
+
 describe('what gets saved', () => {
   it('carries the interview into upsertJob arguments', () => {
     const draft = completedDraft({
@@ -302,6 +341,7 @@ describe('what gets saved', () => {
       specFilter: { maxPrice: 1200 },
       commuteFilter: { action: 'exclude', limits: { Work: 30 } },
       dealType: 'rent',
+      intervalMinutes: null,
     });
   });
 

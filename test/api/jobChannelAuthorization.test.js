@@ -68,7 +68,8 @@ describe('POST /api/jobs channel authorisation', () => {
         spec_filter TEXT,
         commute_filter TEXT,
         deal_type TEXT,
-        last_run_at INTEGER
+        last_run_at INTEGER,
+        interval_minutes INTEGER
       );
       CREATE TABLE configured_adapter (
         id TEXT PRIMARY KEY, user_id TEXT NOT NULL, adapter_id TEXT NOT NULL, name TEXT NOT NULL,

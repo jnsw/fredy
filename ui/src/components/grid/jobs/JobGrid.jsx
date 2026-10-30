@@ -43,6 +43,7 @@ import { IllustrationNoResult, IllustrationNoResultDark } from '@douyinfe/semi-i
 import JobsTable from '../../table/JobsTable.jsx';
 import JobActions from '../../jobs/JobActions.jsx';
 import { relativeTime } from '../../../services/time/relativeTime.js';
+import { effectiveJobInterval } from '../../../services/jobs/jobInterval.js';
 
 import './JobGrid.less';
 import { useTranslation } from '../../../services/i18n/i18n.jsx';
@@ -66,6 +67,25 @@ const JOBS_URL_STATE = {
   active: { defaultValue: null, codec: parseNullableBoolean },
 };
 
+/**
+ * How often a job searches, appended to its "last run" line: the second half of the same question.
+ * Whether that interval is the job's own or the global one is in the tooltip, because the number is
+ * what matters at a glance and the card has no room for a second line saying where it came from.
+ *
+ * @param {{job: Object, globalInterval: number|string|undefined, t: Function}} props
+ * @returns {React.ReactElement|null}
+ */
+function JobIntervalNote({ job, globalInterval, t }) {
+  const { minutes, own } = effectiveJobInterval(job, globalInterval);
+  if (minutes == null) return null;
+  return (
+    <span title={t(own ? 'jobs.intervalOwnHint' : 'jobs.intervalGlobalHint')}>
+      {' · '}
+      {t('jobs.cardInterval', { minutes: String(minutes) })}
+    </span>
+  );
+}
+
 const JobGrid = () => {
   const t = useTranslation();
   const jobsData = useSelector((state) => state.jobsData);
@@ -74,6 +94,8 @@ const JobGrid = () => {
   const sp = useSearchParams();
 
   const userSettings = useSelector((state) => state.userSettings.settings);
+  // Served to every user, not only admins: it is what a job without an interval of its own follows.
+  const globalInterval = useSelector((state) => state.generalSettings.settings?.interval);
   const viewMode = userSettings?.jobs_view_mode ?? 'grid';
   const listingDeletionPref = userSettings?.listing_deletion_preference;
   const defaultDeleteType = listingDeletionPref?.hardDelete ? 'hard' : 'soft';
@@ -391,6 +413,7 @@ const JobGrid = () => {
                 {job.lastRunAt
                   ? t('jobs.cardLastRun', { time: relativeTime(job.lastRunAt, t) })
                   : t('jobs.lastRunNever')}
+                <JobIntervalNote job={job} globalInterval={globalInterval} t={t} />
               </div>
 
               <div className="jobGrid__card__stats">
@@ -443,6 +466,7 @@ const JobGrid = () => {
       ) : (
         <JobsTable
           jobs={jobsData?.result || []}
+          globalInterval={globalInterval}
           onRun={onJobRun}
           onEdit={(id) => navigate(`/jobs/edit/${id}`)}
           onClone={(id) => navigate('/jobs/new', { state: { cloneFrom: id } })}

@@ -168,6 +168,22 @@ describe('create_job_from_draft', () => {
     expect(text).toContain('Area filter');
   });
 
+  it('keeps an interval the user asked for through the re-check on creation', async () => {
+    await interview();
+    expect(textOf(await callTool('update_job_draft', { intervalMinutes: 20 }))).toContain('every 20 min');
+
+    await callTool('create_job_from_draft', { confirmed: true });
+
+    expect(upsertJob.mock.calls[0][0].intervalMinutes).toBe(20);
+  });
+
+  it('creates a job on the instance interval when nobody asked for another', async () => {
+    await interview();
+    await callTool('create_job_from_draft', { confirmed: true });
+
+    expect(upsertJob.mock.calls[0][0].intervalMinutes).toBeNull();
+  });
+
   it('refuses until the user has confirmed', async () => {
     await interview();
 

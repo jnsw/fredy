@@ -25,6 +25,7 @@ import { xhrPost, errorMessage } from '../../../services/xhr';
 import { useNavigate, useParams, useLocation } from 'react-router';
 import {
   Input,
+  InputNumber,
   Switch,
   Button,
   TagInput,
@@ -42,6 +43,7 @@ import { missingRequirements } from '../../../services/jobs/jobValidation.js';
 import { summariseJobRefinements } from '../../../services/jobs/jobSummary.js';
 import { withReturnTo } from '../../../services/routes/returnTo.js';
 import { currenciesOfProviders, formatPriceInCurrencies } from '../../../services/price/priceService.js';
+import { MAX_JOB_INTERVAL_MINUTES, MIN_JOB_INTERVAL_MINUTES } from '../../../services/jobs/jobInterval.js';
 // The frontend copy of the server's detection. The two must agree: the pipeline falls back to its
 // own when a job carries no deal type, so a form that guessed differently would show one thing and
 // store another. Kept in step by test/ui/dealTypeCopyInSync.test.js.
@@ -96,6 +98,8 @@ export default function JobMutator() {
   const providerList = useSelector((state) => state.provider);
   const shareableUserList = useSelector((state) => state.jobsData.shareableUserList);
   const allChannels = useSelector((state) => state.notificationChannels.channels);
+  // What an empty interval field means, so the placeholder can say it in minutes.
+  const globalInterval = useSelector((state) => state.generalSettings.settings?.interval);
   const params = useParams();
   const location = useLocation();
 
@@ -122,6 +126,8 @@ export default function JobMutator() {
   // Deliberately not defaulted for a new job: the user has to say what they are looking for,
   // because it decides which half of their finance profile applies to everything this job finds.
   const defaultDealType = sourceJob?.dealType || null;
+  // Empty for every job that follows the global interval, which is every job until somebody sets one.
+  const defaultIntervalMinutes = sourceJob?.intervalMinutes ?? null;
 
   const [providerToEdit, setProviderToEdit] = useState(null);
   const [providerCreationVisible, setProviderCreationVisibility] = useState(false);
@@ -137,6 +143,7 @@ export default function JobMutator() {
   const [specFilter, setSpecFilter] = useState(defaultSpecFilter);
   const [commuteFilter, setCommuteFilter] = useState(defaultCommuteFilter);
   const [dealType, setDealType] = useState(defaultDealType);
+  const [intervalMinutes, setIntervalMinutes] = useState(defaultIntervalMinutes);
   /** Whether the value in the deal type field was guessed rather than chosen. */
   const [dealTypeWasInferred, setDealTypeWasInferred] = useState(false);
 
@@ -216,6 +223,7 @@ export default function JobMutator() {
     if (draft.spatialFilter !== undefined) setSpatialFilter(draft.spatialFilter);
     if (draft.specFilter !== undefined) setSpecFilter(draft.specFilter);
     if (draft.commuteFilter !== undefined) setCommuteFilter(draft.commuteFilter);
+    if (draft.intervalMinutes !== undefined) setIntervalMinutes(draft.intervalMinutes);
     setDraftRestored(true);
   }, [draftId]);
 
@@ -234,6 +242,7 @@ export default function JobMutator() {
       spatialFilter,
       specFilter,
       commuteFilter,
+      intervalMinutes,
     };
     // A stored job always "has content", so without this every visit to its form left a copy
     // behind. The next visit restored that copy over whatever had changed in the meantime - a job
@@ -255,6 +264,7 @@ export default function JobMutator() {
     spatialFilter,
     specFilter,
     commuteFilter,
+    intervalMinutes,
   ]);
 
   // The deal type decides which half of the finance profile applies to everything this job finds,
@@ -294,6 +304,7 @@ export default function JobMutator() {
     spatialFilter: defaultSpatialFilter,
     specFilter: defaultSpecFilter,
     commuteFilter: defaultCommuteFilter,
+    intervalMinutes: defaultIntervalMinutes,
   };
 
   const discardChanges = () => {
@@ -309,6 +320,7 @@ export default function JobMutator() {
     setSpatialFilter(baseline.spatialFilter);
     setSpecFilter(baseline.specFilter);
     setCommuteFilter(baseline.commuteFilter);
+    setIntervalMinutes(baseline.intervalMinutes);
     // A guessed deal type is only a guess about a provider that has just been discarded.
     setDealTypeWasInferred(false);
   };
@@ -324,6 +336,7 @@ export default function JobMutator() {
     spatialFilter,
     specFilter,
     commuteFilter,
+    intervalMinutes,
   };
 
   // Compared, not tracked. Drives the save bar, so a character typed and deleted again closes it
@@ -425,6 +438,9 @@ export default function JobMutator() {
         commuteFilter,
         dealType,
         enabled,
+        // Null, not an empty string, for "follow the global interval": the route reads both that way,
+        // but only one of them is a value anybody meant.
+        intervalMinutes: intervalMinutes === '' ? null : intervalMinutes,
         jobId: jobToBeEdit?.id || null,
       });
       await actions.jobsData.getJobs();
@@ -890,6 +906,27 @@ export default function JobMutator() {
                 onChange={(checked) => setEnabled(checked)}
                 checked={enabled}
                 aria-label={t('jobs.mutation.labelRunning')}
+              />
+            </AdminField>
+
+            {/* Beside the switch because it is the same question asked one step further: whether
+                this job runs, and how often. Empty is the default and means the global interval,
+                which the placeholder spells out in minutes. */}
+            <AdminField
+              label={t('jobs.mutation.labelInterval')}
+              help={t('jobs.mutation.intervalHelp')}
+              htmlFor="jobIntervalMinutes"
+            >
+              <InputNumber
+                id="jobIntervalMinutes"
+                className="jobMutation__interval"
+                min={MIN_JOB_INTERVAL_MINUTES}
+                max={MAX_JOB_INTERVAL_MINUTES}
+                placeholder={t('jobs.mutation.intervalPlaceholder', { minutes: String(globalInterval ?? '?') })}
+                value={intervalMinutes ?? ''}
+                formatter={(value) => `${value}`.replace(/\D/g, '')}
+                onChange={(value) => setIntervalMinutes(value === '' || value == null ? null : value)}
+                suffix={t('settings.searchIntervalSuffix')}
               />
             </AdminField>
           </div>

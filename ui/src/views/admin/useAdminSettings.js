@@ -10,6 +10,7 @@ import { xhrPost, errorMessage } from '../../services/xhr';
 import { useTranslation } from '../../services/i18n/i18n.jsx';
 import { useActions } from '../../services/state/store.js';
 import { CONNECTIVITY_SOURCES } from '../../components/connectivity/connectivityFormat.js';
+import { MAX_INTERVAL_JITTER_PERCENT } from '../../services/jobs/jobInterval.js';
 
 /**
  * The fields the System page owns.
@@ -66,6 +67,7 @@ export const ROUTING_FIELDS = [
 /** The fields the Execution page owns. @type {string[]} */
 export const EXECUTION_FIELDS = [
   'interval',
+  'intervalJitterPercent',
   'workingHours',
   'maxResultPages',
   'proxyUrl',
@@ -105,6 +107,8 @@ function toForm(settings) {
     // value on save means "keep the current secret".
     proxyAuthSecret: '',
     interval: settings?.interval ?? '',
+    // Absent on every instance from before the setting, and absent means none.
+    intervalJitterPercent: settings?.intervalJitterPercent ?? 0,
     workingHours: {
       from: settings?.workingHours?.from ?? null,
       to: settings?.workingHours?.to ?? null,
@@ -410,6 +414,15 @@ export function useAdminSettings(settings) {
         () => {
           if (nullOrEmpty(form.interval)) {
             return t('settings.toastIntervalEmpty');
+          }
+          // Empty first, for the reason the price settings below give: `Number('')` is a valid 0.
+          if (
+            nullOrEmpty(form.intervalJitterPercent) ||
+            !Number.isInteger(Number(form.intervalJitterPercent)) ||
+            Number(form.intervalJitterPercent) < 0 ||
+            Number(form.intervalJitterPercent) > MAX_INTERVAL_JITTER_PERCENT
+          ) {
+            return t('settings.toastIntervalJitterInvalid');
           }
           const { from, to } = form.workingHours;
           if ((!nullOrEmpty(from) && nullOrEmpty(to)) || (nullOrEmpty(from) && !nullOrEmpty(to))) {
