@@ -56,9 +56,37 @@ describe('jobSummary', () => {
     expect(describeJobRefinements({ specFilter: { minRooms: 0 } }, context)).toHaveLength(1);
   });
 
+  it('describes a move-in window as one range, with either end open', () => {
+    const vars = [];
+    const recording = { t: (key, values) => vars.push(values) && key, formatPrice, formatDate: (iso) => `D${iso}` };
+
+    expect(
+      describeJobRefinements({ specFilter: { moveInEarliest: '2026-10-01', moveInLatest: '2026-12-31' } }, recording),
+    ).toEqual(['jobs.mutation.summaryMoveInBetween']);
+    expect(vars.pop()).toEqual({ from: 'D2026-10-01', until: 'D2026-12-31' });
+
+    expect(describeJobRefinements({ specFilter: { moveInEarliest: '2026-10-01' } }, recording)).toEqual([
+      'jobs.mutation.summaryMoveInFrom',
+    ]);
+    expect(vars.pop()).toEqual({ date: 'D2026-10-01' });
+
+    expect(
+      describeJobRefinements({ specFilter: { moveInLatest: '2026-12-31', moveInEarliest: '' } }, recording),
+    ).toEqual(['jobs.mutation.summaryMoveInUntil']);
+  });
+
+  it('says nothing about a move-in window that was cleared, or a flag without one', () => {
+    expect(
+      describeJobRefinements(
+        { specFilter: { moveInEarliest: null, moveInLatest: '', moveInDateRequired: true } },
+        context,
+      ),
+    ).toEqual([]);
+  });
+
   it('lists everything at once, in the order the controls appear', () => {
     const job = {
-      specFilter: { maxPrice: 1200, minSize: 60, minRooms: 3 },
+      specFilter: { maxPrice: 1200, minSize: 60, minRooms: 3, moveInEarliest: '2026-10-01' },
       blacklist: ['Tausch', 'WG'],
       spatialFilter: { type: 'Polygon' },
       commuteFilter: { action: 'mark', limits: { 'home-1': 30 } },
@@ -67,6 +95,7 @@ describe('jobSummary', () => {
       'jobs.mutation.summaryMaxPrice',
       'jobs.mutation.summaryMinSize',
       'jobs.mutation.summaryMinRooms',
+      'jobs.mutation.summaryMoveInFrom',
       'jobs.mutation.summaryBlacklist',
       'jobs.mutation.summaryArea',
       'jobs.mutation.summaryCommute',
@@ -93,6 +122,9 @@ describe('jobSummary', () => {
       'jobs.mutation.summaryMaxPrice',
       'jobs.mutation.summaryMinSize',
       'jobs.mutation.summaryMinRooms',
+      'jobs.mutation.summaryMoveInFrom',
+      'jobs.mutation.summaryMoveInUntil',
+      'jobs.mutation.summaryMoveInBetween',
       'jobs.mutation.summaryBlacklist',
       'jobs.mutation.summaryArea',
       'jobs.mutation.summaryCommute',

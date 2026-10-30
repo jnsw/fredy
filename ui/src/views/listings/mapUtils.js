@@ -3,7 +3,6 @@
  * Licensed under Apache-2.0 with Commons Clause and Attribution/Naming Clause
  */
 
-import { parseCommuteFilter } from '../../components/transit/travelTimeFormat.js';
 import { DEFAULT_CURRENCY, normalizeCurrency } from '../../services/price/priceService.js';
 
 /**
@@ -181,22 +180,22 @@ export const getBoundsFromCoords = (coords, padding = 0.1) => {
  * say so. The filters live in the address bar and survive the trip to a listing and back, so the
  * panel folding shut on the way back is exactly when this matters.
  *
- * Counted is what `filterListings` and the job selection actually apply, and nothing else. The
- * distance ring recolours pins rather than hiding them, so it is not a filter in this sense. A
- * commute value the parser rejects hides nothing and does not count, and the price range is one
- * filter whichever of its two ends is set.
+ * Counted is what actually hides pins, and nothing else: the listing filters the map shares with
+ * the overview, already counted by `countActiveFilters` (which skips a value that filters nothing,
+ * such as a mangled commute), and the map's own price range, which is one filter whichever of its
+ * two ends is set. The distance ring recolours pins rather than hiding them, so it is not a filter
+ * in this sense.
  *
  * @param {Object} filters
- * @param {string|null} filters.jobId
- * @param {string|null} filters.commute - The `commute` URL value, e.g. `transit:30`.
+ * @param {number} [filters.filterCount=0] - How many of the shared listing filters are on.
  * @param {number|null} filters.priceMin - The `priceMin` URL value, null when absent.
  * @param {number|null} filters.priceMax - The `priceMax` URL value, null when absent.
  * @returns {number}
  */
-export const countActiveMapFilters = ({ jobId, commute, priceMin, priceMax }) => {
+export const countActiveMapFilters = ({ filterCount = 0, priceMin, priceMax }) => {
   const bounded = (value) => Number.isFinite(value) && value > 0;
-  const active = [jobId != null, parseCommuteFilter(commute) != null, bounded(priceMin) || bounded(priceMax)];
-  return active.filter(Boolean).length;
+  const shared = Number.isFinite(filterCount) && filterCount > 0 ? filterCount : 0;
+  return shared + (bounded(priceMin) || bounded(priceMax) ? 1 : 0);
 };
 
 /**
@@ -253,8 +252,9 @@ export const maxPriceIn = (listings, currency) =>
  * A listing priced in the filter's currency has to sit inside the range. One priced in another
  * currency cannot be held against it - "at most 1.500 €" says nothing about a rent in francs - so
  * it is shown while the filter is untouched and hidden once a range is set, the answer the commute
- * filter gives for a listing it has no travel time for. A listing without a price never had a pin
- * here, and still has none.
+ * filter gives for a listing it has no travel time for. A listing without a price is treated the same
+ * way: it is shown while the slider is untouched, as the overview shows it, and drops out once a
+ * range is set, since it cannot be said to be inside it.
  *
  * @param {{price?: number|null, currency?: string|null}} listing
  * @param {Object} filter
@@ -267,7 +267,7 @@ export const maxPriceIn = (listings, currency) =>
  */
 export const withinPriceRange = (listing, { min, max, currency, active }) => {
   if (!listing?.price) {
-    return false;
+    return !active;
   }
   if (normalizeCurrency(listing.currency) !== currency) {
     return !active;

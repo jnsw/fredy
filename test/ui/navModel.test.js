@@ -10,6 +10,7 @@ import { fileURLToPath } from 'url';
 
 import {
   NAV_TREE,
+  destinationFor,
   navTreeFor,
   routeKeysOf,
   resolveActiveKey,
@@ -146,5 +147,25 @@ describe('navModel', () => {
     ];
     expect(resolveActiveKey(tree, '/listings/saved')).toBe('/listings/saved');
     expect(resolveActiveKey(tree, '/listings/listing/1')).toBe('/listings');
+  });
+});
+
+describe('switching between the overview and the map', () => {
+  const at = (pathname, search) => ({ pathname, search });
+
+  it('carries the filters from one to the other, in both directions', () => {
+    expect(destinationFor(at('/listings', '?provider=immoscout&page=2'), '/map')).toBe('/map?provider=immoscout');
+    expect(destinationFor(at('/map', '?job=job-1&style=SATELLITE'), '/listings')).toBe('/listings?job=job-1');
+  });
+
+  it('leaves every other trip alone', () => {
+    expect(destinationFor(at('/listings', '?provider=immoscout'), '/jobs')).toBe('/jobs');
+    expect(destinationFor(at('/dashboard', '?provider=immoscout'), '/map')).toBe('/map');
+    // A listing's detail page is not the overview, and its query is not a filter.
+    expect(destinationFor(at('/listings/listing/42', '?provider=immoscout'), '/map')).toBe('/map');
+  });
+
+  it('opens the view itself afresh when it is chosen again from where it is', () => {
+    expect(destinationFor(at('/map', '?provider=immoscout'), '/map')).toBe('/map');
   });
 });

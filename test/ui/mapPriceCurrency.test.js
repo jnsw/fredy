@@ -64,7 +64,12 @@ describe('withinPriceRange', () => {
     expect(withinPriceRange(franc, { ...range, active: true })).toBe(false);
   });
 
-  it('keeps leaving out a pin without a price, as the map always did', () => {
-    expect(withinPriceRange({ price: null }, { ...range, active: false })).toBe(false);
+  it('keeps a pin without a price while the slider is untouched, as the overview does', () => {
+    expect(withinPriceRange({ price: null }, { ...range, active: false })).toBe(true);
+    expect(withinPriceRange({ price: 0 }, { ...range, active: false })).toBe(true);
+  });
+
+  it('drops a pin without a price once a range is set, since it cannot be said to be inside', () => {
+    expect(withinPriceRange({ price: null }, { ...range, active: true })).toBe(false);
   });
 });

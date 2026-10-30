@@ -423,16 +423,15 @@ export const useFredyState = create(
               throw Exception;
             }
           },
-          async getListingsForMap({ jobId, minPrice, maxPrice } = {}) {
+          /**
+           * The listings that have a place on the map, filtered by the same object the overview
+           * sends (`toListingsQuery(...).filter`), so both views show the same listings.
+           *
+           * @param {{filter?: Object}} [options]
+           */
+          async getListingsForMap({ filter = {} } = {}) {
             try {
-              const qryString = queryString.stringify(
-                {
-                  jobId,
-                  minPrice,
-                  maxPrice,
-                },
-                { skipNull: true, skipEmptyString: true },
-              );
+              const qryString = queryString.stringify(filter, { skipNull: true, skipEmptyString: true });
               const response = await xhrGet(`/api/listings/map?${qryString}`);
               set((state) => ({
                 listingsData: {

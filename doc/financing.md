@@ -45,8 +45,8 @@ after the Zinsbindung, it reports the Restschuld instead.
 
 Each tab saves and deletes on its own. Once one is saved, its verdict appears elsewhere:
 
-- an **affordability filter** on the listings overview, next to the status and provider filters,
-  plus a small verdict chip on each listing
+- an **affordability filter** on the listings overview and the map, next to the status and provider
+  filters, plus a small verdict chip on each listing
 - a **rent card or a financing card** on the listing detail page, whichever matches the job that
   found the listing
 

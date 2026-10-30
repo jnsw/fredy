@@ -6,24 +6,20 @@
 import { describe, it, expect } from 'vitest';
 import { countActiveMapFilters } from '../../ui/src/views/listings/mapUtils.js';
 
-const none = { jobId: null, commute: null, priceMin: null, priceMax: null };
+const none = { filterCount: 0, priceMin: null, priceMax: null };
 
 describe('countActiveMapFilters', () => {
   it('counts nothing on a pristine map', () => {
     expect(countActiveMapFilters(none)).toBe(0);
   });
 
-  it('counts a selected job', () => {
-    expect(countActiveMapFilters({ ...none, jobId: 'job-1' })).toBe(1);
+  it('counts the listing filters it shares with the overview as the overview counts them', () => {
+    expect(countActiveMapFilters({ ...none, filterCount: 3 })).toBe(3);
   });
 
-  it('counts a commute ceiling', () => {
-    expect(countActiveMapFilters({ ...none, commute: 'transit:30' })).toBe(1);
-  });
-
-  it('ignores a commute value that hides nothing, such as a mangled bookmark', () => {
-    expect(countActiveMapFilters({ ...none, commute: 'teleport:30' })).toBe(0);
-    expect(countActiveMapFilters({ ...none, commute: 'transit:' })).toBe(0);
+  it('ignores a shared count that is not one', () => {
+    expect(countActiveMapFilters({ ...none, filterCount: Number.NaN })).toBe(0);
+    expect(countActiveMapFilters({ priceMin: null, priceMax: null })).toBe(0);
   });
 
   it('counts a price floor or a price ceiling as one filter, and both together still as one', () => {
@@ -38,6 +34,6 @@ describe('countActiveMapFilters', () => {
   });
 
   it('adds them up', () => {
-    expect(countActiveMapFilters({ jobId: 'job-1', commute: 'car:15', priceMin: 1000, priceMax: null })).toBe(3);
+    expect(countActiveMapFilters({ filterCount: 2, priceMin: 1000, priceMax: null })).toBe(3);
   });
 });

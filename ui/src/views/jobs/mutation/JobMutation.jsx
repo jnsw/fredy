@@ -23,7 +23,18 @@ import { useUnsavedWarning } from '../../../hooks/useUnsavedWarning.js';
 import { useActions, useSelector } from '../../../services/state/store';
 import { xhrPost, errorMessage } from '../../../services/xhr';
 import { useNavigate, useParams, useLocation } from 'react-router';
-import { Input, Switch, Button, TagInput, Toast, Select, Banner, Collapse } from '@douyinfe/semi-ui-19';
+import {
+  Input,
+  Switch,
+  Button,
+  TagInput,
+  Toast,
+  Select,
+  Banner,
+  Collapse,
+  DatePicker,
+  Checkbox,
+} from '@douyinfe/semi-ui-19';
 import './JobMutation.less';
 import { SegmentPart } from '../../../components/segment/SegmentPart';
 import { loadDraft, saveDraft, clearDraft, hasContent } from '../../../services/jobs/jobDraft.js';
@@ -70,6 +81,12 @@ export default function JobMutator() {
     { key: 'maxPrice', translation: t('jobs.mutation.filterMaxPrice') },
     { key: 'minSize', translation: t('jobs.mutation.filterMinSize') },
     { key: 'minRooms', translation: t('jobs.mutation.filterMinRooms') },
+  ];
+
+  // Stored as `YYYY-MM-DD`, the form the pipeline compares against the date a portal states.
+  const MOVE_IN_FILTERS = [
+    { key: 'moveInEarliest', translation: t('jobs.mutation.filterMoveInEarliest') },
+    { key: 'moveInLatest', translation: t('jobs.mutation.filterMoveInLatest') },
   ];
 
   const jobs = useSelector((state) => state.jobsData.jobs);
@@ -329,6 +346,21 @@ export default function JobMutator() {
     setSpecFilter({ ...specFilter, [key]: value ? parseFloat(value) : null });
   };
 
+  const hasMoveInWindow = Boolean(specFilter?.moveInEarliest || specFilter?.moveInLatest);
+
+  /**
+   * @param {string} key One of `MOVE_IN_FILTERS`.
+   * @param {string} value `YYYY-MM-DD`, or an empty string once the picker is cleared.
+   */
+  const handleMoveInChange = (key, value) => {
+    const next = { ...specFilter, [key]: value || null };
+    // The flag narrows a window and means nothing without one, so it goes with the last date.
+    if (!next.moveInEarliest && !next.moveInLatest) {
+      next.moveInDateRequired = null;
+    }
+    setSpecFilter(next);
+  };
+
   // A list, not a boolean. It is rendered as one by the readiness bar above the footer: a disabled
   // Save with nothing explaining it left the user hunting through ten sections, seven of them
   // visible without a click, for whichever one was incomplete.
@@ -359,7 +391,12 @@ export default function JobMutator() {
   // What the collapsed section holds, so it does not have to be opened to find out.
   const refinementSummary = summariseJobRefinements(
     { blacklist, specFilter, spatialFilter, commuteFilter },
-    { t, formatPrice: (value) => formatPriceInCurrencies(value, locale, jobCurrencies) },
+    {
+      t,
+      formatPrice: (value) => formatPriceInCurrencies(value, locale, jobCurrencies),
+      // Read as a local day: `new Date('2026-10-01')` is UTC midnight, the day before west of it.
+      formatDate: (isoDate) => new Date(`${isoDate}T00:00:00`).toLocaleDateString(locale),
+    },
   );
 
   const handleProviderEdit = (data) => {
@@ -714,7 +751,36 @@ export default function JobMutator() {
                     />
                   </div>
                 ))}
+                {MOVE_IN_FILTERS.map((filter) => (
+                  <div key={filter.key} className="jobMutation__specFilterItem">
+                    <div className="jobMutation__specFilterLabel">{filter.translation}</div>
+                    {/* Semi hands `onChange` the Date and the formatted string; the string is what
+                        is stored, since a Date would serialise as an instant rather than a day. */}
+                    <DatePicker
+                      type="date"
+                      format="yyyy-MM-dd"
+                      placeholder={t('jobs.mutation.criteriaDatePlaceholder')}
+                      aria-label={filter.translation}
+                      value={specFilter?.[filter.key] || null}
+                      onChange={(_date, dateString) => handleMoveInChange(filter.key, dateString)}
+                      style={{ width: '100%' }}
+                    />
+                  </div>
+                ))}
               </div>
+              <Checkbox
+                className="jobMutation__moveInRequired"
+                disabled={!hasMoveInWindow}
+                checked={hasMoveInWindow && specFilter?.moveInDateRequired === true}
+                // null rather than false when unticked, so a job that never had the flag is not
+                // reported as changed for having it switched off.
+                onChange={(event) =>
+                  setSpecFilter({ ...specFilter, moveInDateRequired: event.target.checked ? true : null })
+                }
+              >
+                {t('jobs.mutation.filterMoveInDateRequired')}
+              </Checkbox>
+              <p className="jobMutation__specFilterNote">{t('jobs.mutation.moveInHelp')}</p>
             </SegmentPart>
 
             {/* After the price and size criteria and before the blacklist: it is the same kind of
